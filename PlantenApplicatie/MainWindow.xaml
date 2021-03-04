@@ -5,26 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlantenApplicatie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="900" Width="1200">
     <Grid>
-        
-        <Button x:Name="btnZoeken" Content="Zoeken" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" Height="32" Width="100" BorderBrush="Red" Background="White" Click="btnZoeken_Click" Grid.Row="1" />
-        <Canvas x:Name="CvsZoeken" Margin="0,97,0,172"  >
-            <Button x:Name="btnFilterOpslaanZoeken" Content="Filter Opslaan" Canvas.Top="105" Height="32" Width="149" BorderBrush="Red" Background="Transparent" Canvas.Left="641" Click="btnFilterOpslaanZoeken_Click"/>
-            <Label Content="Type" Canvas.Top="10" Width="100" Height="32" Canvas.Left="10" BorderThickness="1" Background="Transparent"  BorderBrush="Red"/>
-            <ComboBox Canvas.Left="115" Canvas.Top="9" Width="100" Height="33" />
-            <Label Content="Ratio blad/bloei" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="540" Canvas.Top="10" Width="100"/>
-            <Label Content="Geslacht" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="225" Canvas.Top="9" Width="100"/>
-            <Label Content="Cultivar" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="435" Canvas.Top="10" Width="100"/>
-            <Label Content="Soort" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="330" Canvas.Top="10" Width="100"/>
-            <TextBox Canvas.Left="225" Canvas.Top="42" Text="" TextWrapping="Wrap" Width="100" Height="32"/>
-            <TextBox Text="" TextWrapping="Wrap" Height="33" Canvas.Left="330" Canvas.Top="41" Width="100"/>
-            <TextBox Text="" TextWrapping="Wrap" Height="32" Canvas.Left="435" Canvas.Top="41" Width="100"/>
-            <TextBox Text="" TextWrapping="Wrap" Height="32" Canvas.Left="540" Canvas.Top="42" Width="100"/>
-            <Label Content="Family" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="645" Canvas.Top="10" Width="100"/>
-            <TextBox Text="" TextWrapping="Wrap" Height="32" Canvas.Left="645" Canvas.Top="42" Width="100"/>
+
+        <Button x:Name="btnZoeken" Content="Zoeken" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Height="32" Width="100" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Canvas x:Name="CvsZoeken" Margin="0,155,0,548" >
+            <Button x:Name="btnFilterOpslaanZoeken" Content="Filter Opslaan" Canvas.Top="149" Height="32" Width="149" BorderBrush="Red" Background="Transparent" Canvas.Left="1051" Click="btnFilterOpslaanZoeken_Click"/>
+            <Label Content="Type" Canvas.Top="14" Width="199" Height="32" Canvas.Left="10" BorderThickness="1" Background="Transparent"  BorderBrush="Red"/>
+            <ComboBox Canvas.Left="209" Canvas.Top="14" Width="200" Height="33" />
+            <Label Content="Ratio blad/bloei" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="885" Canvas.Top="13" Width="150"/>
+            <Label Content="Geslacht" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="420" Canvas.Top="13" Width="150"/>
+            <Label Content="Cultivar" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="730" Canvas.Top="14" Width="150"/>
+            <Label Content="Soort" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="575" Canvas.Top="14" Width="150"/>
+            <TextBox Canvas.Left="420" Canvas.Top="44" Text="" TextWrapping="Wrap" Width="150" Height="32"/>
+            <TextBox Text="" TextWrapping="Wrap" Height="33" Canvas.Left="575" Canvas.Top="44" Width="150"/>
+            <TextBox Text="" TextWrapping="Wrap" Height="32" Canvas.Left="730" Canvas.Top="45" Width="150"/>
+            <TextBox Text="" TextWrapping="Wrap" Height="32" Canvas.Left="885" Canvas.Top="46" Width="150"/>
+            <Label Content="Family" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="1040" Canvas.Top="13" Width="150"/>
+            <TextBox Text="" TextWrapping="Wrap" Height="32" Canvas.Left="1041" Canvas.Top="46" Width="149"/>
         </Canvas>
-        <TextBlock HorizontalAlignment="Left" Margin="0,65,0,0" Background="LightBlue" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="557" Grid.Row="1"><Run Text="Opgeslagen filters "/><Run Language="nl-nl" Text="komen"/><Run Text=" hier"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="0,118,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="600" Foreground="Black" Background="#FFC40000">
+            <TextBlock.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF100F0F" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.OpacityMask><Run Text="Opgeslagen filters "/><Run Language="nl-nl" Text="komen"/><Run Text=" hier"/></TextBlock>
+        <Button x:Name="btnZoeken_Copy" Content="Zoeken" HorizontalAlignment="Left" Margin="100,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy1" Content="Zoeken" HorizontalAlignment="Left" Margin="600,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy2" Content="Zoeken" HorizontalAlignment="Left" Margin="225,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy3" Content="Zoeken" HorizontalAlignment="Left" Margin="350,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy4" Content="Zoeken" HorizontalAlignment="Left" Margin="475,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy5" Content="Zoeken" HorizontalAlignment="Left" Margin="600,118,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy6" Content="Zoeken" HorizontalAlignment="Left" Margin="1075,83,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy7" Content="Zoeken" HorizontalAlignment="Left" Margin="1075,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy8" Content="Zoeken" HorizontalAlignment="Left" Margin="950,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy9" Content="Zoeken" HorizontalAlignment="Left" Margin="950,83,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
+        <Button x:Name="btnZoeken_Copy10" Content="Zoeken" HorizontalAlignment="Left" Margin="825,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
 
 
     </Grid>

@@ -27,6 +27,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Planten2021.Data\Planten2021.Data.csproj" />
     <ProjectReference Include="..\Planten2021.Domain\Planten2021.Domain.csproj" />
+    <ProjectReference Include="..\Queries\Planten.Queries.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-/*
+
 namespace Planten2021.Domain.Models
 {
-    public partial class _Planten2021
+    public partial class Planten2021
     {
         public string Id { get; set; }
         public string Plantnaam { get; set; }
@@ -14,4 +14,4 @@ namespace Planten2021.Domain.Models
         public string Soort { get; set; }
         public string Variant { get; set; }
     }
-}*/
+}
