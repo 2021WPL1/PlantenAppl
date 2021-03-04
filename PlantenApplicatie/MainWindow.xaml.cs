@@ -24,7 +24,7 @@ namespace PlantenApplicatie
         {
             InitializeComponent();
             Frame_Navigated();
-            BtnbackgroundColor();
+         //   BtnbackgroundColor();
         }
 
         private void Frame_Navigated()
@@ -34,13 +34,13 @@ namespace PlantenApplicatie
 
         private void BtnbackgroundColor() 
         {
-            btnZoeken.Background = Brushes.Transparent;
+            btnNaam.Background = Brushes.Transparent;
         }
 
-        private void btnZoeken_Click(object sender, RoutedEventArgs e)
+        private void btnNaam_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
-            btnZoeken.Background = Brushes.Red;
+            btnNaam.Background = Brushes.Red;
             CvsZoeken.Visibility = Visibility.Visible;
         }
 
