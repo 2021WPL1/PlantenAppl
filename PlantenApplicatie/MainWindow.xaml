@@ -42,7 +42,7 @@
         <Button x:Name="btnZoeken_Copy8" Content="Zoeken" HorizontalAlignment="Left" Margin="950,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
         <Button x:Name="btnZoeken_Copy9" Content="Zoeken" HorizontalAlignment="Left" Margin="950,83,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
         <Button x:Name="btnZoeken_Copy10" Content="Zoeken" HorizontalAlignment="Left" Margin="825,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-
+        
 
     </Grid>
 </Window>

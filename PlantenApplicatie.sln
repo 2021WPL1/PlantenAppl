@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planten2021.Domain", "Plant
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planten2021.Data", "Planten2021.Data\Planten2021.Data.csproj", "{3BAED2CC-923C-4261-ADFA-A53BC7DC364E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test-EF", "Test-EF\Test-EF.csproj", "{276D19EA-5AC7-4E37-8908-C39D105CC14E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test-EF", "Test-EF\Test-EF.csproj", "{276D19EA-5AC7-4E37-8908-C39D105CC14E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Planten.Queries", "Queries\Planten.Queries.csproj", "{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planten.Queries", "Queries\Planten.Queries.csproj", "{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPlanten", "TestPlanten\TestPlanten.csproj", "{1C76D093-42CD-4243-AEFD-81CFF03A2DF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsolePlanten2021", "ConsolePlanten2021\ConsolePlanten2021.csproj", "{CEC1E871-E5D5-4C3D-AE81-C9B81C14D2FA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C76D093-42CD-4243-AEFD-81CFF03A2DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C76D093-42CD-4243-AEFD-81CFF03A2DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C76D093-42CD-4243-AEFD-81CFF03A2DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C76D093-42CD-4243-AEFD-81CFF03A2DF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEC1E871-E5D5-4C3D-AE81-C9B81C14D2FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEC1E871-E5D5-4C3D-AE81-C9B81C14D2FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEC1E871-E5D5-4C3D-AE81-C9B81C14D2FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEC1E871-E5D5-4C3D-AE81-C9B81C14D2FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

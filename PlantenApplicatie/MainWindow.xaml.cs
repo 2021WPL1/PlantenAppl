@@ -49,5 +49,7 @@ namespace PlantenApplicatie
             Frame_Navigated();
             BtnbackgroundColor();
         }
+
+        
     }
 }
