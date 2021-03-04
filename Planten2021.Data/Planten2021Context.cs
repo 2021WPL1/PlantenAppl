@@ -47,7 +47,7 @@ namespace Planten2021.Data.Models
         public virtual DbSet<Gebruiker> Gebruiker { get; set; }
         public virtual DbSet<MasterPlantenGesplitst> MasterPlantenGesplitst { get; set; }
         public virtual DbSet<Plant> Plant { get; set; }
-     //   public virtual DbSet<Planten2021> Planten2021 { get; set; }
+        public virtual DbSet<Planten2021.Domain.Models.Planten2021> Planten2021 { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<TfgsvFamilie> TfgsvFamilie { get; set; }
         public virtual DbSet<TfgsvGeslacht> TfgsvGeslacht { get; set; }
@@ -690,7 +690,7 @@ namespace Planten2021.Data.Models
                     .HasMaxLength(100);
             });
 
-          /*  modelBuilder.Entity<Planten2021>(entity =>
+            modelBuilder.Entity<Planten2021.Domain.Models.Planten2021>(entity =>
             {
                 entity.HasNoKey();
 
@@ -721,7 +721,7 @@ namespace Planten2021.Data.Models
                 entity.Property(e => e.Variant)
                     .HasColumnName("variant")
                     .HasMaxLength(255);
-            });*/
+            });
 
             modelBuilder.Entity<Rol>(entity =>
             {
