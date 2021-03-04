@@ -24,23 +24,25 @@ namespace PlantenApplicatie
         {
             InitializeComponent();
             Frame_Navigated();
-            BtnbackgroundColor();
+         //   BtnbackgroundColor();
         }
-
+        
         private void Frame_Navigated()
         {
+            // deze functie nog naar een class doen
             CvsZoeken.Visibility = Visibility.Hidden;           
         }
 
         private void BtnbackgroundColor() 
         {
-            btnZoeken.Background = Brushes.Transparent;
+            btnNaam.Background = Brushes.Transparent;
+            // deze functie nog naar een class doen
         }
 
-        private void btnZoeken_Click(object sender, RoutedEventArgs e)
+        private void btnNaam_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
-            btnZoeken.Background = Brushes.Red;
+            btnNaam.Background = Brushes.Red;
             CvsZoeken.Visibility = Visibility.Visible;
         }
 
