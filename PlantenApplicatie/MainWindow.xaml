@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+
         <Button x:Name="btnZoeken" Content="Zoeken" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" Height="32" Width="100" BorderBrush="Red" Background="White" Click="btnZoeken_Click" Grid.Row="1" />
-        <Canvas x:Name="CvsZoeken" Margin="0,97,0,172"  >
+        <Canvas x:Name="CvsZoeken" Margin="0,92,0,176"  >
             <Button x:Name="btnFilterOpslaanZoeken" Content="Filter Opslaan" Canvas.Top="105" Height="32" Width="149" BorderBrush="Red" Background="Transparent" Canvas.Left="641" Click="btnFilterOpslaanZoeken_Click"/>
             <Label Content="Type" Canvas.Top="10" Width="100" Height="32" Canvas.Left="10" BorderThickness="1" Background="Transparent"  BorderBrush="Red"/>
             <ComboBox Canvas.Left="115" Canvas.Top="9" Width="100" Height="33" />
@@ -24,7 +24,13 @@
             <Label Content="Family" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="645" Canvas.Top="10" Width="100"/>
             <TextBox Text="" TextWrapping="Wrap" Height="32" Canvas.Left="645" Canvas.Top="42" Width="100"/>
         </Canvas>
-        <TextBlock HorizontalAlignment="Left" Margin="0,65,0,0" Background="LightBlue" TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="557" Grid.Row="1"><Run Text="Opgeslagen filters "/><Run Language="nl-nl" Text="komen"/><Run Text=" hier"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="0,65,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="27" Width="557" Grid.Row="1" Foreground="Black" Background="#FFCB0000">
+            <TextBlock.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF100F0F" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.OpacityMask><Run Text="Opgeslagen filters "/><Run Language="nl-nl" Text="komen"/><Run Text=" hier"/></TextBlock>
 
 
     </Grid>
