@@ -11,14 +11,21 @@ namespace Test_EF
         private static Planten2021Context context = new Planten2021Context();
         static void Main(string[] args)
         {
-            var listName =  searchOnName("Baptisia");
-                printInfo(listName);
+            var listName = searchOnName("Baptisia");
+            printInfo(listName);
 
             var listVariant = searchOnVariant("Fire");
-                printInfo(listVariant);
+            printInfo(listVariant);
 
             var listFamily = searchOnFamily("BRASSICACEAE");
             printInfo(listFamily);
+
+            var listSoort = searchOnSoort("australis");
+            printInfo(listSoort);
+
+            var lisGeslacht = searchOnGeslacht("Bergenia");
+            printInfo(lisGeslacht);
+
         }
 
         //A function that takes a string, puts it to lowercase, 
@@ -32,13 +39,32 @@ namespace Test_EF
         }
 
         //A function that returns a list of plants
+        //the returned list are all the plants that contain the given string in their geslacht
+        public static List<Plant> searchOnGeslacht(string geslacht)
+        {
+            Console.WriteLine("\t SEARCH PLANTS THAT CONTAINS " + geslacht.ToUpper() + " IN THEIR GESLACHT."
+                + Environment.NewLine);
+            var listPlants = context.Plant.Where(p => p.Geslacht.Contains(geslacht)).ToList();
+            return listPlants;
+        }
+
+        //A function that returns a list of plants
+        //the returned list are all the plants that contain the given string in their soort
+        public static List<Plant> searchOnSoort(string soort)
+        {
+            Console.WriteLine("\t SEARCH PLANTS THAT CONTAINS " + soort.ToUpper() + " IN THEIR SOORT."
+                + Environment.NewLine);
+            var listPlants = context.Plant.Where(p => p.Soort.Contains(soort)).ToList();
+            return listPlants;
+        }
+
+        //A function that returns a list of plants
         //the returned list are all the plants that contain the given string in their latin name
         public static List<Plant> searchOnName(string name)
         {
-            Console.WriteLine("\t SEARCH PLANTS THAT CONTAINS " + name + " in their name."
+            Console.WriteLine("\t SEARCH PLANTS THAT CONTAINS " + name.ToUpper() + " IN THEIR NAME."
                 + Environment.NewLine);
-            List<Plant> listPlants = new List<Plant>();
-            listPlants = context.Plant.Where(p => p.Fgsv.Contains(name)).ToList();
+            var listPlants = context.Plant.Where(p => p.Fgsv.Contains(name)).ToList();
             return listPlants;
         }
 
@@ -46,10 +72,9 @@ namespace Test_EF
         //the returned list are al the plants that contain the given string in their variant
         public static List<Plant> searchOnVariant(string variant)
         {
-            Console.WriteLine( "\t SEARCH PLANTS THAT IS FROM THE  " + variant + " VARIANT."
+            Console.WriteLine( "\t SEARCH PLANTS THAT IS FROM THE  " + variant.ToUpper() + " VARIANT."
                 + Environment.NewLine);
-            List<Plant> listPlants = new List<Plant>();
-            listPlants = context.Plant.Where(p => p.Variant.Contains(variant)).ToList();
+            var listPlants = context.Plant.Where(p => p.Variant.Contains(variant)).ToList();
             return listPlants;
         }
 
@@ -59,8 +84,7 @@ namespace Test_EF
         {
             Console.WriteLine("\t SEARCH PLANTS THAT IS FROM THE  " + family + " FAMILY."
                 + Environment.NewLine);
-            List<Plant> listPlants = new List<Plant>();
-            listPlants = context.Plant.Where(p => p.Familie.Contains(family)).ToList();
+            var listPlants = context.Plant.Where(p => p.Familie.Contains(family)).ToList();
             return listPlants;
         }
 
