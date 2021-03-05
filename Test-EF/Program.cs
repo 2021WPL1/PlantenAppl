@@ -16,6 +16,9 @@ namespace Test_EF
 
             var listVariant = searchOnVariant("Fire");
                 printInfo(listVariant);
+
+            var listFamily = searchOnFamily("BRASSICACEAE");
+            printInfo(listFamily);
         }
 
         //A function that takes a string, puts it to lowercase, 
@@ -47,6 +50,17 @@ namespace Test_EF
                 + Environment.NewLine);
             List<Plant> listPlants = new List<Plant>();
             listPlants = context.Plant.Where(p => p.Variant.Contains(variant)).ToList();
+            return listPlants;
+        }
+
+        //A function that returns a list of plants
+        //the returned list are al the plants that contain the given string in their family
+        public static List<Plant> searchOnFamily(string family)
+        {
+            Console.WriteLine("\t SEARCH PLANTS THAT IS FROM THE  " + family + " FAMILY."
+                + Environment.NewLine);
+            List<Plant> listPlants = new List<Plant>();
+            listPlants = context.Plant.Where(p => p.Familie.Contains(family)).ToList();
             return listPlants;
         }
 

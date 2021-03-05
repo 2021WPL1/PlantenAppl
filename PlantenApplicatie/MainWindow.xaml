@@ -27,6 +27,8 @@
             <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="677" Canvas.Top="40" Width="150"/>
             <Label Content="Familie" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="832" Canvas.Top="7" Width="150"/>
             <TextBox x:Name="txtFamilie" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="833" Canvas.Top="40" Width="149"/>
+            <Label Content="Naam" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="1000" Canvas.Top="7" Width="150"/>
+            <TextBox x:Name="txtFamilie_Copy" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="1001" Canvas.Top="40" Width="149"/>
         </Canvas>
         <TextBlock HorizontalAlignment="Left" Margin="0,118,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="622" Foreground="Black" Text="Hier komen opgeslagen filters" Background="#FFEFD2E4"/>
 
