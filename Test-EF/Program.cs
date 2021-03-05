@@ -11,8 +11,11 @@ namespace Test_EF
         private static Planten2021Context context = new Planten2021Context();
         static void Main(string[] args)
         {
-          var list =  searchOnName("Baptisia");
-            printInfo(list);
+            var listName =  searchOnName("Baptisia");
+                printInfo(listName);
+
+            var listVariant = searchOnVariant("Fire");
+                printInfo(listVariant);
         }
 
         //A function that takes a string, puts it to lowercase, 
@@ -28,9 +31,22 @@ namespace Test_EF
         //A function that returns a list of plants
         //the returned list are all the plants that contain the given string in their latin name
         public static List<Plant> searchOnName(string name)
-        { 
+        {
+            Console.WriteLine("\t SEARCH PLANTS THAT CONTAINS " + name + " in their name."
+                + Environment.NewLine);
             List<Plant> listPlants = new List<Plant>();
             listPlants = context.Plant.Where(p => p.Fgsv.Contains(name)).ToList();
+            return listPlants;
+        }
+
+        //A function that returns a list of plants
+        //the returned list are al the plants that contain the given string in their variant
+        public static List<Plant> searchOnVariant(string variant)
+        {
+            Console.WriteLine( "\t SEARCH PLANTS THAT IS FROM THE  " + variant + " VARIANT."
+                + Environment.NewLine);
+            List<Plant> listPlants = new List<Plant>();
+            listPlants = context.Plant.Where(p => p.Variant.Contains(variant)).ToList();
             return listPlants;
         }
 
