@@ -7,26 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1250">
     <Grid>
-        <Canvas x:Name="CvsZoeken" Margin="0,155,50,548" Visibility="Hidden" >
+        <Canvas x:Name="CvsZoeken" Margin="0,155,50,548" Visibility="Visible" >
             <Button x:Name="btnFilterOpslaanZoeken" Content="Filter Opslaan" Canvas.Top="149" Height="32" Width="149" BorderBrush="Red" Background="Transparent" Canvas.Left="1051" Click="btnFilterOpslaanZoeken_Click"></Button>
-            <Label Content="Type" Canvas.Top="14" Width="199" Height="32" Canvas.Left="10" BorderThickness="1" Background="Transparent"  BorderBrush="Red"/>
-            <ComboBox x:Name="cmbType" Canvas.Left="209" Canvas.Top="14" Width="200" Height="33" >
+            <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="Transparent"  BorderBrush="Red"/>
+            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="39" Width="200" Height="31" >
                 <ComboBoxItem Content="Vaste planten"/>
                 <ComboBoxItem Content="Tweejarigen"/>
                 <ComboBoxItem Content="Bol- Knolgewassen"/>
                 <ComboBoxItem Content="Varens"/>
                 <ComboBoxItem Content="Grassen"/>
             </ComboBox>
-            <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="885" Canvas.Top="13" Width="150"/>
-            <Label Content="Geslacht" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="420" Canvas.Top="13" Width="150"/>
-            <Label Content="Cultivar" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="730" Canvas.Top="14" Width="150"/>
-            <Label Content="Soort" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="575" Canvas.Top="14" Width="150"/>
-            <TextBox x:Name="txtGeslacht" Canvas.Left="420" Canvas.Top="44" Text="" TextWrapping="Wrap" Width="150" Height="32"/>
-            <TextBox x:Name="txtSoort" Text="" TextWrapping="Wrap" Height="33" Canvas.Left="575" Canvas.Top="44" Width="150"/>
-            <TextBox x:Name="txtCultivar" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="730" Canvas.Top="45" Width="150"/>
-            <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="885" Canvas.Top="46" Width="150"/>
-            <Label Content="Familie" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="1040" Canvas.Top="13" Width="150"/>
-            <TextBox x:Name="txtFamilie" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="1041" Canvas.Top="46" Width="149"/>
+            <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="677" Canvas.Top="7" Width="150"/>
+            <Label Content="Geslacht" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="212" Canvas.Top="7" Width="150"/>
+            <Label Content="Cultivar" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="522" Canvas.Top="8" Width="150"/>
+            <Label Content="Soort" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="367" Canvas.Top="8" Width="150"/>
+            <TextBox x:Name="txtGeslacht" Canvas.Left="212" Canvas.Top="38" Text="" TextWrapping="Wrap" Width="150" Height="32"/>
+            <TextBox x:Name="txtSoort" Text="" TextWrapping="Wrap" Height="33" Canvas.Left="367" Canvas.Top="38" Width="150"/>
+            <TextBox x:Name="txtCultivar" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="522" Canvas.Top="39" Width="150"/>
+            <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="677" Canvas.Top="40" Width="150"/>
+            <Label Content="Familie" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="832" Canvas.Top="7" Width="150"/>
+            <TextBox x:Name="txtFamilie" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="833" Canvas.Top="40" Width="149"/>
         </Canvas>
         <TextBlock HorizontalAlignment="Left" Margin="0,118,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="622" Foreground="Black" Text="Hier komen opgeslagen filters" Background="#FFEFD2E4"/>
 
