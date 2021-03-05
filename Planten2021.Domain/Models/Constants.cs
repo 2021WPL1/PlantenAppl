@@ -6,6 +6,6 @@ namespace Planten2021.Domain.Models
 {
     public static class Constants
     {
-        public static string connectionstring = "Server=SJMTCMFS\\VIVES; Database=Bibliotheek; Trusted_Connection=True;";
+        public static string connectionstring = "Server=SJMTCMFS\\VIVES; Database=Planten2021; Trusted_Connection=True;";
     }
 }

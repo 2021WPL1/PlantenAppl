@@ -14,6 +14,8 @@ namespace Test_EF
             
             Console.WriteLine("De famillienaam = " + nameTest);
             Console.WriteLine("test");
+
         }
+
     }
 }
