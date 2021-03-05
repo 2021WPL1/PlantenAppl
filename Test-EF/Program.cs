@@ -8,7 +8,7 @@ namespace Test_EF
 {
     class Program
     {
-        private static Planten2021Context context = new Planten2021Context();
+        public static Planten2021Context context = new Planten2021Context();
         static void Main(string[] args)
         {
             var listName = searchOnName("Baptisia");
