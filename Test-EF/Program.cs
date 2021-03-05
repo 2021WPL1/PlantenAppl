@@ -11,7 +11,7 @@ namespace Test_EF
         private static Planten2021Context context = new Planten2021Context();
         static void Main(string[] args)
         {
-          var list =  searchOnName("Aurinia");
+          var list =  searchOnName("Baptisia");
             printInfo(list);
         }
 
@@ -25,17 +25,12 @@ namespace Test_EF
             return answer;
         }
 
-        //work in progress
-
+        //A function that returns a list of plants
+        //the returned list are all the plants that contain the given string in their latin name
         public static List<Plant> searchOnName(string name)
-        {
-            var listPlants = getAllPlants();
-            foreach (Plant plant in listPlants)
-            {
-                var plantToAdd = context.Plant.FirstOrDefault(p => p.Fgsv.Contains(name));
-                listPlants.Add(plantToAdd);
-            }
-            
+        { 
+            List<Plant> listPlants = new List<Plant>();
+            listPlants = context.Plant.Where(p => p.Fgsv.Contains(name)).ToList();
             return listPlants;
         }
 
