@@ -21,12 +21,14 @@ namespace Planten2021.Data
         {
             foreach (Plant plant in listPlants.ToList())
             {
-                if (plant.Geslacht.Contains(geslacht)!=true)
+                if (plant.Geslacht!=null)
                 {
-                    listPlants.Remove(plant);
+                    if (plant.Geslacht.Contains(geslacht) != true)
+                    {
+                        listPlants.Remove(plant);
+                    }
                 }
-            }
-            
+            }     
         }
 
         //A function that looks if the given list of plants contains the given string in plant.Family .
@@ -36,9 +38,12 @@ namespace Planten2021.Data
         {
             foreach (Plant plant in listPlants.ToList())
             {
-                if (plant.Familie.Contains(Familie) != true)
+                if (plant.Familie!=null)
                 {
-                    listPlants.Remove(plant);
+                    if (plant.Familie.Contains(Familie) != true)
+                    {
+                        listPlants.Remove(plant);
+                    }
                 }
             }
         }
@@ -50,9 +55,12 @@ namespace Planten2021.Data
         {
             foreach (Plant plant in listPlants.ToList())
             {
-                if (plant.Soort.Contains(soort) != true)
+                if (plant.Soort!=null)
                 {
-                    listPlants.Remove(plant);
+                    if (plant.Soort.Contains(soort) != true)
+                    {
+                        listPlants.Remove(plant);
+                    }
                 }
             }
         }
@@ -64,9 +72,12 @@ namespace Planten2021.Data
         {
             foreach (Plant plant in listPlants.ToList())
             {
-                if (plant.Fgsv.Contains(naam) != true)
+                if (plant.Fgsv!=null)
                 {
-                    listPlants.Remove(plant);
+                    if (plant.Fgsv.Contains(naam) != true)
+                    {
+                        listPlants.Remove(plant);
+                    }
                 }
             }
         }
@@ -78,9 +89,12 @@ namespace Planten2021.Data
         {
             foreach (Plant plant in listPlants.ToList())
             {
-                if (plant.Variant.Contains(variant) != true)
+                if (plant.Variant!=null)
                 {
-                    listPlants.Remove(plant);
+                    if (plant.Variant.Contains(variant) != true)
+                    {
+                        listPlants.Remove(plant);
+                    }
                 }
             }
         }
