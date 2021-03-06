@@ -21,14 +21,14 @@
             <Label Content="Geslacht" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="212" Canvas.Top="7" Width="150"/>
             <Label Content="Cultivar" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="522" Canvas.Top="8" Width="150"/>
             <Label Content="Soort" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="367" Canvas.Top="8" Width="150"/>
-            <TextBox x:Name="txtGeslacht" Canvas.Left="212" Canvas.Top="38" Text="Panicum" TextWrapping="Wrap" Width="150" Height="32"/>
-            <TextBox x:Name="txtSoort" Text="virgatum" TextWrapping="Wrap" Height="33" Canvas.Left="367" Canvas.Top="38" Width="150"/>
-            <TextBox x:Name="txtCultivar" Text="Fire" TextWrapping="Wrap" Height="32" Canvas.Left="522" Canvas.Top="39" Width="150"/>
+            <TextBox x:Name="txtGeslacht" Canvas.Left="212" Canvas.Top="38" Text="Geranium" TextWrapping="Wrap" Width="150" Height="32"/>
+            <TextBox x:Name="txtSoort" Text="macrorrhizum" TextWrapping="Wrap" Height="33" Canvas.Left="367" Canvas.Top="38" Width="150"/>
+            <TextBox x:Name="txtCultivar" TextWrapping="Wrap" Height="32" Canvas.Left="522" Canvas.Top="39" Width="150"/>
             <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="677" Canvas.Top="40" Width="150"/>
             <Label Content="Familie" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="832" Canvas.Top="7" Width="150"/>
-            <TextBox x:Name="txtFamilie" Text="SAXIFRAGACEAE" TextWrapping="Wrap" Height="32" Canvas.Left="833" Canvas.Top="40" Width="149"/>
+            <TextBox x:Name="txtFamilie" Text="GERANIACEAE" TextWrapping="Wrap" Height="32" Canvas.Left="833" Canvas.Top="40" Width="149"/>
             <Label Content="Naam" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="1000" Canvas.Top="7" Width="150"/>
-            <TextBox x:Name="txtNaam" Text="Bergenia" TextWrapping="Wrap" Height="32" Canvas.Left="1001" Canvas.Top="40" Width="149"/>
+            <TextBox x:Name="txtNaam" TextWrapping="Wrap" Height="32" Canvas.Left="1001" Canvas.Top="40" Width="149"/>
             <ListBox x:Name="lstResultSearch" Height="438" Width="1026" Canvas.Top="93"/>
         </Canvas>
         <TextBlock HorizontalAlignment="Left" Margin="0,118,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="622" Foreground="Black" Text="Hier komen opgeslagen filters" Background="#FFEFD2E4"/>

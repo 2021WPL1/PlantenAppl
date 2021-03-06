@@ -60,7 +60,7 @@ namespace PlantenApplicatie
             var listPlants = Search.getAllPlants();
 
             //generate a string to show witch criteria we searched on
-            string criteria = "This list is a filtered list, the criteria are : ";
+            string criteria = "This list is a filtered list, the criteria are : " + Environment.NewLine;
 
             if (txtNaam.Text != string.Empty)
             {
