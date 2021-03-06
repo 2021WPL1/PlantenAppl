@@ -12,16 +12,80 @@ namespace Planten2021.Data
         
         public static Planten2021Context context = new Planten2021Context();
 
+                /* NARROW DOWN FUNCTIONS */
 
-        //A function that takes a string, puts it to lowercase, 
-        //changes all the ' and " chars and replaces them by a space
-        //next it deletes al the spaces and returns the string.
-        public static string Simplify(string stringToSimplify)
+        //A function that looks if the given list of plants contains the given string in plant.geslacht .
+        //if this is the case the plant will stay in the list.
+        //if this is not the case, the plant will be deleted out of the list.
+        public static void narrowDownOnGeslacht(List<Plant> listPlants, string geslacht)
         {
-            string answer = stringToSimplify.ToLower().Replace("\'", " ").Replace("\"", " ");
-            answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
-            return answer;
+            foreach (Plant plant in listPlants.ToList())
+            {
+                if (plant.Geslacht.Contains(geslacht)!=true)
+                {
+                    listPlants.Remove(plant);
+                }
+            }
+            
         }
+
+        //A function that looks if the given list of plants contains the given string in plant.Family .
+        //if this is the case the plant will stay in the list.
+        //if this is not the case, the plant will be deleted out of the list.
+        public static void narrowDownOnFamily(List<Plant> listPlants, string Familie)
+        {
+            foreach (Plant plant in listPlants.ToList())
+            {
+                if (plant.Familie.Contains(Familie) != true)
+                {
+                    listPlants.Remove(plant);
+                }
+            }
+        }
+
+        //A function that looks if the given list of plants contains the given string in plant.soort .
+        //if this is the case the plant will stay in the list.
+        //if this is not the case, the plant will be deleted out of the list.
+        public static void narrowDownOnSoort(List<Plant> listPlants, string soort)
+        {
+            foreach (Plant plant in listPlants.ToList())
+            {
+                if (plant.Soort.Contains(soort) != true)
+                {
+                    listPlants.Remove(plant);
+                }
+            }
+        }
+
+        //A function that looks if the given list of plants contains the given string in plant.naam .
+        //if this is the case the plant will stay in the list.
+        //if this is not the case, the plant will be deleted out of the list.
+        public static void narrowDownOnName(List<Plant> listPlants, string naam)
+        {
+            foreach (Plant plant in listPlants.ToList())
+            {
+                if (plant.Fgsv.Contains(naam) != true)
+                {
+                    listPlants.Remove(plant);
+                }
+            }
+        }
+
+        //A function that looks if the given list of plants contains the given string in plant.variant .
+        //if this is the case the plant will stay in the list.
+        //if this is not the case, the plant will be deleted out of the list.
+        public static void narrowDownOnVariant(List<Plant> listPlants, string variant)
+        {
+            foreach (Plant plant in listPlants.ToList())
+            {
+                if (plant.Variant.Contains(variant) != true)
+                {
+                    listPlants.Remove(plant);
+                }
+            }
+        }
+
+                /* SEARCH ON PARAM FUNCTIONS */
 
         //A function that returns a list of plants
         //the returned list are all the plants that contain the given string in their geslacht
@@ -63,14 +127,23 @@ namespace Planten2021.Data
             return listPlants;
         }
 
-        //This function prints all the info of the plants in the given list.
-
+            /* HELP FUNCTIONS */
 
         //get a list of all the plants.
         public static List<Plant> getAllPlants()
         {
             var plants = context.Plant.ToList();
             return plants;
+        }
+
+        //A function that takes a string, puts it to lowercase, 
+        //changes all the ' and " chars and replaces them by a space
+        //next it deletes al the spaces and returns the string.
+        public static string Simplify(string stringToSimplify)
+        {
+            string answer = stringToSimplify.ToLower().Replace("\'", " ").Replace("\"", " ");
+            answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
+            return answer;
         }
     }
 

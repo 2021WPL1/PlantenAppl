@@ -55,41 +55,59 @@ namespace PlantenApplicatie
         }
 
         private void btnZoeken_Click(object sender, RoutedEventArgs e)
-        {
+        {   
+            //generates a list with all plants.
+            var listPlants = Search.getAllPlants();
+
+            //generate a string to show witch criteria we searched on
+            string criteria = "This list is a filtered list, the criteria are : ";
+
             if (txtNaam.Text != string.Empty)
             {
-                lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR " + txtNaam.Text.ToUpper() + " IN VOORKOMT IN DE NAAM." );
-                var list = Search.OnName(txtNaam.Text.ToString());
-                printInfo(list);
+                criteria += " naam : " + txtNaam.Text.ToString() + Environment.NewLine;
+                Search.narrowDownOnName(listPlants, txtNaam.Text.ToString());
+                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR " + txtNaam.Text.ToUpper() + " IN VOORKOMT IN DE NAAM." );
+                //var list = Search.OnName(txtNaam.Text.ToString());
+                //printInfo(list);
             }
 
             if (txtFamilie.Text != string.Empty)
             {
-                lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE FAMILLIE " + txtFamilie.Text.ToUpper() + " TOEBEHOORD.");
-                var list = Search.OnFamily(txtFamilie.Text.ToString());
-                printInfo(list);
+                criteria += " familie : " + txtFamilie.Text.ToString() + Environment.NewLine;
+                Search.narrowDownOnFamily(listPlants, txtFamilie.Text.ToString());
+                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE FAMILLIE " + txtFamilie.Text.ToUpper() + " TOEBEHOORD.");
+                //var list = Search.OnFamily(txtFamilie.Text.ToString());
+                //printInfo(list);
             }
 
             if (txtCultivar.Text != string.Empty)
             {
-                lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE VARIANT " + txtCultivar.Text.ToUpper() + " TOEBEHOORD.");
-                var list = Search.OnVariant(txtCultivar.Text.ToString());
-                printInfo(list);
+                criteria += " cultivar : " + txtCultivar.Text.ToString() + Environment.NewLine;
+                Search.narrowDownOnVariant(listPlants, txtCultivar.Text.ToString());
+                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE VARIANT " + txtCultivar.Text.ToUpper() + " TOEBEHOORD.");
+                //var list = Search.OnVariant(txtCultivar.Text.ToString());
+                //printInfo(list);
             }
 
             if (txtSoort.Text != string.Empty)
             {
-                lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE SOORT " + txtSoort.Text.ToUpper() + " TOEBEHOORD.");
-                var list = Search.OnVariant(txtSoort.Text.ToString());
-                printInfo(list);
+                criteria += " soort : " + txtSoort.Text.ToString() + Environment.NewLine;
+                Search.narrowDownOnSoort(listPlants, txtSoort.Text.ToString());
+                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE SOORT " + txtSoort.Text.ToUpper() + " TOEBEHOORD.");
+                //var list = Search.OnVariant(txtSoort.Text.ToString());
+                //printInfo(list);
             }
 
             if (txtGeslacht.Text != string.Empty)
             {
-                lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN HET GESLACHT " + txtGeslacht.Text.ToUpper() + " TOEBEHOORD.");
-                var list = Search.OnVariant(txtGeslacht.Text.ToString());
-                printInfo(list);
+                criteria += " geslacht : " + txtGeslacht.Text.ToString() + Environment.NewLine;
+                Search.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
+                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN HET GESLACHT " + txtGeslacht.Text.ToUpper() + " TOEBEHOORD.");
+                //var list = Search.OnVariant(txtGeslacht.Text.ToString());
+                //printInfo(list);
             }
+            lstResultSearch.Items.Add(criteria);
+            printInfo(listPlants);
 
         }
 
@@ -100,8 +118,8 @@ namespace PlantenApplicatie
 
             foreach (Plant plant in listPlants)
             {
-            lstResultSearch.Items.Add
-                                 ("Plantnaam = " + plant.Fgsv + Environment.NewLine
+             lstResultSearch.Items.Add
+                                 ( "Plantnaam = " + plant.Fgsv + Environment.NewLine
                                  + "type = " + plant.Type + Environment.NewLine
                                  + "famillie = " + plant.Familie + Environment.NewLine
                                  + "geslacht = " + plant.Geslacht + Environment.NewLine
