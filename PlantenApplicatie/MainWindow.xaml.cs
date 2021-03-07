@@ -26,17 +26,15 @@ namespace PlantenApplicatie
             Frame_Navigated();
          //   BtnbackgroundColor();
         }
-        
+
         private void Frame_Navigated()
         {
-            // deze functie nog naar een class doen
             CvsZoeken.Visibility = Visibility.Hidden;           
         }
 
         private void BtnbackgroundColor() 
         {
             btnNaam.Background = Brushes.Transparent;
-            // deze functie nog naar een class doen
         }
 
         private void btnNaam_Click(object sender, RoutedEventArgs e)
