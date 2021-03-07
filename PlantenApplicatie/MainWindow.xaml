@@ -35,18 +35,6 @@
                     <GradientStop Color="#FF100F0F" Offset="1"/>
                 </LinearGradientBrush>
             </TextBlock.OpacityMask><Run Text="Opgeslagen filters "/><Run Language="nl-nl" Text="komen"/><Run Text=" hier"/></TextBlock>
-        <Button x:Name="btnZoeken_Copy" Content="Zoeken" HorizontalAlignment="Left" Margin="100,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy1" Content="Zoeken" HorizontalAlignment="Left" Margin="600,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy2" Content="Zoeken" HorizontalAlignment="Left" Margin="225,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy3" Content="Zoeken" HorizontalAlignment="Left" Margin="350,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy4" Content="Zoeken" HorizontalAlignment="Left" Margin="475,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy5" Content="Zoeken" HorizontalAlignment="Left" Margin="600,118,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy6" Content="Zoeken" HorizontalAlignment="Left" Margin="1075,83,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy7" Content="Zoeken" HorizontalAlignment="Left" Margin="1075,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy8" Content="Zoeken" HorizontalAlignment="Left" Margin="950,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy9" Content="Zoeken" HorizontalAlignment="Left" Margin="950,83,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-        <Button x:Name="btnZoeken_Copy10" Content="Zoeken" HorizontalAlignment="Left" Margin="825,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnZoeken_Click" />
-
 
         <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="125,86,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="Red" Background="White"/>
         <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="622,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
