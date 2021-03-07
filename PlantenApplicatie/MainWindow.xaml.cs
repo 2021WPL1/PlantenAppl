@@ -108,6 +108,7 @@ namespace PlantenApplicatie
                 //printInfo(list);
             }
             printInfo(listPlants);
+            lblCriteria.Content = string.Empty;
             lblCriteria.Content += criteria.ToString();
 
         }
