@@ -28,8 +28,7 @@
             <TextBox x:Name="txtFamilie" Text="GERANIACEAE" TextWrapping="Wrap" Height="32" Canvas.Left="833" Canvas.Top="40" Width="149"/>
             <Label Content="Naam" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="32" Canvas.Left="987" Canvas.Top="8" Width="150"/>
             <TextBox x:Name="txtNaam" TextWrapping="Wrap" Height="32" Canvas.Left="988" Canvas.Top="40" Width="148"/>
-            <ListBox x:Name="lstResultSearch" Height="438" Width="982" Canvas.Top="93"/>
-            <Button x:Name="btnZoeken" Content="Zoeken" BorderBrush="Red" Background="LightGray" Click="btnZoeken_Click" Height="38" Width="149" Canvas.Left="988" Canvas.Top="93"/>
+            <ListBox x:Name="lstResultSearch" Height="438" Width="1126" Canvas.Top="93" Canvas.Left="10"/>
         </Canvas>
 
         <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="125,86,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="Red" Background="White"/>
@@ -45,6 +44,7 @@
         <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"  Click="btnNaam_Click" />
         <Label x:Name="lblCriteria" Content="" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" Height="124" Width="747"/>
         <Button x:Name="btnVerzorging_Copy" Content="Filter opslaan" HorizontalAlignment="Left" Margin="747,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnZoeken" Content="Zoeken" BorderBrush="Red" Background="LightGray" Click="btnZoeken_Click" Margin="747,151,0,642" FontSize="40" HorizontalAlignment="Left" Width="375"/>
 
 
     </Grid>
