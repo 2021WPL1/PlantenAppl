@@ -58,6 +58,8 @@ namespace PlantenApplicatie
 
         private void btnZoeken_Click(object sender, RoutedEventArgs e)
         {
+            //simplify toepassen op inhoud textboxes
+
             lstResultSearch.Items.Clear();
             //generates a list with all plants.
             var listPlants = dao.getAllPlants();

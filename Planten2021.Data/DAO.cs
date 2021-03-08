@@ -172,7 +172,7 @@ namespace Planten2021.Data
         //A function that takes a string, puts it to lowercase, 
         //changes all the ' and " chars and replaces them by a space
         //next it deletes al the spaces and returns the string.
-        public static string Simplify(string stringToSimplify)
+        public string Simplify(string stringToSimplify)
         {
             string answer = stringToSimplify.ToLower().Replace("\'", " ").Replace("\"", " ");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
