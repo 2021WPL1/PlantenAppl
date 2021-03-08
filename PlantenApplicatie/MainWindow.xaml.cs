@@ -30,34 +30,49 @@ namespace PlantenApplicatie
             dao = DAO.Instance();
 
             Frame_Navigated();
-         //   BtnbackgroundColor();
+            //   BtnbackgroundColor();
+            
         }
 
         private void Frame_Navigated()
         {
-            CvsZoeken.Visibility = Visibility.Hidden;           
+            // alle canvases verstoppen
+            lstResultSearch.Visibility = Visibility.Hidden;
+            CvsZoeken.Visibility = Visibility.Hidden;
+            cvsHabitat.Visibility = Visibility.Hidden;
         }
 
         private void BtnbackgroundColor() 
         {
+            // achtergrond van buttons terug normaal zetten
             btnNaam.Background = Brushes.Transparent;
+            btnHabitat.Background = Brushes.Transparent;
         }
 
         private void btnNaam_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
+            BtnbackgroundColor();
+            // de button highlighten van de geslecteerde zoek functie
             btnNaam.Background = Brushes.Red;
+            // canvas tonen
             CvsZoeken.Visibility = Visibility.Visible;
         }
 
         private void btnFilterOpslaanZoeken_Click(object sender, RoutedEventArgs e)
         {
+            // nu nog nie nodig
             Frame_Navigated();
             BtnbackgroundColor();
         }
 
         private void btnZoeken_Click(object sender, RoutedEventArgs e)
         {
+            Frame_Navigated();
+            BtnbackgroundColor();
+            lstResultSearch.Visibility = Visibility.Visible;
+            //simplify toepassen op inhoud textboxes
+
             lstResultSearch.Items.Clear();
             //generates a list with all plants.
             var listPlants = dao.getAllPlants();
@@ -107,7 +122,7 @@ namespace PlantenApplicatie
             lblCriteria.Content = string.Empty;
             lblCriteria.Content += criteria.ToString();
         }
-
+        
 
         //this function will print the result in the listbox
         public void printInfo(List<Plant> listPlants)
@@ -130,5 +145,14 @@ namespace PlantenApplicatie
             }
         }
 
+        private void btnHabitat_Click(object sender, RoutedEventArgs e)
+        {
+            Frame_Navigated();
+            BtnbackgroundColor();
+            // de button highlighten van de geslecteerde zoek functie
+            btnHabitat.Background = Brushes.Red;
+            // canvas tonen
+            cvsHabitat.Visibility = Visibility.Visible;
+        }
     }
 }

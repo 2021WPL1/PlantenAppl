@@ -37,7 +37,8 @@ namespace Planten2021.Data
             {
                 if (plant.Type != null)
                 {
-                    if (plant.Type.Contains(type) != true)
+                    var simplifyString = Simplify(plant.Type.ToString());
+                    if (simplifyString.Contains(Simplify(type)) != true)
                     {
                         listPlants.Remove(plant);
                     }
@@ -55,7 +56,8 @@ namespace Planten2021.Data
             {
                 if (plant.Geslacht != null)
                 {
-                    if (plant.Geslacht.Contains(geslacht) != true)
+                    var simplifyString = Simplify(plant.Geslacht.ToString());
+                    if (simplifyString.Contains(Simplify(geslacht)) != true)
                     {
                         listPlants.Remove(plant);
                     }
@@ -71,7 +73,8 @@ namespace Planten2021.Data
             {
                 if (plant.Familie != null)
                 {
-                    if (plant.Familie.Contains(Familie) != true)
+                    var simplifyString = Simplify(plant.Familie.ToString());
+                    if (simplifyString.Contains(Simplify(Familie)) != true)
                     {
                         listPlants.Remove(plant);
                     }
@@ -87,7 +90,8 @@ namespace Planten2021.Data
             {
                 if (plant.Soort != null)
                 {
-                    if (plant.Soort.Contains(soort) != true)
+                    var simplifyString = Simplify(plant.Soort.ToString());
+                    if (simplifyString.Contains(Simplify(soort)) != true)
                     {
                         listPlants.Remove(plant);
                     }
@@ -103,7 +107,8 @@ namespace Planten2021.Data
             {
                 if (plant.Fgsv != null)
                 {
-                    if (plant.Fgsv.Contains(naam) != true)
+                    var simplifyString = Simplify(plant.Fgsv.ToString());
+                    if (simplifyString.Contains(Simplify(naam)) != true)
                     {
                         listPlants.Remove(plant);
                     }
@@ -119,7 +124,8 @@ namespace Planten2021.Data
             {
                 if (plant.Variant != null)
                 {
-                    if (plant.Variant.Contains(variant) != true)
+                    var simplifyString = Simplify(plant.Variant.ToString());
+                    if (simplifyString.Contains(Simplify(variant)) != true)
                     {
                         listPlants.Remove(plant);
                     }
@@ -166,7 +172,7 @@ namespace Planten2021.Data
         //A function that takes a string, puts it to lowercase, 
         //changes all the ' and " chars and replaces them by a space
         //next it deletes al the spaces and returns the string.
-        public static string Simplify(string stringToSimplify)
+        public string Simplify(string stringToSimplify)
         {
             string answer = stringToSimplify.ToLower().Replace("\'", " ").Replace("\"", " ");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Planten2021.Data
 {
-    class Result
+    public class Result
     {
         public int planId { get; set; }
         public string type { get; set; }
