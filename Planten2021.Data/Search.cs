@@ -15,22 +15,22 @@ namespace Planten2021.Data
                 /* NARROW DOWN FUNCTIONS */
 
 
-        //A function that looks if the given list of plants contains the given string in plant.type .
-        //if this is the case the plant will stay in the list.
-        //if this is not the case, the plant will be deleted out of the list.
-        public static void narrowDownOnType(List<Plant> listPlants, string type)
-        {
-            foreach (Plant plant in listPlants.ToList())
-            {
-                if (plant.Type != null)
-                {
-                    if (plant.Type.Contains(type) != true)
-                    {
-                        listPlants.Remove(plant);
-                    }
-                }
-            }
-        }
+        ////A function that looks if the given list of plants contains the given string in plant.type .
+        ////if this is the case the plant will stay in the list.
+        ////if this is not the case, the plant will be deleted out of the list.
+        //public static void narrowDownOnType(List<Plant> listPlants, string type)
+        //{
+        //    foreach (Plant plant in listPlants.ToList())
+        //    {
+        //        if (plant.Type != null)
+        //        {
+        //            if (plant.Type.Contains(type) != true)
+        //            {
+        //                listPlants.Remove(plant);
+        //            }
+        //        }
+        //    }
+        //}
 
         //A function that looks if the given list of plants contains the given string in plant.geslacht .
         //if this is the case the plant will stay in the list.

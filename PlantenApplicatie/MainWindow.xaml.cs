@@ -70,7 +70,7 @@ namespace PlantenApplicatie
                 ComboBoxItem type = (ComboBoxItem)cmbType.SelectedItem;
                 string value = type.Content.ToString();
                 criteria += " type : " + value + Environment.NewLine;
-                Search.narrowDownOnType(listPlants, value);
+                dao.narrowDownOnType(listPlants, value);
             }
 
             if (txtNaam.Text != string.Empty)
