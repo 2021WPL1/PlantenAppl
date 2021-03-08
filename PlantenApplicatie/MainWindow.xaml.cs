@@ -68,6 +68,9 @@ namespace PlantenApplicatie
 
         private void btnZoeken_Click(object sender, RoutedEventArgs e)
         {
+            Frame_Navigated();
+            BtnbackgroundColor();
+            lstResultSearch.Visibility = Visibility.Visible;
             //simplify toepassen op inhoud textboxes
 
             lstResultSearch.Items.Clear();
