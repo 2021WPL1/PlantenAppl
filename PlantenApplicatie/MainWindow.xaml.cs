@@ -22,7 +22,7 @@ namespace PlantenApplicatie
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DAO dao;
+        private readonly DAO dao;
         public MainWindow()
         {
             InitializeComponent();

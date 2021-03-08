@@ -12,7 +12,7 @@ namespace Planten2021.Data
     public class DAO
     {
         private static readonly DAO instance = new DAO();
-        private Planten2021Context context;
+        private readonly Planten2021Context context;
 
         public static DAO Instance()
         {
