@@ -22,9 +22,13 @@ namespace PlantenApplicatie
     /// </summary>
     public partial class MainWindow : Window
     {
+        private DAO dao;
         public MainWindow()
         {
             InitializeComponent();
+            //DAO instance 
+            dao = DAO.Instance();
+
             Frame_Navigated();
          //   BtnbackgroundColor();
         }
@@ -56,7 +60,7 @@ namespace PlantenApplicatie
         {
             lstResultSearch.Items.Clear();
             //generates a list with all plants.
-            var listPlants = Search.getAllPlants();
+            var listPlants = dao.getAllPlants();
 
             //generate a string to show witch criteria we searched on
             string criteria = "Dit is een gefilterde lijst van planten op onderstaande zoekcriteria. : " + Environment.NewLine + Environment.NewLine;
@@ -64,7 +68,7 @@ namespace PlantenApplicatie
             if (txtNaam.Text != string.Empty)
             {
                 criteria += " naam : " + txtNaam.Text.ToString() + Environment.NewLine;
-                Search.narrowDownOnName(listPlants, txtNaam.Text.ToString());
+                dao.narrowDownOnName(listPlants, txtNaam.Text.ToString());
                 //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR " + txtNaam.Text.ToUpper() + " IN VOORKOMT IN DE NAAM." );
                 //var list = Search.OnName(txtNaam.Text.ToString());
                 //printInfo(list);
@@ -73,7 +77,7 @@ namespace PlantenApplicatie
             if (txtFamilie.Text != string.Empty)
             {
                 criteria += " familie : " + txtFamilie.Text.ToString() + Environment.NewLine;
-                Search.narrowDownOnFamily(listPlants, txtFamilie.Text.ToString());
+                dao.narrowDownOnFamily(listPlants, txtFamilie.Text.ToString());
                 //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE FAMILLIE " + txtFamilie.Text.ToUpper() + " TOEBEHOORD.");
                 //var list = Search.OnFamily(txtFamilie.Text.ToString());
                 //printInfo(list);
@@ -82,7 +86,7 @@ namespace PlantenApplicatie
             if (txtCultivar.Text != string.Empty)
             {
                 criteria += " cultivar : " + txtCultivar.Text.ToString() + Environment.NewLine;
-                Search.narrowDownOnVariant(listPlants, txtCultivar.Text.ToString());
+                dao.narrowDownOnVariant(listPlants, txtCultivar.Text.ToString());
                 //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE VARIANT " + txtCultivar.Text.ToUpper() + " TOEBEHOORD.");
                 //var list = Search.OnVariant(txtCultivar.Text.ToString());
                 //printInfo(list);
@@ -91,7 +95,7 @@ namespace PlantenApplicatie
             if (txtSoort.Text != string.Empty)
             {
                 criteria += " soort : " + txtSoort.Text.ToString() + Environment.NewLine;
-                Search.narrowDownOnSoort(listPlants, txtSoort.Text.ToString());
+                dao.narrowDownOnSoort(listPlants, txtSoort.Text.ToString());
                 //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE SOORT " + txtSoort.Text.ToUpper() + " TOEBEHOORD.");
                 //var list = Search.OnVariant(txtSoort.Text.ToString());
                 //printInfo(list);
@@ -100,7 +104,7 @@ namespace PlantenApplicatie
             if (txtGeslacht.Text != string.Empty)
             {
                 criteria += " geslacht : " + txtGeslacht.Text.ToString() + Environment.NewLine;
-                Search.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
+                dao.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
                 //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN HET GESLACHT " + txtGeslacht.Text.ToUpper() + " TOEBEHOORD.");
                 //var list = Search.OnVariant(txtGeslacht.Text.ToString());
                 //printInfo(list);
