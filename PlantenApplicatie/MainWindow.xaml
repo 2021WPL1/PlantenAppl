@@ -18,7 +18,7 @@
             <ImageBrush ImageSource="C:\Users\kdemi\Desktop\Vives\kwartaal 3\werkplekleren\algemene documenten\waterval.jpeg" Stretch="Fill"/>
         </Grid.Background>
 
-        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
+        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Hidden" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
             <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
                 <Label.Effect>
                     <DropShadowEffect/>
@@ -124,13 +124,13 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <Label x:Name="lblCriteria" Content="" HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="771" Background="#99F5F5F5" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="15" HorizontalAlignment="Left" BorderBrush="#FF19361A" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385" Click="btnZoeken_Click" Background="#CCC4F5C8" FontWeight="Bold" >
+        <Label x:Name="lblCriteria" Content="" HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="771" Background="#99F5F5F5" FontWeight="Bold"/>
+        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF19361A" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385" Click="btnZoeken_Click" Background="#CCC4F5C8" FontWeight="Bold" FontFamily="Snap ITC" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <ListBox x:Name="lstResultSearch" Margin="47,247,166,41" Visibility="Hidden" Grid.RowSpan="2"/>
+        <ListBox x:Name="lstResultSearch" Margin="42,184,47,42" Visibility="Visible" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14"/>
 
 
         <Canvas x:Name="cvsHabitat" Margin="42,184,47,310" Visibility="hidden" Grid.RowSpan="2" Background="#7FFFFFFF">

@@ -54,7 +54,7 @@ namespace PlantenApplicatie
             Frame_Navigated();
             BtnbackgroundColor();
             // de button highlighten van de geslecteerde zoek functie
-            btnNaam.Background = Brushes.Red;
+            btnNaam.Background = Brushes.Green;
             // canvas tonen
             CvsZoeken.Visibility = Visibility.Visible;
         }
