@@ -32,23 +32,32 @@ namespace PlantenApplicatie
 
         private void Frame_Navigated()
         {
-            CvsZoeken.Visibility = Visibility.Hidden;           
+            // alle canvases verstoppen
+            lstResultSearch.Visibility = Visibility.Hidden;
+            CvsZoeken.Visibility = Visibility.Hidden;
+            cvsHabitat.Visibility = Visibility.Hidden;
         }
 
         private void BtnbackgroundColor() 
         {
+            // achtergrond van buttons terug normaal zetten
             btnNaam.Background = Brushes.Transparent;
+            btnHabitat.Background = Brushes.Transparent;
         }
 
         private void btnNaam_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
+            BtnbackgroundColor();
+            // de button highlighten van de geslecteerde zoek functie
             btnNaam.Background = Brushes.Red;
+            // canvas tonen
             CvsZoeken.Visibility = Visibility.Visible;
         }
 
         private void btnFilterOpslaanZoeken_Click(object sender, RoutedEventArgs e)
         {
+            // nu nog nie nodig
             Frame_Navigated();
             BtnbackgroundColor();
         }
@@ -133,5 +142,14 @@ namespace PlantenApplicatie
             }
         }
 
+        private void btnHabitat_Click(object sender, RoutedEventArgs e)
+        {
+            Frame_Navigated();
+            BtnbackgroundColor();
+            // de button highlighten van de geslecteerde zoek functie
+            btnHabitat.Background = Brushes.Red;
+            // canvas tonen
+            cvsHabitat.Visibility = Visibility.Visible;
+        }
     }
 }

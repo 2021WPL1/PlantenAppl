@@ -45,7 +45,7 @@
         <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="622,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
         <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="247,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
         <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="372,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="497,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="497,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnHabitat_Click"/>
         <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="997,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
         <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="997,121,0,0" VerticalAlignment="Top" Height="25" Width="125" BorderBrush="Red" Background="White"/>
         <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="872,121,0,0" VerticalAlignment="Top" Height="25" Width="125" BorderBrush="Red" Background="White"/>
@@ -55,7 +55,7 @@
         <Label x:Name="lblCriteria" Content="" HorizontalAlignment="Left" Margin="0,118,0,0" VerticalAlignment="Top" Height="124" Width="747"/>
         <Button x:Name="btnZoeken" Content="Zoeken" FontSize="40" HorizontalAlignment="Left" BorderBrush="Red" Margin="747,151,0,0" VerticalAlignment="Top" Height="91" Width="375" Click="btnZoeken_Click" />
         <ListBox x:Name="lstResultSearch" Canvas.Top="93" Canvas.Left="10" Margin="47,247,40,41" Visibility="Hidden"/>
-        <Canvas Margin="0,247,0,244">
+        <Canvas x:Name="cvsHabitat" Margin="0,247,0,244">
             <Label Content="Ontwikkelingssnelheid" Canvas.Left="26" Canvas.Top="10" Width="133" Height="25"/>
             <ComboBox x:Name="cboOntwikkelingssnelheid" Canvas.Left="26" Canvas.Top="53" Width="133" BorderBrush="Blue"/>
             <Label Content="Habitat" Canvas.Left="194" Canvas.Top="10" Width="80" Height="25" BorderBrush="Orange"/>
@@ -125,7 +125,7 @@
             <Label Content="         Geurend" Canvas.Left="1099" Canvas.Top="54" Height="25" Width="120" BorderBrush="Orange"/>
             <Label Content="  Vlindervriendelijk" Canvas.Left="1094" Canvas.Top="74" Height="26" Width="120" BorderBrush="Orange"/>
             <Label Content="     Vorstgevoelig" Canvas.Left="1099" Canvas.Top="100" Height="26" Width="120" BorderBrush="Orange"/>
-            <Button Content="OpslaanZoekenHabitat" Width="172" Height="50" BorderBrush="Blue" Canvas.Left="1067" Canvas.Top="333"/>
+            <Button Content="Opslaan filters" Width="172" Height="50" BorderBrush="Blue" Canvas.Left="1067" Canvas.Top="333"/>
             <Label Content="  Min" Height="30" Width="60" Canvas.Left="1144" Canvas.Top="245"/>
             <CheckBox Content="" Canvas.Left="1074" Canvas.Top="16"/>
             <CheckBox Content="" Canvas.Left="1074" Canvas.Top="39"/>
