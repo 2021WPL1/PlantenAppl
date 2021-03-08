@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlantenApplicatie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="900" Width="1250">
     <Grid>
+        <Canvas x:Name="CvsZoeken" Margin="0,155,50,548" Visibility="Hidden" >
+            <Button x:Name="btnFilterOpslaanZoeken" Content="Filter Opslaan" Canvas.Top="149" Height="32" Width="149" BorderBrush="Red" Background="Transparent" Canvas.Left="1051" Click="btnFilterOpslaanZoeken_Click"></Button>
+            <Label Content="Type" Canvas.Top="14" Width="199" Height="32" Canvas.Left="10" BorderThickness="1" Background="Transparent"  BorderBrush="Red"/>
+            <ComboBox x:Name="cmbType" Canvas.Left="209" Canvas.Top="14" Width="200" Height="33" >
+                <ComboBoxItem Content="Vaste planten"/>
+                <ComboBoxItem Content="Tweejarigen"/>
+                <ComboBoxItem Content="Bol- Knolgewassen"/>
+                <ComboBoxItem Content="Varens"/>
+                <ComboBoxItem Content="Grassen"/>
+            </ComboBox>
+            <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="885" Canvas.Top="13" Width="150"/>
+            <Label Content="Geslacht" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="420" Canvas.Top="13" Width="150"/>
+            <Label Content="Cultivar" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="730" Canvas.Top="14" Width="150"/>
+            <Label Content="Soort" BorderThickness="1" BorderBrush="Red" Background="Transparent" Height="32" Canvas.Left="575" Canvas.Top="14" Width="150"/>
+            <TextBox x:Name="txtGeslacht" Canvas.Left="420" Canvas.Top="44" Text="" TextWrapping="Wrap" Width="150" Height="32"/>
+            <TextBox x:Name="txtSoort" Text="" TextWrapping="Wrap" Height="33" Canvas.Left="575" Canvas.Top="44" Width="150"/>
+            <TextBox x:Name="txtCultivar" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="730" Canvas.Top="45" Width="150"/>
+            <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="885" Canvas.Top="46" Width="150"/>
+            <Label Content="Familie" BorderThickness="1" BorderBrush="Red" Background="Transparent"  Height="33" Canvas.Left="1040" Canvas.Top="13" Width="150"/>
+            <TextBox x:Name="txtFamilie" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="1041" Canvas.Top="46" Width="149"/>
+        </Canvas>
+        <TextBlock HorizontalAlignment="Left" Margin="0,118,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="622" Foreground="Black" Text="Hier komen opgeslagen filters" Background="#FFEFD2E4"/>
 
+        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="125,86,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="622,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="247,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="372,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="497,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnZoeken" Content="Zoeken" HorizontalAlignment="Left" Margin="622,118,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="1075,83,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="1075,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="950,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="950,83,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="825,115,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="0,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"  Click="btnNaam_Click" />
     </Grid>
 </Window>
