@@ -1,0 +1,93 @@
+﻿<Window x:Class="Habitat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Habitat"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="1500" Width="1600">
+    <Grid>
+        <Canvas Margin="290,28,340,0" Height="500" VerticalAlignment="Top">
+            <Label Content="Ontwikkelingssnelheid" Canvas.Left="26" Canvas.Top="10" Width="133" Height="25"/>
+            <ComboBox x:Name="cboOntwikkelingssnelheid" Canvas.Left="26" Canvas.Top="53" Width="133" BorderBrush="Blue"/>
+            <Label Content="Habitat" Canvas.Left="194" Canvas.Top="10" Width="80" Height="25" BorderBrush="Orange"/>
+            <Label Content="bezonning" Canvas.Left="296" Canvas.Top="10" Width="80" Height="25" BorderBrush="Orange"/>
+            <Label Content="Sociabiliteit" Canvas.Left="398" Canvas.Top="10" Width="80" Height="25" BorderBrush="Orange"/>
+            <Label Content="1" Height="25" Canvas.Left="194" Canvas.Top="45" Width="25" BorderBrush="Orange"/>
+            <Label Content="2" Height="25" Canvas.Left="194" Canvas.Top="89" Width="25" BorderBrush="Orange"/>
+            <Label Content="3" Height="25" Canvas.Left="194" Canvas.Top="128" Width="25" BorderBrush="Orange"/>
+            <Label Content="4" Height="25" Canvas.Left="194" Canvas.Top="172" Width="25" BorderBrush="Orange"/>
+            <Label Content="5" Height="25" Canvas.Left="194" Canvas.Top="216" Width="25" BorderBrush="Orange"/>
+            <CheckBox x:Name="chbHabitat1" Content="CheckBox" Canvas.Left="237" Canvas.Top="51" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="chbHabitat2" Content="CheckBox" Canvas.Left="237" Canvas.Top="89" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="chbHabitat3" Content="CheckBox" Canvas.Left="237" Canvas.Top="128" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="chbHabitat4" Content="CheckBox" Canvas.Left="237" Canvas.Top="172" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="chbHabitat5" Content="CheckBox" Canvas.Left="237" Canvas.Top="221" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content="  Z" Canvas.Left="296" Canvas.Top="46" Width="37" Height="25" BorderBrush="Orange"/>
+            <Label Content="Z-HS" Canvas.Left="296" Canvas.Top="89" Width="37" Height="25" BorderBrush="Orange"/>
+            <Label Content="HS" Canvas.Left="296" Canvas.Top="128" Width="37" Height="25" BorderBrush="Orange"/>
+            <Label Content="HS-S" Canvas.Left="296" Canvas.Top="167" Width="37" Height="25" BorderBrush="Orange"/>
+            <Label Content="   S" Canvas.Left="296" Canvas.Top="216" Width="37" Height="25" BorderBrush="Orange"/>
+            <CheckBox Content="CheckBox" Canvas.Left="361" Canvas.Top="51" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="361" Canvas.Top="89" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="361" Canvas.Top="134" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="361" Canvas.Top="172" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="361" Canvas.Top="221" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content=" I " Canvas.Left="398" Canvas.Top="46"  Width="25" Height="25" BorderBrush="Orange"/>
+            <Label Content=" II " Canvas.Left="398" Canvas.Top="89" Width="25" Height="25" BorderBrush="Orange"/>
+            <Label Content=" III " Canvas.Left="398" Canvas.Top="128" Width="25" Height="25" BorderBrush="Orange"/>
+            <Label Content=" IV " Canvas.Left="398" Canvas.Top="169" Width="25" Height="25" BorderBrush="Orange"/>
+            <Label Content=" V" Canvas.Left="398" Canvas.Top="214"  Width="25" Height="25" BorderBrush="Orange"/>
+            <Label Content="                                          Levensduur/Concurrentiekracht" Canvas.Left="26" Canvas.Top="257" Width="500" Height="25" BorderBrush="Orange"/>
+            <CheckBox Content="CheckBox" Canvas.Left="463" Canvas.Top="51" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="463" Canvas.Top="89" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="463" Canvas.Top="131" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="463" Canvas.Top="170" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="463" Canvas.Top="221" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="46" Canvas.Top="296" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="47" Canvas.Top="339" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="47" Canvas.Top="382" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="47" Canvas.Top="424" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="47" Canvas.Top="465" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content="              Optie 1" Canvas.Left="102" Canvas.Top="293" Height="25" Width="150" BorderBrush="Orange"/>
+            <Label Content="              Optie 3" Canvas.Left="102" Canvas.Top="334" Height="25" Width="150" BorderBrush="Orange"/>
+            <Label Content="              Optie 5" Canvas.Left="102" Canvas.Top="379" Height="25" Width="150" BorderBrush="Orange"/>
+            <Label Content="              Optie 7" Canvas.Left="102" Canvas.Top="419" Height="25" Width="150" BorderBrush="Orange"/>
+            <Label Content="              Optie 9" Canvas.Left="102" Canvas.Top="460" Height="25" Width="150" BorderBrush="Orange"/>
+            <CheckBox Content="CheckBox" Canvas.Left="297" Canvas.Top="296" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="297" Canvas.Top="339" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="297" Canvas.Top="380" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox Content="CheckBox" Canvas.Left="296" Canvas.Top="425" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content="              Optie 2" Canvas.Left="368" Canvas.Top="293" Height="25" Width="150" BorderBrush="Orange"/>
+            <Label Content="              Optie 4" Canvas.Left="368" Canvas.Top="334" Height="25" Width="150" BorderBrush="Orange"/>
+            <Label Content="              Optie 6" Canvas.Left="368" Canvas.Top="379" Height="25" Width="150" BorderBrush="Orange"/>
+            <Label Content="              Optie 8" Canvas.Left="368" Canvas.Top="420" Height="25" Width="150" BorderBrush="Orange"/>
+            <Label Content="     Nectarwaarde" Canvas.Left="546" Canvas.Top="75" Height="30" Width="120" BorderBrush="Orange"/>
+            <Label Content="     Nectarwaarde" Canvas.Left="671" Canvas.Top="75" Height="30" Width="120" BorderBrush="Orange"/>
+            <Label Content="    Max" Canvas.Left="606" Canvas.Top="108" Height="30" Width="60" BorderBrush="Orange"/>
+            <Label Content="    Max" Canvas.Left="671" Canvas.Top="106" Height="30" Width="60" BorderBrush="Orange"/>
+            <Label Content="    Min" Canvas.Left="731" Canvas.Top="106" Height="30" Width="60" BorderBrush="Orange"/>
+            <ComboBox Canvas.Left="546" Canvas.Top="143" Width="60" BorderBrush="Blue"/>
+            <ComboBox Canvas.Left="606" Canvas.Top="143" Width="60" BorderBrush="Blue"/>
+            <ComboBox Canvas.Left="671" Canvas.Top="143" Width="60" BorderBrush="Blue"/>
+            <ComboBox Canvas.Left="731" Canvas.Top="143" Width="60" BorderBrush="Blue"/>
+            <Label Content="" Canvas.Left="576" Canvas.Top="257" Height="25" Width="25" BorderBrush="Orange"/>
+            <Label Content="" Canvas.Left="576" Canvas.Top="296" Height="25" Width="25" BorderBrush="Orange"/>
+            <Label Content="" Canvas.Left="576" Canvas.Top="336" Height="25" Width="25" BorderBrush="Orange"/>
+            <Label Content="" Canvas.Left="576" Canvas.Top="372" Height="25" Width="25" BorderBrush="Orange"/>
+            <Label Content="" Canvas.Left="576" Canvas.Top="413" Height="25" Width="25" BorderBrush="Orange"/>
+            <Label Content="      Bijvriendelijk" Canvas.Left="636" Canvas.Top="257" Height="25" Width="120" BorderBrush="Orange"/>
+            <Label Content="  Eetbaar/Kruidbaar" Canvas.Left="636" Canvas.Top="296" Height="25" Width="120" BorderBrush="Orange"/>
+            <Label Content="         Geurend" Canvas.Left="636" Canvas.Top="336" Height="25" Width="120" BorderBrush="Orange"/>
+            <Label Content="  Vlindervriendelijk" Canvas.Left="636" Canvas.Top="372" Height="25" Width="120" BorderBrush="Orange"/>
+            <Label Content="     Vorstgevoelig" Canvas.Left="636" Canvas.Top="413" Height="26" Width="120" BorderBrush="Orange"/>
+
+
+
+
+        </Canvas>
+        <Button Content="Filter Opslaan" HorizontalAlignment="Left" Margin="1088,478,0,0" VerticalAlignment="Top" Width="172" Height="50" BorderBrush="Blue"/>
+        <Label Content="  Min" HorizontalAlignment="Left" Margin="836,136,0,0" VerticalAlignment="Top" Height="30" Width="60"/>
+
+    </Grid>
+</Window>
