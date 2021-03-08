@@ -26,7 +26,8 @@ namespace PlantenApplicatie
         {
             InitializeComponent();
             Frame_Navigated();
-         //   BtnbackgroundColor();
+            //   BtnbackgroundColor();
+            
         }
 
         private void Frame_Navigated()
@@ -110,7 +111,7 @@ namespace PlantenApplicatie
             lblCriteria.Content += criteria.ToString();
 
         }
-
+        
 
         //this function will print the result in the listbox
         public void printInfo(List<Plant> listPlants)
