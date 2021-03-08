@@ -65,6 +65,14 @@ namespace PlantenApplicatie
             //generate a string to show witch criteria we searched on
             string criteria = "Dit is een gefilterde lijst van planten op onderstaande zoekcriteria. : " + Environment.NewLine + Environment.NewLine;
 
+            if (cmbType.SelectedValue != null)
+            {
+                ComboBoxItem type = (ComboBoxItem)cmbType.SelectedItem;
+                string value = type.Content.ToString();
+                criteria += " type : " + value + Environment.NewLine;
+                Search.narrowDownOnType(listPlants, value);
+            }
+
             if (txtNaam.Text != string.Empty)
             {
                 criteria += " naam : " + txtNaam.Text.ToString() + Environment.NewLine;
