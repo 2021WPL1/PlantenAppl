@@ -53,12 +53,13 @@ namespace PlantenApplicatie
         }
 
         private void btnZoeken_Click(object sender, RoutedEventArgs e)
-        {   
+        {
+            lstResultSearch.Items.Clear();
             //generates a list with all plants.
             var listPlants = Search.getAllPlants();
 
             //generate a string to show witch criteria we searched on
-            string criteria = "This list is a filtered list, the criteria are : " + Environment.NewLine;
+            string criteria = "Dit is een gefilterde lijst van planten op onderstaande zoekcriteria. : " + Environment.NewLine + Environment.NewLine;
 
             if (txtNaam.Text != string.Empty)
             {
@@ -104,8 +105,9 @@ namespace PlantenApplicatie
                 //var list = Search.OnVariant(txtGeslacht.Text.ToString());
                 //printInfo(list);
             }
-            lstResultSearch.Items.Add(criteria);
             printInfo(listPlants);
+            lblCriteria.Content = string.Empty;
+            lblCriteria.Content += criteria.ToString();
 
         }
 
@@ -129,5 +131,6 @@ namespace PlantenApplicatie
                                  );
             }
         }
+
     }
 }
