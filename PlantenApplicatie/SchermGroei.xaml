@@ -1,0 +1,120 @@
+﻿<Window x:Class="PlantenApplicatie.SchermGroei"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlantenApplicatie"
+        mc:Ignorable="d"
+        Title="SchermGroei" Height="700" Width="1200">
+    <Grid>
+        <Canvas Margin="206,28,235,0" Height="582" VerticalAlignment="Top">
+            <Label Content="Grondsoort" Canvas.Left="19" Canvas.Top="10" Height="25" Width="75" BorderBrush="Orange"/>
+            <Label Content="  Strategie" Canvas.Left="662" Canvas.Top="10" Height="26" Width="75" BorderBrush="Orange"/>
+            <Label Content=" GB1" Canvas.Left="19" Canvas.Top="50" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" GB2" Canvas.Left="19" Canvas.Top="89" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" GB3" Canvas.Left="19" Canvas.Top="130" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" OP1" Canvas.Left="19" Canvas.Top="171" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="OP1B" Canvas.Left="19" Canvas.Top="212" Height="25" Width="40" BorderBrush="Orange"/>
+            <CheckBox x:Name="CbxGrondsoortGB1" Content="CheckBox" Canvas.Left="84" Canvas.Top="55" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortGB2" Content="CheckBox" Canvas.Left="84" Canvas.Top="94" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortGB3" Content="CheckBox" Canvas.Left="84" Canvas.Top="135" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortOP1" Content="CheckBox" Canvas.Left="84" Canvas.Top="176" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortOP1B" Content="CheckBox" Canvas.Left="84" Canvas.Top="217" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content=" OP2" Canvas.Left="143" Canvas.Top="50" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="OP2B" Canvas.Left="144" Canvas.Top="89" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" OP3" Canvas.Left="144" Canvas.Top="130" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="OP3B" Canvas.Left="143" Canvas.Top="171" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" SH1" Canvas.Left="143" Canvas.Top="212" Height="25" Width="40" BorderBrush="Orange"/>
+            <CheckBox x:Name="CbxGrondsoortOP2" Content="CheckBox" Canvas.Left="216" Canvas.Top="55" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortOPB2" Content="CheckBox" Canvas.Left="216" Canvas.Top="94" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortOP3" Content="CheckBox" Canvas.Left="216" Canvas.Top="135" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortOP3B" Content="CheckBox" Canvas.Left="216" Canvas.Top="176" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortSH1" Content="CheckBox" Canvas.Left="216" Canvas.Top="217" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content=" SH2" Canvas.Left="274" Canvas.Top="50" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="  B1" Canvas.Left="274" Canvas.Top="89" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="  B2" Canvas.Left="274" Canvas.Top="130" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="  B3" Canvas.Left="274" Canvas.Top="171" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" GR1" Canvas.Left="274" Canvas.Top="212" Height="25" Width="40" BorderBrush="Orange"/>
+            <CheckBox x:Name="CbxGrondsoortSH2" Content="CheckBox" Canvas.Left="341" Canvas.Top="55" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortB1" Content="CheckBox" Canvas.Left="341" Canvas.Top="94" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortB2" Content="CheckBox" Canvas.Left="341" Canvas.Top="135" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortB3" Content="CheckBox" Canvas.Left="341" Canvas.Top="176" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortGR1" Content="CheckBox" Canvas.Left="341" Canvas.Top="217" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content=" GR2" Canvas.Left="389" Canvas.Top="50" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="  H1" Canvas.Left="389" Canvas.Top="89" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="  H2" Canvas.Left="389" Canvas.Top="130" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="  ST1" Canvas.Left="389" Canvas.Top="171" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="  ST2" Canvas.Left="389" Canvas.Top="212" Height="25" Width="40" BorderBrush="Orange"/>
+            <CheckBox x:Name="CbxGrondsoortGR2" Content="CheckBox" Canvas.Left="452" Canvas.Top="55" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortH1" Content="CheckBox" Canvas.Left="452" Canvas.Top="94" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortH2" Content="CheckBox" Canvas.Left="452" Canvas.Top="135" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortST1" Content="CheckBox" Canvas.Left="452" Canvas.Top="176" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortST2" Content="CheckBox" Canvas.Left="452" Canvas.Top="217" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content=" BR1" Canvas.Left="497" Canvas.Top="50" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" BR2" Canvas.Left="497" Canvas.Top="89" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" BR3" Canvas.Left="497" Canvas.Top="130" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" OB1" Canvas.Left="497" Canvas.Top="171" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" OB2" Canvas.Left="497" Canvas.Top="212"  Height="25" Width="40" BorderBrush="Orange"/>
+            <CheckBox x:Name="CbxGrondsoortBR1" Content="CheckBox" Canvas.Left="560" Canvas.Top="55" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortBR2" Content="CheckBox" Canvas.Left="560" Canvas.Top="94" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortBR3" Content="CheckBox" Canvas.Left="560" Canvas.Top="135" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortOB1" Content="CheckBox" Canvas.Left="560" Canvas.Top="176" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxGrondsoortOB2" Content="CheckBox" Canvas.Left="560" Canvas.Top="217" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content="   C" Canvas.Left="605" Canvas.Top="50" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" C-R" Canvas.Left="605" Canvas.Top="89" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="   R" Canvas.Left="605" Canvas.Top="130" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content=" R-S" Canvas.Left="605" Canvas.Top="171" Height="25" Width="40" BorderBrush="Orange"/>
+            <Label Content="   S" Canvas.Left="605" Canvas.Top="212" Height="25" Width="40" BorderBrush="Orange"/>
+            <CheckBox x:Name="CbxStrategieC" Content="CheckBox" Canvas.Left="671" Canvas.Top="55" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxStrategieCR" Content="CheckBox" Canvas.Left="671" Canvas.Top="94" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxStrategieR" Content="CheckBox" Canvas.Left="671" Canvas.Top="130" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxStrategieRS" Content="CheckBox" Canvas.Left="671" Canvas.Top="176" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxStrategieS" Content="CheckBox" Canvas.Left="671" Canvas.Top="217" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content="     Voedingsbehoefte" Canvas.Left="19" Canvas.Top="260" Height="25" Width="180" BorderBrush="Orange"/>
+            <Label Content="        Vochtbehoefte" Canvas.Left="252" Canvas.Top="260" Height="25" Width="180" BorderBrush="Orange"/>
+            <Label Content="              Arm" Canvas.Left="19" Canvas.Top="301" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="         Arm-Matig" Canvas.Left="19" Canvas.Top="343" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="           Matig" Canvas.Left="19" Canvas.Top="385" Height="26" Width="105" BorderBrush="Orange"/>
+            <Label Content="    Matig-Voedselrijk" Canvas.Left="19" Canvas.Top="427" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="        Voedselrijk" Canvas.Left="19" Canvas.Top="465" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="Voedselrijk-Indifferent" Canvas.Left="20" Canvas.Top="504" Height="25" Width="130" BorderBrush="Orange"/>
+            <Label Content="         Indifferent" Canvas.Left="19" Canvas.Top="540" Height="25" Width="130" BorderBrush="Orange"/>
+            <CheckBox x:Name="CbxVoedingsbehoefteArm" Content="CheckBox" Canvas.Left="184" Canvas.Top="306" Height="16" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVoedingsbehoefteArmMatig" Content="CheckBox" Canvas.Left="184" Canvas.Top="349" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVoedingsbehoefteMatig" Content="CheckBox" Canvas.Left="184" Canvas.Top="390" Height="16" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVoedingsbehoefteMatigVoedselrijk" Content="CheckBox" Canvas.Left="184" Canvas.Top="432" Height="16" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVoedingsbehoefteVoedselrijk" Content="CheckBox" Canvas.Left="184" Canvas.Top="471" Height="16" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVoedingsbehoefteVoedselrijkIndifferent" Content="CheckBox" Canvas.Left="184" Canvas.Top="509" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVoedingsbehoefteIndifferent" Content="CheckBox" Canvas.Left="184" Canvas.Top="545" Height="15" Width="15" BorderBrush="Gray"/>
+            <Label Content="             Droog" Canvas.Left="252" Canvas.Top="301" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="         Droog-Fris" Canvas.Left="252" Canvas.Top="343" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="               Fris" Canvas.Left="252" Canvas.Top="385" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="        Fris-Vochtig" Canvas.Left="252" Canvas.Top="427" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="            Vochtig" Canvas.Left="252" Canvas.Top="465" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="        Vochtig-Nat" Canvas.Left="252" Canvas.Top="503" Height="26" Width="130" BorderBrush="Orange"/>
+            <Label Content="               Nat" Canvas.Left="252" Canvas.Top="540" Height="26" Width="130" BorderBrush="Orange"/>
+            <CheckBox x:Name="CbxVochtbehoefteDroog" Content="CheckBox" Canvas.Left="417" Canvas.Top="307" Height="16" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVochtbehoefteDroogFris" Content="CheckBox" Canvas.Left="417" Canvas.Top="349" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVochtbehoefteFris" Content="CheckBox" Canvas.Left="417" Canvas.Top="391" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVochtbehoefteFrisVochtig" Content="CheckBox" Canvas.Left="417" Canvas.Top="432" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVochtbehoefteVochtig" Content="CheckBox" Canvas.Left="417" Canvas.Top="470" Height="16" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVochtbehoefteVochtigNat" Content="CheckBox" Canvas.Left="417" Canvas.Top="509" Height="15" Width="15" BorderBrush="Gray"/>
+            <CheckBox x:Name="CbxVochtbehoefteNat" Content="CheckBox" Canvas.Left="417" Canvas.Top="545" Height="15" Width="15" BorderBrush="Gray"/>
+            <Button Content="Opslag Zoeken Groei" Canvas.Left="587" Canvas.Top="532" Height="50" Width="172"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </Canvas>
+    </Grid>
+</Window>
