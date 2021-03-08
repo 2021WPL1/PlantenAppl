@@ -30,8 +30,4 @@
     <ProjectReference Include="..\Queries\Planten.Queries.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="FiltersSearch\" />
-  </ItemGroup>
-
 </Project>

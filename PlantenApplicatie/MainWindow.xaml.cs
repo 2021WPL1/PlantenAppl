@@ -131,6 +131,7 @@ namespace PlantenApplicatie
                                  + "plantendichtheid = Min: " + plant.PlantdichteidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString()
                                  + Environment.NewLine
                                  );
+
             }
         }
 
