@@ -30,6 +30,13 @@
             <TextBox x:Name="txtNaam" TextWrapping="Wrap" Height="32" Canvas.Left="988" Canvas.Top="40" Width="148"/>
             <ListBox x:Name="lstResultSearch" Height="438" Width="1126" Canvas.Top="93" Canvas.Left="10"/>
         </Canvas>
+        <TextBlock HorizontalAlignment="Left" Margin="0,118,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="32" Width="600" Foreground="Black" Background="#FFC40000">
+            <TextBlock.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF100F0F" Offset="1"/>
+                </LinearGradientBrush>
+            </TextBlock.OpacityMask><Run Text="Opgeslagen filters "/><Run Language="nl-nl" Text="komen"/><Run Text=" hier"/></TextBlock>
 
         <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="125,86,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="Red" Background="White"/>
         <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="622,86,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
