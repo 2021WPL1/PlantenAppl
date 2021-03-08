@@ -77,50 +77,35 @@ namespace PlantenApplicatie
             {
                 criteria += " naam : " + txtNaam.Text.ToString() + Environment.NewLine;
                 dao.narrowDownOnName(listPlants, txtNaam.Text.ToString());
-                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR " + txtNaam.Text.ToUpper() + " IN VOORKOMT IN DE NAAM." );
-                //var list = Search.OnName(txtNaam.Text.ToString());
-                //printInfo(list);
             }
 
             if (txtFamilie.Text != string.Empty)
             {
                 criteria += " familie : " + txtFamilie.Text.ToString() + Environment.NewLine;
                 dao.narrowDownOnFamily(listPlants, txtFamilie.Text.ToString());
-                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE FAMILLIE " + txtFamilie.Text.ToUpper() + " TOEBEHOORD.");
-                //var list = Search.OnFamily(txtFamilie.Text.ToString());
-                //printInfo(list);
             }
 
             if (txtCultivar.Text != string.Empty)
             {
                 criteria += " cultivar : " + txtCultivar.Text.ToString() + Environment.NewLine;
                 dao.narrowDownOnVariant(listPlants, txtCultivar.Text.ToString());
-                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE VARIANT " + txtCultivar.Text.ToUpper() + " TOEBEHOORD.");
-                //var list = Search.OnVariant(txtCultivar.Text.ToString());
-                //printInfo(list);
             }
 
             if (txtSoort.Text != string.Empty)
             {
                 criteria += " soort : " + txtSoort.Text.ToString() + Environment.NewLine;
                 dao.narrowDownOnSoort(listPlants, txtSoort.Text.ToString());
-                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN DE SOORT " + txtSoort.Text.ToUpper() + " TOEBEHOORD.");
-                //var list = Search.OnVariant(txtSoort.Text.ToString());
-                //printInfo(list);
+
             }
 
             if (txtGeslacht.Text != string.Empty)
             {
                 criteria += " geslacht : " + txtGeslacht.Text.ToString() + Environment.NewLine;
                 dao.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
-                //lstResultSearch.Items.Add("ZOEKRESULTATEN WAAR DE PLANT AAN HET GESLACHT " + txtGeslacht.Text.ToUpper() + " TOEBEHOORD.");
-                //var list = Search.OnVariant(txtGeslacht.Text.ToString());
-                //printInfo(list);
             }
             printInfo(listPlants);
             lblCriteria.Content = string.Empty;
             lblCriteria.Content += criteria.ToString();
-
         }
 
 
