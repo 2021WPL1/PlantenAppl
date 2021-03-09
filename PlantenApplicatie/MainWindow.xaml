@@ -96,7 +96,7 @@
             </TextBox>
         </Canvas>
 
-        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -106,7 +106,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -116,7 +116,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -126,7 +126,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15" RenderTransformOrigin="0.492,0.564">
+        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" RenderTransformOrigin="0.492,0.564" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -136,7 +136,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="558,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF19361A" Background="#CCC4F5C8" Click="btnHabitat_Click" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="558,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" Click="btnHabitat_Click" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -146,7 +146,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="948,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="948,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -156,7 +156,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="1078,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="1078,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -166,7 +166,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1078,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1078,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -176,7 +176,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="818,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="818,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -186,7 +186,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="818,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF19361A" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="818,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -196,7 +196,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF19361A" Background="#CCC4F5C8"  Click="btnNaam_Click" FontWeight="Bold" FontSize="15" >
+        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633"  Background="#FF474029"  Click="btnNaam_Click" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -207,7 +207,7 @@
             </Button.Resources>
         </Button>
         <Label x:Name="lblCriteria" Content="" HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="771" Background="#99F5F5F5" FontWeight="Bold"/>
-        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF19361A" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385" Click="btnZoeken_Click" Background="#CCC4F5C8" FontWeight="Bold" FontFamily="Wide Latin" >
+        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385" Click="btnZoeken_Click" Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -385,7 +385,7 @@
             <Label Content="         Geurend" Canvas.Left="454" Canvas.Top="213" Height="25" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="  Vlindervriendelijk" Canvas.Left="443" Canvas.Top="253" Height="26" Width="145" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="     Vorstgevoelig" Canvas.Left="448" Canvas.Top="310" Height="30" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Button Content="Opslaan filters" Width="172" Height="50" BorderBrush="Blue" Canvas.Left="933" Canvas.Top="15" Background="#CCC4F5C8" FontWeight="Bold" FontSize="15">
+            <Button Content="Opslaan filters" Width="172" Height="50" BorderBrush="#FF2AE633"  Canvas.Left="933" Canvas.Top="15" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
                 <Button.Effect>
                     <DropShadowEffect/>
                 </Button.Effect>
