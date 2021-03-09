@@ -45,28 +45,28 @@ namespace PlantenApplicatie
         private void BtnbackgroundColor() 
         {
             // achtergrond van buttons terug normaal zetten
-            btnNaam.Background = Brushes.Transparent;
-            btnHabitat.Background = Brushes.Transparent;
+            btnNaam.Background = Brushes.Olive;
+            btnHabitat.Background = Brushes.Olive;
+            
         }
 
-        private void btnNaam_Click(object sender, RoutedEventArgs e)
+        private void BtnNaam_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
-            BtnbackgroundColor();
             // de button highlighten van de geslecteerde zoek functie
-            btnNaam.Background = Brushes.Green;
+            btnNaam.Background = Brushes.Olive;
             // canvas tonen
             CvsZoeken.Visibility = Visibility.Visible;
         }
 
-        private void btnFilterOpslaanZoeken_Click(object sender, RoutedEventArgs e)
+        private void BtnFilterOpslaanZoeken_Click(object sender, RoutedEventArgs e)
         {
             // nu nog nie nodig
             Frame_Navigated();
-            BtnbackgroundColor();
+
         }
 
-        private void btnZoeken_Click(object sender, RoutedEventArgs e)
+        private void BtnZoeken_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
             BtnbackgroundColor();
@@ -118,14 +118,15 @@ namespace PlantenApplicatie
                 criteria += " geslacht : " + txtGeslacht.Text.ToString() + Environment.NewLine;
                 dao.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
             }
-            printInfo(listPlants);
+            PrintInfo(listPlants);
             lblCriteria.Content = string.Empty;
             lblCriteria.Content += criteria.ToString();
         }
         
 
         //this function will print the result in the listbox
-        public void printInfo(List<Plant> listPlants)
+        //needs to be repaced by MVVM
+        public void PrintInfo(List<Plant> listPlants)
         {
 
             foreach (Plant plant in listPlants)
@@ -145,12 +146,12 @@ namespace PlantenApplicatie
             }
         }
 
-        private void btnHabitat_Click(object sender, RoutedEventArgs e)
+        private void BtnHabitat_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
             BtnbackgroundColor();
             // de button highlighten van de geslecteerde zoek functie
-            btnHabitat.Background = Brushes.Red;
+            btnHabitat.Background = Brushes.Olive;
             // canvas tonen
             cvsHabitat.Visibility = Visibility.Visible;
         }

@@ -136,7 +136,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" Click="btnHabitat_Click" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" Click="BtnHabitat_Click" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -196,7 +196,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633"  Background="#FF474029"  Click="btnNaam_Click" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" >
+        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633"  Background="#FF474029"  Click="BtnNaam_Click" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -207,7 +207,7 @@
             </Button.Resources>
         </Button>
         <Label x:Name="lblCriteria" Content="" HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="771" Background="#99F5F5F5" FontWeight="Bold"/>
-        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385" Click="btnZoeken_Click" Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" >
+        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385" Click="BtnZoeken_Click" Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
