@@ -155,5 +155,11 @@ namespace PlantenApplicatie
             // canvas tonen
             cvsHabitat.Visibility = Visibility.Visible;
         }
+        public void showResult()
+        {
+            Page page = new Page();
+            page.Width = 50;
+            page.Height = 100;
+        }
     }
 }

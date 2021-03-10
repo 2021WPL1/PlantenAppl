@@ -165,6 +165,7 @@ namespace Planten2021.Data
         //get a list of all the plants.
         public List<Plant> getAllPlants()
         {
+            //R: Needs adjustments after databaseupdate
             var plants = context.Plant.ToList();
             return plants;
         }
