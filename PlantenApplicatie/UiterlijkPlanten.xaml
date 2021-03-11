@@ -1,0 +1,141 @@
+﻿<Window x:Class="PlantenApplicatie.UiterlijkPlanten"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlantenApplicatie"
+        mc:Ignorable="d"
+        Title="UiterlijkPlanten" Height="1020" Width="1957">
+    <Grid Margin="0,0,45,32">
+        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="0,94,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"  Click="btnNaam_Click" />
+        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="125,94,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="248,94,0,0" VerticalAlignment="Top" Height="32" Width="126" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="374,94,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="499,94,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnHabitat_Click"/>
+        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="622,94,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="1647,54,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="1772,56,0,0" VerticalAlignment="Top" Height="31" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="1522,85,0,0" VerticalAlignment="Top" Height="27" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1647,85,0,0" VerticalAlignment="Top" Height="27" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="1772,87,0,0" VerticalAlignment="Top" Height="25" Width="125" BorderBrush="Red" Background="White"/>
+        <Label x:Name="lblOpgeslagenFilters" Content="Opgeslagen Filters komen hier" HorizontalAlignment="Left" Height="25" Margin="0,131,0,0" VerticalAlignment="Top" Width="747"/>
+        <Label x:Name="lblUiterlijk" Content="Uiterlijk" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="8,189,0,0" VerticalAlignment="Top" Height="34" Width="110"/>
+        <Label x:Name="lblKleuren" Content="Kleuren" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="8,258,0,0" VerticalAlignment="Top" Height="34" Width="110"/>
+        <Label x:Name="lblBladkleur" Content="Bladkleur" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="10,322,0,0" VerticalAlignment="Top" Height="34" Width="110"/>
+        <Label x:Name="lblMaanden" Content="Maanden" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="8,404,0,0" VerticalAlignment="Top" Height="34" Width="110"/>
+        <Label Content="Blad hoogte" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="8,464,0,0" VerticalAlignment="Top" Height="34" Width="110"/>
+        <Label Content="Blad vormen" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="8,517,0,0" VerticalAlignment="Top" Height="34" Width="110"/>
+        <Label x:Name="lblBladvorm1" Content="Vorm 1" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="10,577,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblBladvorm2" Content="Vorm 2" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="119,577,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblBLadvorm3" Content="Vorm 3" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="218,577,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblBladvorm4" Content="Vorm 4" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="310,577,0,0" VerticalAlignment="Top" Height="65" Width="66"/>
+        <Label x:Name="lblBladvorm5" Content="Vorm 5" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="402,577,0,0" VerticalAlignment="Top" Height="65" Width="66"/>
+        <Label x:Name="lblBladvorm6" Content="Vorm 6" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="493,577,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblBladvorm7" Content="Vorm 7" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="578,577,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblBladvorm8" Content="Vorm 8" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="680,577,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblBladvorm9" Content="Vorm 9" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="770,577,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblStengelvorm1" Content="Vorm 1" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="8,744,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblStengelvorm2" Content="Vorm 2" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="90,744,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblStengelvorm3" Content="Vorm 3" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="192,744,0,0" VerticalAlignment="Top" Height="65" Width="67"/>
+        <Label x:Name="lblStengelvorm4" Content="Vorm 4" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="306,744,0,0" VerticalAlignment="Top" Height="65" Width="66"/>
+        <Label x:Name="lblStengelvorm5" Content="Vorm 5" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="402,744,0,0" VerticalAlignment="Top" Height="65" Width="66"/>
+        <Label x:Name="lblStengelvormen" Content="Stengel vormen" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="8,690,0,0" VerticalAlignment="Top" Height="34" Width="110"/>
+        <CheckBox x:Name="chbStvrm1" Content="" HorizontalAlignment="Left" Margin="24,843,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbStvrm2" Content="" HorizontalAlignment="Left" Margin="114,843,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbStvrm3" Content="" HorizontalAlignment="Left" Margin="216,846,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbVrm4" Content="" HorizontalAlignment="Left" Margin="319,843,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbVrm5" Content="" HorizontalAlignment="Left" Margin="415,842,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblStengelvorm6" Content="Vorm 6" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="492,744,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <CheckBox x:Name="chbStvrm6" Content="" HorizontalAlignment="Left" Margin="506,843,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbBldvrm1" Content="" HorizontalAlignment="Left" Margin="24,656,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbBldvrm2" Content="" HorizontalAlignment="Left" Margin="137,664,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbBldvrm3" Content="" HorizontalAlignment="Left" Margin="232,664,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbBLdvrm4" Content="" HorizontalAlignment="Left" Margin="323,673,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.343,0.646"/>
+        <CheckBox x:Name="chbBldvrm5" Content="" HorizontalAlignment="Left" Margin="415,670,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbBldvrm6" Content="" HorizontalAlignment="Left" Margin="507,670,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbBLdvrm7" Content="" HorizontalAlignment="Left" Margin="592,673,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbBldvrm8" Content="" HorizontalAlignment="Left" Margin="694,676,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbBLdvrm9" Content="" HorizontalAlignment="Left" Margin="784,678,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblJan" Content="Jan" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="137,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblFeb" Content="Feb" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="198,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMar" Content="Mar" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="258,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblApr" Content="Apr" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="317,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMei" Content="Mei" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="374,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblJun" Content="Jun" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="436,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblJul" Content="Jul" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="497,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblAug" Content="Aug" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="547,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSep" Content="Sep" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="612,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblOkt" Content="Okt" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="673,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblNov" Content="Nov" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="741,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDec" Content="Dec" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="805,408,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMin" Content="Min" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="874,407,0,0" VerticalAlignment="Top" Width="93"/>
+        <Label x:Name="lblMax" Content="Max" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="994,408,0,0" VerticalAlignment="Top" Width="94"/>
+        <ComboBox x:Name="cmbMin" HorizontalAlignment="Left" Margin="874,440,0,0" VerticalAlignment="Top" Width="93"/>
+        <ComboBox x:Name="cmbMax" HorizontalAlignment="Left" Margin="994,441,0,0" VerticalAlignment="Top" Width="94"/>
+        <CheckBox x:Name="chbJan" Content="" HorizontalAlignment="Left" Margin="142,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbFeb" Content="" HorizontalAlignment="Left" Margin="204,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbMar" Content="" HorizontalAlignment="Left" Margin="265,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbApr" Content="" HorizontalAlignment="Left" Margin="323,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbMei" Content="" HorizontalAlignment="Left" Margin="380,471,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbJun" Content="" HorizontalAlignment="Left" Margin="441,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbJul" Content="" HorizontalAlignment="Left" Margin="499,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbAug" Content="" HorizontalAlignment="Left" Margin="552,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbSep" Content="" HorizontalAlignment="Left" Margin="618,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbOkt" Content="" HorizontalAlignment="Left" Margin="679,473,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbNov" Content="" HorizontalAlignment="Left" Margin="748,471,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbDec" Content="" HorizontalAlignment="Left" Margin="811,473,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblZw" Content="" BorderThickness="10" BorderBrush="Black" Background="Transparent" HorizontalAlignment="Left" Margin="158,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblWt" Content="" BorderThickness="10" BorderBrush="Beige" Background="Transparent" HorizontalAlignment="Left" Margin="258,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblRs" Content="" BorderThickness="10" BorderBrush="Pink" Background="Transparent" HorizontalAlignment="Left" Margin="357,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblRd" Content="" BorderThickness="10" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="459,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblOr" Content="" BorderThickness="10" BorderBrush="Orange" Background="Transparent" HorizontalAlignment="Left" Margin="560,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblLil" Content="" BorderThickness="10" BorderBrush="MediumPurple" Background="Transparent" HorizontalAlignment="Left" Margin="656,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblGR" Content="" BorderThickness="10" BorderBrush="Gray" Background="Transparent" HorizontalAlignment="Left" Margin="753,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblGro" Content="" BorderThickness="10" BorderBrush="Green" Background="Transparent" HorizontalAlignment="Left" Margin="852,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblGl" Content="" BorderThickness="10" BorderBrush="Yellow" Background="Transparent" HorizontalAlignment="Left" Margin="960,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblBl" Content="" BorderThickness="10" BorderBrush="Blue" Background="Transparent" HorizontalAlignment="Left" Margin="1057,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblVi" Content="" BorderThickness="10" BorderBrush="Violet" Background="Transparent" HorizontalAlignment="Left" Margin="1159,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblPrs" Content="" BorderThickness="10" BorderBrush="Purple" Background="Transparent" HorizontalAlignment="Left" Margin="1263,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblBr" Content="" BorderThickness="10" BorderBrush="Brown" Background="Transparent" HorizontalAlignment="Left" Margin="1369,291,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblZwart" Content="Zwart" HorizontalAlignment="Left" Margin="173,249,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblWit" Content="Wit" HorizontalAlignment="Left" Margin="273,249,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRose" Content="Rose" HorizontalAlignment="Left" Margin="371,249,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblRood" Content="Rood" HorizontalAlignment="Left" Margin="474,249,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblOranje" Content="Oranje" HorizontalAlignment="Left" Margin="574,249,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblLila" Content="Lila" HorizontalAlignment="Left" Margin="679,244,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblGrijs" Content="Grijs" HorizontalAlignment="Left" Margin="770,244,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblGroen" Content="Groen" HorizontalAlignment="Left" Margin="867,244,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblGeel" Content="Geel" HorizontalAlignment="Left" Margin="975,244,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBlauw" Content="Blauw" HorizontalAlignment="Left" Margin="1072,249,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblViolet" Content="Violet" HorizontalAlignment="Left" Margin="1174,252,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblPaars" Content="Paars" HorizontalAlignment="Left" Margin="1278,244,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBruin" Content="Bruin" HorizontalAlignment="Left" Margin="1384,247,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblLevensvormen" Content="Levensvormen" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1626,258,0,0" VerticalAlignment="Top" Width="167"/>
+        <Label x:Name="Levensvorm1" Content="Vorm 1" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1626,305,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="lblLevensvorm2" Content="Vorm 2" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1725,306,0,0" VerticalAlignment="Top" Height="66" Width="68"/>
+        <Label x:Name="lblLevensvorm3" Content="Vorm 3" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1626,423,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label Content="Vorm 4" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1725,423,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="Levensvorm5" Content="Vorm 5" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1626,544,0,0" VerticalAlignment="Top" Height="66" Width="68"/>
+        <Label x:Name="Levensvorm6" Content="Vorm 6" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1725,544,0,0" VerticalAlignment="Top" Height="65" Width="68"/>
+        <Label x:Name="Levensvorm7" Content="Vorm 7" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1626,671,0,0" VerticalAlignment="Top" Height="66" Width="68"/>
+        <Label x:Name="Levensvorm8" Content="Vorm 8" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1725,671,0,0" VerticalAlignment="Top" Height="66" Width="68"/>
+        <Label x:Name="lblLevensvorm9" Content="Vorm 9" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="1676,784,0,0" VerticalAlignment="Top" Height="66" Width="68"/>
+        <Label x:Name="lblOptimalePlantDichtheid" Content="Optimale plantdichtheid tussen" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="23,917,0,0" VerticalAlignment="Top" Height="45" Width="278"/>
+        <TextBox HorizontalAlignment="Left" Margin="301,917,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="45"/>
+        <TextBox HorizontalAlignment="Left" Margin="499,917,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="45"/>
+        <Label x:Name="lblEn" Content="en" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="421,917,0,0" VerticalAlignment="Top" Height="45" Width="78"/>
+        <Label x:Name="lblStuks" Content="stuks/m²" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="618,918,0,0" VerticalAlignment="Top" Height="44" Width="106"/>
+        <Label Content="Spruitfenologie" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="874,499,0,0" VerticalAlignment="Top" Width="214"/>
+        <Label x:Name="lblGradatie1" Content="Gradatie 1" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="920,544,0,0" VerticalAlignment="Top" Width="168"/>
+        <Label x:Name="lblGradatie2" Content="Gradatie 2" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="920,590,0,0" VerticalAlignment="Top" Width="168"/>
+        <Label x:Name="lblGradatie3" Content="Gradatie 3" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="920,636,0,0" VerticalAlignment="Top" Width="168"/>
+        <Label x:Name="lblGradatie4" Content="Gradatie 4" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="920,678,0,0" VerticalAlignment="Top" Width="168"/>
+        <CheckBox x:Name="chbGr1" Content="" HorizontalAlignment="Left" Margin="878,550,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbGr2" Content="" HorizontalAlignment="Left" Margin="878,597,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbGr3" Content="" HorizontalAlignment="Left" Margin="878,644,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="chbGr4" Content="" HorizontalAlignment="Left" Margin="878,685,0,0" VerticalAlignment="Top"/>
+        <Canvas Margin="0,228,0,0"/>
+
+
+    </Grid>
+</Window>

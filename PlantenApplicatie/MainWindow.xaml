@@ -126,11 +126,7 @@
             <CheckBox Content="" Canvas.Left="1074" Canvas.Top="86"/>
             <CheckBox Content="" Canvas.Left="1074" Canvas.Top="63"/>
             <CheckBox Content="" Canvas.Left="1074" Canvas.Top="106"/>
-
-
         </Canvas>
-
-
-
+        <Canvas Margin="0,247,0,0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
