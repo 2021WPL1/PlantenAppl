@@ -5,37 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlantenApplicatie"
         mc:Ignorable="d"
-        Title="VerzorgingPlanten" Height="517" Width="1484">
+        Title="VerzorgingPlanten" Height="507" Width="1421">
 
-    <Grid Margin="0,0,26,31">
+    <Grid Margin="0,0,144,31">
 
-        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"  Click="btnNaam_Click" />
-        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="125,33,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="247,33,0,0" VerticalAlignment="Top" Height="32" Width="126" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="373,33,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="498,33,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White" Click="btnHabitat_Click"/>
-        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="623,33,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="1203,43,0,0" VerticalAlignment="Top" Height="31" Width="125" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="1328,45,0,0" VerticalAlignment="Top" Height="31" Width="125" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="1073,43,0,0" VerticalAlignment="Top" Height="29" Width="130" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1203,74,0,0" VerticalAlignment="Top" Height="27" Width="125" BorderBrush="Red" Background="White"/>
-        <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="1328,76,0,0" VerticalAlignment="Top" Height="25" Width="125" BorderBrush="Red" Background="White"/>
-        <Label x:Name="lblOpgeslagenFilters" Content="Opgeslagen Filters komen hier"  BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Height="36" Margin="0,65,0,0" VerticalAlignment="Top" Width="747"/>
-        <Button x:Name="btnVerzorging_Copy" Content="Verzorging" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
-        <Label x:Name="lblMaanden" Content="Maanden" BorderThickness="1" BorderBrush="Red" Background="Transparent"  HorizontalAlignment="Left" Margin="0,196,0,0" VerticalAlignment="Top" Height="39" Width="125"/>
-        <Label x:Name="lblJan" Content="Jan" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="157,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblFeb" Content="Feb" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="227,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblMar" Content="Mar" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="299,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblApr" Content="Apr" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="373,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblMei" Content="Mei" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="436,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblJun" Content="Jun" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="510,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblJul" Content="Jul" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="578,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblAug" Content="Aug" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="638,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblSep" Content="Sep" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="697,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblOkt" Content="Okt" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="758,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblNov" Content="Nov" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="821,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDec" Content="Dec" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="892,202,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblBeheersdaad" Content="Beheersdaad" BorderThickness="1" BorderBrush="Red" Background="Transparent"  HorizontalAlignment="Left" Margin="0,256,0,0" VerticalAlignment="Top" Height="39" Width="125"/>
+        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="0,33,0,0" VerticalAlignment="Top" Height="32" Width="125" Foreground="Red" BorderBrush="Red" Background="White"  Click="btnNaam_Click" />
+        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="125,33,0,0" VerticalAlignment="Top" Height="32" Width="122" Foreground="Red" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="247,33,0,0" VerticalAlignment="Top" Height="32" Width="126" Foreground="Red" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="373,33,0,0" VerticalAlignment="Top" Height="32" Width="125" Foreground="Red" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="498,33,0,0" VerticalAlignment="Top" Height="32" Width="125" Foreground="Red" BorderBrush="Red" Background="White" Click="btnHabitat_Click"/>
+        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="623,33,0,0" VerticalAlignment="Top" Height="32" Width="125" Foreground="Red" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="1022,41,0,0" VerticalAlignment="Top" Height="31" Width="125" Foreground="Red" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" Foreground="Red" HorizontalAlignment="Left" Margin="1147,40,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="892,40,0,0" VerticalAlignment="Top" Height="32" Width="130" Foreground="Red" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnExporteeralle" Content="Exporteer alle" Foreground="Red" HorizontalAlignment="Left" Margin="1022,71,0,0" VerticalAlignment="Top" Height="31" Width="125" BorderBrush="Red" Background="White"/>
+        <Button x:Name="btnSorteer" Content="Sorteer bij:" Foreground="Red" HorizontalAlignment="Left" Margin="1147,72,0,0" VerticalAlignment="Top" Height="30" Width="125" BorderBrush="Red" Background="White"/>
+        <Label x:Name="lblOpgeslagenFilters" Content="Opgeslagen Filters komen hier"  BorderThickness="1" Foreground="Red" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Height="36" Margin="0,65,0,0" VerticalAlignment="Top" Width="747"/>
+        <Button x:Name="btnVerzorging_Copy" Content="Verzorging" Foreground="Red" HorizontalAlignment="Left" Margin="0,133,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="Red" Background="White"/>
+        <Label x:Name="lblMaanden" Content="Maanden" BorderThickness="1" Foreground="Red" BorderBrush="Red" Background="Transparent"  HorizontalAlignment="Left" Margin="0,196,0,0" VerticalAlignment="Top" Height="39" Width="125"/>
+        <Label x:Name="lblJan" Height="28" Width="50" Content="Jan" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="157,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblFeb" Height="28" Width="50" Content="Feb" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="227,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMar" Height="28" Width="50" Content="Mar" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="299,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblApr" Height="28" Width="50" Content="Apr" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="373,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMei" Height="28" Width="50" Content="Mei" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="436,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblJun" Height="28" Width="50" Content="Jun" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="510,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblJul" Height="28" Width="50" Content="Jul" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="578,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblAug" Height="28" Width="50" Content="Aug" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="638,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblSep" Height="28" Width="50" Content="Sep" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="697,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblOkt" Height="28" Width="50" Content="Okt" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="758,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblNov" Height="28" Width="50" Content="Nov" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="821,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDec" Height="28" Width="50" Content="Dec" Foreground="Red" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="892,202,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblBeheersdaad" Content="Beheersdaad" BorderThickness="1" Foreground="Red" BorderBrush="Red" Background="Transparent"  HorizontalAlignment="Left" Margin="0,256,0,0" VerticalAlignment="Top" Height="39" Width="125"/>
         <CheckBox x:Name="chbJan" Content="" HorizontalAlignment="Left" Margin="157,268,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="chbFeb" Content="" HorizontalAlignment="Left" Margin="233,268,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="chbMar" Content="" HorizontalAlignment="Left" Margin="306,271,0,0" VerticalAlignment="Top"/>
@@ -50,10 +50,10 @@
         <CheckBox x:Name="chbDec" Content="" HorizontalAlignment="Left" Margin="904,279,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cmbBeheersdaad" HorizontalAlignment="Left" Margin="10,362,0,0" VerticalAlignment="Top" Width="343" Height="29"/>
         <TextBox x:Name="txtOpmerking" HorizontalAlignment="Left" Margin="353,362,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="297" Height="29"/>
-        <Label x:Name="lblOpmerking" Content="Opmerking" BorderThickness="1" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="353,330,0,0" VerticalAlignment="Top" Height="32" Width="99"/>
+        <Label x:Name="lblOpmerking" Content="Opmerking" BorderThickness="1" Foreground="Red" BorderBrush="Red" Background="Transparent" HorizontalAlignment="Left" Margin="353,330,0,0" VerticalAlignment="Top" Height="32" Width="99"/>
         <TextBox HorizontalAlignment="Left" Margin="645,362,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" Height="29"/>
-        <Label x:Name="lblFrequentie" Content="Frequentie per jaar" BorderThickness="1" BorderBrush="Red" HorizontalAlignment="Left" Margin="646,334,0,0" VerticalAlignment="Top" Width="154"/>
-        <Canvas Margin="0,165,0,0"/>
+        <Label x:Name="lblFrequentie" Content="Frequentie per jaar" BorderThickness="1" Foreground="Red" BorderBrush="Red" HorizontalAlignment="Left" Margin="646,334,0,0" VerticalAlignment="Top" Width="154"/>
+        <Button x:Name="btnFilterOpslaan" Content="Filter opslaan" HorizontalAlignment="Left" Margin="1091,412,0,0" VerticalAlignment="Top" Height="48" Width="186"/>
 
 
     </Grid>
