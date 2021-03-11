@@ -15,7 +15,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="C:/Users/loosv/OneDrive/Desktop/School/Lessen/Kwartaal 3/Werkplekleren/ProjectPlanten/images/nature.jpg" Stretch="Fill"/>
+            <ImageBrush ImageSource="C:/Users/loosv/OneDrive/Desktop/images/nature.jpg" Stretch="Fill"/>
         </Grid.Background>
 
         <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="hidden" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >

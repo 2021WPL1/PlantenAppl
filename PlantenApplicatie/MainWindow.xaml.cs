@@ -161,5 +161,6 @@ namespace PlantenApplicatie
             page.Width = 50;
             page.Height = 100;
         }
+        Scaffold-DbContext "Server=SJMTCMFS\VIVES; Database=Bibliotheek; Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
     }
 }

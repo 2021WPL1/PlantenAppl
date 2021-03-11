@@ -179,6 +179,6 @@ namespace Planten2021.Data
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
-        //Empty label and textbox tbc
+        
     }
 }
