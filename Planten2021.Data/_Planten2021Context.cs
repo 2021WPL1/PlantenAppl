@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Planten2021.Data;
 using Planten2021.Domain.Models;
 
 namespace _Planten2021.Data.Models_

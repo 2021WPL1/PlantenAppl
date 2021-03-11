@@ -29,11 +29,7 @@
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
-                <ComboBoxItem Content="Vaste planten"/>
-                <ComboBoxItem Content="Tweejarigen"/>
-                <ComboBoxItem Content="Bol- Knolgewassen"/>
-                <ComboBoxItem Content="Varens"/>
-                <ComboBoxItem Content="Grassen"/>
+                
             </ComboBox>
             <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="33" Canvas.Left="312" Canvas.Top="79" Width="200">
                 <Label.Effect>
@@ -221,7 +217,7 @@
         <ListBox x:Name="lstResultSearch" Margin="42,184,47,42" Visibility="Hidden" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14"/>
 
 
-        <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Visible" Grid.RowSpan="2" Background="#7FFFFFFF">
+        <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Hidden" Grid.RowSpan="2" Background="#7FFFFFFF">
             <Canvas.Effect>
                 <DropShadowEffect/>
             </Canvas.Effect>

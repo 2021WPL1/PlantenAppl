@@ -5,6 +5,7 @@ using System.Linq;
 //using Planten2021.Data.Models;
 using Planten2021.Domain.Models;
 using System.Reflection.Emit;
+using Microsoft.EntityFrameworkCore;
 //using System.Windows.Controls;
 
 namespace Planten2021.Data
@@ -178,6 +179,28 @@ namespace Planten2021.Data
             string answer = stringToSimplify.ToLower().Replace("\'", " ").Replace("\"", " ");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
+        }
+
+
+        /// <summary>
+        ///                            FILL COMBOBOX
+        ///            Deze functie zijn voor het cascade systeem.
+        /// </summary>
+        /// <returns></returns>
+
+        public List<string> fillTfgsvType() 
+        {
+            // eerst de lijst die nodig is opvragen
+            var selection = context.TfgsvType.Distinct();
+            // new lijst string maken zo da je hem makkelijk kan returnen en in combobox plaatsen
+            var stringselection = new List<string>();
+            // for each alle items in string lijst plaatsen
+            foreach (TfgsvType item in selection)
+            {
+                stringselection.Add(item.Planttypenaam);
+            }
+            // de string lijst returnen
+            return stringselection;
         }
         
     }

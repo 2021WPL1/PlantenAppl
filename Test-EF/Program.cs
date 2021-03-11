@@ -1,5 +1,4 @@
-﻿using Planten2021.Data.Models;
-using Planten2021.Domain.Models;
+﻿using Planten2021.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -100,7 +99,7 @@ namespace Test_EF
                                  + "soort = " + plant.Soort + Environment.NewLine
                                  + "variant = " + plant.Variant + Environment.NewLine
                                  + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
-                                 + "plantendichtheid = Min: " + plant.PlantdichteidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString()
+                                 + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString()
                                  + Environment.NewLine
                                  );
             }

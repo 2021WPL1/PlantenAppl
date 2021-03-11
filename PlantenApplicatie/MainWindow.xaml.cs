@@ -31,7 +31,27 @@ namespace PlantenApplicatie
 
             Frame_Navigated();
             //   BtnbackgroundColor();
+            fillComboItem();
+
+
+        }
+
+        public void fillComboItem() 
+        {
+
+            // lijst opvragen
+            var filltype = dao.fillTfgsvType();
+            // alle objecten in combobox plaatsen
+            foreach (var item in filltype)
+            {
+                cmbType.Items.Add(item);
+            }
+               
             
+            
+            //    string value = type.Content.ToString();
+            //    criteria += " type : " + value + Environment.NewLine;
+            //    dao.narrowDownOnType(listPlants, value);
         }
 
         private void Frame_Navigated()
@@ -77,47 +97,50 @@ namespace PlantenApplicatie
             //generates a list with all plants.
             var listPlants = dao.getAllPlants();
 
-            //generate a string to show witch criteria we searched on
+            ////generate a string to show witch criteria we searched on
             string criteria = "Dit is een gefilterde lijst van planten op onderstaande zoekcriteria. : " + Environment.NewLine + Environment.NewLine;
 
-            if (cmbType.SelectedValue != null)
-            {
-                ComboBoxItem type = (ComboBoxItem)cmbType.SelectedItem;
-                string value = type.Content.ToString();
-                criteria += " type : " + value + Environment.NewLine;
-                dao.narrowDownOnType(listPlants, value);
-            }
+            //if (cmbType.SelectedValue != null)
+            //{
+            //    ComboBoxItem type = (ComboBoxItem)cmbType.SelectedItem;
+            //    string value = type.Content.ToString();
+            //    criteria += " type : " + value + Environment.NewLine;
+            //    dao.narrowDownOnType(listPlants, value);
+            //}
 
-            if (txtNaam.Text != string.Empty)
-            {
-                criteria += " naam : " + txtNaam.Text.ToString() + Environment.NewLine;
-                dao.narrowDownOnName(listPlants, txtNaam.Text.ToString());
-            }
+            //if (txtNaam.Text != string.Empty)
+            //{
+            //    criteria += " naam : " + txtNaam.Text.ToString() + Environment.NewLine;
+            //    dao.narrowDownOnName(listPlants, txtNaam.Text.ToString());
+            //}
 
-            if (txtFamilie.Text != string.Empty)
-            {
-                criteria += " familie : " + txtFamilie.Text.ToString() + Environment.NewLine;
-                dao.narrowDownOnFamily(listPlants, txtFamilie.Text.ToString());
-            }
+            //if (txtFamilie.Text != string.Empty)
+            //{
+            //    criteria += " familie : " + txtFamilie.Text.ToString() + Environment.NewLine;
+            //    dao.narrowDownOnFamily(listPlants, txtFamilie.Text.ToString());
+            //}
 
-            if (txtCultivar.Text != string.Empty)
-            {
-                criteria += " cultivar : " + txtCultivar.Text.ToString() + Environment.NewLine;
-                dao.narrowDownOnVariant(listPlants, txtCultivar.Text.ToString());
-            }
+            //if (txtCultivar.Text != string.Empty)
+            //{
+            //    criteria += " cultivar : " + txtCultivar.Text.ToString() + Environment.NewLine;
+            //    dao.narrowDownOnVariant(listPlants, txtCultivar.Text.ToString());
+            //}
 
-            if (txtSoort.Text != string.Empty)
-            {
-                criteria += " soort : " + txtSoort.Text.ToString() + Environment.NewLine;
-                dao.narrowDownOnSoort(listPlants, txtSoort.Text.ToString());
+            //if (txtSoort.Text != string.Empty)
+            //{
+            //    criteria += " soort : " + txtSoort.Text.ToString() + Environment.NewLine;
+            //    dao.narrowDownOnSoort(listPlants, txtSoort.Text.ToString());
 
-            }
+            //}
 
-            if (txtGeslacht.Text != string.Empty)
-            {
-                criteria += " geslacht : " + txtGeslacht.Text.ToString() + Environment.NewLine;
-                dao.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
-            }
+            //if (txtGeslacht.Text != string.Empty)
+            //{
+            //    criteria += " geslacht : " + txtGeslacht.Text.ToString() + Environment.NewLine;
+            //    dao.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
+            //}
+          
+
+           
             PrintInfo(listPlants);
             lblCriteria.Content = string.Empty;
             lblCriteria.Content += criteria.ToString();
@@ -139,8 +162,7 @@ namespace PlantenApplicatie
                                  + "soort = " + plant.Soort + Environment.NewLine
                                  + "variant = " + plant.Variant + Environment.NewLine
                                  + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
-                                 + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString()
-                                 + Environment.NewLine
+                                 + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
                                  );
 
             }
