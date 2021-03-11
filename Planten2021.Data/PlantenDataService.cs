@@ -9,17 +9,17 @@ using System.Reflection.Emit;
 
 namespace Planten2021.Data
 {
-    public class DAO
+    public class PlantenDataService
     {
-        private static readonly DAO instance = new DAO();
+        private static readonly PlantenDataService instance = new PlantenDataService();
         private readonly Planten2021Context context;
 
-        public static DAO Instance()
+        public static PlantenDataService Instance()
         {
             return instance;
         }
         //private contructor
-        private DAO()
+        private PlantenDataService()
         {
             this.context = new Planten2021Context();
         }

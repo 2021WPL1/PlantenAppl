@@ -22,12 +22,12 @@ namespace PlantenApplicatie
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly DAO dao;
+        private readonly PlantenDataService dao;
         public MainWindow()
         {
             InitializeComponent();
             //DAO instance 
-            dao = DAO.Instance();
+            dao = PlantenDataService.Instance();
 
             Frame_Navigated();
             //   BtnbackgroundColor();
@@ -66,6 +66,7 @@ namespace PlantenApplicatie
 
         }
 
+        //R:
         private void BtnZoeken_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
@@ -161,6 +162,8 @@ namespace PlantenApplicatie
             page.Width = 50;
             page.Height = 100;
         }
+
+        //update databank
         //Scaffold-DbContext "Server=SJMTCMFS\VIVES; Database=[Planten2021];Integrated Security = true; Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
     }
 }
