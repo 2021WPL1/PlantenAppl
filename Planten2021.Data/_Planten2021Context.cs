@@ -1,16 +1,17 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Planten2021.Domain.Models;
 
-namespace Planten2021.Domain.Models
+namespace _Planten2021.Data.Models_
 {
-    public partial class Planten2021Context : DbContext
+    public partial class _Planten2021Context : DbContext
     {
-        public Planten2021Context()
+        public _Planten2021Context()
         {
         }
 
-        public Planten2021Context(DbContextOptions<Planten2021Context> options)
+        public _Planten2021Context(DbContextOptions<_Planten2021Context> options)
             : base(options)
         {
         }
@@ -44,7 +45,9 @@ namespace Planten2021.Domain.Models
         public virtual DbSet<FenotypeMulti> FenotypeMulti { get; set; }
         public virtual DbSet<Foto> Foto { get; set; }
         public virtual DbSet<Gebruiker> Gebruiker { get; set; }
+        public virtual DbSet<MasterPlantenGesplitst> MasterPlantenGesplitst { get; set; }
         public virtual DbSet<Plant> Plant { get; set; }
+       // public virtual DbSet<Planten2021.Domain.Models.Planten2021> Planten2021 { get; set; }
         public virtual DbSet<Rol> Rol { get; set; }
         public virtual DbSet<TfgsvFamilie> TfgsvFamilie { get; set; }
         public virtual DbSet<TfgsvGeslacht> TfgsvGeslacht { get; set; }
@@ -57,8 +60,7 @@ namespace Planten2021.Domain.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=SJMTCMFS\\VIVES; Database=Planten2021; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(Constants.connectionstring);
             }
         }
 
@@ -72,7 +74,7 @@ namespace Planten2021.Domain.Models
 
                 entity.Property(e => e.Naam)
                     .HasColumnName("naam")
-                    .HasMaxLength(30);
+                    .HasMaxLength(10);
             });
 
             modelBuilder.Entity<AbioGrondsoort>(entity =>
@@ -245,7 +247,7 @@ namespace Planten2021.Domain.Models
 
                 entity.Property(e => e.Levensvorm)
                     .HasColumnName("levensvorm")
-                    .HasMaxLength(100);
+                    .HasMaxLength(50);
             });
 
             modelBuilder.Entity<CommOntwikkelsnelheid>(entity =>
@@ -433,7 +435,7 @@ namespace Planten2021.Domain.Models
 
                 entity.Property(e => e.Naam)
                     .HasColumnName("naam")
-                    .HasMaxLength(30);
+                    .HasMaxLength(20);
 
                 entity.Property(e => e.UrlLocatie)
                     .HasColumnName("url/locatie")
@@ -448,7 +450,7 @@ namespace Planten2021.Domain.Models
 
                 entity.Property(e => e.HexWaarde)
                     .HasColumnName("hex_waarde")
-                    .HasMaxLength(3);
+                    .HasMaxLength(6);
 
                 entity.Property(e => e.NaamKleur)
                     .HasColumnName("naam kleur")
@@ -467,7 +469,7 @@ namespace Planten2021.Domain.Models
 
                 entity.Property(e => e.Levensvorm)
                     .HasColumnName("levensvorm")
-                    .HasMaxLength(100);
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.UrlLocatie)
                     .HasColumnName("url/locatie")
@@ -606,6 +608,49 @@ namespace Planten2021.Domain.Models
                     .HasMaxLength(50);
             });
 
+            modelBuilder.Entity<MasterPlantenGesplitst>(entity =>
+            {
+                entity.HasNoKey();
+
+                entity.ToTable("MasterPlanten_gesplitst$");
+
+                entity.Property(e => e.Familie)
+                    .HasColumnName("familie")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.FamilieId).HasColumnName("familieID");
+
+                entity.Property(e => e.Familienaam).HasMaxLength(255);
+
+                entity.Property(e => e.Geslacht)
+                    .HasColumnName("geslacht")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.GeslachtId).HasColumnName("geslachtID");
+
+                entity.Property(e => e.Groep)
+                    .HasColumnName("groep")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.GroepId).HasColumnName("groepID");
+
+                entity.Property(e => e.Id).HasMaxLength(255);
+
+                entity.Property(e => e.Plantnaam)
+                    .HasColumnName("plantnaam")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.Soort)
+                    .HasColumnName("soort")
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.SoortId).HasColumnName("soortID");
+
+                entity.Property(e => e.Variant)
+                    .HasColumnName("variant")
+                    .HasMaxLength(255);
+            });
+
             modelBuilder.Entity<Plant>(entity =>
             {
                 entity.Property(e => e.PlantId).HasColumnName("plant-id");
@@ -613,8 +658,6 @@ namespace Planten2021.Domain.Models
                 entity.Property(e => e.Familie)
                     .HasColumnName("familie")
                     .HasMaxLength(100);
-
-                entity.Property(e => e.FamilieId).HasColumnName("familieID");
 
                 entity.Property(e => e.Fgsv)
                     .HasColumnName("fgsv")
@@ -624,23 +667,17 @@ namespace Planten2021.Domain.Models
                     .HasColumnName("geslacht")
                     .HasMaxLength(100);
 
-                entity.Property(e => e.GeslachtId).HasColumnName("geslachtID");
-
-                entity.Property(e => e.IdAccess).HasColumnName("idAccess");
-
                 entity.Property(e => e.NederlandsNaam)
                     .HasColumnName("nederlands naam")
                     .HasMaxLength(500);
 
-                entity.Property(e => e.PlantdichtheidMax).HasColumnName("plantdichtheid_max");
+                entity.Property(e => e.PlantdichtheidMin).HasColumnName("plantdichteid_min");
 
-                entity.Property(e => e.PlantdichtheidMin).HasColumnName("plantdichtheid_min");
+                entity.Property(e => e.PlantdichtheidMax).HasColumnName("plantdichtheid_max");
 
                 entity.Property(e => e.Soort)
                     .HasColumnName("soort")
                     .HasMaxLength(100);
-
-                entity.Property(e => e.SoortId).HasColumnName("soortID");
 
                 entity.Property(e => e.Status).HasColumnName("status");
 
@@ -648,14 +685,43 @@ namespace Planten2021.Domain.Models
                     .HasColumnName("type")
                     .HasMaxLength(100);
 
-                entity.Property(e => e.TypeId).HasColumnName("typeID");
-
                 entity.Property(e => e.Variant)
                     .HasColumnName("variant")
                     .HasMaxLength(100);
-
-                entity.Property(e => e.VariantId).HasColumnName("variantID");
             });
+
+            //modelBuilder.Entity<Planten2021.Domain.Models.Planten2021>(entity =>
+            //{
+            //    entity.HasNoKey();
+
+            //    entity.Property(e => e.Familie)
+            //        .HasColumnName("familie")
+            //        .HasMaxLength(255);
+
+            //    entity.Property(e => e.Familienaam).HasMaxLength(255);
+
+            //    entity.Property(e => e.Geslacht)
+            //        .HasColumnName("geslacht")
+            //        .HasMaxLength(255);
+
+            //    entity.Property(e => e.Groep)
+            //        .HasColumnName("groep")
+            //        .HasMaxLength(255);
+
+            //    entity.Property(e => e.Id).HasMaxLength(255);
+
+            //    entity.Property(e => e.Plantnaam)
+            //        .HasColumnName("plantnaam")
+            //        .HasMaxLength(255);
+
+            //    entity.Property(e => e.Soort)
+            //        .HasColumnName("soort")
+            //        .HasMaxLength(255);
+
+            //    entity.Property(e => e.Variant)
+            //        .HasColumnName("variant")
+            //        .HasMaxLength(255);
+            //});
 
             modelBuilder.Entity<Rol>(entity =>
             {
@@ -684,12 +750,6 @@ namespace Planten2021.Domain.Models
                     .HasMaxLength(100);
 
                 entity.Property(e => e.TypeTypeid).HasColumnName("type_typeid");
-
-                entity.HasOne(d => d.TypeType)
-                    .WithMany(p => p.TfgsvFamilie)
-                    .HasForeignKey(d => d.TypeTypeid)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("familie_type_FK");
             });
 
             modelBuilder.Entity<TfgsvGeslacht>(entity =>
@@ -710,12 +770,6 @@ namespace Planten2021.Domain.Models
                 entity.Property(e => e.NlNaam)
                     .HasColumnName("NL naam")
                     .HasMaxLength(100);
-
-                entity.HasOne(d => d.FamilieFamile)
-                    .WithMany(p => p.TfgsvGeslacht)
-                    .HasForeignKey(d => d.FamilieFamileId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("geslacht_familie_FK");
             });
 
             modelBuilder.Entity<TfgsvSoort>(entity =>
@@ -736,12 +790,6 @@ namespace Planten2021.Domain.Models
                 entity.Property(e => e.Soortnaam)
                     .HasColumnName("soortnaam")
                     .HasMaxLength(100);
-
-                entity.HasOne(d => d.GeslachtGeslacht)
-                    .WithMany(p => p.TfgsvSoort)
-                    .HasForeignKey(d => d.GeslachtGeslachtId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("soort_geslacht_FK");
             });
 
             modelBuilder.Entity<TfgsvType>(entity =>

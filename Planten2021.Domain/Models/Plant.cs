@@ -26,9 +26,15 @@ namespace Planten2021.Domain.Models
         public string Variant { get; set; }
         public string Fgsv { get; set; }
         public string NederlandsNaam { get; set; }
-        public short? PlantdichteidMin { get; set; }
+        public short? PlantdichtheidMin { get; set; }
         public short? PlantdichtheidMax { get; set; }
         public short? Status { get; set; }
+        public int? IdAccess { get; set; }
+        public int? TypeId { get; set; }
+        public int? FamilieId { get; set; }
+        public int? GeslachtId { get; set; }
+        public int? SoortId { get; set; }
+        public int? VariantId { get; set; }
 
         public virtual ICollection<Abiotiek> Abiotiek { get; set; }
         public virtual ICollection<AbiotiekMulti> AbiotiekMulti { get; set; }

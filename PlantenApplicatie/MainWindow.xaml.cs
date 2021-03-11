@@ -139,7 +139,7 @@ namespace PlantenApplicatie
                                  + "soort = " + plant.Soort + Environment.NewLine
                                  + "variant = " + plant.Variant + Environment.NewLine
                                  + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
-                                 + "plantendichtheid = Min: " + plant.PlantdichteidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString()
+                                 + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString()
                                  + Environment.NewLine
                                  );
 
@@ -161,6 +161,6 @@ namespace PlantenApplicatie
             page.Width = 50;
             page.Height = 100;
         }
-        Scaffold-DbContext "Server=SJMTCMFS\VIVES; Database=Bibliotheek; Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
+        //Scaffold-DbContext "Server=SJMTCMFS\VIVES; Database=[Planten2021];Integrated Security = true; Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
     }
 }
