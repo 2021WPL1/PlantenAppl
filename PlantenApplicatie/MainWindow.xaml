@@ -19,68 +19,38 @@
             <ImageBrush  Stretch="Fill"/>
         </Grid.Background>
 
-        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="hidden" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
+        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
             <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31" >
+            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31" SelectionChanged="cmbType_SelectionChanged" >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
-                
+
             </ComboBox>
             <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="33" Canvas.Left="312" Canvas.Top="79" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <Label Content="Geslacht" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="34" Canvas.Left="211" Canvas.Top="6" Width="200" RenderTransformOrigin="0.47,0.244">
+            <Label Content="Variant" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="32" Canvas.Left="826" Canvas.Top="8" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <Label Content="Cultivar" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="31" Canvas.Left="621" Canvas.Top="8" Width="200">
-                <Label.Effect>
-                    <DropShadowEffect/>
-                </Label.Effect>
-            </Label>
-            <Label Content="Soort" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="32" Canvas.Left="416" Canvas.Top="7" Width="200">
-                <Label.Effect>
-                    <DropShadowEffect/>
-                </Label.Effect>
-            </Label>
-            <TextBox x:Name="txtGeslacht" Canvas.Left="211" Canvas.Top="41" Text="Geranium" TextWrapping="Wrap" Width="200" Height="32">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
-            <TextBox x:Name="txtSoort" Text="macrorrhizum" TextWrapping="Wrap" Height="33" Canvas.Left="416" Canvas.Top="41" Width="200">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
-            <TextBox x:Name="txtCultivar" TextWrapping="Wrap" Height="32" Canvas.Left="621" Canvas.Top="42" Width="200">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
             <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="312" Canvas.Top="117" Width="200">
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
-            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="826" Canvas.Top="8" Width="200">
+            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="211" Canvas.Top="8" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <TextBox x:Name="txtFamilie" Text="GERANIACEAE" TextWrapping="Wrap" Height="32" Canvas.Left="826" Canvas.Top="42" Width="200">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
             <Label Content="Naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32" Canvas.Left="516" Canvas.Top="80" Width="200" RenderTransformOrigin="0.487,0.673">
                 <Label.Effect>
                     <DropShadowEffect/>
@@ -91,6 +61,36 @@
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
+            <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" SelectionChanged="cmbFamilie_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <Label Content="Geslacht" Canvas.Left="417" Canvas.Top="7" Width="200"  BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Soort" Canvas.Left="623" Canvas.Top="8" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30" SelectionChanged="cmbGeslacht_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30" SelectionChanged="cmbSoort_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
         </Canvas>
 
         <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">

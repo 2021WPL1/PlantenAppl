@@ -188,20 +188,38 @@ namespace Planten2021.Data
         /// </summary>
         /// <returns></returns>
 
-        public List<string> fillTfgsvType() 
+        public Dictionary<long,string> fillTfgsvType() 
         {
-            // eerst de lijst die nodig is opvragen
-            var selection = context.TfgsvType.Distinct();
-            // new lijst string maken zo da je hem makkelijk kan returnen en in combobox plaatsen
-            var stringselection = new List<string>();
-            // for each alle items in string lijst plaatsen
-            foreach (TfgsvType item in selection)
-            {
-                stringselection.Add(item.Planttypenaam);
-            }
-            // de string lijst returnen
-            return stringselection;
+            // lijst type opvragen en returnen
+            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
+            return selection;
         }
-        
+
+        public Dictionary<long, string> fillTfgsvFamilie(int selectedItem)
+        {
+            // eerst de lijst die nodig is opvragen 
+            var selection = context.TfgsvFamilie.Distinct().Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);          
+            return selection;
+        }
+        public Dictionary<long, string> fillTfgsvGeslacht(int selectedItem)
+        {
+            // eerst de lijst die nodig is opvragen 
+            var selection = context.TfgsvGeslacht.Where(s => s.FamilieFamileId == selectedItem).Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+            return selection;
+        }
+        public Dictionary<long, string> fillTfgsvSoort(int selectedItem)
+        {
+            // eerst de lijst die nodig is opvragen 
+            var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+            return selection;
+        }
+
+        public Dictionary<long, string> fillTfgsvVariant(int selectedItem)
+        {
+            // eerst de lijst die nodig is opvragen 
+            var selection = context.TfgsvVariant.Where(s => s.SoortSoortid == selectedItem).Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
+            return selection;
+        }
+
     }
 }

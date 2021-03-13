@@ -31,28 +31,11 @@ namespace PlantenApplicatie
 
             Frame_Navigated();
             //   BtnbackgroundColor();
-            fillComboItem();
+            fillComboBoxType();
 
 
         }
-
-        public void fillComboItem() 
-        {
-
-            // lijst opvragen
-            var filltype = dao.fillTfgsvType();
-            // alle objecten in combobox plaatsen
-            foreach (var item in filltype)
-            {
-                cmbType.Items.Add(item);
-            }
-               
-            
-            
-            //    string value = type.Content.ToString();
-            //    criteria += " type : " + value + Environment.NewLine;
-            //    dao.narrowDownOnType(listPlants, value);
-        }
+    
 
         private void Frame_Navigated()
         {
@@ -183,6 +166,91 @@ namespace PlantenApplicatie
             page.Width = 50;
             page.Height = 100;
         }
-        //Scaffold-DbContext "Server=SJMTCMFS\VIVES; Database=[Planten2021];Integrated Security = true; Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -force
+     
+
+        /// <summary>
+        /// /////////////////////////////// CASCADE SYSTEEM
+        ///  bij de fillcombobox functie word de lijst opgevraagd van de functie in de dao dan waar het meegegeven aan de combobox valuepath zijn de ID's, memberpath zijn de namen
+        ///  met de item source geef je de lijs mee aan de combobox
+        /// </summary>
+
+        public void fillComboBoxType()
+        {        
+            // lijst opvragen
+            var filltype = dao.fillTfgsvType();
+            // alle objecten in combobox plaatsen
+            cmbType.ItemsSource = filltype;
+            cmbType.DisplayMemberPath = "Value";
+            cmbType.SelectedValuePath = "Key";
+
+        }
+
+        public void fillComboBoxFamilie()
+        {
+           
+            // lijst opvragen
+            var fillFamilie = dao.fillTfgsvFamilie(Convert.ToInt32(cmbType.SelectedValue));
+            // alle objecten in combobox plaatsen
+
+            cmbFamilie.ItemsSource = fillFamilie;
+            cmbFamilie.DisplayMemberPath = "Value";
+            cmbFamilie.SelectedValuePath = "Key";
+
+        }
+
+        public void fillComboBoxGeslacht(int selected)
+        {
+            // lijst opvragen
+            var fillGeslacht = dao.fillTfgsvGeslacht(selected);
+            // alle objecten in combobox plaatsen
+          
+
+            cmbGeslacht.ItemsSource = fillGeslacht;
+            cmbGeslacht.DisplayMemberPath = "Value";
+            cmbGeslacht.SelectedValuePath = "Key";
+        }
+        public void fillComboBoxSoort()
+        {
+            // lijst opvragen
+            var fillSoort = dao.fillTfgsvSoort(Convert.ToInt32(cmbGeslacht.SelectedValue));
+            // alle objecten in combobox plaatsen
+
+            cmbSoort.ItemsSource = fillSoort;
+            cmbSoort.DisplayMemberPath = "Value";
+            cmbSoort.SelectedValuePath = "Key";
+        }
+        public void fillComboBoxVariant()
+        {
+            // lijst opvragen
+            var fillVariant = dao.fillTfgsvVariant(Convert.ToInt32(cmbSoort.SelectedValue));
+            // alle objecten in combobox plaatsen
+            
+
+            cmbVariant.ItemsSource = fillVariant;
+            cmbVariant.DisplayMemberPath = "Value";
+            cmbVariant.SelectedValuePath = "Key";
+        }
+
+        // Deze Events zijn als er iets veranderd in de combobox de er een nieuw lijst word aangemaakt voor de combobox te vullen
+
+        private void cmbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {            
+            fillComboBoxFamilie();          
+        }
+
+        private void cmbFamilie_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            fillComboBoxGeslacht(Convert.ToInt32(cmbFamilie.SelectedValue));
+        }
+
+        private void cmbGeslacht_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           fillComboBoxSoort();
+        }
+
+        private void cmbSoort_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           fillComboBoxVariant();
+        }
     }
 }
