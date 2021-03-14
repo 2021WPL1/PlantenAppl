@@ -29,7 +29,7 @@
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
-                
+
             </ComboBox>
             <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="33" Canvas.Left="312" Canvas.Top="79" Width="200">
                 <Label.Effect>
@@ -163,7 +163,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1078,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1080,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -183,7 +183,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="818,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer" HorizontalAlignment="Left" Margin="820,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -501,6 +501,16 @@
 
 
         </Canvas>
+        <Button x:Name="btnExporteergeselecteerd_Copy" Content="Search Tfgsv" HorizontalAlignment="Left" Margin="949,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
 
 
 
