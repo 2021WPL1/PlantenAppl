@@ -45,9 +45,11 @@ namespace PlantenApplicatie
         private void BtnbackgroundColor() 
         {
             // achtergrond van buttons terug normaal zetten
-            btnNaam.Background = Brushes.Olive;
-            btnHabitat.Background = Brushes.Olive;
-            
+            //btnNaam.Background = Brushes.Olive;
+            //btnHabitat.Background = Brushes.Olive;
+            //Het donkere kleur oproepen
+            btnNaam.Background = new SolidColorBrush(Color.FromRgb(71,64,41));
+            btnHabitat.Background = new SolidColorBrush(Color.FromRgb(71, 64, 41));
         }
 
         private void BtnNaam_Click(object sender, RoutedEventArgs e)
@@ -150,11 +152,13 @@ namespace PlantenApplicatie
         private void BtnHabitat_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
-            BtnbackgroundColor();
+            //BtnbackgroundColor();
             // de button highlighten van de geslecteerde zoek functie
             btnHabitat.Background = Brushes.Olive;
             // canvas tonen
-           // cvsHabitat.Visibility = Visibility.Visible;
+            cvsHabitat.Visibility = Visibility.Visible;
+            //knoppen terug neutraal maken van kleur
+            //BtnbackgroundColor();
         }
         public void showResult()
         {
