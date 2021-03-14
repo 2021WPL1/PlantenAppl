@@ -14,6 +14,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="Images\waterval2.jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -29,6 +33,10 @@
     <ProjectReference Include="..\Planten2021.Data\Planten2021.Data.csproj" />
     <ProjectReference Include="..\Planten2021.Domain\Planten2021.Domain.csproj" />
     <ProjectReference Include="..\Queries\Planten.Queries.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\waterval2.jpeg" />
   </ItemGroup>
 
 </Project>
