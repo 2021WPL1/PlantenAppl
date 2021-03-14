@@ -39,7 +39,7 @@ namespace PlantenApplicatie
             // alle canvases verstoppen
             lstResultSearch.Visibility = Visibility.Hidden;
             CvsZoeken.Visibility = Visibility.Hidden;
-            cvsHabitat.Visibility = Visibility.Hidden;
+           cvsHabitat.Visibility = Visibility.Hidden;
         }
 
         private void BtnbackgroundColor() 
@@ -154,7 +154,7 @@ namespace PlantenApplicatie
             // de button highlighten van de geslecteerde zoek functie
             btnHabitat.Background = Brushes.Olive;
             // canvas tonen
-            cvsHabitat.Visibility = Visibility.Visible;
+           // cvsHabitat.Visibility = Visibility.Visible;
         }
         public void showResult()
         {

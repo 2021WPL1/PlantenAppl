@@ -1,19 +1,14 @@
-﻿using Planten2021.Data;
-using Planten2021.Domain.Models;
-using Prism.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Text;
-using System.Windows.Input;
 
-namespace PlantenApplicatie.ViewModels
+namespace PlantenMVVM.ViewModels
 {
     class MainViewModel : ViewModelBase
     {
         //Observable collections
         //objects
-        public ObservableCollection<TfgsvFamilie> tfgsvFamilies{get;set;}
+        public ObservableCollection<TfgsvFamilie> tfgsvFamilies { get; set; }
 
         //ICommands
         public ICommand searchCommand { get; set; }
@@ -30,7 +25,7 @@ namespace PlantenApplicatie.ViewModels
 
         public void search()
         {
-           
+
         }
 
 

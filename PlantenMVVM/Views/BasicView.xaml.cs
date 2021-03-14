@@ -8,16 +8,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PlantenApplicatie.Views
+namespace PlantenMVVM.Views
 {
     /// <summary>
-    /// Interaction logic for BasicView.xaml
+    /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class BasicView : Window
+    public partial class Page1 : Page
     {
-        public BasicView()
+        public Page1()
         {
             InitializeComponent();
         }

@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test-EF", "Test-EF\Test-EF.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Planten.Queries", "Queries\Planten.Queries.csproj", "{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlantenMVVM", "PlantenMVVM\PlantenMVVM.csproj", "{37868F55-EEEA-4F2E-BAB4-D4728FA212D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3D58FBA-5FF1-48A9-A2E4-1438D623077C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37868F55-EEEA-4F2E-BAB4-D4728FA212D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37868F55-EEEA-4F2E-BAB4-D4728FA212D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37868F55-EEEA-4F2E-BAB4-D4728FA212D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37868F55-EEEA-4F2E-BAB4-D4728FA212D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
