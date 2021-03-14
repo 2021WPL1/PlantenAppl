@@ -16,9 +16,9 @@ namespace PlantenMVVM.Views
     /// <summary>
     /// Interaction logic for Page1.xaml
     /// </summary>
-    public partial class Page1 : Page
+    public partial class BasicView : Page
     {
-        public Page1()
+        public BasicView()
         {
             InitializeComponent();
         }

@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Planten2021.Data\Planten2021.Data.csproj" />
     <ProjectReference Include="..\Planten2021.Domain\Planten2021.Domain.csproj" />
   </ItemGroup>
