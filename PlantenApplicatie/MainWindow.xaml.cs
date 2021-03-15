@@ -33,9 +33,12 @@ namespace PlantenApplicatie
             //   BtnbackgroundColor();
             fillComboBoxType();
 
+          
+
 
         }
-    
+
+
 
         private void Frame_Navigated()
         {
@@ -228,35 +231,95 @@ namespace PlantenApplicatie
             cmbVariant.SelectedValuePath = "Key";
         }
 
+        public string Simplify(string stringToSimplify, string id)
+        {
+            string answer = stringToSimplify.Replace(id,"").Replace(",","").Replace("[","").Replace("]","");
+            
+            return answer;
+        }
+
+        Dictionary<string, string> opgeslagenFilters = new Dictionary<string, string>();
+
+        private void fillLstOpgeslagenFilters(string Id, string Name)
+        {
+           
+            //lijst opvragen
+            if (opgeslagenFilters.ContainsKey(Id))
+            {
+                opgeslagenFilters.Remove(Id);
+               
+            }
+            opgeslagenFilters.Add(Id,Name);
+
+            LstOpgeslagenFilters.Items.Clear();
+            //alle objecten in listbox plaatsen
+
+            foreach (var item in opgeslagenFilters)
+            {
+                LstOpgeslagenFilters.Items.Add(item.Value);
+            }
+
+
+        }
+
         // Deze Events zijn als er iets veranderd in de combobox de er een nieuw lijst word aangemaakt voor de combobox te vullen
 
         private void cmbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {            
-            fillComboBoxFamilie();          
+            fillComboBoxFamilie();
+            if (cmbType.SelectedValue != null)
+            {
+                var fillFilters = Simplify(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
+                fillLstOpgeslagenFilters("cmbType", "Type : " + fillFilters);
+            }
+            
         }
 
         private void cmbFamilie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             fillComboBoxGeslacht();
+            if (cmbFamilie.SelectedValue != null)
+            {
+                var fillFilters = Simplify(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
+                fillLstOpgeslagenFilters("cmbFamilie", "Familie : "+fillFilters);
+            }
+           
         }
 
         private void cmbGeslacht_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            fillComboBoxSoort();
+            if (cmbGeslacht.SelectedValue != null)
+            {
+                var fillFilters = Simplify(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
+                fillLstOpgeslagenFilters("cmbGeslacht", "Geslacht : " +fillFilters);
+            }
+           
         }
 
         private void cmbSoort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            fillComboBoxVariant();
+            if (cmbSoort.SelectedValue != null)
+            {
+                var fillFilters = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
+                fillLstOpgeslagenFilters("cmbSoort", "Soort : " +fillFilters);
+            }
+            
         }
-
+        private void cmbVariant_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cmbVariant.SelectedValue != null)
+            {
+                var fillFilters = Simplify(cmbVariant.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
+                fillLstOpgeslagenFilters("cmbVariant", "Variant : " +fillFilters);
+            }
+        }
         private void lstResultSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MessageBox.Show(lstResultSearch.SelectedValue.ToString());
         }
 
-
-
-        // LAPTOP-0UQL3LGS\VIVES
+        
     }
 }
