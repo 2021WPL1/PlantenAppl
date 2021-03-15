@@ -12,7 +12,8 @@ namespace Planten2021.Data
 {
     public class PlantenDataService
     {
-        private static readonly DAO instance = new DAO();
+        //Vernieuwde naam van onze DAO
+        private static readonly PlantenDataService instance = new PlantenDataService();
         private readonly Planten2021Context context;
 
         public static PlantenDataService Instance()
@@ -22,7 +23,7 @@ namespace Planten2021.Data
         //private contructor
         private PlantenDataService()
         {
-            this.context = new _Planten2021Context();
+            this.context = new Planten2021Context();
         }
 
         //search functions
