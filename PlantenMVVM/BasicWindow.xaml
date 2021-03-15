@@ -1,14 +1,13 @@
-﻿<Page x:Class="PlantenMVVM.Views.BasicView"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PlantenMVVM.Views"
-      mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="1250"
-      Title="BasicView">
+﻿<Window x:Class="PlantenMVVM.BasicWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlantenMVVM"
+        mc:Ignorable="d"
+        Title="Main" Height="900" Width="1250">
 
-    <!--<Grid Opacity="0.9">
+    <Grid Opacity="0.9">
         <Grid.RowDefinitions>
             <RowDefinition Height="181*"/>
             <RowDefinition Height="261*"/>
@@ -17,7 +16,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            --><!--add background image--><!--
+            <!--add background image-->
             <ImageBrush  ImageSource="pack://application:,,,/images/waterval.jpeg" Stretch="Fill"  />
 
         </Grid.Background>
@@ -28,7 +27,9 @@
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31">
+            <ComboBox x:Name="cmbType"
+                      
+                      Canvas.Left="6" Canvas.Top="41" Width="200" Height="31" SelectionChanged="cmbType_SelectionChanged">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -212,5 +213,5 @@
             </Button.Effect>
         </Button>
         <ListBox x:Name="lstResultSearch" Margin="42,184,47,42" Visibility="Hidden" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14"/>
-    </Grid>-->
-</Page>
+    </Grid>
+</Window>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Planten2021.Data;
+using PlantenMVVM.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,11 +20,24 @@ namespace PlantenMVVM
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class BasicWindow : Window
     {
-        public Main()
+        private MainViewModel viewModel;
+
+
+        public BasicWindow()
         {
+          
             InitializeComponent();
+            viewModel = new MainViewModel();
+            DataContext = viewModel;
+            viewModel.fillTypeInComboBox();
+
+        }
+
+        private void cmbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

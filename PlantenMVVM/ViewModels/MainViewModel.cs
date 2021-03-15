@@ -13,26 +13,45 @@ namespace PlantenMVVM.ViewModels
     {
         //Observable collections
         //objects
-        public ObservableCollection<TfgsvFamilie> tfgsvFamilies { get; set; }
-
+        public ObservableCollection<TfgsvType> tfgsvTypes { get; set; }
         //ICommands
+        //zoekfunctie binden
         public ICommand searchCommand { get; set; }
+        //de types in de combobox in de stoppen
+        public ICommand typeInComboBox { get; set; }
         //DAO
         private PlantenDataService _plantenDataService { get; set; }
 
-        public MainViewModel(PlantenDataService plantenDataService)
+        public MainViewModel()
         {
-            tfgsvFamilies = new ObservableCollection<TfgsvFamilie>();
+            //Observable Collections
+            tfgsvTypes = new ObservableCollection<TfgsvType>();
 
-            searchCommand = new DelegateCommand(search);
-            this._plantenDataService = plantenDataService;
+            //eventueel nog zoeken hoe deze meegegeven kan worden in de constructor
+            _plantenDataService = PlantenDataService.Instance();
+
+            typeInComboBox = new DelegateCommand(fillTypeInComboBox);
+
+            //tfgsvFamilies = new ObservableCollection<TfgsvFamilie>();
+
+            //searchCommand = new DelegateCommand(search);
+
         }
 
-        public void search()
+        public void fillTypeInComboBox()
         {
+            // lijst opvragen
+            var fillType = _plantenDataService.fillTfgsvType();
+            tfgsvTypes.Clear();
+            foreach (KeyValuePair<long, string> type in fillType)
+            {
+                // tfgsvTypes.Add(type.Value.);
+            }
+            // alle objecten in combobox plaatsen
+            //cmbType.ItemsSource = filltype;
+            //cmbType.DisplayMemberPath = "Value";
+            //cmbType.SelectedValuePath = "Key";
 
         }
-
-
     }
 }
