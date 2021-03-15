@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Planten2021.Data;
 
 namespace Planten2021.Domain.Models
 {
@@ -58,7 +59,7 @@ namespace Planten2021.Domain.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=SJMTCMFS\\VIVES; Database=Planten2021; Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer(Constants.connectionstring);
             }
         }
 
