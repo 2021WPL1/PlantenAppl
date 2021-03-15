@@ -164,10 +164,10 @@ namespace Planten2021.Data
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
-        public List<Plant> getAllPlants()
+        public Dictionary<long,string>getAllPlants()
         {
             //R: Needs adjustments after databaseupdate
-            var plants = context.Plant.ToList();
+            var plants = context.Plant.ToDictionary(s => s.PlantId, s => s.Type);
             return plants;
         }
        
