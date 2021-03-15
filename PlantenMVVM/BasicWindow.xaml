@@ -29,7 +29,7 @@
             </Label>
             <ComboBox x:Name="cmbType"
                       ItemsSource= "{Binding tfgsvTypes}"                      
-                Canvas.Left="6" Canvas.Top="41" Width="200" Height="31" SelectionChanged="cmbType_SelectionChanged">
+                Canvas.Left="6" Canvas.Top="41" Width="200" Height="31">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>

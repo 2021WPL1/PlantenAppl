@@ -31,13 +31,12 @@ namespace PlantenMVVM
             InitializeComponent();
             viewModel = new MainViewModel();
             DataContext = viewModel;
+
+            //methods om de comboboxen te vullen met info uit de databank
             viewModel.fillTypeInComboBox();
 
         }
 
-        private void cmbType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
     }
 }

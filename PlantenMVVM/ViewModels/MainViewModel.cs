@@ -16,6 +16,7 @@ namespace PlantenMVVM.ViewModels
 
         //string als type gebruiken in de OC om de comboboxvulling makkelijker te maken
         public ObservableCollection<string> tfgsvTypes { get; set; }
+        public ObservableCollection<string> tfgsvFamilie { get; set; }
         //ICommands
         //zoekfunctie binden
         public ICommand searchCommand { get; set; }
@@ -41,7 +42,7 @@ namespace PlantenMVVM.ViewModels
             //searchCommand = new DelegateCommand(search);
 
         }
-
+        //methods to call and bind
         public void fillTypeInComboBox()
         {
             //lijst opvragen
@@ -61,6 +62,16 @@ namespace PlantenMVVM.ViewModels
             //cmbType.ItemsSource = filltype;
             //cmbType.DisplayMemberPath = "Value";
             //cmbType.SelectedValuePath = "Key";
+        }
+        public void fillComboBoxFamilie(string selectedTypeValue)
+        {
+            //selected value nemen, in dit geval een string
+            //adhv die type string gaan zoeken naar de ID,
+            //type ID dan gebruiken 
+            // lijst opvragen
+
+            //var fillFamilie = _plantenDataService.fillTfgsvFamilie();
+            // alle objecten in OC plaatsen
 
         }
     }
