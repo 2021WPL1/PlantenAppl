@@ -165,11 +165,32 @@ namespace Planten2021.Data
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
-        public List<Plant> getAllPlants()
+        public Dictionary<long,string>getAllPlants()
         {
             //R: Needs adjustments after databaseupdate DONE
             var plants = context.Plant.ToList();
-            return plants;
+           // .ToDictionary(s => s.PlantId, s => s.Type);
+            var dictionaryresult = new Dictionary<long, string>();
+            int icount = 1;
+
+            foreach (var plant in plants)
+            {
+                dictionaryresult.Add
+                                    (icount,
+                                    "Plantnaam = " + plant.Fgsv + Environment.NewLine
+                                    + "type = " + plant.Type + Environment.NewLine
+                                    + "famillie = " + plant.Familie + Environment.NewLine
+                                    + "geslacht = " + plant.Geslacht + Environment.NewLine
+                                    + "soort = " + plant.Soort + Environment.NewLine
+                                    + "variant = " + plant.Variant + Environment.NewLine
+                                    + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
+                                    + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
+                                    );
+                icount++;
+
+            }
+
+            return dictionaryresult;
         }
        
         //A function that takes a string, puts it to lowercase, 
@@ -203,24 +224,54 @@ namespace Planten2021.Data
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvFamilie.Distinct().Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);          
-            return selection;
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            if (selectedItem > 0)
+            {              
+                var selection = context.TfgsvFamilie.Distinct().Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvFamilie.Distinct().ToDictionary(s => s.FamileId, s => s.Familienaam);
+                return selection;
+            }
+               
+           
         }
         public Dictionary<long, string> fillTfgsvGeslacht(int selectedItem)
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvGeslacht.Where(s => s.FamilieFamileId == selectedItem).Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
-            return selection;
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            if (selectedItem > 0)
+            {
+                var selection = context.TfgsvGeslacht.Where(s => s.FamilieFamileId == selectedItem).Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvGeslacht.Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+                return selection;
+            }
+          
         }
         public Dictionary<long, string> fillTfgsvSoort(int selectedItem)
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value 
-            var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
-            return selection;         
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            if (selectedItem > 0)
+            {
+                var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvSoort.Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                return selection;
+            }        
         }
 
         public Dictionary<long, string> fillTfgsvVariant(int selectedItem)
@@ -228,8 +279,21 @@ namespace Planten2021.Data
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvVariant.Where(s => s.SoortSoortid == selectedItem).Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
-            return selection;
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            if (selectedItem > 0)
+            {
+                var selection = context.TfgsvVariant.Where(s => s.SoortSoortid == selectedItem).Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvVariant.Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
+                return selection;
+            }
+
+
+
+     
         }
 
     }

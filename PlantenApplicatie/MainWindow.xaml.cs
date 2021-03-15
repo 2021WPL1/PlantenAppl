@@ -30,10 +30,12 @@ namespace PlantenApplicatie
             dao = PlantenDataService.Instance();
 
             Frame_Navigated();
-            //   BtnbackgroundColor();
+            // De comboBoxen vullen.
             fillComboBoxType();
-
-
+            fillComboBoxFamilie();
+            fillComboBoxGeslacht();
+            fillComboBoxSoort();
+            fillComboBoxVariant();
         }
     
 
@@ -79,12 +81,39 @@ namespace PlantenApplicatie
             lstResultSearch.Visibility = Visibility.Visible;
             //simplify toepassen op inhoud textboxes
 
-            lstResultSearch.Items.Clear();
+            var listCheckcmb = new List<string>();
+
+            if (cmbType.SelectedValue != null)
+            {
+
+            }
+            if (cmbFamilie.SelectedValue != null)
+            {
+
+            }
+            if (cmbGeslacht.SelectedValue != null)
+            {
+
+            }
+            if (cmbSoort.SelectedValue != null)
+            {
+
+            }
+            if (cmbVariant.SelectedValue != null)
+            {
+
+            }
+        
+
             //generates a list with all plants.
             var listPlants = dao.getAllPlants();
 
+            lstResultSearch.ItemsSource = listPlants;
+            lstResultSearch.DisplayMemberPath = "Value";
+            lstResultSearch.SelectedValuePath = "Key";
+
             ////generate a string to show witch criteria we searched on
-            string criteria = "Dit is een gefilterde lijst van planten op onderstaande zoekcriteria. : " + Environment.NewLine + Environment.NewLine;
+            // string criteria = "Dit is een gefilterde lijst van planten op onderstaande zoekcriteria. : " + Environment.NewLine + Environment.NewLine;
 
             //if (cmbType.SelectedValue != null)
             //{
@@ -124,12 +153,9 @@ namespace PlantenApplicatie
             //    criteria += " geslacht : " + txtGeslacht.Text.ToString() + Environment.NewLine;
             //    dao.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
             //}
-          
 
-           
-            PrintInfo(listPlants);
-            lblCriteria.Content = string.Empty;
-            lblCriteria.Content += criteria.ToString();
+
+          
         }
         
 
@@ -247,6 +273,11 @@ namespace PlantenApplicatie
         private void cmbSoort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            fillComboBoxVariant();
+        }
+
+        private void lstResultSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show(lstResultSearch.SelectedValue.ToString());
         }
 
 

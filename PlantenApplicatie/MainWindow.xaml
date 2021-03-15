@@ -215,7 +215,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <ListBox x:Name="lstResultSearch" Margin="42,184,47,42" Visibility="Hidden" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14"/>
+        <ListBox x:Name="lstResultSearch" Margin="42,184,47,42" Visibility="Hidden" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" SelectionChanged="lstResultSearch_SelectionChanged"/>
 
 
         <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Hidden" Grid.RowSpan="2" Background="#7FFFFFFF">
