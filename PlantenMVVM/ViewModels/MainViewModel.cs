@@ -13,7 +13,9 @@ namespace PlantenMVVM.ViewModels
     {
         //Observable collections
         //objects
-        public ObservableCollection<TfgsvType> tfgsvTypes { get; set; }
+
+        //string als type gebruiken in de OC om de comboboxvulling makkelijker te maken
+        public ObservableCollection<string> tfgsvTypes { get; set; }
         //ICommands
         //zoekfunctie binden
         public ICommand searchCommand { get; set; }
@@ -25,7 +27,9 @@ namespace PlantenMVVM.ViewModels
         public MainViewModel()
         {
             //Observable Collections
-            tfgsvTypes = new ObservableCollection<TfgsvType>();
+            //TO TRY var collection = new ObservableCollection<KeyValuePair<TKey, TValue>>();
+            //To Try myCollection = new ObservableCollection<MyClass>(myDictionary.Values)
+            tfgsvTypes = new ObservableCollection<string>();
 
             //eventueel nog zoeken hoe deze meegegeven kan worden in de constructor
             _plantenDataService = PlantenDataService.Instance();
@@ -40,14 +44,20 @@ namespace PlantenMVVM.ViewModels
 
         public void fillTypeInComboBox()
         {
-            // lijst opvragen
-            var fillType = _plantenDataService.fillTfgsvType();
+            //lijst opvragen
+            var fillType = _plantenDataService.fillTfgsvType().Values;
+
+            //lijst terug leeg maken
             tfgsvTypes.Clear();
-            foreach (KeyValuePair<long, string> type in fillType)
+            //elk type wordt aan de list toegevoegd
+            //de list wordt gebruikt als ItemsSource voor de combobox type
+            foreach (var type in fillType)
             {
-                // tfgsvTypes.Add(type.Value.);
+                tfgsvTypes.Add(type);
             }
+
             // alle objecten in combobox plaatsen
+            
             //cmbType.ItemsSource = filltype;
             //cmbType.DisplayMemberPath = "Value";
             //cmbType.SelectedValuePath = "Key";
