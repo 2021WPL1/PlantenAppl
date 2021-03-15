@@ -136,7 +136,7 @@ namespace Planten2021.Data
         }
         //A function that returns a list of plants
         //the returned list are all the plants that contain the given string in their geslacht
-        
+
         //Robin: removed "static", couldn't reach context
         public List<Plant> OnGeslacht(string geslacht)
         {
@@ -165,11 +165,11 @@ namespace Planten2021.Data
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
-        public Dictionary<long,string>getAllPlants()
+        public Dictionary<long, string> getAllPlants()
         {
             //R: Needs adjustments after databaseupdate DONE
             var plants = context.Plant.ToList();
-           // .ToDictionary(s => s.PlantId, s => s.Type);
+            // .ToDictionary(s => s.PlantId, s => s.Type);
             var dictionaryresult = new Dictionary<long, string>();
             int icount = 1;
 
@@ -192,7 +192,7 @@ namespace Planten2021.Data
 
             return dictionaryresult;
         }
-       
+
         //A function that takes a string, puts it to lowercase, 
         //changes all the ' and " chars and replaces them by a space
         //next it deletes al the spaces and returns the string.
@@ -210,12 +210,12 @@ namespace Planten2021.Data
         /// </summary>
         /// <returns></returns>
 
-        public Dictionary<long,string> fillTfgsvType() 
+        public Dictionary<long, string> fillTfgsvType()
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
+            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);
             return selection;
         }
 
@@ -226,7 +226,7 @@ namespace Planten2021.Data
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
-            {              
+            {
                 var selection = context.TfgsvFamilie.Distinct().Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
                 return selection;
             }
@@ -235,8 +235,8 @@ namespace Planten2021.Data
                 var selection = context.TfgsvFamilie.Distinct().ToDictionary(s => s.FamileId, s => s.Familienaam);
                 return selection;
             }
-               
-           
+
+
         }
         public Dictionary<long, string> fillTfgsvGeslacht(int selectedItem)
         {
@@ -254,7 +254,7 @@ namespace Planten2021.Data
                 var selection = context.TfgsvGeslacht.Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
                 return selection;
             }
-          
+
         }
         public Dictionary<long, string> fillTfgsvSoort(int selectedItem)
         {
@@ -271,7 +271,7 @@ namespace Planten2021.Data
             {
                 var selection = context.TfgsvSoort.Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
                 return selection;
-            }        
+            }
         }
 
         public Dictionary<long, string> fillTfgsvVariant(int selectedItem)
@@ -290,11 +290,14 @@ namespace Planten2021.Data
                 var selection = context.TfgsvVariant.Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
                 return selection;
             }
-
-
-
-     
         }
+        //methods voor de MVVM
+        public int searchIdType(string selectedValue)
+        {
 
+            var selectedType = context.TfgsvType.FirstOrDefault(t => t.Planttypenaam == selectedValue);
+            var selectedTypeId = (int)selectedType.Planttypeid;
+            return selectedTypeId;
+        }
     }
 }

@@ -70,6 +70,13 @@ namespace PlantenMVVM.ViewModels
             //type ID dan gebruiken 
             // lijst opvragen
 
+            //lijst leegmaken
+            tfgsvFamilie.Clear();
+
+            var familie = _plantenDataService.fillTfgsvFamilie(_plantenDataService.searchIdType(selectedTypeValue));
+
+            //foreach(var familie in familie)
+
             //var fillFamilie = _plantenDataService.fillTfgsvFamilie();
             // alle objecten in OC plaatsen
 
