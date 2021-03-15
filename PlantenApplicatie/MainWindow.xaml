@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:PlantenApplicatie"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1250">
-    <Grid>
+    <Grid Opacity="0.9">
         <Grid.RowDefinitions>
             <RowDefinition Height="181*"/>
             <RowDefinition Height="261*"/>
@@ -16,7 +16,7 @@
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <!--add background image-->
-            <ImageBrush  Stretch="Fill"/>
+            <ImageBrush  Stretch="Fill" ImageSource="/waterval.jpeg"/>
         </Grid.Background>
 
         <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >

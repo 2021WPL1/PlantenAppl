@@ -182,29 +182,23 @@ namespace PlantenApplicatie
             cmbType.ItemsSource = filltype;
             cmbType.DisplayMemberPath = "Value";
             cmbType.SelectedValuePath = "Key";
-
         }
 
         public void fillComboBoxFamilie()
-        {
-           
+        {         
             // lijst opvragen
             var fillFamilie = dao.fillTfgsvFamilie(Convert.ToInt32(cmbType.SelectedValue));
             // alle objecten in combobox plaatsen
-
             cmbFamilie.ItemsSource = fillFamilie;
             cmbFamilie.DisplayMemberPath = "Value";
             cmbFamilie.SelectedValuePath = "Key";
-
         }
 
-        public void fillComboBoxGeslacht(int selected)
+        public void fillComboBoxGeslacht()
         {
             // lijst opvragen
-            var fillGeslacht = dao.fillTfgsvGeslacht(selected);
+            var fillGeslacht = dao.fillTfgsvGeslacht(Convert.ToInt32(cmbFamilie.SelectedValue));
             // alle objecten in combobox plaatsen
-          
-
             cmbGeslacht.ItemsSource = fillGeslacht;
             cmbGeslacht.DisplayMemberPath = "Value";
             cmbGeslacht.SelectedValuePath = "Key";
@@ -214,7 +208,6 @@ namespace PlantenApplicatie
             // lijst opvragen
             var fillSoort = dao.fillTfgsvSoort(Convert.ToInt32(cmbGeslacht.SelectedValue));
             // alle objecten in combobox plaatsen
-
             cmbSoort.ItemsSource = fillSoort;
             cmbSoort.DisplayMemberPath = "Value";
             cmbSoort.SelectedValuePath = "Key";
@@ -224,8 +217,6 @@ namespace PlantenApplicatie
             // lijst opvragen
             var fillVariant = dao.fillTfgsvVariant(Convert.ToInt32(cmbSoort.SelectedValue));
             // alle objecten in combobox plaatsen
-            
-
             cmbVariant.ItemsSource = fillVariant;
             cmbVariant.DisplayMemberPath = "Value";
             cmbVariant.SelectedValuePath = "Key";
@@ -240,7 +231,7 @@ namespace PlantenApplicatie
 
         private void cmbFamilie_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            fillComboBoxGeslacht(Convert.ToInt32(cmbFamilie.SelectedValue));
+            fillComboBoxGeslacht();
         }
 
         private void cmbGeslacht_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -252,5 +243,9 @@ namespace PlantenApplicatie
         {
            fillComboBoxVariant();
         }
+
+
+
+        // LAPTOP-0UQL3LGS\VIVES
     }
 }

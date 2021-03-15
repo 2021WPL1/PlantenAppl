@@ -13,7 +13,7 @@ namespace Planten2021.Data
     public class DAO
     {
         private static readonly DAO instance = new DAO();
-        private readonly Planten2021Context context;
+        private readonly _Planten2021Context context;
 
         public static DAO Instance()
         {
@@ -22,7 +22,7 @@ namespace Planten2021.Data
         //private contructor
         private DAO()
         {
-            this.context = new Planten2021Context();
+            this.context = new _Planten2021Context();
         }
 
         //search functions
@@ -190,33 +190,43 @@ namespace Planten2021.Data
 
         public Dictionary<long,string> fillTfgsvType() 
         {
-            // lijst type opvragen en returnen
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
             var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
             return selection;
         }
 
         public Dictionary<long, string> fillTfgsvFamilie(int selectedItem)
         {
-            // eerst de lijst die nodig is opvragen 
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
             var selection = context.TfgsvFamilie.Distinct().Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);          
             return selection;
         }
         public Dictionary<long, string> fillTfgsvGeslacht(int selectedItem)
         {
-            // eerst de lijst die nodig is opvragen 
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
             var selection = context.TfgsvGeslacht.Where(s => s.FamilieFamileId == selectedItem).Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
             return selection;
         }
         public Dictionary<long, string> fillTfgsvSoort(int selectedItem)
         {
-            // eerst de lijst die nodig is opvragen 
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value 
             var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
-            return selection;
+            return selection;         
         }
 
         public Dictionary<long, string> fillTfgsvVariant(int selectedItem)
         {
-            // eerst de lijst die nodig is opvragen 
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
             var selection = context.TfgsvVariant.Where(s => s.SoortSoortid == selectedItem).Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
             return selection;
         }
