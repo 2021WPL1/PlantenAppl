@@ -45,6 +45,7 @@ namespace PlantenApplicatie
             lstResultSearch.Visibility = Visibility.Hidden;
             CvsZoeken.Visibility = Visibility.Hidden;
             cvsHabitat.Visibility = Visibility.Hidden;
+            cvsDetails.Visibility = Visibility.Hidden;
         }
 
         private void BtnbackgroundColor() 
@@ -85,6 +86,7 @@ namespace PlantenApplicatie
             Frame_Navigated();
             BtnbackgroundColor();
             lstResultSearch.Visibility = Visibility.Visible;
+            cvsDetails.Visibility = Visibility.Visible;
             // de lijst planten op vragen
             var listPlants = dao.getAllPlants();
             
@@ -300,6 +302,38 @@ namespace PlantenApplicatie
         private void lstResultSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             MessageBox.Show(lstResultSearch.SelectedValue.ToString());
+            var plants =  dao.detailsAanvullen(Convert.ToInt64(lstResultSearch.SelectedValue));
+
+            foreach (var item in plants)
+            {
+                lblFamilie.Content = item.Familie;
+                lblGeslacht.Content = item.Geslacht;
+                lblSoort.Content = item.Soort;
+                lblType.Content = item.Type;
+                lblVariant.Content = item.Variant;
+                lblNederlandseNaam.Content = item.NederlandsNaam;
+                lblPlantdichtheidMin.Content = item.PlantdichtheidMin;
+                lblPlanctdichtheidMax.Content = item.PlantdichtheidMax;
+                lblStatus.Content = item.Status;
+                lblPlantId.Content = item.PlantId;
+              //  lblBezonning.Content = i
+
+
+
+                //lstDetails.Items.Add
+                //                    ("Plantnaam = " + plant.Fgsv + Environment.NewLine
+                //                    + "type = " + plant.Type + Environment.NewLine
+                //                    + "famillie = " + plant.Familie + Environment.NewLine
+                //                    + "geslacht = " + plant.Geslacht + Environment.NewLine
+                //                    + "soort = " + plant.Soort + Environment.NewLine
+                //                    + "variant = " + plant.Variant + Environment.NewLine
+                //                    + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
+                //                    + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
+                //                    + "status = " + plant.Status.ToString()
+                //                    ); ;
+
+
+            }
         }
 
 

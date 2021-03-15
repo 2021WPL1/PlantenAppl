@@ -7,10 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1250">
     <Grid Opacity="0.9">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="181*"/>
-            <RowDefinition Height="261*"/>
-        </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
@@ -214,7 +211,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <ListBox x:Name="lstResultSearch" Margin="42,184,47,42" Visibility="Hidden" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" SelectionChanged="lstResultSearch_SelectionChanged"/>
+        <ListBox x:Name="lstResultSearch" Margin="42,184,696,42" Visibility="Visible" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" SelectionChanged="lstResultSearch_SelectionChanged"/>
 
 
         <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Hidden" Grid.RowSpan="2" Background="#7FFFFFFF">
@@ -501,6 +498,46 @@
 
 
         </Canvas>
+       
+        <Canvas x:Name="cvsDetails" Visibility="Visible" Margin="560,184,47,42" Grid.RowSpan="2" Background="#99FFFFFF" >
+            <Label Content="Type:" Canvas.Left="41" Canvas.Top="59"/>
+            <Label Content="Familie:" Canvas.Left="41" Canvas.Top="90"/>
+            <Label Content="Geslacht:" Canvas.Left="40" Canvas.Top="118"/>
+            <Label Content="Soort:" Canvas.Left="46" Canvas.Top="148"/>
+            <Label Content="Variant:" Canvas.Left="42" Canvas.Top="174"/>
+            <Label x:Name="lblType" BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="58"/>
+            <Label x:Name="lblFamilie" BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="86"/>
+            <Label x:Name="lblGeslacht" BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="113"/>
+            <Label x:Name="lblSoort"  BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="141"/>
+            <Label x:Name="lblVariant" BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="169"/>
+            <Label Content="PlantId:" Canvas.Left="40" Canvas.Top="33"/>
+            <Label x:Name="lblPlantId" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="30"/>
+            <Label Content="Nederlanse &#xD;&#xA;naam :" Canvas.Left="40" Canvas.Top="200"/>
+            <Label x:Name="lblNederlandseNaam" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="197" Height="44"/>
+            <Label Content="Plantdichtheid" Canvas.Left="40" Canvas.Top="247"/>
+            <Label Content="Min :" Canvas.Left="40" Canvas.Top="278"/>
+            <Label x:Name="lblPlantdichtheidMin" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="282"/>
+            <Label Content="Max :" Canvas.Left="39" Canvas.Top="309"/>
+            <Label x:Name="lblPlanctdichtheidMax" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="310"/>
+            <Label Content="Status :" Canvas.Left="39" Canvas.Top="338"/>
+            <Label x:Name="lblStatus" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="337"/>
+            <Image x:Name="imgFotoPlant" Height="169" Canvas.Left="454" Canvas.Top="23" Width="168"/>
+            <Label Content="Bezonning :" Canvas.Left="39" Canvas.Top="364"/>
+            <Label x:Name="lblBezonning" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="365"/>
+            <Label Content="Grondsoort :" Canvas.Left="39" Canvas.Top="395"/>
+            <Label x:Name="lblGrondsoort" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="392"/>
+            <Label Content="Vochtbehoefte :" Canvas.Left="39" Canvas.Top="421"/>
+            <Label x:Name="lblVochtbehoefte" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="420"/>
+            <Label Content="Voedingsbehoefte :" Canvas.Left="40" Canvas.Top="452"/>
+            <Label x:Name="lblVoedingsbehoefte" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="448" Height="34"/>
+            <Label Content="Antagonische&#xD;&#xA;Omgeving :" Canvas.Left="39" Canvas.Top="483"/>
+            <Label x:Name="lblAntagonischeOmgeving" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="482" Height="43"/>
+            
+
+        </Canvas>
+        
+        <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,184,47,42" Background="#99FFFFFF"/>
+        
 
 
 

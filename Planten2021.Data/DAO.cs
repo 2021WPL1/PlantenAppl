@@ -274,12 +274,25 @@ namespace Planten2021.Data
             {
                 var selection = context.TfgsvVariant.Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
                 return selection;
-            }
-
-
-
-     
+            }   
         }
 
+
+        public List<Plant> detailsAanvullen(long ID)
+        {
+            var plants = context.Plant
+                .Include(s => s.Abiotiek)
+                .Include(s => s.Fenotype)
+                .Include(s => s.UpdatePlant)
+                .Include(s => s.Commensalisme)
+                .Include(s => s.BeheerMaand)
+                .Include(s => s.CommensalismeMulti)
+                .Include(s => s.AbiotiekMulti)
+                .Include(s => s.Foto)
+                .Include(s => s.ExtraEigenschap)
+                .Where(s => s.PlantId == ID)
+                .ToList();
+            return plants;
+        }
     }
 }
