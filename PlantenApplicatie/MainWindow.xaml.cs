@@ -71,88 +71,115 @@ namespace PlantenApplicatie
 
         }
 
+
+        public string SimplifyGetallPlants(string stringToSimplify, string key)
+        {
+            //alle onnodige tekens er uit halen
+            string answer = stringToSimplify.Replace(key, "").Replace("[", "").Replace("]", "").Replace(",", "").Replace(" ","");
+            return answer;
+        }
+
+
         private void BtnZoeken_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
             BtnbackgroundColor();
             lstResultSearch.Visibility = Visibility.Visible;
-            //simplify toepassen op inhoud textboxes
-
-            var listCheckcmb = new List<string>();
-
-            if (cmbType.SelectedValue != null)
+            // de lijst planten op vragen
+            var listPlants = dao.getAllPlants();
+            
+            // kijken over er iets in de combobox is aan geduid
+            if (Convert.ToInt32(cmbType.SelectedValue) != 0)
             {
-
-            }
+                // alle items in list plant overlopen
+                foreach (var item in listPlants.ToList())
+                {
+                    // alle onnodige tekens er uit halen 
+                    var simp = SimplifyGetallPlants(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
+                    //als het zoekwoord er niet in voor komt verwijderen.
+                    if (item.Type.Contains(simp) == false)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }// Zie commentaar lijn 91
             if (cmbFamilie.SelectedValue != null)
             {
+                foreach (var item in listPlants.ToList())
+                {
+                    var simp = SimplifyGetallPlants(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
 
-            }
+                    if (item.Familie.Contains(simp) == false)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }// Zie commentaar lijn 91
             if (cmbGeslacht.SelectedValue != null)
             {
+                foreach (var item in listPlants.ToList())
+                {
+                    var simp = SimplifyGetallPlants(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
 
-            }
+                    if (item.Geslacht.Contains(simp) == false)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }// Zie commentaar lijn 91
             if (cmbSoort.SelectedValue != null)
             {
+                foreach (var item in listPlants.ToList())
+                {
+                    var simp = SimplifyGetallPlants(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
 
-            }
+                    if (item.Soort.Contains(simp) == false)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }// Zie commentaar lijn 91
             if (cmbVariant.SelectedValue != null)
             {
+                foreach (var item in listPlants.ToList())
+                {
+                    var simp = SimplifyGetallPlants(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
 
+                    if (item.Variant.Contains(simp) == false)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
             }
-        
 
-            //generates a list with all plants.
-            var listPlants = dao.getAllPlants();
+            // new dictionary aanmaken 
+            var dictionaryresult = new Dictionary<long, string>();
 
-            lstResultSearch.ItemsSource = listPlants;
+            // dictionary clearen zo da je niet het bijft opvullen met hezelfde als je meerdere keren op zoeken clickt
+            dictionaryresult.Clear();
+            // alles toevoegen aan een dictionare met als plantid key en de rest spreek voor zich
+            foreach (var plant in listPlants)
+            {
+                dictionaryresult.Add
+                                    (plant.PlantId,
+                                    "Plantnaam = " + plant.Fgsv + Environment.NewLine
+                                    + "type = " + plant.Type + Environment.NewLine
+                                    + "famillie = " + plant.Familie + Environment.NewLine
+                                    + "geslacht = " + plant.Geslacht + Environment.NewLine
+                                    + "soort = " + plant.Soort + Environment.NewLine
+                                    + "variant = " + plant.Variant + Environment.NewLine
+                                    + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
+                                    + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
+                                    );
+            }
+
+            // alles laden in result
+            lstResultSearch.ItemsSource = dictionaryresult;
             lstResultSearch.DisplayMemberPath = "Value";
             lstResultSearch.SelectedValuePath = "Key";
 
-            ////generate a string to show witch criteria we searched on
-            // string criteria = "Dit is een gefilterde lijst van planten op onderstaande zoekcriteria. : " + Environment.NewLine + Environment.NewLine;
 
-            //if (cmbType.SelectedValue != null)
-            //{
-            //    ComboBoxItem type = (ComboBoxItem)cmbType.SelectedItem;
-            //    string value = type.Content.ToString();
-            //    criteria += " type : " + value + Environment.NewLine;
-            //    dao.narrowDownOnType(listPlants, value);
-            //}
-
-            //if (txtNaam.Text != string.Empty)
-            //{
-            //    criteria += " naam : " + txtNaam.Text.ToString() + Environment.NewLine;
-            //    dao.narrowDownOnName(listPlants, txtNaam.Text.ToString());
-            //}
-
-            //if (txtFamilie.Text != string.Empty)
-            //{
-            //    criteria += " familie : " + txtFamilie.Text.ToString() + Environment.NewLine;
-            //    dao.narrowDownOnFamily(listPlants, txtFamilie.Text.ToString());
-            //}
-
-            //if (txtCultivar.Text != string.Empty)
-            //{
-            //    criteria += " cultivar : " + txtCultivar.Text.ToString() + Environment.NewLine;
-            //    dao.narrowDownOnVariant(listPlants, txtCultivar.Text.ToString());
-            //}
-
-            //if (txtSoort.Text != string.Empty)
-            //{
-            //    criteria += " soort : " + txtSoort.Text.ToString() + Environment.NewLine;
-            //    dao.narrowDownOnSoort(listPlants, txtSoort.Text.ToString());
-
-            //}
-
-            //if (txtGeslacht.Text != string.Empty)
-            //{
-            //    criteria += " geslacht : " + txtGeslacht.Text.ToString() + Environment.NewLine;
-            //    dao.narrowDownOnGeslacht(listPlants, txtGeslacht.Text.ToString());
-            //}
-
-
-          
+            
         }
         
 

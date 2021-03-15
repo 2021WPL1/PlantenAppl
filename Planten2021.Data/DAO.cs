@@ -35,10 +35,10 @@ namespace Planten2021.Data
         public void narrowDownOnType(List<Plant> listPlants, string type)
         {
             foreach (Plant plant in listPlants.ToList())
-            {
+            {           
                 if (plant.Type != null)
                 {
-                    var simplifyString = Simplify(plant.Type.ToString());
+                    var simplifyString = Simplify(plant.Geslacht.ToString());
                     if (simplifyString.Contains(Simplify(type)) != true)
                     {
                         listPlants.Remove(plant);
@@ -135,7 +135,7 @@ namespace Planten2021.Data
         }
         //A function that returns a list of plants
         //the returned list are all the plants that contain the given string in their geslacht
-        
+
         //Robin: removed "static", couldn't reach context
         public List<Plant> OnGeslacht(string geslacht)
         {
@@ -163,34 +163,18 @@ namespace Planten2021.Data
         }
         /* HELP FUNCTIONS */
 
+
+       
+
+
         //get a list of all the plants.
-        public Dictionary<long,string>getAllPlants()
+        public List<Plant>getAllPlants()
         {
-            //R: Needs adjustments after databaseupdate
-
+            // kijken hoeveel er zijn geselecteerd
+            
             var plants = context.Plant.ToList();
-           // .ToDictionary(s => s.PlantId, s => s.Type);
-            var dictionaryresult = new Dictionary<long, string>();
-            int icount = 1;
 
-            foreach (var plant in plants)
-            {
-                dictionaryresult.Add
-                                    (icount,
-                                    "Plantnaam = " + plant.Fgsv + Environment.NewLine
-                                    + "type = " + plant.Type + Environment.NewLine
-                                    + "famillie = " + plant.Familie + Environment.NewLine
-                                    + "geslacht = " + plant.Geslacht + Environment.NewLine
-                                    + "soort = " + plant.Soort + Environment.NewLine
-                                    + "variant = " + plant.Variant + Environment.NewLine
-                                    + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
-                                    + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
-                                    );
-                icount++;
-
-            }
-
-            return dictionaryresult;
+            return plants;
         }
        
         //A function that takes a string, puts it to lowercase, 
@@ -271,7 +255,8 @@ namespace Planten2021.Data
             {
                 var selection = context.TfgsvSoort.Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
                 return selection;
-            }        
+            }
+            
         }
 
         public Dictionary<long, string> fillTfgsvVariant(int selectedItem)

@@ -19,7 +19,7 @@
             <ImageBrush  Stretch="Fill" ImageSource="/waterval.jpeg"/>
         </Grid.Background>
 
-        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
+        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Hidden" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
             <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
                 <Label.Effect>
                     <DropShadowEffect/>
