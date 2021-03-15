@@ -30,10 +30,12 @@ namespace PlantenApplicatie
             dao = DAO.Instance();
 
             Frame_Navigated();
-            //   BtnbackgroundColor();
+            // De comboBoxen vullen.
             fillComboBoxType();
-
-
+            fillComboBoxFamilie();
+            fillComboBoxGeslacht();
+            fillComboBoxSoort();
+            fillComboBoxVariant();
         }
     
 
@@ -76,7 +78,28 @@ namespace PlantenApplicatie
             lstResultSearch.Visibility = Visibility.Visible;
             //simplify toepassen op inhoud textboxes
 
-          
+            var listCheckcmb = new List<string>();
+
+            if (cmbType.SelectedValue != null)
+            {
+
+            }
+            if (cmbFamilie.SelectedValue != null)
+            {
+
+            }
+            if (cmbGeslacht.SelectedValue != null)
+            {
+
+            }
+            if (cmbSoort.SelectedValue != null)
+            {
+
+            }
+            if (cmbVariant.SelectedValue != null)
+            {
+
+            }
         
 
             //generates a list with all plants.
@@ -129,10 +152,7 @@ namespace PlantenApplicatie
             //}
 
 
-
-            //PrintInfo(listPlants);
-            // lblCriteria.Content = string.Empty;
-            // lblCriteria.Content += criteria.ToString();
+          
         }
         
 
