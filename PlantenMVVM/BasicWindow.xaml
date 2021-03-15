@@ -65,7 +65,9 @@
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
-            <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30">
+            <ComboBox x:Name="cmbFamilie" 
+                      ItemsSource="{Binding tfgsvFamilies}"
+                      Canvas.Left="211" Canvas.Top="42" Width="200" Height="30">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>

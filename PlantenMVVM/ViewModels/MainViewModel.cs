@@ -16,7 +16,7 @@ namespace PlantenMVVM.ViewModels
 
         //string als type gebruiken in de OC om de comboboxvulling makkelijker te maken
         public ObservableCollection<string> tfgsvTypes { get; set; }
-        public ObservableCollection<string> tfgsvFamilie { get; set; }
+        public ObservableCollection<string> tfgsvFamilies { get; set; }
         //ICommands
         //zoekfunctie binden
         public ICommand searchCommand { get; set; }
@@ -31,13 +31,14 @@ namespace PlantenMVVM.ViewModels
             //TO TRY var collection = new ObservableCollection<KeyValuePair<TKey, TValue>>();
             //To Try myCollection = new ObservableCollection<MyClass>(myDictionary.Values)
             tfgsvTypes = new ObservableCollection<string>();
+            tfgsvFamilies = new ObservableCollection<string>();
 
             //eventueel nog zoeken hoe deze meegegeven kan worden in de constructor
             _plantenDataService = PlantenDataService.Instance();
 
             typeInComboBox = new DelegateCommand(fillTypeInComboBox);
 
-            //tfgsvFamilies = new ObservableCollection<TfgsvFamilie>();
+
 
             //searchCommand = new DelegateCommand(search);
 
@@ -71,11 +72,14 @@ namespace PlantenMVVM.ViewModels
             // lijst opvragen
 
             //lijst leegmaken
-            tfgsvFamilie.Clear();
+            tfgsvFamilies.Clear();
 
-            var familie = _plantenDataService.fillTfgsvFamilie(_plantenDataService.searchIdType(selectedTypeValue));
+            var familie = _plantenDataService.fillTfgsvFamilie(_plantenDataService.searchIdType(selectedTypeValue)).Values;
 
-            //foreach(var familie in familie)
+            foreach(var f in familie)
+            {
+                tfgsvFamilies.Add(f);
+            }
 
             //var fillFamilie = _plantenDataService.fillTfgsvFamilie();
             // alle objecten in OC plaatsen
