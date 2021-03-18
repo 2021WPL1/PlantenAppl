@@ -381,7 +381,7 @@ namespace PlantenApplicatie
         {
             if (lstResultSearch.SelectedValue != null)
             {
-                MessageBox.Show(lstResultSearch.SelectedValue.ToString());
+                //MessageBox.Show(lstResultSearch.SelectedValue.ToString());
                 var plants = dao.detailsAanvullen(Convert.ToInt64(lstResultSearch.SelectedValue));
 
                 foreach (var item in plants)
@@ -395,7 +395,7 @@ namespace PlantenApplicatie
                     lblPlantdichtheidMin.Content = item.PlantdichtheidMin;
                     lblPlanctdichtheidMax.Content = item.PlantdichtheidMax;
                     lblStatus.Content = item.Status;
-                    lblPlantId.Content = item.PlantId;
+                    lblPlantId.Content = item.PlantId; 
                     //  lblBezonning.Content = i
 
 
