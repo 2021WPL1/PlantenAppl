@@ -1,19 +1,25 @@
-﻿using Planten2021.Data.Models;
+﻿using Planten2021.Domain.Models;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Test_EF
 {
     class Program
     {
-        private static Planten2021Context context = new Planten2021Context();
-        static void Main(string[] args)
+        public string Simplify(string stringToSimplify)
         {
-            var test = context.TfgsvFamilie.FirstOrDefault(f => f.Familienaam == "ALLIACEAE");
-            string nameTest = test.Familienaam;
-            
-            Console.WriteLine("De famillienaam = " + nameTest);
-            Console.WriteLine("test");
+            string answer = stringToSimplify.Replace("\'", " ").Replace("\"", " ");
+            answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
+            return answer;
         }
+        public void Main(string[] args)
+        {
+            Console.WriteLine(Simplify("vebkob  regeg"));
+
+        }
+
+            
+        
     }
 }

@@ -5,8 +5,551 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlantenApplicatie"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="900" Width="1250">
+    <Grid Opacity="0.9">
 
-    </Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <!--add background image-->
+            <ImageBrush  Stretch="Fill" ImageSource="/waterval.jpeg"/>
+        </Grid.Background>
+
+        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Hidden" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
+            <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31" SelectionChanged="cmbType_SelectionChanged" >
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+
+            </ComboBox>
+            <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="33" Canvas.Left="312" Canvas.Top="79" Width="200">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Variant" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="32" Canvas.Left="826" Canvas.Top="8" Width="200">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="312" Canvas.Top="117" Width="200">
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="211" Canvas.Top="8" Width="200">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32" Canvas.Left="516" Canvas.Top="80" Width="200" RenderTransformOrigin="0.487,0.673">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <TextBox x:Name="txtNaam" TextWrapping="Wrap" Height="32" Canvas.Left="516" Canvas.Top="117" Width="200">
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+            <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" SelectionChanged="cmbFamilie_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <Label Content="Geslacht" Canvas.Left="417" Canvas.Top="7" Width="200"  BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Soort" Canvas.Left="623" Canvas.Top="8" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30" SelectionChanged="cmbGeslacht_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30" SelectionChanged="cmbSoort_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29" SelectionChanged="cmbVariant_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+        </Canvas>
+
+        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="560,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" RenderTransformOrigin="0.492,0.564" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" Click="BtnHabitat_Click" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="948,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="1078,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1078,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="818,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="818,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633"  Background="#FF474029"  Click="BtnNaam_Click" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" >
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385" Click="BtnZoeken_Click" Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
+        <ListBox x:Name="lstResultSearch" Margin="42,184,0,42" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" SelectionChanged="lstResultSearch_SelectionChanged" HorizontalAlignment="Left" Width="512"/>
+
+
+        <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Hidden" Grid.RowSpan="2" Background="#7FFFFFFF">
+            <Canvas.Effect>
+                <DropShadowEffect/>
+            </Canvas.Effect>
+            <Label Content="Ontwikkelingssnelheid" Canvas.Left="422" Width="146" Height="25" FontWeight="Bold" Canvas.Top="6"/>
+            <ComboBox x:Name="cboOntwikkelingssnelheid" Canvas.Left="423" Canvas.Top="43" Width="133" BorderBrush="Blue">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="traag"/>
+                <ComboBoxItem Content="matig"/>
+                <ComboBoxItem Content="snel"/>
+            </ComboBox>
+            <Label Content="Habitat" Canvas.Left="30" Canvas.Top="109" Width="80" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="bezonning" Canvas.Left="132" Canvas.Top="109" Width="80" Height="33" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Sociabiliteit" Canvas.Left="262" Canvas.Top="108" Width="88" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="1"    Height="25" Canvas.Left="30" Canvas.Top="144" Width="26" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="2" Height="25" Canvas.Left="30" Canvas.Top="188" Width="26" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="3" Height="25" Canvas.Left="30" Canvas.Top="227" Width="26" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="4" Height="25" Canvas.Left="30" Canvas.Top="271" Width="26" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="5" Height="25" Canvas.Left="30" Canvas.Top="305" Width="26" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="cbxHabitat1" Content="CheckBox" Canvas.Left="74" Canvas.Top="150" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="cbxHabitat2" Content="CheckBox" Canvas.Left="74" Canvas.Top="188" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="cbxHabitat3" Content="CheckBox" Canvas.Left="74" Canvas.Top="227" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="cbxHabitat4" Content="CheckBox" Canvas.Left="74" Canvas.Top="271" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="cbxHabitat5" Content="CheckBox" Canvas.Left="74" Canvas.Top="310" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="  Z" Canvas.Left="132" Canvas.Top="145" Width="38" Height="25" BorderBrush="Orange" FontWeight="Bold"/>
+            <Label Content="Z-HS" Canvas.Left="132" Canvas.Top="188" Width="44" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="HS" Canvas.Left="132" Canvas.Top="227" Width="38" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="HS-S" Canvas.Left="132" Canvas.Top="266" Width="44" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   S" Canvas.Left="132" Canvas.Top="305" Width="38" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox Content="CheckBox" Canvas.Left="198" Canvas.Top="150" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="CheckBox" Canvas.Left="198" Canvas.Top="188" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="CheckBox" Canvas.Left="198" Canvas.Top="233" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="CheckBox" Canvas.Left="198" Canvas.Top="271" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="CheckBox" Canvas.Left="198" Canvas.Top="310" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content=" I " Canvas.Left="262" Canvas.Top="144"  Width="26" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" II " Canvas.Left="262" Canvas.Top="187" Width="26" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" III " Canvas.Left="262" Canvas.Top="226" Width="26" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" IV " Canvas.Left="262" Canvas.Top="267" Width="34" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" V" Canvas.Left="262" Canvas.Top="302"  Width="26" Height="25" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox Content="CheckBox" Canvas.Left="328" Canvas.Top="149" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="CheckBox" Canvas.Left="328" Canvas.Top="187" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="CheckBox" Canvas.Left="328" Canvas.Top="229" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="CheckBox" Canvas.Left="328" Canvas.Top="268" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="CheckBox" Canvas.Left="328" Canvas.Top="309" Height="15" Width="14" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="1. Zogenaamde bodembedekker,&#xD;&#xA; weinig verdraagzaam met andere planten" Canvas.Left="737" Canvas.Top="119" Height="46" Width="295" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="125" Height="14" Width="15" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="166" Height="16" Width="15" BorderBrush="Gray">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="204" Height="16" Width="15" BorderBrush="Gray" RenderTransformOrigin="0.5,0.909">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="   Pollenwaarde" Canvas.Left="607" Canvas.Top="1" Height="30" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="     Nectarwaarde" Canvas.Left="772" Canvas.Top="1" Height="30" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="    Max" Canvas.Left="607" Canvas.Top="15" Height="30" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="    Max" Canvas.Left="782" Canvas.Top="15" Height="30" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="    Min" Canvas.Left="832" Canvas.Top="15" Height="30" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <ComboBox Canvas.Left="607" Canvas.Top="43" Width="60" BorderBrush="Blue">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox Canvas.Left="667" Canvas.Top="43" Width="60" BorderBrush="Blue">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox Canvas.Left="777" Canvas.Top="43" Width="60" BorderBrush="Blue">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox Canvas.Left="837" Canvas.Top="43" Width="60" BorderBrush="Blue">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <Label Content="      Bijvriendelijk" Canvas.Left="438" Canvas.Top="145" Height="25" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="  Eetbaar/Kruidbaar" Canvas.Left="448" Canvas.Top="183" Height="28" Width="146" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="         Geurend" Canvas.Left="443" Canvas.Top="222" Height="25" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="  Vlindervriendelijk" Canvas.Left="443" Canvas.Top="263" Height="26" Width="145" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="     Vorstgevoelig" Canvas.Left="448" Canvas.Top="300" Height="30" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Button Content="Opslaan filters" Width="172" Height="50" BorderBrush="#FF2AE633"  Canvas.Left="933" Canvas.Top="15" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Label Content="  Min" Height="30" Width="60" Canvas.Left="672" Canvas.Top="15" FontWeight="Bold" FontSize="14"/>
+            <CheckBox Content="" Canvas.Left="418" Canvas.Top="151">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="" Canvas.Left="418" Canvas.Top="189" RenderTransformOrigin="0.35,0.864">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="" Canvas.Left="418" Canvas.Top="271">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="" Canvas.Left="418" Canvas.Top="229">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="" Canvas.Left="418" Canvas.Top="310">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="Levensduur" Canvas.Left="717" Canvas.Top="94" Height="26" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="236" Height="16" Width="15" BorderBrush="Gray" RenderTransformOrigin="0.533,1.036">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="266" Height="16" Width="15" BorderBrush="Gray" RenderTransformOrigin="0.533,1.036">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="2. Verdraagzame bodembedekker,  &#xD;&#xA;ook voor een soortenrijke aanplant" Canvas.Left="737" Canvas.Top="159" Height="44" Width="300" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="3. Woekerende soort, worteluitlopers" Canvas.Left="737" Canvas.Top="199" Height="30" Width="570" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="4. Weinig of niet woekerend, goed te combineren" Canvas.Left="737" Canvas.Top="231" Height="35" Width="341" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.067"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.332"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <Label Content="5. Robuuste, meestal grote plant, ook als solitair" Canvas.Left="737" Canvas.Top="257" Height="35" Width="341" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.067"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.332"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="292" Height="16" Width="15" BorderBrush="Gray" RenderTransformOrigin="0.533,1.036">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="6. Zich sterk uitzaaiende soort" Canvas.Left="737" Canvas.Top="283" Height="35" Width="341" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.067"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.332"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="318" Height="16" Width="15" BorderBrush="Gray" RenderTransformOrigin="0.533,1.036">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="7. Kortlevende plant" Canvas.Left="737" Canvas.Top="309" Height="35" Width="341" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.067"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.332"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="344" Height="16" Width="15" BorderBrush="Gray" RenderTransformOrigin="0.533,1.036">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="8. Geeft een goede snijbloem" Canvas.Left="737" Canvas.Top="335" Height="35" Width="341" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.067"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.332"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+            <CheckBox Content="" Canvas.Left="717" Canvas.Top="370" Height="16" Width="15" BorderBrush="Gray" RenderTransformOrigin="0.533,1.036">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="9. Stelt meer eisen qua 'eten en drinken' of winterbescherming" Canvas.Left="737" Canvas.Top="361" Height="35" Width="341" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.5">
+                <Label.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleY="0.067"/>
+                        <RotateTransform/>
+                        <TranslateTransform Y="0.332"/>
+                    </TransformGroup>
+                </Label.RenderTransform>
+            </Label>
+
+
+        </Canvas>
+
+        <Canvas x:Name="cvsDetails" Visibility="Visible" Margin="560,184,0,42" Background="#99FFFFFF" HorizontalAlignment="Left" Width="643" >
+            <Label Content="Type:" Canvas.Left="42" Canvas.Top="59" FontWeight="Bold" Width="60"/>
+            <Label Content="Familie:" Canvas.Left="42" Canvas.Top="90" FontWeight="Bold" Width="80"/>
+            <Label Content="Geslacht:" Canvas.Left="41" Canvas.Top="118" FontWeight="Bold" Width="92"/>
+            <Label Content="Soort:" Canvas.Left="44" Canvas.Top="148" FontWeight="Bold" Width="67"/>
+            <Label Content="Variant:" Canvas.Left="44" Canvas.Top="174" FontWeight="Bold" Width="80"/>
+            <Label x:Name="lblType" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="58" Width="297" FontWeight="Bold"/>
+            <Label x:Name="lblFamilie" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="86" Width="297" FontWeight="Bold" Height="27"/>
+            <Label x:Name="lblGeslacht" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="113" Width="297" FontWeight="Bold"/>
+            <Label x:Name="lblSoort" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="141" Width="297" FontWeight="Bold"/>
+            <Label x:Name="lblVariant" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="169" Width="297" FontWeight="Bold"/>
+            <Label Content="PlantId:" Canvas.Left="41" Canvas.Top="33" FontWeight="Bold" Width="80"/>
+            <Label x:Name="lblPlantId" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="30" Width="297" FontWeight="Bold"/>
+            <Label Content="Nederlanse &#xD;&#xA;naam :" Canvas.Left="41" Canvas.Top="200" FontWeight="Bold" Width="115"/>
+            <Label x:Name="lblNederlandseNaam" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="197" Height="44" Width="297" FontWeight="Bold"/>
+            <Label Content="Plantdichtheid" Canvas.Left="41" Canvas.Top="247" FontWeight="Bold" Width="138"/>
+            <Label Content="Min :" Canvas.Left="41" Canvas.Top="278" FontWeight="Bold" Width="58"/>
+            <Label x:Name="lblPlantdichtheidMin" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="282" Width="297" FontWeight="Bold"/>
+            <Label Content="Max :" Canvas.Left="39" Canvas.Top="309" FontWeight="Bold" Width="62"/>
+            <Label x:Name="lblPlanctdichtheidMax" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="310" Width="297" FontWeight="Bold"/>
+            <Label Content="Status :" Canvas.Left="39" Canvas.Top="338" FontWeight="Bold" Width="77"/>
+            <Label x:Name="lblStatus" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="337" Width="297" FontWeight="Bold"/>
+            <Image x:Name="imgFotoPlant" Height="169" Canvas.Left="454" Canvas.Top="23" Width="168"/>
+            <Label Content="Bezonning :" Canvas.Left="39" Canvas.Top="364" FontWeight="Bold" Width="115"/>
+            <Label x:Name="lblBezonning" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="365" Width="297" FontWeight="Bold"/>
+            <Label Content="Grondsoort :" Canvas.Left="39" Canvas.Top="395" FontWeight="Bold" Width="123"/>
+            <Label x:Name="lblGrondsoort" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="392" Width="297" FontWeight="Bold"/>
+            <Label Content="Vochtbehoefte :" Canvas.Left="39" Canvas.Top="421" FontWeight="Bold" Width="150"/>
+            <Label x:Name="lblVochtbehoefte" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="420" Width="297" FontWeight="Bold"/>
+            <Label Content="Voedingsbehoefte :" Canvas.Left="41" Canvas.Top="452" FontWeight="Bold" Width="179"/>
+            <Label x:Name="lblVoedingsbehoefte" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="448" Height="34" Width="297" FontWeight="Bold"/>
+            <Label Content="Antagonische&#xD;&#xA;Omgeving :" Canvas.Left="39" Canvas.Top="483" FontWeight="Bold" Width="131"/>
+            <Label x:Name="lblAntagonischeOmgeving" Content="" BorderThickness="1" Canvas.Left="167" Canvas.Top="482" Height="43" Width="297" FontWeight="Bold"/>
+
+
+        </Canvas>
+
+        <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,184,47,42" Background="#99FFFFFF"/>
+
+
+        <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="641" Background="#99F5F5F5" FontWeight="Bold"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="688,51,0,0" VerticalAlignment="Top" Height="128" Width="125" Click="btnReset_Click" Background="#FF5A533F" BorderBrush="#FF40E948" Foreground="#FFABC36C" FontWeight="Bold" FontSize="24">
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+     </Grid>
 </Window>
