@@ -33,8 +33,10 @@ namespace PlantenMVVM
             DataContext = viewModel;
 
             //methods om de comboboxen te vullen met info uit de databank
+            //type
             viewModel.fillTypeInComboBox();
-
+            //cascade type->family
+            viewModel.fillComboBoxFamilie();
         }
 
 

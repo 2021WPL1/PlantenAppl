@@ -218,8 +218,12 @@ namespace Planten2021.Data
             var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);
             return selection;
         }
+        public IQueryable<TfgsvType> fgsvTypes()
+        {
+            return context.TfgsvType;
+        }
 
-        public Dictionary<long, string> fillTfgsvFamilie(int selectedItem)
+        public Dictionary<long, string> fillTfgsvFamilie(long selectedItem)
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
