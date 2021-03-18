@@ -32,9 +32,7 @@ namespace PlantenApplicatie
 
             Frame_Navigated();
             // De comboBoxen vullen.
-
-            // new dictionary aanmaken hier komen de resultaten in met als long het plant id en string is de plant info
-            var dictionaryresult = new Dictionary<long, string>();
+   
 
             fillComboBoxType();
 
@@ -44,7 +42,10 @@ namespace PlantenApplicatie
             fillComboBoxVariant();
         }
 
-
+        // new dictionary aanmaken hier komen de resultaten in met als long het plant id en string is de plant info
+        Dictionary<long, string> dictionaryresult = new Dictionary<long, string>();
+        // dit is de lijst waar geslecteerde filters inkomen men als eerste string  bv. de combobox naam en als 2 string de info
+        Dictionary<string, string> opgeslagenFilters = new Dictionary<string, string>();
 
         private void Frame_Navigated()
         {
@@ -72,21 +73,6 @@ namespace PlantenApplicatie
             CvsZoeken.Visibility = Visibility.Visible;
         }
 
-        private void BtnFilterOpslaanZoeken_Click(object sender, RoutedEventArgs e)
-        {
-            // nu nog nie nodig
-            Frame_Navigated();
-
-        }
-
-
-        public string SimplifyGetallPlants(string stringToSimplify, string key)
-        {
-            //alle onnodige tekens er uit halen
-            string answer = stringToSimplify.Replace(key, "").Replace("[", "").Replace("]", "").Replace(",", "").Replace(" ","");
-            return answer;
-        }
-
 
         private void BtnZoeken_Click(object sender, RoutedEventArgs e)
         {
@@ -101,7 +87,7 @@ namespace PlantenApplicatie
             if (Convert.ToInt32(cmbType.SelectedValue) != 0)
             {
                 // alle onnodige tekens er uit halen 
-                var simp = SimplifyGetallPlants(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
+                var simp = Simplify(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
                 // alle items in list plant overlopen
                 foreach (var item in listPlants.ToList())
                 {                   
@@ -114,7 +100,7 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbFamilie.SelectedValue != null)
             {
-                var simp = SimplifyGetallPlants(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
+                var simp = Simplify(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
 
                 foreach (var item in listPlants.ToList())
                 {
@@ -127,7 +113,7 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbGeslacht.SelectedValue != null)
             {
-                var simp = SimplifyGetallPlants(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
+                var simp = Simplify(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
 
                 foreach (var item in listPlants.ToList())
                 {
@@ -140,7 +126,7 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbSoort.SelectedValue != null)
             {
-                var simp = SimplifyGetallPlants(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
+                var simp = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
                
                 foreach (var item in listPlants.ToList())
                 {
@@ -153,7 +139,7 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbVariant.SelectedValue != null)
             {
-                var simp = SimplifyGetallPlants(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
+                var simp = Simplify(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
                 MessageBox.Show(simp);
                 foreach (var item in listPlants.ToList())
                 {
@@ -171,7 +157,7 @@ namespace PlantenApplicatie
                 }
             }
 
-            Dictionary<long, string> dictionaryresult = new Dictionary<long, string>();
+            
 
             // dictionary clearen zo da je niet het bijft opvullen met hezelfde als je meerdere keren op zoeken clickt
             dictionaryresult.Clear();
@@ -201,26 +187,7 @@ namespace PlantenApplicatie
         }
         
 
-        //this function will print the result in the listbox
-        //needs to be repaced by MVVM
-        public void PrintInfo(List<Plant> listPlants)
-        {
-
-            foreach (Plant plant in listPlants)
-            {
-             lstResultSearch.Items.Add
-                                 ( "Plantnaam = " + plant.Fgsv + Environment.NewLine
-                                 + "type = " + plant.Type + Environment.NewLine
-                                 + "famillie = " + plant.Familie + Environment.NewLine
-                                 + "geslacht = " + plant.Geslacht + Environment.NewLine
-                                 + "soort = " + plant.Soort + Environment.NewLine
-                                 + "variant = " + plant.Variant + Environment.NewLine
-                                 + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
-                                 + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
-                                 );
-
-            }
-        }
+       
 
         private void BtnHabitat_Click(object sender, RoutedEventArgs e)
         {
@@ -231,13 +198,7 @@ namespace PlantenApplicatie
             // canvas tonen
             cvsHabitat.Visibility = Visibility.Visible;
         }
-        public void showResult()
-        {
-            Page page = new Page();
-            page.Width = 50;
-            page.Height = 100;
-        }
-     
+
 
         /// <summary>
         /// /////////////////////////////// CASCADE SYSTEEM
@@ -249,6 +210,7 @@ namespace PlantenApplicatie
         {        
             // lijst opvragen
             var filltype = dao.fillTfgsvType();
+           
             // alle objecten in combobox plaatsen
             cmbType.ItemsSource = filltype;
             cmbType.DisplayMemberPath = "Value";
@@ -278,6 +240,17 @@ namespace PlantenApplicatie
         {
             // lijst opvragen
             var fillSoort = dao.fillTfgsvSoort(Convert.ToInt32(cmbGeslacht.SelectedValue));
+
+            foreach (var item in fillSoort)
+            {
+                if (item.Value.Contains("__"))
+                {
+                    fillSoort.Remove(item.Key);
+                }
+                
+                dao.Simplify(item.Value);
+
+            }
             // alle objecten in combobox plaatsen
             cmbSoort.ItemsSource = fillSoort;
             cmbSoort.DisplayMemberPath = "Value";
@@ -295,32 +268,34 @@ namespace PlantenApplicatie
 
         public string Simplify(string stringToSimplify, string id)
         {
-            string answer = stringToSimplify.Replace(id,"").Replace(",","").Replace("[","").Replace("]","");
-            
+            // Door dictionary moeten we een string simplifyen zo dat we deze kunnen gebruiken
+            string answer = stringToSimplify.Replace(id, "").Replace(",", "").Replace("[", "").Replace("]", "");
+            answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
 
-        Dictionary<string, string> opgeslagenFilters = new Dictionary<string, string>();
+        
 
         private void fillLstOpgeslagenFilters(string Id, string Name)
         {
            
-            //lijst opvragen
+            //lijst opvragen kijken of een bepaalde compo box al eens voor komt in de opgeslagen lijst is dat zo dan word die verwijderd
             if (opgeslagenFilters.ContainsKey(Id))
             {
                 opgeslagenFilters.Remove(Id);
                
             }
+            // voegt niewe filter toe aan opgeslagen filter
             opgeslagenFilters.Add(Id,Name);
-
+            
+            // de list box clearen
             LstOpgeslagenFilters.Items.Clear();
             //alle objecten in listbox plaatsen
-
+            // elke item in opgeslagen filter overlopen en
             foreach (var item in opgeslagenFilters)
             {
                 LstOpgeslagenFilters.Items.Add(item.Value);
             }
-
 
         }
 
@@ -364,6 +339,16 @@ namespace PlantenApplicatie
         { 
             if (cmbSoort.SelectedValue != null)
             {
+                cmbVariant.SelectedIndex = -1;
+                foreach (var item in opgeslagenFilters)
+                {
+                    if (opgeslagenFilters.ContainsKey("cmbVariant"))
+                    {
+                        opgeslagenFilters.Remove("cmbVariant");
+                    }
+                }
+
+               
                 var fillFilters = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbSoort", "Soort : " +fillFilters);
             }
@@ -373,6 +358,14 @@ namespace PlantenApplicatie
         {
             if (cmbVariant.SelectedValue != null)
             {
+                cmbSoort.SelectedIndex = -1;
+                foreach (var item in opgeslagenFilters)
+                {   
+                    if (opgeslagenFilters.ContainsKey("cmbSoort"))
+                    {
+                        opgeslagenFilters.Remove("cmbSoort");
+                    }
+                }
                 var fillFilters = Simplify(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbVariant", "Variant : " +fillFilters);
             }
@@ -381,7 +374,7 @@ namespace PlantenApplicatie
         {
             if (lstResultSearch.SelectedValue != null)
             {
-                MessageBox.Show(lstResultSearch.SelectedValue.ToString());
+                //MessageBox.Show(lstResultSearch.SelectedValue.ToString());
                 var plants = dao.detailsAanvullen(Convert.ToInt64(lstResultSearch.SelectedValue));
 
                 foreach (var item in plants)
@@ -446,11 +439,10 @@ namespace PlantenApplicatie
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             LstOpgeslagenFilters.Items.Clear();
+            opgeslagenFilters.Clear();
+
+            dictionaryresult.Clear();
             
-
-
-            lstResultSearch.ItemsSource = null;
-
             cmbType.SelectedIndex = -1;
             cmbFamilie.SelectedIndex = -1;
             cmbGeslacht.SelectedIndex = -1;
