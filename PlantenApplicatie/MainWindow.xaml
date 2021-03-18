@@ -6,81 +6,48 @@
         xmlns:local="clr-namespace:PlantenApplicatie"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1250">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="181*"/>
-            <RowDefinition Height="261*"/>
-        </Grid.RowDefinitions>
+    <Grid Opacity="0.9">
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <!--add background image-->
-            <ImageBrush  Stretch="Fill"/>
+            <ImageBrush  Stretch="Fill" ImageSource="/waterval.jpeg"/>
         </Grid.Background>
 
-        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="hidden" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
+        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Hidden" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
             <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31" >
+            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31" SelectionChanged="cmbType_SelectionChanged" >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
-                
+
             </ComboBox>
             <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="33" Canvas.Left="312" Canvas.Top="79" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <Label Content="Geslacht" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="34" Canvas.Left="211" Canvas.Top="6" Width="200" RenderTransformOrigin="0.47,0.244">
+            <Label Content="Variant" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="32" Canvas.Left="826" Canvas.Top="8" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <Label Content="Cultivar" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="31" Canvas.Left="621" Canvas.Top="8" Width="200">
-                <Label.Effect>
-                    <DropShadowEffect/>
-                </Label.Effect>
-            </Label>
-            <Label Content="Soort" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="32" Canvas.Left="416" Canvas.Top="7" Width="200">
-                <Label.Effect>
-                    <DropShadowEffect/>
-                </Label.Effect>
-            </Label>
-            <TextBox x:Name="txtGeslacht" Canvas.Left="211" Canvas.Top="41" Text="Geranium" TextWrapping="Wrap" Width="200" Height="32">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
-            <TextBox x:Name="txtSoort" Text="macrorrhizum" TextWrapping="Wrap" Height="33" Canvas.Left="416" Canvas.Top="41" Width="200">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
-            <TextBox x:Name="txtCultivar" TextWrapping="Wrap" Height="32" Canvas.Left="621" Canvas.Top="42" Width="200">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
             <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="312" Canvas.Top="117" Width="200">
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
-            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="826" Canvas.Top="8" Width="200">
+            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="211" Canvas.Top="8" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <TextBox x:Name="txtFamilie" Text="GERANIACEAE" TextWrapping="Wrap" Height="32" Canvas.Left="826" Canvas.Top="42" Width="200">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
             <Label Content="Naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32" Canvas.Left="516" Canvas.Top="80" Width="200" RenderTransformOrigin="0.487,0.673">
                 <Label.Effect>
                     <DropShadowEffect/>
@@ -91,6 +58,36 @@
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
+            <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" SelectionChanged="cmbFamilie_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <Label Content="Geslacht" Canvas.Left="417" Canvas.Top="7" Width="200"  BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Soort" Canvas.Left="623" Canvas.Top="8" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30" SelectionChanged="cmbGeslacht_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30" SelectionChanged="cmbSoort_SelectionChanged">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
         </Canvas>
 
         <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
@@ -214,7 +211,7 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
-        <ListBox x:Name="lstResultSearch" Margin="42,184,47,42" Visibility="Hidden" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14"/>
+        <ListBox x:Name="lstResultSearch" Margin="42,184,696,42" Visibility="Visible" Grid.RowSpan="2" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" SelectionChanged="lstResultSearch_SelectionChanged"/>
 
 
         <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Hidden" Grid.RowSpan="2" Background="#7FFFFFFF">
@@ -501,6 +498,46 @@
 
 
         </Canvas>
+       
+        <Canvas x:Name="cvsDetails" Visibility="Visible" Margin="560,184,47,42" Grid.RowSpan="2" Background="#99FFFFFF" >
+            <Label Content="Type:" Canvas.Left="41" Canvas.Top="59"/>
+            <Label Content="Familie:" Canvas.Left="41" Canvas.Top="90"/>
+            <Label Content="Geslacht:" Canvas.Left="40" Canvas.Top="118"/>
+            <Label Content="Soort:" Canvas.Left="46" Canvas.Top="148"/>
+            <Label Content="Variant:" Canvas.Left="42" Canvas.Top="174"/>
+            <Label x:Name="lblType" BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="58"/>
+            <Label x:Name="lblFamilie" BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="86"/>
+            <Label x:Name="lblGeslacht" BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="113"/>
+            <Label x:Name="lblSoort"  BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="141"/>
+            <Label x:Name="lblVariant" BorderBrush="Red" BorderThickness="1" Content="" Canvas.Left="167" Canvas.Top="169"/>
+            <Label Content="PlantId:" Canvas.Left="40" Canvas.Top="33"/>
+            <Label x:Name="lblPlantId" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="30"/>
+            <Label Content="Nederlanse &#xD;&#xA;naam :" Canvas.Left="40" Canvas.Top="200"/>
+            <Label x:Name="lblNederlandseNaam" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="197" Height="44"/>
+            <Label Content="Plantdichtheid" Canvas.Left="40" Canvas.Top="247"/>
+            <Label Content="Min :" Canvas.Left="40" Canvas.Top="278"/>
+            <Label x:Name="lblPlantdichtheidMin" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="282"/>
+            <Label Content="Max :" Canvas.Left="39" Canvas.Top="309"/>
+            <Label x:Name="lblPlanctdichtheidMax" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="310"/>
+            <Label Content="Status :" Canvas.Left="39" Canvas.Top="338"/>
+            <Label x:Name="lblStatus" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="337"/>
+            <Image x:Name="imgFotoPlant" Height="169" Canvas.Left="454" Canvas.Top="23" Width="168"/>
+            <Label Content="Bezonning :" Canvas.Left="39" Canvas.Top="364"/>
+            <Label x:Name="lblBezonning" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="365"/>
+            <Label Content="Grondsoort :" Canvas.Left="39" Canvas.Top="395"/>
+            <Label x:Name="lblGrondsoort" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="392"/>
+            <Label Content="Vochtbehoefte :" Canvas.Left="39" Canvas.Top="421"/>
+            <Label x:Name="lblVochtbehoefte" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="420"/>
+            <Label Content="Voedingsbehoefte :" Canvas.Left="40" Canvas.Top="452"/>
+            <Label x:Name="lblVoedingsbehoefte" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="448" Height="34"/>
+            <Label Content="Antagonische&#xD;&#xA;Omgeving :" Canvas.Left="39" Canvas.Top="483"/>
+            <Label x:Name="lblAntagonischeOmgeving" Content="" BorderBrush="Red" BorderThickness="1" Canvas.Left="167" Canvas.Top="482" Height="43"/>
+            
+
+        </Canvas>
+        
+        <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,184,47,42" Background="#99FFFFFF"/>
+        
 
         <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="671" Background="#99F5F5F5" FontWeight="Bold"/>
         <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="734,51,0,0" VerticalAlignment="Top" Height="128" Width="62" Background="#99F5F5F5" Click="btnReset_Click"/>

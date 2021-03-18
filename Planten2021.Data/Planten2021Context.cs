@@ -58,8 +58,7 @@ namespace Planten2021.Domain.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-
-                optionsBuilder.UseSqlServer(Constants.connectionstring);
+              optionsBuilder.UseSqlServer(Constants.connectionstring);
             }
         }
 
@@ -145,7 +144,7 @@ namespace Planten2021.Domain.Models
 
                 entity.Property(e => e.Bezonning)
                     .HasColumnName("bezonning")
-                    .HasMaxLength(10);
+                    .HasMaxLength(30);
 
                 entity.Property(e => e.Grondsoort)
                     .HasColumnName("grondsoort")
@@ -269,6 +268,10 @@ namespace Planten2021.Domain.Models
                 entity.Property(e => e.Sociabiliteit)
                     .HasColumnName("sociabiliteit")
                     .HasMaxLength(50);
+
+                entity.Property(e => e.Waarde)
+                    .HasColumnName("waarde")
+                    .HasMaxLength(100);
             });
 
             modelBuilder.Entity<CommStrategie>(entity =>
