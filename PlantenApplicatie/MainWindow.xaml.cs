@@ -268,6 +268,7 @@ namespace PlantenApplicatie
 
         public string Simplify(string stringToSimplify, string id)
         {
+            // Door dictionary moeten we een string simplifyen zo dat we deze kunnen gebruiken
             string answer = stringToSimplify.Replace(id, "").Replace(",", "").Replace("[", "").Replace("]", "");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
@@ -278,18 +279,19 @@ namespace PlantenApplicatie
         private void fillLstOpgeslagenFilters(string Id, string Name)
         {
            
-            //lijst opvragen
+            //lijst opvragen kijken of een bepaalde compo box al eens voor komt in de opgeslagen lijst is dat zo dan word die verwijderd
             if (opgeslagenFilters.ContainsKey(Id))
             {
                 opgeslagenFilters.Remove(Id);
                
             }
+            // voegt niewe filter toe aan opgeslagen filter
             opgeslagenFilters.Add(Id,Name);
             
-
+            // de list box clearen
             LstOpgeslagenFilters.Items.Clear();
             //alle objecten in listbox plaatsen
-
+            // elke item in opgeslagen filter overlopen en
             foreach (var item in opgeslagenFilters)
             {
                 LstOpgeslagenFilters.Items.Add(item.Value);
