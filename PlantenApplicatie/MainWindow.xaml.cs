@@ -33,9 +33,6 @@ namespace PlantenApplicatie
             //   BtnbackgroundColor();
             fillComboBoxType();
 
-          
-
-
         }
 
 
@@ -323,7 +320,7 @@ namespace PlantenApplicatie
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             LstOpgeslagenFilters.Items.Clear();
-
+            
             opgeslagenFilters.Clear();
 
             cmbType.SelectedIndex = -1;
@@ -331,6 +328,8 @@ namespace PlantenApplicatie
             cmbGeslacht.SelectedIndex = -1;
             cmbSoort.SelectedIndex = -1;
             cmbVariant.SelectedIndex = -1;
+
+            Frame_Navigated();
         }
     }
 }
