@@ -396,7 +396,32 @@ namespace PlantenApplicatie
                     lblPlanctdichtheidMax.Content = item.PlantdichtheidMax;
                     lblStatus.Content = item.Status;
                     lblPlantId.Content = item.PlantId;
-                    //  lblBezonning.Content = i
+                    //lblBezonning.Content = item.Bezonning;
+                    //lblGrondsoort.Content = item.Grondsoort;
+                    //lblVochtbehoefte.Content = item.Vochtbehoefte;
+                    //lblVoedingsbehoefte.Content = item.Voedingsbehoefte;
+                    //lblAntagonischeOmgeving.Content = item.AgantonischeOmgeving;
+                    //lblCultivar.Content = item.Cultivar;
+                    //Sociabiliteit lblGrondsoort.Content = item.Sociabiliteit;
+                    //lblOntwikkelingsnelheid.Content = item.Ontwikkelingsnelheid;
+                    //lblConcurrentieKracht.Content = item.ConcurrentieKracht;
+                    //lblNectarwaarde.Content = item.Nectarwaarde;
+                    //lblBijvriendelijk.Content = item.Bijvriendelijk;
+                    //lblEetKruidbaar.Content = item.EetKruidbaar;
+                    //lblGeurend.Content = item.Geurend;
+                    //lblVlinderVriendelijk.Content = item.Vlindervriendelijk;
+                    //lblVorstgevoelig.Content = item.Vorstgevoelig;
+                    //lblBloeikleur.Content = item.Bloeikeur;
+                    //lblBloeihoogte.Content = item.Bloeihoogte;
+                    //lblBloeiwijze.Content = item.Bloeiwijze;
+                    //Strategie lblStrategie.Content = item.Strategie;
+                    //lblBladkleur.Content = item.Bladkleur;
+                    //lblBladhoogte.Content = item.Bladhoogte;
+                    //lblBladvormen.Content = item.Bladvormen;
+                    //lblStengelvormen.Content = item.Stengelvormen;
+                    //lblLevensvorm.Content = item.Levensvorm;
+                    //lblSpruitfenologie.Content = item.Spruitfenologie;
+                    //lblOptimalePlantdichtheid.Content = item.Plantdichtheid;
 
 
 
