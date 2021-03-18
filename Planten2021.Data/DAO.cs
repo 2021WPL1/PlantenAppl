@@ -35,7 +35,7 @@ namespace Planten2021.Data
         public void narrowDownOnType(List<Plant> listPlants, string type)
         {
             foreach (Plant plant in listPlants.ToList())
-            {           
+            {
                 if (plant.Type != null)
                 {
                     var simplifyString = Simplify(plant.Geslacht.ToString());
@@ -164,15 +164,15 @@ namespace Planten2021.Data
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
-        public List<Plant>getAllPlants()
+        public List<Plant> getAllPlants()
         {
             // kijken hoeveel er zijn geselecteerd
-            
+
             var plants = context.Plant.ToList();
 
             return plants;
         }
-       
+
         //A function that takes a string, puts it to lowercase, 
         //changes all the ' and " chars and replaces them by a space
         //next it deletes al the spaces and returns the string.
@@ -190,12 +190,12 @@ namespace Planten2021.Data
         /// </summary>
         /// <returns></returns>
 
-        public Dictionary<long,string> fillTfgsvType() 
+        public Dictionary<long, string> fillTfgsvType()
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvType.Distinct().OrderBy( s => s.Planttypenaam).ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
+            var selection = context.TfgsvType.Distinct().OrderBy(s => s.Planttypenaam).ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);
             return selection;
         }
 
@@ -206,7 +206,7 @@ namespace Planten2021.Data
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
-            {              
+            {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
                 return selection;
             }
@@ -215,8 +215,8 @@ namespace Planten2021.Data
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).ToDictionary(s => s.FamileId, s => s.Familienaam);
                 return selection;
             }
-               
-           
+
+
         }
         public Dictionary<long, string> fillTfgsvGeslacht(int selectedItem)
         {
@@ -234,7 +234,7 @@ namespace Planten2021.Data
                 var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
                 return selection;
             }
-          
+
         }
         public Dictionary<long, string> fillTfgsvSoort(int selectedItem)
         {
@@ -252,7 +252,7 @@ namespace Planten2021.Data
                 var selection = context.TfgsvSoort.Distinct().OrderBy(s => s.Soortnaam).ToDictionary(s => s.Soortid, s => s.Soortnaam);
                 return selection;
             }
-            
+
         }
 
         public Dictionary<long, string> fillTfgsvVariant(int selectedItem)
@@ -270,27 +270,28 @@ namespace Planten2021.Data
             {
                 var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).ToDictionary(s => s.VariantId, s => s.Variantnaam);
                 return selection;
-            }   
+            }
         }
 
-        
 
 
         public List<Plant> detailsAanvullen(long ID)
         {
             var plants = context.Plant
                 .Include(s => s.Abiotiek)
+                .Include(s => s.AbiotiekMulti)
+                .Include(s => s.BeheerMaand)
+                .Include(s => s.Commensalisme)
+                .Include(s => s.CommensalismeMulti)
+                .Include(s => s.ExtraEigenschap)
                 .Include(s => s.Fenotype)
                 .Include(s => s.UpdatePlant)
-                .Include(s => s.Commensalisme)
-                .Include(s => s.BeheerMaand)
-                .Include(s => s.CommensalismeMulti)
-                .Include(s => s.AbiotiekMulti)
                 .Include(s => s.Foto)
-                .Include(s => s.ExtraEigenschap)
+               
                 .Where(s => s.PlantId == ID)
                 .ToList();
             return plants;
         }
+
     }
 }

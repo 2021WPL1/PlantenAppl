@@ -370,14 +370,18 @@ namespace PlantenApplicatie
                 fillLstOpgeslagenFilters("cmbVariant", "Variant : " +fillFilters);
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+
         private void lstResultSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (lstResultSearch.SelectedValue != null)
             {
                 //MessageBox.Show(lstResultSearch.SelectedValue.ToString());
                 var plants = dao.detailsAanvullen(Convert.ToInt64(lstResultSearch.SelectedValue));
-
-                foreach (var item in plants)
+               foreach (var item in plants)
                 {
                     lblFamilie.Content = item.Familie;
                     lblGeslacht.Content = item.Geslacht;
@@ -389,7 +393,21 @@ namespace PlantenApplicatie
                     lblPlanctdichtheidMax.Content = item.PlantdichtheidMax;
                     lblStatus.Content = item.Status;
                     lblPlantId.Content = item.PlantId;
-                    //lblBezonning.Content = item.Bezonning;
+                    
+                    //Plant.Abiotiek moet ook apart worden uitgelezen
+                    foreach(var abItem in item.Abiotiek)
+                    {
+                        lblBezonning.Content = abItem.Bezonning;
+                        lblVochtbehoefte.Content = abItem.Vochtbehoefte;
+
+                        //De onderstaande code is ter voorbereiding van de nieuwe data
+                        //deze columns zijn nu nog NULL
+                        //lblGrondsoort.Content = abItem.Grondsoort;
+                        //lblVoedingsbehoefte.Content = abItem.AntagonischeOmgeving;
+                    }
+                    
+
+                    //Deze zijn ter voorbereiding van de nog te komen data
                     //lblGrondsoort.Content = item.Grondsoort;
                     //lblVochtbehoefte.Content = item.Vochtbehoefte;
                     //lblVoedingsbehoefte.Content = item.Voedingsbehoefte;
@@ -415,23 +433,12 @@ namespace PlantenApplicatie
                     //lblLevensvorm.Content = item.Levensvorm;
                     //lblSpruitfenologie.Content = item.Spruitfenologie;
                     //lblOptimalePlantdichtheid.Content = item.Plantdichtheid;
-
-
-
-                    //lstDetails.Items.Add
-                    //                    ("Plantnaam = " + plant.Fgsv + Environment.NewLine
-                    //                    + "type = " + plant.Type + Environment.NewLine
-                    //                    + "famillie = " + plant.Familie + Environment.NewLine
-                    //                    + "geslacht = " + plant.Geslacht + Environment.NewLine
-                    //                    + "soort = " + plant.Soort + Environment.NewLine
-                    //                    + "variant = " + plant.Variant + Environment.NewLine
-                    //                    + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
-                    //                    + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
-                    //                    + "status = " + plant.Status.ToString()
-                    //                    ); ;
-
-
+               
                 }
+                //foreach(var abiotiekType in plantAbiotiek)
+                //{
+                //    lblBezonning.Content = abiotiekType.Bezonning;
+                //}
             }
             
         }
@@ -450,6 +457,10 @@ namespace PlantenApplicatie
             cmbVariant.SelectedIndex = -1;
 
             Frame_Navigated();
+        }
+        private void getAbiothiekDetails()
+        {
+
         }
     }
 }
