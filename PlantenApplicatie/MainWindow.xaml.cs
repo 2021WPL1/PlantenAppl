@@ -248,7 +248,7 @@ namespace PlantenApplicatie
                     fillSoort.Remove(item.Key);
                 }
                 
-                dao.Simplify(item.Value);
+                
 
             }
             // alle objecten in combobox plaatsen
