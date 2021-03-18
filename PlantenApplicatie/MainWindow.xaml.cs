@@ -82,7 +82,9 @@ namespace PlantenApplicatie
             cvsDetails.Visibility = Visibility.Visible;
             // de lijst planten op vragen
             var listPlants = dao.getAllPlants();
-            
+
+            lstResultSearch.Items.Refresh();
+
             // kijken over er iets in de combobox is aan geduid
             if (Convert.ToInt32(cmbType.SelectedValue) != 0)
             {
@@ -182,12 +184,7 @@ namespace PlantenApplicatie
             lstResultSearch.DisplayMemberPath = "Value";
             lstResultSearch.SelectedValuePath = "Key";
 
-
-            
         }
-        
-
-       
 
         private void BtnHabitat_Click(object sender, RoutedEventArgs e)
         {
@@ -222,7 +219,8 @@ namespace PlantenApplicatie
             // lijst opvragen
             var fillFamilie = dao.fillTfgsvFamilie(Convert.ToInt32(cmbType.SelectedValue));
             // alle objecten in combobox plaatsen
-            cmbFamilie.ItemsSource = fillFamilie;
+
+            cmbFamilie.ItemsSource = fillFamilie ;
             cmbFamilie.DisplayMemberPath = "Value";
             cmbFamilie.SelectedValuePath = "Key";
         }
@@ -247,9 +245,6 @@ namespace PlantenApplicatie
                 {
                     fillSoort.Remove(item.Key);
                 }
-                
-                dao.Simplify(item.Value);
-
             }
             // alle objecten in combobox plaatsen
             cmbSoort.ItemsSource = fillSoort;
@@ -291,9 +286,10 @@ namespace PlantenApplicatie
             // de list box clearen
             LstOpgeslagenFilters.Items.Clear();
             //alle objecten in listbox plaatsen
-            // elke item in opgeslagen filter overlopen en
+
             foreach (var item in opgeslagenFilters)
             {
+               
                 LstOpgeslagenFilters.Items.Add(item.Value);
             }
 
@@ -347,7 +343,6 @@ namespace PlantenApplicatie
                         opgeslagenFilters.Remove("cmbVariant");
                     }
                 }
-
                
                 var fillFilters = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbSoort", "Soort : " +fillFilters);
