@@ -83,7 +83,7 @@
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29">
+            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29" SelectionChanged="cmbVariant_SelectionChanged">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -200,7 +200,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="lblCriteria" Content="" HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="771" Background="#99F5F5F5" FontWeight="Bold"/>
+
         <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385" Click="BtnZoeken_Click" Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" >
             <Button.Resources>
                 <Style TargetType="Border">
@@ -539,6 +539,8 @@
         <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,184,47,42" Background="#99FFFFFF"/>
         
 
+        <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="671" Background="#99F5F5F5" FontWeight="Bold"/>
+        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="734,51,0,0" VerticalAlignment="Top" Height="128" Width="62" Click="btnReset_Click"/>
 
 
     </Grid>

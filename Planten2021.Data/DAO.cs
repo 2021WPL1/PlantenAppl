@@ -277,6 +277,8 @@ namespace Planten2021.Data
             }   
         }
 
+        
+
 
         public List<Plant> detailsAanvullen(long ID)
         {
