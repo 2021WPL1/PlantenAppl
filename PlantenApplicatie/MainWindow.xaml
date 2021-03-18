@@ -551,9 +551,5 @@
             </Button.Resources>
         </Button>
 
-        <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="671" Background="#99F5F5F5" FontWeight="Bold"/>
-        <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="734,51,0,0" VerticalAlignment="Top" Height="128" Width="62" Background="#99F5F5F5" Click="btnReset_Click"/>
-
-
-    </Grid>
+     </Grid>
 </Window>
