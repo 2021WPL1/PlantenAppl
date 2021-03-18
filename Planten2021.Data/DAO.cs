@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
-using Planten2021.Data.Models;
+//using Planten2021.Data.Models;
 using Planten2021.Domain.Models;
 using System.Reflection.Emit;
+using Microsoft.EntityFrameworkCore;
 //using System.Windows.Controls;
 
 namespace Planten2021.Data
@@ -12,7 +13,7 @@ namespace Planten2021.Data
     public class DAO
     {
         private static readonly DAO instance = new DAO();
-        private readonly Planten2021Context context;
+        private readonly _Planten2021Context context;
 
         public static DAO Instance()
         {
@@ -21,7 +22,7 @@ namespace Planten2021.Data
         //private contructor
         private DAO()
         {
-            this.context = new Planten2021Context();
+            this.context = new _Planten2021Context();
         }
 
         //search functions
@@ -34,10 +35,10 @@ namespace Planten2021.Data
         public void narrowDownOnType(List<Plant> listPlants, string type)
         {
             foreach (Plant plant in listPlants.ToList())
-            {
+            {           
                 if (plant.Type != null)
                 {
-                    var simplifyString = Simplify(plant.Type.ToString());
+                    var simplifyString = Simplify(plant.Geslacht.ToString());
                     if (simplifyString.Contains(Simplify(type)) != true)
                     {
                         listPlants.Remove(plant);
@@ -134,7 +135,7 @@ namespace Planten2021.Data
         }
         //A function that returns a list of plants
         //the returned list are all the plants that contain the given string in their geslacht
-        
+
         //Robin: removed "static", couldn't reach context
         public List<Plant> OnGeslacht(string geslacht)
         {
@@ -162,10 +163,17 @@ namespace Planten2021.Data
         }
         /* HELP FUNCTIONS */
 
+
+       
+
+
         //get a list of all the plants.
-        public List<Plant> getAllPlants()
+        public List<Plant>getAllPlants()
         {
+            // kijken hoeveel er zijn geselecteerd
+            
             var plants = context.Plant.ToList();
+
             return plants;
         }
        
@@ -178,6 +186,115 @@ namespace Planten2021.Data
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
-        //Empty label and textbox tbc
+
+
+        /// <summary>
+        ///                            FILL COMBOBOX
+        ///            Deze functie zijn voor het cascade systeem.
+        /// </summary>
+        /// <returns></returns>
+
+        public Dictionary<long,string> fillTfgsvType() 
+        {
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
+            return selection;
+        }
+
+        public Dictionary<long, string> fillTfgsvFamilie(int selectedItem)
+        {
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            if (selectedItem > 0)
+            {              
+                var selection = context.TfgsvFamilie.Distinct().Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvFamilie.Distinct().ToDictionary(s => s.FamileId, s => s.Familienaam);
+                return selection;
+            }
+               
+           
+        }
+        public Dictionary<long, string> fillTfgsvGeslacht(int selectedItem)
+        {
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            if (selectedItem > 0)
+            {
+                var selection = context.TfgsvGeslacht.Where(s => s.FamilieFamileId == selectedItem).Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvGeslacht.Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+                return selection;
+            }
+          
+        }
+        public Dictionary<long, string> fillTfgsvSoort(int selectedItem)
+        {
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value 
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            if (selectedItem > 0)
+            {
+                var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvSoort.Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                return selection;
+            }
+            
+        }
+
+        public Dictionary<long, string> fillTfgsvVariant(int selectedItem)
+        {
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            if (selectedItem > 0)
+            {
+                var selection = context.TfgsvVariant.Where(s => s.SoortSoortid == selectedItem).Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvVariant.Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
+                return selection;
+            }   
+        }
+
+        
+
+
+        public List<Plant> detailsAanvullen(long ID)
+        {
+            var plants = context.Plant
+                .Include(s => s.Abiotiek)
+                .Include(s => s.Fenotype)
+                .Include(s => s.UpdatePlant)
+                .Include(s => s.Commensalisme)
+                .Include(s => s.BeheerMaand)
+                .Include(s => s.CommensalismeMulti)
+                .Include(s => s.AbiotiekMulti)
+                .Include(s => s.Foto)
+                .Include(s => s.ExtraEigenschap)
+                .Where(s => s.PlantId == ID)
+                .ToList();
+            return plants;
+        }
     }
 }

@@ -1,0 +1,16 @@
+﻿<Window x:Class="Join_test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Join_test"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <ListBox x:Name="lbxLijst1" Margin="0,91,400,0"/>
+        <Button x:Name="btnList1" Content="Button" HorizontalAlignment="Left" Margin="160,35,0,0" VerticalAlignment="Top" Click="btnList1_Click"/>
+        <Button x:Name="btnList2" Content="Button" HorizontalAlignment="Left" Margin="563,20,0,0" VerticalAlignment="Top" Click="btnList2_Click"/>
+        <ListBox x:Name="lbxLijst2" Margin="405,91,0,0"/>
+
+    </Grid>
+</Window>
