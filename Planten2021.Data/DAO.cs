@@ -29,138 +29,142 @@ namespace Planten2021.Data
 
         /* NARROW DOWN FUNCTIONS */
 
+        //DIT IS KENNY ZIJN CODE KAN ZIJN DAT WE DIT NOG GEBRUIKEN IN HET VOLGEND KWARTAAL.
+
         //A function that looks if the given list of plants contains the given string in plant.type .
         //if this is the case the plant will stay in the list.
         //if this is not the case, the plant will be deleted out of the list.
-        public void narrowDownOnType(List<Plant> listPlants, string type)
-        {
-            foreach (Plant plant in listPlants.ToList())
-            {           
-                if (plant.Type != null)
-                {
-                    var simplifyString = Simplify(plant.Geslacht.ToString());
-                    if (simplifyString.Contains(Simplify(type)) != true)
-                    {
-                        listPlants.Remove(plant);
-                    }
-                }
-            }
-        }
+        //public void narrowDownOnType(List<Plant> listPlants, string type)
+        //{
+        //    foreach (Plant plant in listPlants.ToList())
+        //    {           
+        //        if (plant.Type != null)
+        //        {
+        //            var simplifyString = Simplify(plant.Geslacht.ToString());
+        //            if (simplifyString.Contains(Simplify(type)) != true)
+        //            {
+        //                listPlants.Remove(plant);
+        //            }
+        //        }
+        //    }
+        //}
 
-        //A function that looks if the given list of plants contains the given string in plant.geslacht .
-        //if this is the case the plant will stay in the list.
-        //if this is not the case, the plant will be deleted out of the list.
+        ////A function that looks if the given list of plants contains the given string in plant.geslacht .
+        ////if this is the case the plant will stay in the list.
+        ////if this is not the case, the plant will be deleted out of the list.
 
-        public void narrowDownOnGeslacht(List<Plant> listPlants, string geslacht)
-        {
-            foreach (Plant plant in listPlants.ToList())
-            {
-                if (plant.Geslacht != null)
-                {
-                    var simplifyString = Simplify(plant.Geslacht.ToString());
-                    if (simplifyString.Contains(Simplify(geslacht)) != true)
-                    {
-                        listPlants.Remove(plant);
-                    }
-                }
-            }
-        }
-        //A function that looks if the given list of plants contains the given string in plant.Family .
-        //if this is the case the plant will stay in the list.
-        //if this is not the case, the plant will be deleted out of the list.
-        public void narrowDownOnFamily(List<Plant> listPlants, string Familie)
-        {
-            foreach (Plant plant in listPlants.ToList())
-            {
-                if (plant.Familie != null)
-                {
-                    var simplifyString = Simplify(plant.Familie.ToString());
-                    if (simplifyString.Contains(Simplify(Familie)) != true)
-                    {
-                        listPlants.Remove(plant);
-                    }
-                }
-            }
-        }
-        //A function that looks if the given list of plants contains the given string in plant.soort .
-        //if this is the case the plant will stay in the list.
-        //if this is not the case, the plant will be deleted out of the list.
-        public void narrowDownOnSoort(List<Plant> listPlants, string soort)
-        {
-            foreach (Plant plant in listPlants.ToList())
-            {
-                if (plant.Soort != null)
-                {
-                    var simplifyString = Simplify(plant.Soort.ToString());
-                    if (simplifyString.Contains(Simplify(soort)) != true)
-                    {
-                        listPlants.Remove(plant);
-                    }
-                }
-            }
-        }
-        //A function that looks if the given list of plants contains the given string in plant.naam .
-        //if this is the case the plant will stay in the list.
-        //if this is not the case, the plant will be deleted out of the list.
-        public void narrowDownOnName(List<Plant> listPlants, string naam)
-        {
-            foreach (Plant plant in listPlants.ToList())
-            {
-                if (plant.Fgsv != null)
-                {
-                    var simplifyString = Simplify(plant.Fgsv.ToString());
-                    if (simplifyString.Contains(Simplify(naam)) != true)
-                    {
-                        listPlants.Remove(plant);
-                    }
-                }
-            }
-        }
-        //A function that looks if the given list of plants contains the given string in plant.variant .
-        //if this is the case the plant will stay in the list.
-        //if this is not the case, the plant will be deleted out of the list.
-        public void narrowDownOnVariant(List<Plant> listPlants, string variant)
-        {
-            foreach (Plant plant in listPlants.ToList())
-            {
-                if (plant.Variant != null)
-                {
-                    var simplifyString = Simplify(plant.Variant.ToString());
-                    if (simplifyString.Contains(Simplify(variant)) != true)
-                    {
-                        listPlants.Remove(plant);
-                    }
-                }
-            }
-        }
+        //public void narrowDownOnGeslacht(List<Plant> listPlants, string geslacht)
+        //{
+        //    foreach (Plant plant in listPlants.ToList())
+        //    {
+        //        if (plant.Geslacht != null)
+        //        {
+        //            var simplifyString = Simplify(plant.Geslacht.ToString());
+        //            if (simplifyString.Contains(Simplify(geslacht)) != true)
+        //            {
+        //                listPlants.Remove(plant);
+        //            }
+        //        }
+        //    }
+        //}
+        ////A function that looks if the given list of plants contains the given string in plant.Family .
+        ////if this is the case the plant will stay in the list.
+        ////if this is not the case, the plant will be deleted out of the list.
+        //public void narrowDownOnFamily(List<Plant> listPlants, string Familie)
+        //{
+        //    foreach (Plant plant in listPlants.ToList())
+        //    {
+        //        if (plant.Familie != null)
+        //        {
+        //            var simplifyString = Simplify(plant.Familie.ToString());
+        //            if (simplifyString.Contains(Simplify(Familie)) != true)
+        //            {
+        //                listPlants.Remove(plant);
+        //            }
+        //        }
+        //    }
+        //}
+        ////A function that looks if the given list of plants contains the given string in plant.soort .
+        ////if this is the case the plant will stay in the list.
+        ////if this is not the case, the plant will be deleted out of the list.
+        //public void narrowDownOnSoort(List<Plant> listPlants, string soort)
+        //{
+        //    foreach (Plant plant in listPlants.ToList())
+        //    {
+        //        if (plant.Soort != null)
+        //        {
+        //            var simplifyString = Simplify(plant.Soort.ToString());
+        //            if (simplifyString.Contains(Simplify(soort)) != true)
+        //            {
+        //                listPlants.Remove(plant);
+        //            }
+        //        }
+        //    }
+        //}
+        ////A function that looks if the given list of plants contains the given string in plant.naam .
+        ////if this is the case the plant will stay in the list.
+        ////if this is not the case, the plant will be deleted out of the list.
+        //public void narrowDownOnName(List<Plant> listPlants, string naam)
+        //{
+        //    foreach (Plant plant in listPlants.ToList())
+        //    {
+        //        if (plant.Fgsv != null)
+        //        {
+        //            var simplifyString = Simplify(plant.Fgsv.ToString());
+        //            if (simplifyString.Contains(Simplify(naam)) != true)
+        //            {
+        //                listPlants.Remove(plant);
+        //            }
+        //        }
+        //    }
+        //}
+        ////A function that looks if the given list of plants contains the given string in plant.variant .
+        ////if this is the case the plant will stay in the list.
+        ////if this is not the case, the plant will be deleted out of the list.
+        //public void narrowDownOnVariant(List<Plant> listPlants, string variant)
+        //{
+        //    foreach (Plant plant in listPlants.ToList())
+        //    {
+        //        if (plant.Variant != null)
+        //        {
+        //            var simplifyString = Simplify(plant.Variant.ToString());
+        //            if (simplifyString.Contains(Simplify(variant)) != true)
+        //            {
+        //                listPlants.Remove(plant);
+        //            }
+        //        }
+        //    }
+        //}
         //A function that returns a list of plants
         //the returned list are all the plants that contain the given string in their geslacht
 
+
+
         //Robin: removed "static", couldn't reach context
-        public List<Plant> OnGeslacht(string geslacht)
-        {
-            var listPlants = context.Plant.Where(p => p.Geslacht.Contains(geslacht)).ToList();
-            return listPlants;
-        }
-        //A function that returns a list of plants
-        //the returned list are all the plants that contain the given string in their latin name
-        public List<Plant> OnName(string name)
-        {
-            var listPlants = context.Plant.Where(p => p.Fgsv.Contains(name)).ToList();
-            return listPlants;
-        }
-        public List<Plant> OnVariant(string variant)
-        {
-            var listPlants = context.Plant.Where(p => p.Variant.Contains(variant)).ToList();
-            return listPlants;
-        }
-        //A function that returns a list of plants
-        //the returned list are al the plants that contain the given string in their family
-        public List<Plant> OnFamily(string family)
-        {
-            var listPlants = context.Plant.Where(p => p.Familie.Contains(family)).ToList();
-            return listPlants;
-        }
+        //public List<Plant> OnGeslacht(string geslacht)
+        //{
+        //    var listPlants = context.Plant.Where(p => p.Geslacht.Contains(geslacht)).ToList();
+        //    return listPlants;
+        //}
+        ////A function that returns a list of plants
+        ////the returned list are all the plants that contain the given string in their latin name
+        //public List<Plant> OnName(string name)
+        //{
+        //    var listPlants = context.Plant.Where(p => p.Fgsv.Contains(name)).ToList();
+        //    return listPlants;
+        //}
+        //public List<Plant> OnVariant(string variant)
+        //{
+        //    var listPlants = context.Plant.Where(p => p.Variant.Contains(variant)).ToList();
+        //    return listPlants;
+        //}
+        ////A function that returns a list of plants
+        ////the returned list are al the plants that contain the given string in their family
+        //public List<Plant> OnFamily(string family)
+        //{
+        //    var listPlants = context.Plant.Where(p => p.Familie.Contains(family)).ToList();
+        //    return listPlants;
+        //}
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
@@ -195,7 +199,7 @@ namespace Planten2021.Data
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvType.Distinct().OrderBy( s => s.Planttypenaam).ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
+            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
             return selection;
         }
 
@@ -206,13 +210,15 @@ namespace Planten2021.Data
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
-            {              
+            {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
                 return selection;
+                
             }
             else
             {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).ToDictionary(s => s.FamileId, s => s.Familienaam);
+               
                 return selection;
             }
                
@@ -226,7 +232,7 @@ namespace Planten2021.Data
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam).Where(s => s.FamilieFamileId == selectedItem).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+                var selection = context.TfgsvGeslacht.Distinct().OrderBy(s=>s.Geslachtnaam).Where(s => s.FamilieFamileId == selectedItem).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
                 return selection;
             }
             else
@@ -244,7 +250,7 @@ namespace Planten2021.Data
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvSoort.Distinct().OrderBy(s => s.Soortnaam).Where(s => s.GeslachtGeslachtId == selectedItem).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
                 return selection;
             }
             else
@@ -270,10 +276,11 @@ namespace Planten2021.Data
             {
                 var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).ToDictionary(s => s.VariantId, s => s.Variantnaam);
                 return selection;
-            }   
+            }
         }
 
-        
+        //.OrderBy(s => s.Variantnaam)
+        //.OrderBy(s => s.Variantnaam)
 
 
         public List<Plant> detailsAanvullen(long ID)

@@ -82,7 +82,9 @@ namespace PlantenApplicatie
             cvsDetails.Visibility = Visibility.Visible;
             // de lijst planten op vragen
             var listPlants = dao.getAllPlants();
-            
+
+            lstResultSearch.Items.Refresh();
+
             // kijken over er iets in de combobox is aan geduid
             if (Convert.ToInt32(cmbType.SelectedValue) != 0)
             {
@@ -182,12 +184,7 @@ namespace PlantenApplicatie
             lstResultSearch.DisplayMemberPath = "Value";
             lstResultSearch.SelectedValuePath = "Key";
 
-
-            
         }
-        
-
-       
 
         private void BtnHabitat_Click(object sender, RoutedEventArgs e)
         {
@@ -222,7 +219,8 @@ namespace PlantenApplicatie
             // lijst opvragen
             var fillFamilie = dao.fillTfgsvFamilie(Convert.ToInt32(cmbType.SelectedValue));
             // alle objecten in combobox plaatsen
-            cmbFamilie.ItemsSource = fillFamilie;
+
+            cmbFamilie.ItemsSource = fillFamilie ;
             cmbFamilie.DisplayMemberPath = "Value";
             cmbFamilie.SelectedValuePath = "Key";
         }
@@ -247,9 +245,6 @@ namespace PlantenApplicatie
                 {
                     fillSoort.Remove(item.Key);
                 }
-                
-                
-
             }
             // alle objecten in combobox plaatsen
             cmbSoort.ItemsSource = fillSoort;
@@ -290,8 +285,9 @@ namespace PlantenApplicatie
             LstOpgeslagenFilters.Items.Clear();
             //alle objecten in listbox plaatsen
 
-            foreach (var item in opgeslagenFilters)
+            foreach (var item in opgeslagenFilters)               
             {
+               
                 LstOpgeslagenFilters.Items.Add(item.Value);
             }
 
@@ -345,7 +341,6 @@ namespace PlantenApplicatie
                         opgeslagenFilters.Remove("cmbVariant");
                     }
                 }
-
                
                 var fillFilters = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbSoort", "Soort : " +fillFilters);
@@ -388,21 +383,6 @@ namespace PlantenApplicatie
                     lblStatus.Content = item.Status;
                     lblPlantId.Content = item.PlantId; 
                     //  lblBezonning.Content = i
-
-
-
-                    //lstDetails.Items.Add
-                    //                    ("Plantnaam = " + plant.Fgsv + Environment.NewLine
-                    //                    + "type = " + plant.Type + Environment.NewLine
-                    //                    + "famillie = " + plant.Familie + Environment.NewLine
-                    //                    + "geslacht = " + plant.Geslacht + Environment.NewLine
-                    //                    + "soort = " + plant.Soort + Environment.NewLine
-                    //                    + "variant = " + plant.Variant + Environment.NewLine
-                    //                    + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
-                    //                    + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
-                    //                    + "status = " + plant.Status.ToString()
-                    //                    ); ;
-
 
                 }
             }
