@@ -23,6 +23,7 @@ namespace PlantenApplicatie
     public partial class MainWindow : Window
     {
         private readonly DAO dao;
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -31,6 +32,10 @@ namespace PlantenApplicatie
 
             Frame_Navigated();
             // De comboBoxen vullen.
+
+            // new dictionary aanmaken hier komen de resultaten in met als long het plant id en string is de plant info
+            var dictionaryresult = new Dictionary<long, string>();
+
             fillComboBoxType();
 
             fillComboBoxFamilie();
@@ -95,11 +100,11 @@ namespace PlantenApplicatie
             // kijken over er iets in de combobox is aan geduid
             if (Convert.ToInt32(cmbType.SelectedValue) != 0)
             {
+                // alle onnodige tekens er uit halen 
+                var simp = SimplifyGetallPlants(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
                 // alle items in list plant overlopen
                 foreach (var item in listPlants.ToList())
-                {
-                    // alle onnodige tekens er uit halen 
-                    var simp = SimplifyGetallPlants(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
+                {                   
                     //als het zoekwoord er niet in voor komt verwijderen.
                     if (item.Type.Contains(simp) == false)
                     {
@@ -109,10 +114,11 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbFamilie.SelectedValue != null)
             {
+                var simp = SimplifyGetallPlants(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
+
                 foreach (var item in listPlants.ToList())
                 {
-                    var simp = SimplifyGetallPlants(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
-
+                    
                     if (item.Familie.Contains(simp) == false)
                     {
                         listPlants.Remove(item);
@@ -121,10 +127,11 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbGeslacht.SelectedValue != null)
             {
+                var simp = SimplifyGetallPlants(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
+
                 foreach (var item in listPlants.ToList())
                 {
-                    var simp = SimplifyGetallPlants(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
-
+                   
                     if (item.Geslacht.Contains(simp) == false)
                     {
                         listPlants.Remove(item);
@@ -133,10 +140,11 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbSoort.SelectedValue != null)
             {
+                var simp = SimplifyGetallPlants(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
+               
                 foreach (var item in listPlants.ToList())
                 {
-                    var simp = SimplifyGetallPlants(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
-
+                     
                     if (item.Soort.Contains(simp) == false)
                     {
                         listPlants.Remove(item);
@@ -145,19 +153,25 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbVariant.SelectedValue != null)
             {
+                var simp = SimplifyGetallPlants(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
+                MessageBox.Show(simp);
                 foreach (var item in listPlants.ToList())
                 {
-                    var simp = SimplifyGetallPlants(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
-
-                    if (item.Variant.Contains(simp) == false)
+                    if (item.Variant != null)
+                    {
+                        if (item.Variant.Contains(simp) == false)
+                        {
+                            listPlants.Remove(item);
+                        }
+                    }
+                    else
                     {
                         listPlants.Remove(item);
                     }
                 }
             }
 
-            // new dictionary aanmaken 
-            var dictionaryresult = new Dictionary<long, string>();
+            Dictionary<long, string> dictionaryresult = new Dictionary<long, string>();
 
             // dictionary clearen zo da je niet het bijft opvullen met hezelfde als je meerdere keren op zoeken clickt
             dictionaryresult.Clear();
@@ -272,7 +286,7 @@ namespace PlantenApplicatie
         public void fillComboBoxVariant()
         {
             // lijst opvragen
-            var fillVariant = dao.fillTfgsvVariant(Convert.ToInt32(cmbSoort.SelectedValue));
+            var fillVariant = dao.fillTfgsvVariant(Convert.ToInt32(cmbGeslacht.SelectedValue));
             // alle objecten in combobox plaatsen
             cmbVariant.ItemsSource = fillVariant;
             cmbVariant.DisplayMemberPath = "Value";
@@ -337,6 +351,7 @@ namespace PlantenApplicatie
         private void cmbGeslacht_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
            fillComboBoxSoort();
+           fillComboBoxVariant();
             if (cmbGeslacht.SelectedValue != null)
             {
                 var fillFilters = Simplify(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
@@ -346,8 +361,7 @@ namespace PlantenApplicatie
         }
 
         private void cmbSoort_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           fillComboBoxVariant();
+        { 
             if (cmbSoort.SelectedValue != null)
             {
                 var fillFilters = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
@@ -359,52 +373,58 @@ namespace PlantenApplicatie
         {
             if (cmbVariant.SelectedValue != null)
             {
-                var fillFilters = Simplify(cmbVariant.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
+                var fillFilters = Simplify(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbVariant", "Variant : " +fillFilters);
             }
         }
         private void lstResultSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show(lstResultSearch.SelectedValue.ToString());
-            var plants =  dao.detailsAanvullen(Convert.ToInt64(lstResultSearch.SelectedValue));
-
-            foreach (var item in plants)
+            if (lstResultSearch.SelectedValue != null)
             {
-                lblFamilie.Content = item.Familie;
-                lblGeslacht.Content = item.Geslacht;
-                lblSoort.Content = item.Soort;
-                lblType.Content = item.Type;
-                lblVariant.Content = item.Variant;
-                lblNederlandseNaam.Content = item.NederlandsNaam;
-                lblPlantdichtheidMin.Content = item.PlantdichtheidMin;
-                lblPlanctdichtheidMax.Content = item.PlantdichtheidMax;
-                lblStatus.Content = item.Status;
-                lblPlantId.Content = item.PlantId;
-              //  lblBezonning.Content = i
+                MessageBox.Show(lstResultSearch.SelectedValue.ToString());
+                var plants = dao.detailsAanvullen(Convert.ToInt64(lstResultSearch.SelectedValue));
+
+                foreach (var item in plants)
+                {
+                    lblFamilie.Content = item.Familie;
+                    lblGeslacht.Content = item.Geslacht;
+                    lblSoort.Content = item.Soort;
+                    lblType.Content = item.Type;
+                    lblVariant.Content = item.Variant;
+                    lblNederlandseNaam.Content = item.NederlandsNaam;
+                    lblPlantdichtheidMin.Content = item.PlantdichtheidMin;
+                    lblPlanctdichtheidMax.Content = item.PlantdichtheidMax;
+                    lblStatus.Content = item.Status;
+                    lblPlantId.Content = item.PlantId;
+                    //  lblBezonning.Content = i
 
 
 
-                //lstDetails.Items.Add
-                //                    ("Plantnaam = " + plant.Fgsv + Environment.NewLine
-                //                    + "type = " + plant.Type + Environment.NewLine
-                //                    + "famillie = " + plant.Familie + Environment.NewLine
-                //                    + "geslacht = " + plant.Geslacht + Environment.NewLine
-                //                    + "soort = " + plant.Soort + Environment.NewLine
-                //                    + "variant = " + plant.Variant + Environment.NewLine
-                //                    + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
-                //                    + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
-                //                    + "status = " + plant.Status.ToString()
-                //                    ); ;
+                    //lstDetails.Items.Add
+                    //                    ("Plantnaam = " + plant.Fgsv + Environment.NewLine
+                    //                    + "type = " + plant.Type + Environment.NewLine
+                    //                    + "famillie = " + plant.Familie + Environment.NewLine
+                    //                    + "geslacht = " + plant.Geslacht + Environment.NewLine
+                    //                    + "soort = " + plant.Soort + Environment.NewLine
+                    //                    + "variant = " + plant.Variant + Environment.NewLine
+                    //                    + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
+                    //                    + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
+                    //                    + "status = " + plant.Status.ToString()
+                    //                    ); ;
 
 
+                }
             }
+            
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
             LstOpgeslagenFilters.Items.Clear();
             
-            opgeslagenFilters.Clear();
+
+
+            lstResultSearch.ItemsSource = null;
 
             cmbType.SelectedIndex = -1;
             cmbFamilie.SelectedIndex = -1;
