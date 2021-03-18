@@ -163,10 +163,6 @@ namespace Planten2021.Data
         }
         /* HELP FUNCTIONS */
 
-
-       
-
-
         //get a list of all the plants.
         public List<Plant>getAllPlants()
         {
@@ -182,7 +178,7 @@ namespace Planten2021.Data
         //next it deletes al the spaces and returns the string.
         public string Simplify(string stringToSimplify)
         {
-            string answer = stringToSimplify.ToLower().Replace("\'", " ").Replace("\"", " ");
+            string answer = stringToSimplify.Replace("\'", " ").Replace("\"", " ");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
@@ -199,7 +195,7 @@ namespace Planten2021.Data
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
+            var selection = context.TfgsvType.Distinct().OrderBy( s => s.Planttypenaam).ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
             return selection;
         }
 
@@ -211,12 +207,12 @@ namespace Planten2021.Data
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {              
-                var selection = context.TfgsvFamilie.Distinct().Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
+                var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
                 return selection;
             }
             else
             {
-                var selection = context.TfgsvFamilie.Distinct().ToDictionary(s => s.FamileId, s => s.Familienaam);
+                var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).ToDictionary(s => s.FamileId, s => s.Familienaam);
                 return selection;
             }
                
@@ -230,12 +226,12 @@ namespace Planten2021.Data
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvGeslacht.Where(s => s.FamilieFamileId == selectedItem).Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+                var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam).Where(s => s.FamilieFamileId == selectedItem).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
                 return selection;
             }
             else
             {
-                var selection = context.TfgsvGeslacht.Distinct().ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+                var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
                 return selection;
             }
           
@@ -248,12 +244,12 @@ namespace Planten2021.Data
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                var selection = context.TfgsvSoort.Distinct().OrderBy(s => s.Soortnaam).Where(s => s.GeslachtGeslachtId == selectedItem).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
                 return selection;
             }
             else
             {
-                var selection = context.TfgsvSoort.Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                var selection = context.TfgsvSoort.Distinct().OrderBy(s => s.Soortnaam).ToDictionary(s => s.Soortid, s => s.Soortnaam);
                 return selection;
             }
             
@@ -267,12 +263,12 @@ namespace Planten2021.Data
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvVariant.Where(s => s.SoortSoortid == selectedItem).Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
+                var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).Where(s => s.SoortSoortid == selectedItem).ToDictionary(s => s.VariantId, s => s.Variantnaam);
                 return selection;
             }
             else
             {
-                var selection = context.TfgsvVariant.Distinct().ToDictionary(s => s.VariantId, s => s.Variantnaam);
+                var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).ToDictionary(s => s.VariantId, s => s.Variantnaam);
                 return selection;
             }   
         }
