@@ -191,7 +191,8 @@ namespace Planten2021.Data
         // Gemaakt door Owen
         public Dictionary<long, string> DuplicationCheck(Dictionary<long,string> selection)
         {
-            // Dit is voor te checken of er nog duplicatie is door de distinct 
+            // this is to check for dupelication that got through the distinct
+            
             Dictionary<long, string> Duplicationcheck = new Dictionary<long, string>();
             foreach (var item in selection)
             {
