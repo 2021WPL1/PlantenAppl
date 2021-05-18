@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="pexels-arthouse-studio-4534200.jpg" />
-    <None Remove="waterval.jpeg" />
+    <None Remove="Image\waterval.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,13 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="pexels-arthouse-studio-4534200.jpg" />
-    <Resource Include="waterval.jpeg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="View\" />
-    <Folder Include="ViewModel\" />
+    <Resource Include="Image\waterval.jpeg" />
   </ItemGroup>
 
 </Project>
