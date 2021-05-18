@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <!--add background image-->
-            <ImageBrush  Stretch="Fill" ImageSource="../Image/waterval.jpeg"/>
+            <ImageBrush  Stretch="Fill" ImageSource="../../Image/waterval.jpeg"/>
         </Grid.Background>
 
         <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Hidden" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >

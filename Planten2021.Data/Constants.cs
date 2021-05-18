@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Planten2021.Data
+﻿namespace Planten2021.Data
 {
-    class Constants
+    public class Constants
     {
         public static string connectionstring = "Server=SJMTCMFS\\VIVES; Database=Planten2021; Trusted_Connection=True;";
     }

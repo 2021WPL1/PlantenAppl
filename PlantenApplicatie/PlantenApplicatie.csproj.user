@@ -2,12 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="View\ViewTfgsv.xaml.cs">
+    <Compile Update="View\Pages\ViewTfgsv.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="View\ViewTfgsv.xaml">
+    <Page Update="View\Pages\ViewTfgsv.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
