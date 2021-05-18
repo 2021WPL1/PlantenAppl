@@ -32,10 +32,14 @@ namespace PlantenApplicatie
 
             Frame_Navigated();
             // De comboBoxen vullen.
-   
+
+            cmbType.IsEditable = true;
+            cmbFamilie.IsEditable = true;
+            cmbGeslacht.IsEditable = true;
+            cmbSoort.IsEditable = true;
+            cmbVariant.IsEditable = true;
 
             fillComboBoxType();
-
             fillComboBoxFamilie();
             fillComboBoxGeslacht();
             fillComboBoxSoort();
@@ -56,17 +60,21 @@ namespace PlantenApplicatie
             cvsDetails.Visibility = Visibility.Hidden;
         }
 
-        private void BtnbackgroundColor() 
+        private void BtnbackgroundColor()
         {
+           
+            var DefaultColor = new SolidColorBrush(Color.FromArgb(255, (71), (64), (41)));
             // achtergrond van buttons terug normaal zetten
-            btnNaam.Background = Brushes.Olive;
-            btnHabitat.Background = Brushes.Olive;
+            btnNaam.Background = DefaultColor;
+            btnHabitat.Background = DefaultColor;
             
         }
 
         private void BtnNaam_Click(object sender, RoutedEventArgs e)
         {
             Frame_Navigated();
+
+            BtnbackgroundColor();
             // de button highlighten van de geslecteerde zoek functie
             btnNaam.Background = Brushes.Olive;
             // canvas tonen
@@ -86,15 +94,15 @@ namespace PlantenApplicatie
             lstResultSearch.Items.Refresh();
 
             // kijken over er iets in de combobox is aan geduid
-            if (Convert.ToInt32(cmbType.SelectedValue) != 0)
+            if (Convert.ToInt32(cmbType.SelectedValue) != null)
             {
                 // alle onnodige tekens er uit halen 
-                var simp = Simplify(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
+                var ControlString = Simplify(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
                 // alle items in list plant overlopen
                 foreach (var item in listPlants.ToList())
                 {                   
                     //als het zoekwoord er niet in voor komt verwijderen.
-                    if (item.Type.Contains(simp) == false)
+                    if (item.Type.Contains(ControlString) == false)
                     {
                         listPlants.Remove(item);
                     }
@@ -102,12 +110,12 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbFamilie.SelectedValue != null)
             {
-                var simp = Simplify(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
+                var ControlString = Simplify(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
 
                 foreach (var item in listPlants.ToList())
                 {
                     
-                    if (item.Familie.Contains(simp) == false)
+                    if (item.Familie.Contains(ControlString) == false)
                     {
                         listPlants.Remove(item);
                     }
@@ -115,12 +123,12 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbGeslacht.SelectedValue != null)
             {
-                var simp = Simplify(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
+                var ControlString = Simplify(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
 
                 foreach (var item in listPlants.ToList())
                 {
                    
-                    if (item.Geslacht.Contains(simp) == false)
+                    if (item.Geslacht.Contains(ControlString) == false)
                     {
                         listPlants.Remove(item);
                     }
@@ -128,12 +136,12 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbSoort.SelectedValue != null)
             {
-                var simp = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
+                var ControlString = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
                
                 foreach (var item in listPlants.ToList())
                 {
                      
-                    if (item.Soort.Contains(simp) == false)
+                    if (item.Soort.Contains(ControlString) == false)
                     {
                         listPlants.Remove(item);
                     }
@@ -141,13 +149,13 @@ namespace PlantenApplicatie
             }// Zie commentaar lijn 91
             if (cmbVariant.SelectedValue != null)
             {
-                var simp = Simplify(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
-                MessageBox.Show(simp);
+                var ControlString = Simplify(cmbVariant.SelectedItem.ToString(), cmbVariant.SelectedValue.ToString());
+
                 foreach (var item in listPlants.ToList())
                 {
                     if (item.Variant != null)
                     {
-                        if (item.Variant.Contains(simp) == false)
+                        if (item.Variant.Contains(ControlString) == false)
                         {
                             listPlants.Remove(item);
                         }
@@ -304,6 +312,12 @@ namespace PlantenApplicatie
             {
                 var fillFilters = Simplify(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbType", "Type : " + fillFilters);
+
+                cmbGeslacht.ItemsSource = null;
+                cmbSoort.ItemsSource = null;
+                cmbVariant.ItemsSource = null;
+
+
             }
             
         }
@@ -313,8 +327,13 @@ namespace PlantenApplicatie
             fillComboBoxGeslacht();
             if (cmbFamilie.SelectedValue != null)
             {
+                cmbType.IsEnabled = false;
+
                 var fillFilters = Simplify(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbFamilie", "Familie : "+fillFilters);
+
+                cmbSoort.ItemsSource = null;
+                cmbVariant.ItemsSource = null;
             }
            
         }
@@ -325,6 +344,9 @@ namespace PlantenApplicatie
            fillComboBoxVariant();
             if (cmbGeslacht.SelectedValue != null)
             {
+                cmbType.IsEnabled = false;
+                cmbFamilie.IsEnabled = false;
+
                 var fillFilters = Simplify(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbGeslacht", "Geslacht : " +fillFilters);
             }
@@ -335,6 +357,10 @@ namespace PlantenApplicatie
         { 
             if (cmbSoort.SelectedValue != null)
             {
+                cmbType.IsEnabled = false;
+                cmbFamilie.IsEnabled = false;
+                cmbGeslacht.IsEnabled = false;
+
                 cmbVariant.SelectedIndex = -1;
                 foreach (var item in opgeslagenFilters)
                 {
@@ -353,6 +379,10 @@ namespace PlantenApplicatie
         {
             if (cmbVariant.SelectedValue != null)
             {
+                cmbType.IsEnabled = false;
+                cmbFamilie.IsEnabled = false;
+                cmbGeslacht.IsEnabled = false;
+
                 cmbSoort.SelectedIndex = -1;
                 foreach (var item in opgeslagenFilters)
                 {   
@@ -440,16 +470,29 @@ namespace PlantenApplicatie
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
+            cmbType.IsEnabled = true;
+            cmbFamilie.IsEnabled = true;
+            cmbGeslacht.IsEnabled = true;
+
+
             LstOpgeslagenFilters.Items.Clear();
             opgeslagenFilters.Clear();
 
             dictionaryresult.Clear();
-            
-            cmbType.SelectedIndex = -1;
-            cmbFamilie.SelectedIndex = -1;
-            cmbGeslacht.SelectedIndex = -1;
-            cmbSoort.SelectedIndex = -1;
-            cmbVariant.SelectedIndex = -1;
+
+            cmbType.ItemsSource = null;
+            cmbFamilie.ItemsSource = null;
+            cmbGeslacht.ItemsSource = null;
+            cmbSoort.ItemsSource = null;
+            cmbVariant.ItemsSource = null;
+
+            fillComboBoxType();
+            fillComboBoxFamilie();
+            fillComboBoxGeslacht();
+            fillComboBoxSoort();
+            fillComboBoxVariant();
+
+            lstResultSearch.ItemsSource = null;
 
             Frame_Navigated();
         }
