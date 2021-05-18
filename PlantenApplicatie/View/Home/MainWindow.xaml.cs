@@ -78,7 +78,7 @@ namespace PlantenApplicatie.View
         {
             Frame_Navigated();
             BtnbackgroundColor();
-            lstResultSearch.Visibility = Visibility.Visible;
+             lstResultSearch.Visibility = Visibility.Visible;
             cvsDetails.Visibility = Visibility.Visible;
             // de lijst planten op vragen
             var listPlants = dao.getAllPlants();
