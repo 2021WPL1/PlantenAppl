@@ -9,7 +9,7 @@
       Title="ViewResult">
 
     <Grid>
-        <ListBox x:Name="lstResultSearch" Margin="42,184,0,42" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" SelectionChanged="lstResultSearch_SelectionChanged" HorizontalAlignment="Left" Width="512"/>
+        <ListBox x:Name="lstResultSearch" Margin="42,184,0,42" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="512"/>
 
         <Canvas x:Name="cvsDetails" Visibility="Visible" Margin="560,184,0,42" Background="#99FFFFFF" HorizontalAlignment="Left" Width="643" >
             <Label Content="Type:" Canvas.Left="42" Canvas.Top="59" FontWeight="Bold" Width="60"/>
