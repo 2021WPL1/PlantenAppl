@@ -2,6 +2,12 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="View\Pages\ViewBloom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Pages\ViewGrow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\Pages\ViewHabitat.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -13,6 +19,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="View\Pages\ViewBloom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Pages\ViewGrow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="View\Pages\ViewHabitat.xaml">
       <SubType>Designer</SubType>
     </Page>

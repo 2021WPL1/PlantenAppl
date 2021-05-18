@@ -9,10 +9,8 @@
       Title="ViewHabitat">
 
     <Grid>
-        <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Visible" Grid.RowSpan="2" Background="#7FFFFFFF">
-            <Canvas.Effect>
-                <DropShadowEffect/>
-            </Canvas.Effect>
+        <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Visible" Grid.RowSpan="2" Background="#99FFFFFF">
+
             <Label Content="Ontwikkelingssnelheid" Canvas.Left="422" Width="146" Height="25" FontWeight="Bold" Canvas.Top="6"/>
             <ComboBox x:Name="cboOntwikkelingssnelheid" Canvas.Left="423" Canvas.Top="43" Width="133" BorderBrush="Blue">
                 <ComboBox.Effect>
