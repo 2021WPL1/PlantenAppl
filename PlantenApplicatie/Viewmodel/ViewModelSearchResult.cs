@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PlantenApplicatie.ViewModel
 {
-    class ViewModelSearchResult
+    class ViewModelSearchResult:ViewModelBase
     {
     }
 }
