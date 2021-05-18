@@ -40,4 +40,9 @@
     <Resource Include="waterval.jpeg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="View\" />
+    <Folder Include="ViewModel\" />
+  </ItemGroup>
+
 </Project>
