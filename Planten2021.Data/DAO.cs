@@ -172,10 +172,12 @@ namespace Planten2021.Data
         {
             // kijken hoeveel er zijn geselecteerd
 
-            var plants = context.Plant.ToList();
+            var plants = context.Plant.Include(s => s.Fenotype).ToList();
 
             return plants;
         }
+
+
 
         //A function that takes a string, puts it to lowercase, 
         //changes all the ' and " chars and replaces them by a space
@@ -294,6 +296,18 @@ namespace Planten2021.Data
                 var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).ToDictionary(s => s.VariantId, s => s.Variantnaam);
                 return DuplicationCheck(selection);
             }
+        }
+
+        public Dictionary<long, string> fillFenetypeRatiobladbloei()
+        {
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+
+                var selection = context.Fenotype.Distinct().OrderBy(s => s.RatioBloeiBlad).ToDictionary(s => s.Id, s => s.RatioBloeiBlad);
+                return DuplicationCheck(selection);
+            
         }
 
         //.OrderBy(s => s.Variantnaam)

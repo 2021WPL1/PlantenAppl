@@ -38,12 +38,15 @@ namespace PlantenApplicatie
             cmbGeslacht.IsEditable = true;
             cmbSoort.IsEditable = true;
             cmbVariant.IsEditable = true;
+           
 
             fillComboBoxType();
             fillComboBoxFamilie();
             fillComboBoxGeslacht();
             fillComboBoxSoort();
             fillComboBoxVariant();
+            fillComboBoxRatioBladBloei();
+
         }
 
         // new dictionary aanmaken hier komen de resultaten in met als long het plant id en string is de plant info
@@ -88,13 +91,15 @@ namespace PlantenApplicatie
             BtnbackgroundColor();
             lstResultSearch.Visibility = Visibility.Visible;
             cvsDetails.Visibility = Visibility.Visible;
+      
             // de lijst planten op vragen
             var listPlants = dao.getAllPlants();
-
+            
             lstResultSearch.Items.Refresh();
 
+
             // kijken over er iets in de combobox is aan geduid
-            if (Convert.ToInt32(cmbType.SelectedValue) != null)
+            if (cmbType.SelectedValue != null)
             {
                 // alle onnodige tekens er uit halen 
                 var ControlString = Simplify(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
@@ -153,21 +158,72 @@ namespace PlantenApplicatie
 
                 foreach (var item in listPlants.ToList())
                 {
+                   
                     if (item.Variant != null)
                     {
-                        if (item.Variant.Contains(ControlString) == false)
+
+                        if (Simplify(item.Variant, "0")  != ControlString)
+                        {
+                            
+                            listPlants.Remove(item);
+                        }
+                    }
+                    else if (item.Variant == null)
+                    {
+                         listPlants.Remove(item);
+                    }
+
+                }
+            }
+
+            if (txtNederlandseNaam.Text != "")
+            {
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.NederlandsNaam != null)
+                    {
+                        if (item.NederlandsNaam.Contains(txtNederlandseNaam.Text) == false)
+                        {
+                            MessageBox.Show("regergez");
+                            listPlants.Remove(item);
+                        }
+
+                    }
+                    else if (item.NederlandsNaam == null)
+                    {
+                        listPlants.Remove(item);
+                    }
+
+                }
+            }
+            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            if (cmbRatioBladBloei.SelectedValue != null)
+            {
+
+
+                foreach (var item in listPlants.ToList())
+                {
+                    foreach (var itemFenotype in item.Fenotype)
+                    {
+                        if (itemFenotype.RatioBloeiBlad  != null)
+                        {
+                            if (Simplify(itemFenotype.RatioBloeiBlad,"0") !=  Simplify(cmbRatioBladBloei.SelectedValue.ToString(), "0"))
+                            {
+                             //   MessageBox.Show(Simplify(cmbRatioBladBloei.SelectedValue.ToString(), "0"));
+                                listPlants.Remove(item);
+                            }
+                        }
+                        else
                         {
                             listPlants.Remove(item);
                         }
                     }
-                    else
-                    {
-                        listPlants.Remove(item);
-                    }
                 }
             }
 
-            
+ ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
             // dictionary clearen zo da je niet het bijft opvullen met hezelfde als je meerdere keren op zoeken clickt
             dictionaryresult.Clear();
@@ -263,21 +319,53 @@ namespace PlantenApplicatie
         {
             // lijst opvragen
             var fillVariant = dao.fillTfgsvVariant(Convert.ToInt32(cmbGeslacht.SelectedValue));
+            var Variant = new Dictionary<long,string>();
+            foreach (var item in fillVariant)
+            {
+                Variant.Add(item.Key,Simplify(item.Value,"0"));
+            }
             // alle objecten in combobox plaatsen
-            cmbVariant.ItemsSource = fillVariant;
+            cmbVariant.ItemsSource = Variant;
             cmbVariant.DisplayMemberPath = "Value";
             cmbVariant.SelectedValuePath = "Key";
+        }
+        public void fillComboBoxRatioBladBloei()
+        {
+            // lijst opvragen
+            var fillRatio = dao.fillFenetypeRatiobladbloei();
+            var Ratio = new Dictionary<long, string>();
+            foreach (var item in fillRatio)
+            {
+                Ratio.Add(item.Key, Simplify(item.Value, "1"));
+            }
+            // alle objecten in combobox plaatsen
+            cmbRatioBladBloei.ItemsSource = Ratio;
+            cmbRatioBladBloei.DisplayMemberPath = "Value";
+            cmbRatioBladBloei.SelectedValuePath = "Key";
         }
 
         public string Simplify(string stringToSimplify, string id)
         {
             // Door dictionary moeten we een string simplifyen zo dat we deze kunnen gebruiken
-            string answer = stringToSimplify.Replace(id, "").Replace(",", "").Replace("[", "").Replace("]", "");
+            string answer = stringToSimplify.Replace(id, "").Replace(",", "").Replace("[", "").Replace("]", "").Replace("'", "");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
+            //answer.Trim();
             return answer;
         }
 
-        
+
+        public string SimplifyForVariant(string stringToSimplify, string id)
+        {
+            // Door dictionary moeten we een string simplifyen zo dat we deze kunnen gebruiken
+            string answer = stringToSimplify.Replace(id, "").Replace(",", "").Replace("[", "").Replace("]", "");
+           // answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
+            answer.Trim();
+            return answer;
+        }
+
+
+
+
 
         private void fillLstOpgeslagenFilters(string Id, string Name)
         {
@@ -317,7 +405,8 @@ namespace PlantenApplicatie
                 cmbSoort.ItemsSource = null;
                 cmbVariant.ItemsSource = null;
 
-
+                // Dit is omdat het op dit moment niet mogelijk is om variant in het cascade systeem te steken omdat het soort idee nodig heeft en soms geen soorten heeft!
+                cmbVariant.IsEnabled = false;
             }
             
         }
@@ -334,6 +423,9 @@ namespace PlantenApplicatie
 
                 cmbSoort.ItemsSource = null;
                 cmbVariant.ItemsSource = null;
+
+                // Dit is omdat het op dit moment niet mogelijk is om variant in het cascade systeem te steken omdat het soort idee nodig heeft en soms geen soorten heeft!
+                cmbVariant.IsEnabled = false;
             }
            
         }
@@ -346,6 +438,9 @@ namespace PlantenApplicatie
             {
                 cmbType.IsEnabled = false;
                 cmbFamilie.IsEnabled = false;
+
+                // Dit is omdat het op dit moment niet mogelijk is om variant in het cascade systeem te steken omdat het soort idee nodig heeft en soms geen soorten heeft!
+                cmbVariant.IsEnabled = false;
 
                 var fillFilters = Simplify(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
                 fillLstOpgeslagenFilters("cmbGeslacht", "Geslacht : " +fillFilters);
@@ -360,6 +455,9 @@ namespace PlantenApplicatie
                 cmbType.IsEnabled = false;
                 cmbFamilie.IsEnabled = false;
                 cmbGeslacht.IsEnabled = false;
+
+                // Dit is omdat het op dit moment niet mogelijk is om variant in het cascade systeem te steken omdat het soort idee nodig heeft en soms geen soorten heeft!
+                cmbVariant.IsEnabled = false;
 
                 cmbVariant.SelectedIndex = -1;
                 foreach (var item in opgeslagenFilters)
@@ -382,6 +480,7 @@ namespace PlantenApplicatie
                 cmbType.IsEnabled = false;
                 cmbFamilie.IsEnabled = false;
                 cmbGeslacht.IsEnabled = false;
+
 
                 cmbSoort.SelectedIndex = -1;
                 foreach (var item in opgeslagenFilters)
@@ -470,10 +569,12 @@ namespace PlantenApplicatie
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
         {
+            BtnbackgroundColor();
+
             cmbType.IsEnabled = true;
             cmbFamilie.IsEnabled = true;
             cmbGeslacht.IsEnabled = true;
-
+            cmbVariant.IsEnabled = true;
 
             LstOpgeslagenFilters.Items.Clear();
             opgeslagenFilters.Clear();
