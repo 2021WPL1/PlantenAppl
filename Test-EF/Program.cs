@@ -22,22 +22,26 @@ namespace Test_EF
         }
         public static void Main(string[] args)
         {
+            _readObjectProperties<Plant>(32);
             _readObjectProperties<Plant>(66);
+            _readObjectProperties<Plant>(400);
+            _readObjectProperties<Plant>(20);
         }
 
         private static void _readObjectProperties<T>(int plantid)
         {
-
+            
             Type t = typeof(T);
             var objectTypeProperties = t.GetProperties();
 
             var objectToRead = context.Plant.SingleOrDefault(p => p.PlantId == plantid);
+            Console.WriteLine($"=======>{objectToRead.Variant}<=======");
 
             foreach (var p in objectTypeProperties)
             {
                 if (_CheckIfPropertyIsObject(p))
                 {
-                    _readPropertyesThatIsType(plantid, p);
+                    _readPropertysThatIsType(plantid, p);
                 }
                 else
                 {
@@ -130,7 +134,7 @@ namespace Test_EF
 
         #endregion
 
-        private static void _readPropertyesThatIsType(int plantid, PropertyInfo specialProperty)
+        private static void _readPropertysThatIsType(int plantid, PropertyInfo specialProperty)
         {
             switch (specialProperty.Name)
             {
