@@ -2,8 +2,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace Test_EF
 {
@@ -20,8 +22,7 @@ namespace Test_EF
         }
         public static void Main(string[] args)
         {
-            _readObjectProperties<Plant>(30);
-
+            _readObjectProperties<Plant>(45);
         }
 
         private static void _readObjectProperties<T>(int Plantid)
@@ -34,22 +35,44 @@ namespace Test_EF
 
             foreach (var p in objectTypeProperties)
             {
-                if (_checkIfProperyIsObject(p))
+                if (_CheckIfProperyIsObject(p))
                 {
-                    Console.WriteLine("this is a type itself and should be read out separately.");
+                    Console.WriteLine(p.Name);
+                  Console.WriteLine("Here we should read the propery seperatly but it does not work yet.");
                 }
                 else
                 {
                     var propertyText = p.GetValue(objectToRead);
-                    Console.WriteLine($"{p.Name}: {propertyText} " + "\r\n");
+                    Console.WriteLine($"{p.Name}: {propertyText} ");
                 }
-
+                
             }
         }
 
-        private static bool _checkIfProperyIsObject(PropertyInfo info)
+        private static void _readObjectPropertiesInside(PropertyInfo type)
         {
-            return info.PropertyType.GetInterface(nameof(ICollection)) != null;
+            Type t = (Type)type.PropertyType;
+            var objectTypeProperties = t.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var propertyText = p.GetValue(type);
+                Console.WriteLine($"{p.Name}: {propertyText} " + "\r\n");
+            }
+        }
+
+        private static bool _CheckIfProperyIsObject(PropertyInfo info)
+        {
+            bool result = info.Name == "Abiotiek" ||
+                          info.Name == "Commensalisme" ||
+                          info.Name == "BeheerMaand" ||
+                          info.Name == "CommensalismeMulti" ||
+                          info.Name == "AbiotiekMulti" ||
+                          info.Name == "Fenotype" ||
+                          info.Name == "Foto" ||
+                          info.Name == "UpdatePlant" ||
+                          info.Name == "ExtraEigenschap";
+
+            return result;
         }
     }
 }
