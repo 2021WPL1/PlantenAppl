@@ -22,45 +22,159 @@ namespace Test_EF
         }
         public static void Main(string[] args)
         {
-            _readObjectProperties<Plant>(45);
+            _readObjectProperties<Plant>(66);
         }
 
-        private static void _readObjectProperties<T>(int Plantid)
+        private static void _readObjectProperties<T>(int plantid)
         {
 
             Type t = typeof(T);
             var objectTypeProperties = t.GetProperties();
 
-            var objectToRead = context.Plant.SingleOrDefault(p => p.PlantId == Plantid);
+            var objectToRead = context.Plant.SingleOrDefault(p => p.PlantId == plantid);
 
             foreach (var p in objectTypeProperties)
             {
-                if (_CheckIfProperyIsObject(p))
+                if (_CheckIfPropertyIsObject(p))
                 {
-                    Console.WriteLine(p.Name);
-                  Console.WriteLine("Here we should read the propery seperatly but it does not work yet.");
+                    _readPropertyesThatIsType(plantid, p);
                 }
                 else
                 {
                     var propertyText = p.GetValue(objectToRead);
                     Console.WriteLine($"{p.Name}: {propertyText} ");
                 }
-                
             }
         }
 
-        private static void _readObjectPropertiesInside(PropertyInfo type)
+        #region _readPropertysFunctions
+        private static void _readPropertysAbiotiek<T>(int plantId)
         {
-            Type t = (Type)type.PropertyType;
-            var objectTypeProperties = t.GetProperties();
+            var abitoiek = typeof(T);
+            var objectTypeProperties = abitoiek.GetProperties();
             foreach (var p in objectTypeProperties)
             {
-                var propertyText = p.GetValue(type);
-                Console.WriteLine($"{p.Name}: {propertyText} " + "\r\n");
+                var objectToRead = context.Abiotiek.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                Console.WriteLine($"{p.Name}: {propertyText} ");
             }
         }
 
-        private static bool _CheckIfProperyIsObject(PropertyInfo info)
+        private static void _readPropertysCommensalisme<T>(int plantId)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.Commensalisme.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                Console.WriteLine($"{p.Name}: {propertyText} ");
+            }
+        }
+        private static void _readPropertysBeheerMaand<T>(int plantId)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.BeheerMaand.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                Console.WriteLine($"{p.Name}: {propertyText} ");
+            }
+        }
+        private static void _readPropertysCommensalismeMulti<T>(int plantId)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.BeheerMaand.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                Console.WriteLine($"{p.Name}: {propertyText} ");
+            }
+        }
+        private static void _readPropertysAbiotiekMulti<T>(int plantId)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.AbiotiekMulti.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                Console.WriteLine($"{p.Name}: {propertyText} ");
+            }
+        }
+        private static void _readPropertysFenotype<T>(int plantId)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.Fenotype.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                Console.WriteLine($"{p.Name}: {propertyText} ");
+            }
+        }
+        private static void _readPropertysExtraEigenschap<T>(int plantId)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.ExtraEigenschap.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                Console.WriteLine($"{p.Name}: {propertyText} ");
+            }
+        }
+
+
+        #endregion
+
+        private static void _readPropertyesThatIsType(int plantid, PropertyInfo specialProperty)
+        {
+            switch (specialProperty.Name)
+            {
+                case "Abiotiek":
+                    Console.WriteLine("---->Abiotiek<----" + "\r\n");
+                    _readPropertysAbiotiek<Abiotiek>(plantid);
+                    break;
+                case "Commensalisme":
+                    Console.WriteLine("---->Commensalisme<----" + "\r\n");
+                    //_readPropertysCommensalisme<Commensalisme>(plantid);
+                    break;
+                case "BeheerMaand":
+                    Console.WriteLine("---->BeheerMaand<----" + "\r\n");
+                    //_readPropertysBeheerMaand<BeheerMaand>(plantid);
+                    break;
+                case "CommensalismeMulti":
+                    Console.WriteLine("---->CommensalismeMulti<----" + "\r\n");
+                    //_readPropertysCommensalismeMulti<CommensalismeMulti>(plantid);
+                    break;
+                case "AbiotiekMulti":
+                    Console.WriteLine("---->AbiotiekMulti<----" + "\r\n");
+                    //_readPropertysAbiotiekMulti<CommensalismeMulti>(plantid);
+                    break;
+                case "Fenotype":
+                    Console.WriteLine("---->Fenotype<----" + "\r\n");
+                    //_readPropertysFenotype<Fenotype>(plantid);
+                    break;
+                case "Foto":
+                    Console.WriteLine("---->Foto<----" + "\r\n");
+                    break;
+                case "UpdatePlant":
+                    Console.WriteLine("---->UpdatePlant<----" + "\r\n");
+                    break;
+                case "ExtraEigenschap":
+                    Console.WriteLine("---->ExtraEigenschap<----" + "\r\n");
+                    _readPropertysExtraEigenschap<ExtraEigenschap>(plantid);
+                    break;
+                default:
+                    Console.WriteLine("---->default<----" + "\r\n");
+                    break;
+            }
+        }
+
+        private static bool _CheckIfPropertyIsObject(PropertyInfo info)
         {
             bool result = info.Name == "Abiotiek" ||
                           info.Name == "Commensalisme" ||
@@ -74,5 +188,6 @@ namespace Test_EF
 
             return result;
         }
+
     }
 }
