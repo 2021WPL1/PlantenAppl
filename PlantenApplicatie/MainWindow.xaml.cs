@@ -502,70 +502,11 @@ namespace PlantenApplicatie
 
         private void lstResultSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (lstResultSearch.SelectedValue != null)
-            {
-                //MessageBox.Show(lstResultSearch.SelectedValue.ToString());
-                var plants = dao.detailsAanvullen(Convert.ToInt64(lstResultSearch.SelectedValue));
-               foreach (var item in plants)
-                {
-                    lblFamilie.Content = item.Familie;
-                    lblGeslacht.Content = item.Geslacht;
-                    lblSoort.Content = item.Soort;
-                    lblType.Content = item.Type;
-                    lblVariant.Content = item.Variant;
-                    lblNederlandseNaam.Content = item.NederlandsNaam;
-                    lblPlantdichtheidMin.Content = item.PlantdichtheidMin;
-                    lblPlanctdichtheidMax.Content = item.PlantdichtheidMax;
-                    lblStatus.Content = item.Status;
-                    lblPlantId.Content = item.PlantId;
-                    
-                    //Plant.Abiotiek moet ook apart worden uitgelezen
-                    foreach(var abItem in item.Abiotiek)
-                    {
-                        lblBezonning.Content = abItem.Bezonning;
-                        lblVochtbehoefte.Content = abItem.Vochtbehoefte;
-
-                        //De onderstaande code is ter voorbereiding van de nieuwe data
-                        //deze columns zijn nu nog NULL
-                        //lblGrondsoort.Content = abItem.Grondsoort;
-                        //lblVoedingsbehoefte.Content = abItem.AntagonischeOmgeving;
-                    }
-                    
-
-                    //Deze zijn ter voorbereiding van de nog te komen data
-                    //lblGrondsoort.Content = item.Grondsoort;
-                    //lblVochtbehoefte.Content = item.Vochtbehoefte;
-                    //lblVoedingsbehoefte.Content = item.Voedingsbehoefte;
-                    //lblAntagonischeOmgeving.Content = item.AgantonischeOmgeving;
-                    //lblCultivar.Content = item.Cultivar;
-                    //Sociabiliteit lblGrondsoort.Content = item.Sociabiliteit;
-                    //lblOntwikkelingsnelheid.Content = item.Ontwikkelingsnelheid;
-                    //lblConcurrentieKracht.Content = item.ConcurrentieKracht;
-                    //lblNectarwaarde.Content = item.Nectarwaarde;
-                    //lblBijvriendelijk.Content = item.Bijvriendelijk;
-                    //lblEetKruidbaar.Content = item.EetKruidbaar;
-                    //lblGeurend.Content = item.Geurend;
-                    //lblVlinderVriendelijk.Content = item.Vlindervriendelijk;
-                    //lblVorstgevoelig.Content = item.Vorstgevoelig;
-                    //lblBloeikleur.Content = item.Bloeikeur;
-                    //lblBloeihoogte.Content = item.Bloeihoogte;
-                    //lblBloeiwijze.Content = item.Bloeiwijze;
-                    //Strategie lblStrategie.Content = item.Strategie;
-                    //lblBladkleur.Content = item.Bladkleur;
-                    //lblBladhoogte.Content = item.Bladhoogte;
-                    //lblBladvormen.Content = item.Bladvormen;
-                    //lblStengelvormen.Content = item.Stengelvormen;
-                    //lblLevensvorm.Content = item.Levensvorm;
-                    //lblSpruitfenologie.Content = item.Spruitfenologie;
-                    //lblOptimalePlantdichtheid.Content = item.Plantdichtheid;
-               
-                }
-                //foreach(var abiotiekType in plantAbiotiek)
-                //{
-                //    lblBezonning.Content = abiotiekType.Bezonning;
-                //}
-            }
-            
+            //foreach (var item in TypeProperties)
+            //{
+            //    stringBuilder.Append($"{item.Name}: {item.GetValue(DeSerializedObject)} ");
+            //    stringBuilder.AppendLine();
+            //}
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
