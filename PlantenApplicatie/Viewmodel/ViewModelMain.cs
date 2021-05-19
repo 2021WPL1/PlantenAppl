@@ -28,10 +28,14 @@ namespace PlantenApplicatie.ViewModel
 
         private ViewModelRepo _viewModelsRepo = new ViewModelRepo();
 
+
+
         public ViewModelMain()
         {
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
+
+
         }
 
         private void _onNavigationChanged(string userControlName)

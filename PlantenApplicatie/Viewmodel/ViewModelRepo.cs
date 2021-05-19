@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Planten2021.Data;
 using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Viewmodel
@@ -9,6 +10,8 @@ namespace PlantenApplicatie.Viewmodel
         public class ViewModelRepo
         {
             private Dictionary<string, ViewModelBase> _viewModels = new Dictionary<string, ViewModelBase>();
+         
+
             public ViewModelRepo()
             {
                 //hier een extra lijn code per user control
