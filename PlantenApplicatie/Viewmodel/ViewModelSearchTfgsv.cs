@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
@@ -13,6 +14,7 @@ namespace PlantenApplicatie.ViewModel
     class ViewModelSearchTfgsv : ViewModelBase
     {
         private DAO _dao;
+      
 
         public ViewModelSearchTfgsv(DAO dao)
         {
@@ -23,11 +25,19 @@ namespace PlantenApplicatie.ViewModel
             cmbVariant = new Dictionary<long, string>();
 
             this._dao = dao;
+
+            cmbType = new Dictionary<long, string>();
+            cmbFamilie = new Dictionary<long, string>();
+           
+
+
             fillComboBoxType();
             fillComboBoxFamilie();
             fillComboBoxGeslacht();
             fillComboBoxSoort();
             fillComboBoxVariant();
+
+
         }
 
 
@@ -101,6 +111,11 @@ namespace PlantenApplicatie.ViewModel
 
         //private Inventory _selectedInventory;
         //private Product _selectedProduct;
+        
+        /// <summary>
+        /// Fill  combobox functies
+        /// </summary>
+
 
         public void fillComboBoxType()
         {
@@ -144,7 +159,15 @@ namespace PlantenApplicatie.ViewModel
                 cmbSoort.Add(item.Key, item.Value);
             }
 
-        }
+        public void fillComboBoxFamilie()
+        {
+            // Request the list of type's
+            var list = _dao.fillTfgsvFamilie(SelectedTypeId);
+            // adding them to the dictionary that is binded with the combobox van type
+            foreach (var item in list)
+            {
+                cmbFamilie.Add(item.Key, item.Value);
+            }
 
         public void fillComboBoxVariant()
         {
