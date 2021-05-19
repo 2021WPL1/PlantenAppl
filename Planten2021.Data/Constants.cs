@@ -2,6 +2,6 @@
 {
     public class Constants
     {
-        public static string connectionstring = "Server=LAPTOP-0UQL3LGS\\VIVES; Trusted_Connection=True;";
+        public static string connectionstring = "Server=LAPTOP-STOFFEL\\VIVES; Trusted_Connection=True;";
     }
 }

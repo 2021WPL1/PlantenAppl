@@ -20,14 +20,13 @@ namespace PlantenApplicatie.ViewModel
         //ICommands
         public ICommand OpenTfgsvViewCommand { get; set; }
 
+        
  
         public ViewModelMain(DAO dao/*, Page view*/)
         {
             this._dao = dao;
             viewModelTFGSV = new ViewModelSearchTfgsv(dao);
             
-
-
         }
 
       
