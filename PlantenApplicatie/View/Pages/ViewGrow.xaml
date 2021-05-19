@@ -9,9 +9,9 @@
       Title="ViewGrow">
 
     <Grid Opacity="0.9">
-        <Canvas x:Name="cvsHabitat" Margin="0,35,0,205" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1150">
+        <Canvas x:Name="cvsHabitat" Margin="0,190,0,50" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1150">
 
-            <Label Content="Grondsoort" Canvas.Left="19" Canvas.Top="10" Height="25" Width="75" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Grondsoort" Canvas.Left="19" Canvas.Top="10" Height="25" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Strategie" Canvas.Left="662" Canvas.Top="10" Height="26" Width="75" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="GB1" Canvas.Left="19" Canvas.Top="50" Height="25" Width="40" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="GB2" Canvas.Left="19" Canvas.Top="89" Height="25" Width="40" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
@@ -200,7 +200,7 @@
             <Label Content="Matig" Canvas.Left="19" Canvas.Top="385" Height="26" Width="105" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Matig-Voedselrijk" Canvas.Left="19" Canvas.Top="427" Height="26" Width="130"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Voedselrijk" Canvas.Left="19" Canvas.Top="465" Height="26" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Voedselrijk-Indifferent" Canvas.Left="20" Canvas.Top="504" Height="25" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Voedselrijk-Indifferent" Canvas.Left="20" Canvas.Top="504" Height="25" Width="164" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Indifferent" Canvas.Left="19" Canvas.Top="540" Height="25" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <CheckBox x:Name="CbxVoedingsbehoefteArm" Content="CheckBox" Canvas.Left="184" Canvas.Top="306" Height="16" Width="15" BorderBrush="Gray">
                 <CheckBox.Effect>
@@ -237,12 +237,12 @@
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <Label Content="Droog" Canvas.Left="252" Canvas.Top="301" Height="26" Width="130"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Droog" Canvas.Left="252" Canvas.Top="301" Height="29" Width="130"  BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Droog-Fris" Canvas.Left="252" Canvas.Top="343" Height="26" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Fris" Canvas.Left="252" Canvas.Top="385" Height="26" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Fris-Vochtig" Canvas.Left="252" Canvas.Top="427" Height="26" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Vochtig" Canvas.Left="252" Canvas.Top="465" Height="26" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vochtig-Nat" Canvas.Left="252" Canvas.Top="503" Height="26" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vochtig-Nat" Canvas.Left="252" Canvas.Top="503" Height="32" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Nat" Canvas.Left="252" Canvas.Top="540" Height="26" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <CheckBox x:Name="CbxVochtbehoefteDroog" Content="CheckBox" Canvas.Left="417" Canvas.Top="307" Height="16" Width="15" BorderBrush="Gray">
                 <CheckBox.Effect>
