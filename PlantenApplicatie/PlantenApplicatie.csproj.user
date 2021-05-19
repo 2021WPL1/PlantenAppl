@@ -11,6 +11,9 @@
     <Compile Update="View\Pages\ViewTfgsv.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\UserControls\UserControlHabitat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\Pages\ViewHabitat.xaml">
@@ -20,6 +23,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\Pages\ViewTfgsv.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserControls\UserControlHabitat.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

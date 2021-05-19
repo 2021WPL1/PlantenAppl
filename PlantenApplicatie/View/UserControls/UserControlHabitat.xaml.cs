@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PlantenApplicatie.View
+namespace PlantenApplicatie.View.UserControls
 {
     /// <summary>
-    /// Interaction logic for ViewTfgsv.xaml
+    /// Interaction logic for UserControlHabitat.xaml
     /// </summary>
-    public partial class ViewTfgsv : Page
+    public partial class UserControlHabitat : UserControl
     {
-        public ViewTfgsv()
+        public UserControlHabitat()
         {
             InitializeComponent();
         }

@@ -1,13 +1,11 @@
-﻿<Page x:Class="PlantenApplicatie.View.Pages.ViewHabitat"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:PlantenApplicatie.View.Pages"
-      mc:Ignorable="d" 
-      d:DesignHeight="900" d:DesignWidth="1250"
-      Title="ViewHabitat">
-
+﻿<UserControl x:Class="PlantenApplicatie.View.UserControls.UserControlHabitat"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PlantenApplicatie.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1250">
     <Grid>
         <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Visible" Grid.RowSpan="2" Background="#7FFFFFFF">
             <Canvas.Effect>
@@ -296,4 +294,5 @@
             </Label>
         </Canvas>
     </Grid>
-</Page>
+
+</UserControl>

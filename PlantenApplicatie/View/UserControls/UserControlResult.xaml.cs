@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PlantenApplicatie.View.Pages
+namespace PlantenApplicatie.View.UserControls
 {
     /// <summary>
-    /// Interaction logic for ViewResult.xaml
+    /// Interaction logic for UserControlResult.xaml
     /// </summary>
-    public partial class ViewResult : Page
+    public partial class UserControlResult : UserControl
     {
-        public ViewResult()
+        public UserControlResult()
         {
             InitializeComponent();
         }
