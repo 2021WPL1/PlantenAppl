@@ -196,21 +196,21 @@ namespace PlantenApplicatie
                     }
 
                 }
-            }
+            } 
             /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             if (cmbRatioBladBloei.SelectedValue != null)
             {
-
-
+                var ControlString = Simplify(cmbRatioBladBloei.SelectedItem.ToString(), cmbRatioBladBloei.SelectedValue.ToString());
+                var test = new List<Plant>();
                 foreach (var item in listPlants.ToList())
                 {
                     foreach (var itemFenotype in item.Fenotype)
                     {
-                        if (itemFenotype.RatioBloeiBlad  != null)
+                        if (itemFenotype.RatioBloeiBlad  != null || itemFenotype.RatioBloeiBlad == "")
                         {
-                            if (Simplify(itemFenotype.RatioBloeiBlad,"0") !=  Simplify(cmbRatioBladBloei.SelectedValue.ToString(), "0"))
+                            if (Simplify(itemFenotype.RatioBloeiBlad,"0") !=  ControlString)
                             {
-                             //   MessageBox.Show(Simplify(cmbRatioBladBloei.SelectedValue.ToString(), "0"));
+                                //listPlants.Remove(item);
                                 listPlants.Remove(item);
                             }
                         }
@@ -220,6 +220,7 @@ namespace PlantenApplicatie
                         }
                     }
                 }
+
             }
 
  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -240,7 +241,7 @@ namespace PlantenApplicatie
                                     + "variant = " + plant.Variant + Environment.NewLine
                                     + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
                                     + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
-                                    );
+                );
             }
 
             // alles laden in result
