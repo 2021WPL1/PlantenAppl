@@ -17,7 +17,6 @@ namespace PlantenApplicatie.ViewModel
         public ViewModelSearchTfgsv(DAO dao)
         {
             Dictionary<long, string> cmbType = new Dictionary<long, string>();
-            cmbType.Add(1,"TEST");
 
             this._dao = dao;
             fillComboBoxType();
@@ -49,12 +48,12 @@ namespace PlantenApplicatie.ViewModel
 
         public void fillComboBoxType()
         {
-            //var list = _dao.fillTfgsvType();
+        //    var list = _dao.fillTfgsvType();
 
-            //foreach (var item in list)
-            //{
-            //    cmbType.Add(item.Key, item.Value);
-            //}
+        //    foreach (var item in list)
+        //    {
+        //        cmbType.Add(item.Key, item.Value);
+        //    }
 
         }
 

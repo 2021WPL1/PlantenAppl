@@ -32,7 +32,7 @@ namespace PlantenApplicatie.View
             //DAO instance 
            
             MainViewModel = new ViewModelMain( dao = DAO.Instance());
-                
+            DataContext = MainViewModel;
 
             //Frame_Navigated();
             //// De comboBoxen vullen.

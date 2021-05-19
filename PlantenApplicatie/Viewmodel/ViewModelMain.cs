@@ -25,10 +25,9 @@ namespace PlantenApplicatie.ViewModel
         {
             this._dao = dao;
             viewModelTFGSV = new ViewModelSearchTfgsv(dao);
-
-           
             
-           
+
+
         }
 
       
