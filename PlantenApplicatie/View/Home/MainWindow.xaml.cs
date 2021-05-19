@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.View
 {
@@ -30,11 +31,10 @@ namespace PlantenApplicatie.View
             InitializeComponent();
             //DAO instance 
             dao = DAO.Instance();
-            
 
             //Frame_Navigated();
             //// De comboBoxen vullen.
-   
+
 
             //fillComboBoxType();
 
@@ -42,7 +42,7 @@ namespace PlantenApplicatie.View
             //fillComboBoxGeslacht();
             //fillComboBoxSoort();
             //fillComboBoxVariant();
-           }
+        }
 
         // new dictionary aanmaken hier komen de resultaten in met als long het plant id en string is de plant info
         //Dictionary<long, string> dictionaryresult = new Dictionary<long, string>();

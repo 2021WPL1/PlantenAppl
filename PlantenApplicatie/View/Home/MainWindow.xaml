@@ -5,10 +5,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlantenApplicatie.View"
-        xmlns:pages="clr-namespace:PlantenApplicatie.View.Pages"
+        xmlns:pages="clr-namespace:PlantenApplicatie.View.UserControls"
         xmlns:viewModel="clr-namespace:PlantenApplicatie.ViewModel"
+        xmlns:viewModels="clr-namespace:PlantenApplicatie.Viewmodel"
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1250">
+
+    <Window.DataContext>
+        <viewModel:ViewModelMain/>
+    </Window.DataContext>
+
+    <Window.Resources>
+
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelName}">
+            <pages:UserControlName/>
+        </DataTemplate>
+
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelHabitat}">
+            <pages:UserControlHabitat/>
+        </DataTemplate>
+
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelResult}">
+            <pages:UserControlResult/>
+        </DataTemplate>
+
+    </Window.Resources>
 
     <Grid Opacity="0.9">
 
@@ -30,6 +51,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -40,6 +62,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -50,6 +73,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="560,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" RenderTransformOrigin="0.492,0.564" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -60,7 +84,10 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029"  FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+
+        <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029"  FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWHABITAT"   >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -70,6 +97,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Button x:Name="btnLopendVerzoek" Content="Lopend verzoek" HorizontalAlignment="Left" Margin="948,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -80,6 +108,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Button x:Name="btnSorteer" Content="Sorteer bij:" HorizontalAlignment="Left" Margin="1078,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -90,6 +119,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Button x:Name="btnExporteeralle" Content="Exporteer alle" HorizontalAlignment="Left" Margin="1078,51,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -100,6 +130,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Button x:Name="btnLijst" Content="Lijst" HorizontalAlignment="Left" Margin="818,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -110,6 +141,7 @@
                 </Style>
             </Button.Resources>
         </Button>
+
         <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="818,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -120,10 +152,10 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="btnNaam"
 
-                Content="Naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633"  Background="#FF474029"   FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" >
-            
+        <Button x:Name="btnNaam" Content="Naam" HorizontalAlignment="Left" Margin="42,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633"  Background="#FF474029"   FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B" 
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWNAME" >
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -134,7 +166,9 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" >
+        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWZOEKEN" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -150,6 +184,7 @@
 
 
         <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="641" Background="#99F5F5F5" FontWeight="Bold"/>
+        
         <Button x:Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="688,51,0,0" VerticalAlignment="Top" Height="128" Width="125" Background="#FF5A533F" BorderBrush="#FF40E948" Foreground="#FFABC36C" FontWeight="Bold" FontSize="24">
             <Button.Effect>
                 <DropShadowEffect/>
@@ -162,5 +197,9 @@
         </Button>
         <!--<Frame x:Name="MainFrame" Margin="0,190,0,0"  Content=""/>-->
 
-</Grid>
+        <!-- hier doe je de binding van het currentViewModel !Clue van et stysteem -->
+        <Grid x:Name="MainContent">
+            <ContentControl Content="{Binding currentViewModel}"/>
+        </Grid>
+    </Grid>
 </Window>
