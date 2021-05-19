@@ -207,7 +207,6 @@ namespace Planten2021.Data
             return Duplicationcheck;
         }
 
-
         /// <summary>
         ///                            FILL COMBOBOX
         ///            Deze functie zijn voor het cascade systeem.
@@ -219,9 +218,10 @@ namespace Planten2021.Data
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
+            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);
             return DuplicationCheck(selection);
         }
+
 
         public Dictionary<long, string> fillTfgsvFamilie(int selectedItem)
         {

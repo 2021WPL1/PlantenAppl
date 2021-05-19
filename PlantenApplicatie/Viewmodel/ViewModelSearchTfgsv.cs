@@ -1,45 +1,64 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 using Planten2021.Data;
+using Planten2021.Domain.Models;
+using Prism.Commands;
 
 namespace PlantenApplicatie.ViewModel
 {
-    class ViewModelSearchTfgsv
+    class ViewModelSearchTfgsv : ViewModelBase
     {
         private DAO _dao;
+
         public ViewModelSearchTfgsv(DAO dao)
         {
-            _dao = dao;
+            Dictionary<long, string> cmbType = new Dictionary<long, string>();
+            cmbType.Add(1,"TEST");
+
+            this._dao = dao;
+            fillComboBoxType();
+
         }
 
-        //public ICommand addProductToInventoryCommand { get; set; }
-        //public ICommand removeProductFromInventoryCommand { get; set; }
-        //public ICommand addProductCommand { get; set; }
-        //public ICommand removeProductCommand { get; set; }
 
-        //public ObservableCollection<Inventory> Inventories { get; set; }
-        //public ObservableCollection<Product> Products { get; set; }
+        //public ICommand FillComboBoxType { get; set; }
 
-        //private string productNameInput;
-        //private string productDescriptionInput;
+        public Dictionary<long, string> cmbType { get; set; }
 
-        //private GameStoreDataService _dataservice;
+
+        private int _selectedTypeId;
+
+        public int SelectedTypeId
+        {
+            get { return _selectedTypeId; }
+            set
+            {
+                _selectedTypeId = value;
+                OnPropertyChanged();
+            }
+        }
+
+        //private GameStoreDataService _dataservice;    
 
         //private Inventory _selectedInventory;
         //private Product _selectedProduct;
 
-        //public MainViewModel(GameStoreDataService zooAnimalDataService)
-        //{
-        //    addProductToInventoryCommand = new DelegateCommand(addToInventory);
-        //    removeProductFromInventoryCommand = new DelegateCommand(removeFromInventory);
-        //    addProductCommand = new DelegateCommand(addProduct);
-        //    removeProductCommand = new DelegateCommand(deleteProduct);
+        public void fillComboBoxType()
+        {
+            //var list = _dao.fillTfgsvType();
 
-        //    Inventories = new ObservableCollection<Inventory>();
-        //    Products = new ObservableCollection<Product>();
+            //foreach (var item in list)
+            //{
+            //    cmbType.Add(item.Key, item.Value);
+            //}
 
-        //    this._dataservice = zooAnimalDataService;
-        //}
+        }
+
+
+
     }
 }
