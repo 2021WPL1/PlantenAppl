@@ -23,7 +23,7 @@ namespace PlantenApplicatie.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly DAO dao;
+
         private ViewModelMain MainViewModel;
         
         public MainWindow()
@@ -31,9 +31,10 @@ namespace PlantenApplicatie.View
             InitializeComponent();
             //DAO instance 
            
-            MainViewModel = new ViewModelMain( dao = DAO.Instance());
+            MainViewModel = new ViewModelMain(DAO.Instance());
             DataContext = MainViewModel;
-
+          
+            
             //Frame_Navigated();
             //// De comboBoxen vullen.
 

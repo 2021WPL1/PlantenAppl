@@ -168,9 +168,9 @@
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31" 
-                      ItemsSource="{Binding Path cmbType}"   
-                      SelectedItem="{Binding Path=SelectedType ,Mode=TwoWay}"  
+            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31"
+                      ItemsSource="{Binding Path=cmbType}"   
+                      SelectedItem="{Binding Path=SelectedTypeId ,Mode=TwoWay}"  
                       DisplayMemberPath="Value" 
                       >
 
