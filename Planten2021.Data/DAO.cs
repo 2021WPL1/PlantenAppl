@@ -172,10 +172,12 @@ namespace Planten2021.Data
         {
             // kijken hoeveel er zijn geselecteerd
 
-            var plants = context.Plant.ToList();
+            var plants = context.Plant.Include(s => s.Fenotype).ToList();
 
             return plants;
         }
+
+
 
         //A function that takes a string, puts it to lowercase, 
         //changes all the ' and " chars and replaces them by a space
@@ -185,6 +187,24 @@ namespace Planten2021.Data
             string answer = stringToSimplify.Replace("\'", " ").Replace("\"", " ");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
+        }
+
+
+        // Gemaakt door Owen
+        public Dictionary<long, string> DuplicationCheck(Dictionary<long,string> selection)
+        {
+            // this is to check for dupelication that got through the distinct
+            
+            Dictionary<long, string> Duplicationcheck = new Dictionary<long, string>();
+            foreach (var item in selection)
+            {
+                if (!Duplicationcheck.ContainsValue(item.Value))
+                {
+                    Duplicationcheck.Add(item.Key, item.Value);
+                }
+            }
+
+            return Duplicationcheck;
         }
 
 
@@ -200,7 +220,7 @@ namespace Planten2021.Data
             // distinct om meerdere van de zelfde tegen te gaan.
             // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
             var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
-            return selection;
+            return DuplicationCheck(selection);
         }
 
         public Dictionary<long, string> fillTfgsvFamilie(int selectedItem)
@@ -212,14 +232,13 @@ namespace Planten2021.Data
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
-                return selection;
+                return DuplicationCheck(selection);
                 
             }
             else
             {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).ToDictionary(s => s.FamileId, s => s.Familienaam);
-               
-                return selection;
+                return DuplicationCheck(selection);
             }
 
 
@@ -233,12 +252,12 @@ namespace Planten2021.Data
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvGeslacht.Distinct().OrderBy(s=>s.Geslachtnaam).Where(s => s.FamilieFamileId == selectedItem).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
-                return selection;
+                return DuplicationCheck(selection);
             }
             else
             {
                 var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
-                return selection;
+                return DuplicationCheck(selection);
             }
 
         }
@@ -251,12 +270,12 @@ namespace Planten2021.Data
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
-                return selection;
+                return DuplicationCheck(selection);
             }
             else
             {
                 var selection = context.TfgsvSoort.Distinct().OrderBy(s => s.Soortnaam).ToDictionary(s => s.Soortid, s => s.Soortnaam);
-                return selection;
+                return DuplicationCheck(selection);
             }
 
         }
@@ -270,13 +289,25 @@ namespace Planten2021.Data
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).Where(s => s.SoortSoortid == selectedItem).ToDictionary(s => s.VariantId, s => s.Variantnaam);
-                return selection;
+                return DuplicationCheck(selection);
             }
             else
             {
                 var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).ToDictionary(s => s.VariantId, s => s.Variantnaam);
-                return selection;
+                return DuplicationCheck(selection);
             }
+        }
+
+        public Dictionary<long, string> fillFenetypeRatiobladbloei()
+        {
+            // lijst type opvragen.
+            // distinct om meerdere van de zelfde tegen te gaan.
+            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+
+                var selection = context.Fenotype.Distinct().OrderBy(s => s.RatioBloeiBlad).ToDictionary(s => s.Id, s => s.RatioBloeiBlad);
+                return DuplicationCheck(selection);
+            
         }
 
         //.OrderBy(s => s.Variantnaam)
