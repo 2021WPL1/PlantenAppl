@@ -501,11 +501,9 @@
 
         </Canvas>
 
-        <ListBox x:Name="cvsDetails" Visibility="Visible" Margin="560,184,0,42" Background="#99FFFFFF" HorizontalAlignment="Left" Width="643" >
+        <ListBox x:Name="lstDetails" Visibility="Visible" Margin="560,184,0,42" Background="#99FFFFFF" HorizontalAlignment="Left" Width="643" FontWeight="Bold" >
            
         </ListBox>
-
-        <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,184,47,42" Background="#99FFFFFF"/>
 
 
         <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="641" Background="#99F5F5F5" FontWeight="Bold"/>

@@ -3,6 +3,7 @@ using Planten2021.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -53,6 +54,8 @@ namespace PlantenApplicatie
         Dictionary<long, string> dictionaryresult = new Dictionary<long, string>();
         // dit is de lijst waar geslecteerde filters inkomen men als eerste string  bv. de combobox naam en als 2 string de info
         Dictionary<string, string> opgeslagenFilters = new Dictionary<string, string>();
+        // THis is for the detail screen
+        Dictionary<long, string> Detailsresult = new Dictionary<long, string>();
 
         private void Frame_Navigated()
         {
@@ -60,7 +63,7 @@ namespace PlantenApplicatie
             lstResultSearch.Visibility = Visibility.Hidden;
             CvsZoeken.Visibility = Visibility.Hidden;
             cvsHabitat.Visibility = Visibility.Hidden;
-            cvsDetails.Visibility = Visibility.Hidden;
+            lstDetails.Visibility = Visibility.Hidden;
         }
 
         private void BtnbackgroundColor()
@@ -90,7 +93,7 @@ namespace PlantenApplicatie
             Frame_Navigated();
             BtnbackgroundColor();
             lstResultSearch.Visibility = Visibility.Visible;
-            cvsDetails.Visibility = Visibility.Visible;
+            lstDetails.Visibility = Visibility.Visible;
       
             // de lijst planten op vragen
             var listPlants = dao.getAllPlants();
@@ -185,7 +188,6 @@ namespace PlantenApplicatie
                     {
                         if (item.NederlandsNaam.Contains(txtNederlandseNaam.Text) == false)
                         {
-                            MessageBox.Show("regergez");
                             listPlants.Remove(item);
                         }
 
@@ -196,35 +198,46 @@ namespace PlantenApplicatie
                     }
 
                 }
-            } 
-            /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            }
+
             if (cmbRatioBladBloei.SelectedValue != null)
             {
                 var ControlString = Simplify(cmbRatioBladBloei.SelectedItem.ToString(), cmbRatioBladBloei.SelectedValue.ToString());
-                var test = new List<Plant>();
+
                 foreach (var item in listPlants.ToList())
                 {
-                    foreach (var itemFenotype in item.Fenotype)
+                    if (item.Fenotype.Count != 0)
                     {
-                        if (itemFenotype.RatioBloeiBlad  != null || itemFenotype.RatioBloeiBlad == "")
+                        foreach (var itemFenotype in item.Fenotype)
                         {
-                            if (Simplify(itemFenotype.RatioBloeiBlad,"0") !=  ControlString)
+
+                            if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
                             {
-                                //listPlants.Remove(item);
+
+                                if (Simplify(itemFenotype.RatioBloeiBlad, "0") != ControlString)
+                                {
+
+                                    //listPlants.Remove(item);
+                                    listPlants.Remove(item);
+                                }
+                            }
+                            else
+                            {
                                 listPlants.Remove(item);
                             }
                         }
-                        else
-                        {
-                            listPlants.Remove(item);
-                        }
                     }
+                    else
+                    {
+                        listPlants.Remove(item);
+                    }
+
                 }
 
             }
 
- ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+            CheckBox dynamicCheckBox = new CheckBox();
 
             // dictionary clearen zo da je niet het bijft opvullen met hezelfde als je meerdere keren op zoeken clickt
             dictionaryresult.Clear();
@@ -241,6 +254,7 @@ namespace PlantenApplicatie
                                     + "variant = " + plant.Variant + Environment.NewLine
                                     + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
                                     + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
+                                 
                 );
             }
 
@@ -502,11 +516,36 @@ namespace PlantenApplicatie
 
         private void lstResultSearch_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //foreach (var item in TypeProperties)
+           
+            // de lijst planten op vragen
+            var listPlants = dao.getAllPlants();
+
+            Detailsresult.Clear();
+
+            //foreach (var plant in listPlants)
             //{
-            //    stringBuilder.Append($"{item.Name}: {item.GetValue(DeSerializedObject)} ");
-            //    stringBuilder.AppendLine();
+            //    Detailsresult.Add
+            //    (plant.PlantId,
+            //        "Plantnaam = " + plant.Fgsv + Environment.NewLine
+            //        + "type = " + plant.Type + Environment.NewLine
+            //        + "famillie = " + plant.Familie + Environment.NewLine
+            //        + "geslacht = " + plant.Geslacht + Environment.NewLine
+            //        + "soort = " + plant.Soort + Environment.NewLine
+            //        + "variant = " + plant.Variant + Environment.NewLine
+            //        + "nederlandse naam = " + plant.NederlandsNaam + Environment.NewLine
+            //        + "plantendichtheid = Min: " + plant.PlantdichtheidMin.ToString() + " Max: " + plant.PlantdichtheidMax.ToString() + Environment.NewLine
+
+            //    );
             //}
+
+            Detailsresult.Add(1,"1");
+            Detailsresult.Add(2,"2");
+
+            // alles laden in result
+            lstDetails.ItemsSource = Detailsresult;
+            lstDetails.DisplayMemberPath = "Value";
+            lstDetails.SelectedValuePath = "Key";
+
         }
 
         private void btnReset_Click(object sender, RoutedEventArgs e)
@@ -520,25 +559,31 @@ namespace PlantenApplicatie
 
             LstOpgeslagenFilters.Items.Clear();
             opgeslagenFilters.Clear();
+            
 
-            dictionaryresult.Clear();
+
+
 
             cmbType.ItemsSource = null;
             cmbFamilie.ItemsSource = null;
             cmbGeslacht.ItemsSource = null;
             cmbSoort.ItemsSource = null;
             cmbVariant.ItemsSource = null;
+            cmbRatioBladBloei.ItemsSource = null;
 
             fillComboBoxType();
             fillComboBoxFamilie();
             fillComboBoxGeslacht();
             fillComboBoxSoort();
             fillComboBoxVariant();
+            fillComboBoxRatioBladBloei();
 
             lstResultSearch.ItemsSource = null;
+            lstDetails.ItemsSource = null;
 
             Frame_Navigated();
         }
+
         private void getAbiothiekDetails()
         {
 
