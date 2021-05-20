@@ -18,6 +18,7 @@ namespace PlantenApplicatie.Viewmodel
             cmbGeslacht = new Dictionary<long, string>();
             cmbSoort = new Dictionary<long, string>();
             cmbVariant = new Dictionary<long, string>();
+            cmbRatioBladBloei = new Dictionary<long, string>();
 
             this._dao = DAO.Instance();
 
@@ -26,6 +27,7 @@ namespace PlantenApplicatie.Viewmodel
             fillComboBoxGeslacht();
             fillComboBoxSoort();
             fillComboBoxVariant();
+            fillComboBoxRatioBladBloei();
 
         }
 
@@ -39,7 +41,7 @@ namespace PlantenApplicatie.Viewmodel
         public Dictionary<long, string> cmbSoort { get; set; }
         public Dictionary<long, string> cmbVariant { get; set; }
 
-
+        public Dictionary<long, string> cmbRatioBladBloei { get; set; }
 
         private int _selectedTypeId;
         public int SelectedTypeId
@@ -98,11 +100,18 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        //private GameStoreDataService _dataservice;    
+        private int _selectedRatioBladBloeiId;
+        public int SelectedRatioBladBloeitId
+        {
+            get { return _selectedRatioBladBloeiId; }
+            set
+            {
+                _selectedVariantId = value;
+                OnPropertyChanged();
+            }
+        }
 
-        //private Inventory _selectedInventory;
-        //private Product _selectedProduct;
-
+        
         public void fillComboBoxType()
         {
             var list = _dao.fillTfgsvType();
@@ -157,6 +166,21 @@ namespace PlantenApplicatie.Viewmodel
             }
 
         }
+
+        public void fillComboBoxRatioBladBloei()
+        {
+           
+            var list = _dao.fillFenoTypeRatioBladBloei();
+            
+            foreach (var item in list)
+            {
+                cmbRatioBladBloei.Add(item.Key, item.Value);
+            }
+            
+        }
+
+
+
         #endregion
 
     }

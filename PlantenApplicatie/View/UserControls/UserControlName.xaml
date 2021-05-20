@@ -15,7 +15,7 @@
             </Label>
             <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31"
                       ItemsSource="{Binding Path=cmbType}"   
-                      SelectedItem="{Binding Path=SelectedTypeId}"  
+                      SelectedItem="{Binding Path=SelectedTypeId, Mode=TwoWay}"  
                       DisplayMemberPath="Value" >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
@@ -32,11 +32,14 @@
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="312" Canvas.Top="117" Width="200">
-                <TextBox.Effect>
+            <ComboBox x:Name="cmbRatioBladBloei" Canvas.Left="312" Canvas.Top="117" Width="200" Height="30" 
+                      ItemsSource="{Binding Path=cmbRatioBladBloei}"   
+                      SelectedItem="{Binding Path=SelectedRatioBladBloeiId, Mode=TwoWay}"  
+                      DisplayMemberPath="Value" >
+                <ComboBox.Effect>
                     <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
+                </ComboBox.Effect>
+            </ComboBox>
             <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="211" Canvas.Top="8" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
@@ -53,9 +56,10 @@
                 </TextBox.Effect>
             </TextBox>
             <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" 
-                      ItemsSource="{Binding Path=cmbFamilie}"   
-                      SelectedItem="{Binding Path=SelectedFamilieId}"  
-                      DisplayMemberPath="Value" >
+                      ItemsSource="{Binding Path=cmbFamilie }"   
+                      SelectedItem="{Binding Path=SelectedFamilieId, Mode=TwoWay}"  
+                      DisplayMemberPath="Value"
+                      >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -70,17 +74,29 @@
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30">
+            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30"
+                      ItemsSource="{Binding Path=cmbGeslacht}"   
+                      SelectedItem="{Binding Path=SelectedGeslachtId, Mode=TwoWay}"  
+                      DisplayMemberPath="Value"
+                      >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30">
+            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30"
+                      ItemsSource="{Binding Path=cmbSoort}"   
+                      SelectedItem="{Binding Path=SelectedSoortId, Mode=TwoWay}"  
+                      DisplayMemberPath="Value"
+                      >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29">
+            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29"
+                      ItemsSource="{Binding Path=cmbVariant}"   
+                      SelectedItem="{Binding Path=SelectedVariantId, Mode=TwoWay}"  
+                      DisplayMemberPath="Value"
+                      >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
