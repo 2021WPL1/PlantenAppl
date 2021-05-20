@@ -33,6 +33,14 @@ namespace PlantenApplicatie.ViewModel
             viewModelTFGSV = new ViewModelSearchTfgsv(dao);
 
 
+
+
+        public ViewModelMain()
+        {
+            mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
+            //  dialogService.ShowMessageBox(this, "", "");
+
+
         }
     
     }

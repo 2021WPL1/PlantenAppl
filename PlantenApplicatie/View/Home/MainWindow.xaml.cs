@@ -23,14 +23,14 @@ namespace PlantenApplicatie.View
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly DAO dao;
+
         
         
         public MainWindow()
         {
             InitializeComponent();
             //DAO instance 
-            dao = DAO.Instance();
+           
 
             //Frame_Navigated();
             //// De comboBoxen vullen.
@@ -256,7 +256,7 @@ namespace PlantenApplicatie.View
         //public void fillComboBoxVariant()
         //{
         //    // lijst opvragen
-        //    var fillVariant = dao.fillTfgsvVariant(Convert.ToInt32(cmbGeslacht.SelectedValue));
+        //  var fillVariant = dao.fillTfgsvVariant(Convert.ToInt32(cmbGeslacht.SelectedValue));
         //    // alle objecten in combobox plaatsen
         //    cmbVariant.ItemsSource = fillVariant;
         //    cmbVariant.DisplayMemberPath = "Value";
