@@ -41,4 +41,9 @@
     <Resource Include="Image\waterval.jpeg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="View\result\ViewModels\" />
+    <Folder Include="View\result\UserControls\" />
+  </ItemGroup>
+
 </Project>
