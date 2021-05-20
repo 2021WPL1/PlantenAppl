@@ -16,13 +16,13 @@
             <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31"
                       ItemsSource="{Binding Path=cmbType}"   
                       SelectedItem="{Binding Path=SelectedTypeId}"  
-                      DisplayMemberPath="Name" >
+                      DisplayMemberPath="Value" >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
-
             </ComboBox>
             <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="33" Canvas.Left="312" Canvas.Top="79" Width="200">
+
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
@@ -52,7 +52,10 @@
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
-            <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" >
+            <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" 
+                      ItemsSource="{Binding Path=cmbFamilie}"   
+                      SelectedItem="{Binding Path=SelectedFamilieId}"  
+                      DisplayMemberPath="Value" >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
