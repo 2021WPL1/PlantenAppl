@@ -1,43 +1,40 @@
-﻿using System;
+﻿using Planten2021.Data;
 using System.Collections.Generic;
-using System.Text;
+using System.Runtime.Serialization;
+using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Input;
-using Microsoft.EntityFrameworkCore.Infrastructure;
-using Planten2021.Data;
 using Prism.Commands;
-using PlantenApplicatie.View;
-using GalaSoft.MvvmLight.Command;
-using PlantenApplicatie.HelpClasses;
-using MvvmHelpers;
-using PlantenApplicatie.Viewmodel;
 
 namespace PlantenApplicatie.ViewModel
 {
-    class ViewModelMain :ViewModelBase
+    class ViewModelMain:ViewModelBase
     {
-        private ViewModelBase _currentViewModel;
+        private DAO _dao;
+ 
+        private ViewModelSearchTfgsv viewModelTFGSV;
 
-        public MyICommand<string> mainNavigationCommand { get; set; }
-        public ViewModelBase currentViewModel
+       
+
+        //private variables
+        private Page _currentView;
+
+        //ICommands
+        public ICommand OpenTfgsvViewCommand { get; set; }
+
+        
+ 
+        public ViewModelMain(DAO dao)
         {
-            get { return _currentViewModel; }
-            set { SetProperty(ref _currentViewModel, value); }
+            this._dao = dao;
+
+            viewModelTFGSV = new ViewModelSearchTfgsv(dao);
+
+            viewModelTFGSV = new ViewModelSearchTfgsv(dao);
+
+
         }
-
-        private ViewModelRepo _viewModelsRepo = new ViewModelRepo();
-
-        public ViewModelMain()
-        {
-            mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
-            //  dialogService.ShowMessageBox(this, "", "");
-        }
-
-        private void _onNavigationChanged(string userControlName)
-        {
-            this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
-        }
-
+    
     }
+
 }
