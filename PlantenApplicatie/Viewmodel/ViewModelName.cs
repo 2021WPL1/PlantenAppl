@@ -32,8 +32,10 @@ namespace PlantenApplicatie.Viewmodel
             cmbRatioBladBloei = new ObservableCollection<Fenotype>();
 
             //ICommands
+            ////These will be used to bind our buttons in the xaml and to give them functionality
             //SearchCommand = new DelegateCommand(BtnZoeken);
 
+            //These comboboxes will already be filled with data on startup
             fillComboBoxType();
             //fillComboBoxFamilie();
             //fillComboBoxGeslacht();
@@ -59,6 +61,7 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
+        #region Selected Item variables for each combobox
 
 
         private TfgsvType _selectedType;
@@ -136,6 +139,7 @@ namespace PlantenApplicatie.Viewmodel
                 OnPropertyChanged();
             }
         }
+        #endregion
 
         #region Fill combobox methods
 
@@ -152,7 +156,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxFamilie()
         {
-            //use the typeId, selected in the combodbox to filter the list load the remaining plant families in the family combobox
+            //use the typeId, selected in the combobox to filter the list and load the remaining plant families in the family combobox
             var list = _dao.fillTfgsvFamilie(Convert.ToInt32(SelectedType.Planttypeid));
 
             cmbFamilies.Clear();
@@ -166,6 +170,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxGeslacht()
         {
+            //use the FamilieId, selected in the combobox to filter the list and load the remaining plantgeslachten in the geslacht combobox
             var list = _dao.fillTfgsvGeslacht(Convert.ToInt32(SelectedFamilie.FamileId));
             
             cmbGeslacht.Clear();
@@ -179,6 +184,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxSoort()
         {
+            //use GeslachtId, selected in the combobox to filter the list and load the remaining plantsoorten in the soort combobox
             var list = _dao.fillTfgsvSoort(Convert.ToInt32(SelectedGeslacht.GeslachtId));
 
             cmbSoort.Clear();
@@ -192,6 +198,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxVariant()
         {
+            //use SoortId, selected in the combobox to filter the list and load the remaining plantvarianten in the variant combobox
             var list = _dao.fillTfgsvVariant(Convert.ToInt32(SelectedSoort.Soortid));
 
             cmbVariant.Clear();
@@ -204,7 +211,8 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxRatioBloeiBlad()
         {
-
+            //not currently used in the cascade search
+            //will be adjusted later (dao)
             var list = _dao.fillFenoTypeRatioBloeiBlad();
 
             foreach (var item in list)

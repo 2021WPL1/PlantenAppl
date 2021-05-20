@@ -206,7 +206,7 @@ namespace Planten2021.Data
         //}
         public Dictionary<long, string> DuplicationCheck(Dictionary<long, string> selection)
         {
-            // this is to check for dupelication that got through the distinct
+            // this is to check for duplication that got through the distinct
 
             Dictionary<long, string> Duplicationcheck = new Dictionary<long, string>();
             foreach (var item in selection)
@@ -231,7 +231,9 @@ namespace Planten2021.Data
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+            // Good way to interact with our datacontext
             var selection = context.TfgsvType.Distinct();
             return selection;
         }
@@ -240,8 +242,9 @@ namespace Planten2021.Data
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // 
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
@@ -259,7 +262,7 @@ namespace Planten2021.Data
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // 
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {
@@ -278,7 +281,7 @@ namespace Planten2021.Data
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value 
+            // 
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {
@@ -297,7 +300,7 @@ namespace Planten2021.Data
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // 
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
             if (selectedItem > 0)
             {
@@ -314,7 +317,7 @@ namespace Planten2021.Data
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
+            // 
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
 
             var selection = context.Fenotype.Distinct().OrderBy(s => s.RatioBloeiBlad);
