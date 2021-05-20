@@ -298,7 +298,7 @@ namespace Planten2021.Data
             }
         }
 
-        public Dictionary<long, string> fillFenoTypeRatioBladBloei()
+        public Dictionary<long, string> fillFenoTypeRatioBloeiBlad()
         {
             // lijst type opvragen.
             // distinct om meerdere van de zelfde tegen te gaan.
@@ -306,7 +306,7 @@ namespace Planten2021.Data
             // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
 
             var selection = context.Fenotype.Distinct().OrderBy(s => s.RatioBloeiBlad).ToDictionary(s => s.Id, s => s.RatioBloeiBlad);
-            return DuplicationCheck(selection);
+            return selection;
 
         }
 

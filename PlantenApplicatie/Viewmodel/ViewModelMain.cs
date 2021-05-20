@@ -1,6 +1,7 @@
 ﻿using Planten2021.Data;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Security.RightsManagement;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -17,6 +18,9 @@ namespace PlantenApplicatie.ViewModel
         private ViewModelBase _currentViewModel;
 
         public MyICommand<string> mainNavigationCommand { get; set; }
+
+        
+
         public ViewModelBase currentViewModel
         {
             get { return _currentViewModel; }
@@ -31,7 +35,7 @@ namespace PlantenApplicatie.ViewModel
         {
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
-
+           
 
         }
 

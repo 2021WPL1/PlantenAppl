@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Windows;
+using System.Windows.Input;
 using Planten2021.Data;
 using PlantenApplicatie.View.UserControls;
 using PlantenApplicatie.ViewModel;
+using Prism.Commands;
 
 namespace PlantenApplicatie.Viewmodel
 {
@@ -18,7 +22,7 @@ namespace PlantenApplicatie.Viewmodel
             cmbGeslacht = new Dictionary<long, string>();
             cmbSoort = new Dictionary<long, string>();
             cmbVariant = new Dictionary<long, string>();
-            cmbRatioBladBloei = new Dictionary<long, string>();
+            cmbRatioBloeiBlad = new Dictionary<long, string>();
 
             this._dao = DAO.Instance();
 
@@ -27,9 +31,16 @@ namespace PlantenApplicatie.Viewmodel
             fillComboBoxGeslacht();
             fillComboBoxSoort();
             fillComboBoxVariant();
-            fillComboBoxRatioBladBloei();
+            fillComboBoxRatioBloeiBlad();
 
+            searchCommand = new DelegateCommand(BtnZoeken);
         }
+
+        #region Commands
+
+        public ICommand searchCommand { get; set; }
+
+        #endregion
 
         #region FillComboBoxes
 
@@ -41,7 +52,7 @@ namespace PlantenApplicatie.Viewmodel
         public Dictionary<long, string> cmbSoort { get; set; }
         public Dictionary<long, string> cmbVariant { get; set; }
 
-        public Dictionary<long, string> cmbRatioBladBloei { get; set; }
+        public Dictionary<long, string> cmbRatioBloeiBlad { get; set; }
 
         private int _selectedTypeId;
         public int SelectedTypeId
@@ -100,13 +111,13 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        private int _selectedRatioBladBloeiId;
-        public int SelectedRatioBladBloeitId
+        private string _selectedRatioBloeiBlad;
+        public string SelectedRatioBloeiBlad
         {
-            get { return _selectedRatioBladBloeiId; }
+            get { return _selectedRatioBloeiBlad; }
             set
             {
-                _selectedVariantId = value;
+                _selectedRatioBloeiBlad = value;
                 OnPropertyChanged();
             }
         }
@@ -167,14 +178,14 @@ namespace PlantenApplicatie.Viewmodel
 
         }
 
-        public void fillComboBoxRatioBladBloei()
+        public void fillComboBoxRatioBloeiBlad()
         {
            
-            var list = _dao.fillFenoTypeRatioBladBloei();
+            var list = _dao.fillFenoTypeRatioBloeiBlad();
             
             foreach (var item in list)
             {
-                cmbRatioBladBloei.Add(item.Key, item.Value);
+                cmbRatioBloeiBlad.Add(item.Key, item.Value);
             }
             
         }
@@ -183,5 +194,164 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
+        #region Search function
+
+        private string _selectedNederlandseNaam;
+
+        public string SelectedNederlandseNaam
+        {
+            get { return _selectedNederlandseNaam; }
+            set
+            {
+                _selectedNederlandseNaam = value;
+                OnPropertyChanged();
+            }
+        }
+        public string Simplify(string stringToSimplify, string id)
+        {
+            // Door dictionary moeten we een string simplifyen zo dat we deze kunnen gebruiken
+            string answer = stringToSimplify.Replace(id, "").Replace(",", "").Replace("[", "").Replace("]", "").Replace("'", "");
+            answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
+            //answer.Trim();
+            return answer;
+        }
+
+        private void BtnZoeken()
+        {
+            
+            var listPlants = _dao.getAllPlants();
+
+           
+            if (SelectedTypeId != null)
+            {
+
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.TypeId != SelectedTypeId)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedFamilieId != null)
+            {
+                
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.FamilieId != SelectedFamilieId)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedGeslachtId!= null)
+            {
+                
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.GeslachtId != _selectedGeslachtId)
+                    {
+                        listPlants.Remove(item);
+                    } 
+                }
+            }
+            if (SelectedSoortId != null)
+            {
+               
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.SoortId != SelectedSoortId)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedVariantId != null)
+            {
+                
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.VariantId != null)
+                    {
+
+                        if (item.VariantId != SelectedVariantId)
+                        {
+
+                            listPlants.Remove(item);
+                        } 
+                    }
+                    else if (item.VariantId == null)
+                    {
+                        listPlants.Remove(item);
+                    }
+
+                }
+            }
+
+            if (SelectedNederlandseNaam != string.Empty)
+            {
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.NederlandsNaam != null)
+                    {
+                        if (item.NederlandsNaam != SelectedNederlandseNaam)
+                        {
+                            listPlants.Remove(item);
+                        }
+
+                    } 
+                    else if (item.NederlandsNaam == null)
+                    {
+                        listPlants.Remove(item);
+                    }
+
+                }
+            }
+
+            if (SelectedRatioBloeiBlad != null)
+            {
+                
+
+                foreach (var item in listPlants.ToList())
+                {
+                    if (item.Fenotype.Count != 0)
+                    {
+                        foreach (var itemFenotype in item.Fenotype)
+                        {
+
+                            if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
+                            {
+
+                                if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
+                                {
+
+                                    //listPlants.Remove(item);
+                                    listPlants.Remove(item);
+                                }
+                            }
+                            else
+                            {
+                                listPlants.Remove(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        listPlants.Remove(item);
+                    }
+
+                }
+
+            }
+
+        }
+
+        #endregion
     }
 }
