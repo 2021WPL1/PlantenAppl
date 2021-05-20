@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Linq;
+using System.Reflection;
 //using Planten2021.Data.Models;
 using Planten2021.Domain.Models;
 using System.Reflection.Emit;
@@ -25,6 +26,7 @@ namespace Planten2021.Data
             this.context = new _Planten2021Context();
         }
 
+        #region OldNarowDown methodes
         //search functions
 
         /* NARROW DOWN FUNCTIONS */
@@ -168,6 +170,10 @@ namespace Planten2021.Data
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
+
+
+        #endregion
+
         public List<Plant> getAllPlants()
         {
             // kijken hoeveel er zijn geselecteerd
@@ -213,6 +219,8 @@ namespace Planten2021.Data
         ///            Deze functie zijn voor het cascade systeem.
         /// </summary>
         /// <returns></returns>
+
+        #region fill Methodes
 
         public Dictionary<long, string> fillTfgsvType()
         {
@@ -310,6 +318,9 @@ namespace Planten2021.Data
 
         }
 
+        #endregion
+
+
         //.OrderBy(s => s.Variantnaam)
         //.OrderBy(s => s.Variantnaam)
 
@@ -330,6 +341,264 @@ namespace Planten2021.Data
                 .ToList();
             return plants;
         }
+
+        #region logic to fill out the lstDetails listbox
+
+
+        public List<string> _readObjectProperties<T>(long plantid)
+        {
+
+            Type t = typeof(T);
+            var objectTypeProperties = t.GetProperties();
+
+            var list = new List<string>();
+
+            var objectToRead = context.Plant.SingleOrDefault(p => p.PlantId == plantid);
+            list.Add($"=======>{objectToRead.Variant}<=======");
+
+            foreach (var p in objectTypeProperties)
+            {
+                if (_CheckIfPropertyIsObject(p))
+                {
+                    _readObjectProperties<Plant>(plantid);
+                    //_readPropertysThatIsType(plantid, p, list);
+
+                    //var plant = context.Plant.FirstOrDefault(p => p.PlantId == plantid);
+
+                    //var propvalsAbiot = GetEntityProperties(context.Abiotiek.FirstOrDefault(a => a.PlantId == plantid));
+
+                    //var propvals = GetEntityProperties(context.Abiotiek.FirstOrDefault(a => a.PlantId == plantid));
+
+                    //propvals.Concat(GetEntityProperties(context.AbiotiekMulti.FirstOrDefault(a => a.PlantId == plantid)));
+                    // propvals.Concat(GetEntityProperties(context.Abiotiek.FirstOrDefault(a => a.PlantId == plantid)));
+
+                    //PrintPropsToScreen(propvals);
+                    // _readPropertysThatIsType(plantid, p);
+                }
+                else
+                {
+                    var propertyText = p.GetValue(objectToRead);
+                    list.Add($"{p.Name}: {propertyText} ");
+                }
+            }
+            return list;
+        }
+
+        public static void PrintPropsToScreen(Dictionary<string, string> propvals)
+        {
+            foreach (var propval in propvals)
+            {
+                Console.WriteLine($"{propval.Key}: {propval.Value}");
+            }
+        }
+
+        #region _readPropertysFunctions
+        public List<string> _readPropertysAbiotiek<T>(int plantId, List<string> list)
+        {
+            var abitoiek = typeof(T);
+            var objectTypeProperties = abitoiek.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.Abiotiek.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                list.Add($"{p.Name}: {propertyText} ");
+            }
+
+            return list;
+        }
+
+        public List<string> _readPropertysCommensalisme<T>(int plantId, List<string> list)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.Commensalisme.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                list.Add($"{p.Name}: {propertyText} ");
+            }
+            return list;
+        }
+        public List<string> _readPropertysBeheerMaand<T>(int plantId, List<string> list)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            var objectToRead = context.BeheerMaand.SingleOrDefault(p => p.PlantId == plantId);
+            if (objectToRead == null)
+            {
+                list.Add("this object was null");
+            }
+            else
+            {
+                foreach (var p in objectTypeProperties)
+                {
+                    var propertyText = p.GetValue(objectToRead);
+                    list.Add($"{p.Name}: {propertyText} ");
+                }
+            }
+            return list;
+
+        }
+        public List<string> _readPropertysCommensalismeMulti<T>(int plantId, List<string> list)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.BeheerMaand.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                list.Add($"{p.Name}: {propertyText} ");
+            }
+            return list;
+        }
+        public List<string> _readPropertysAbiotiekMulti<T>(int plantId, List<string> list)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.AbiotiekMulti.Where(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                list.Add($"{p.Name}: {propertyText} ");
+            }
+            return list;
+        }
+        public List<string> _readPropertysFenotype<T>(int plantId, List<string> list)
+        {
+            var type = typeof(T);
+            var objectTypeProperties = type.GetProperties();
+            foreach (var p in objectTypeProperties)
+            {
+                var objectToRead = context.Fenotype.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                list.Add($"{p.Name}: {propertyText} ");
+            }
+            return list;
+        }
+        public List<string> _readPropertysExtraEigenschap<T>(int plantId, List<string> list)
+        {
+            var type = typeof(ExtraEigenschap);
+            var objectTypeProperties = type.GetProperties();
+
+            foreach (var p in objectTypeProperties)
+            {
+
+                var objectToRead = context.ExtraEigenschap.SingleOrDefault(p => p.PlantId == plantId);
+                var propertyText = p.GetValue(objectToRead);
+                list.Add($"{p.Name}: {propertyText} ");
+            }
+            return list;
+        }
+
+        #region Roy
+        public Dictionary<string, string> GetEntityProperties<TEntity>(TEntity entiteit) where TEntity : class
+        {
+            var d = new Dictionary<string, string>();
+            var props = typeof(TEntity).GetProperties();
+            foreach (var p in props)
+            {
+                try
+                {
+                    if (IsSimpleType(p.PropertyType))
+                    {
+                        var val = p.GetValue(entiteit);
+                        d.Add(p.Name, val?.ToString());
+                    }
+                }
+                catch (Exception e)
+                {
+                    var error = e;
+                }
+            }
+            return d;
+        }
+        public bool IsSimpleType(Type type)
+        {
+            return
+                type.IsPrimitive ||
+                new Type[] {
+                    typeof(string),
+                    typeof(decimal),
+                    typeof(DateTime),
+                    typeof(DateTimeOffset),
+                    typeof(TimeSpan),
+                    typeof(Guid)
+                }.Contains(type) ||
+                type.IsEnum ||
+                Convert.GetTypeCode(type) != TypeCode.Object ||
+                (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>) && IsSimpleType(type.GetGenericArguments()[0]))
+                ;
+        }
+
+        #endregion
+
+
+
+        #endregion
+
+        //To Do => make a dictionary<Key,Value> string string
+        // this to change the property name to a userfriendly name.
+        public List<string> _readPropertysThatIsType(int plantid, PropertyInfo specialProperty, List<string> list)
+        {
+            switch (specialProperty.Name)
+            {
+                case "Abiotiek":
+                    list.Add("---->Abiotiek<----" + "\r\n");
+                    _readPropertysAbiotiek<Abiotiek>(plantid, list);
+                    break;
+                case "Commensalisme":
+                    list.Add("---->Commensalisme<----" + "\r\n");
+                    //_readPropertysCommensalisme<Commensalisme>(plantid);
+                    break;
+                case "BeheerMaand":
+                    list.Add("---->BeheerMaand<----" + "\r\n");
+                    _readPropertysBeheerMaand<BeheerMaand>(plantid, list);
+                    break;
+                case "CommensalismeMulti":
+                    list.Add("---->CommensalismeMulti<----" + "\r\n");
+                    ////_readPropertysCommensalismeMulti<CommensalismeMulti>(plantid, list);
+                    break;
+                case "AbiotiekMulti":
+                    list.Add("---->AbiotiekMulti<----" + "\r\n");
+                    //_readPropertysAbiotiekMulti<CommensalismeMulti>(plantid, list);
+                    break;
+                case "Fenotype":
+                    list.Add("---->Fenotype<----" + "\r\n");
+                    //_readPropertysFenotype<Fenotype>(plantid, list);
+                    break;
+                case "Foto":
+                    list.Add("---->Foto<----" + "\r\n");
+                    break;
+                case "UpdatePlant":
+                    list.Add("---->UpdatePlant<----" + "\r\n");
+                    break;
+                case "ExtraEigenschap":
+                    list.Add("---->ExtraEigenschap<----" + "\r\n");
+                    //_readPropertysExtraEigenschap<ExtraEigenschap>(plantid, list);
+                    break;
+                default:
+                    list.Add("---->default<----" + "\r\n");
+                    break;
+            }
+
+            return list;
+        }
+
+        public static bool _CheckIfPropertyIsObject(PropertyInfo info)
+        {
+            bool result = info.Name == "Abiotiek" ||
+                          info.Name == "Commensalisme" ||
+                          info.Name == "BeheerMaand" ||
+                          info.Name == "CommensalismeMulti" ||
+                          info.Name == "AbiotiekMulti" ||
+                          info.Name == "Fenotype" ||
+                          info.Name == "Foto" ||
+                          info.Name == "UpdatePlant" ||
+                          info.Name == "ExtraEigenschap";
+
+            return result;
+        }
+        #endregion
 
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
@@ -8,21 +9,31 @@ using Planten2021.Data;
 using PlantenApplicatie.View.UserControls;
 using PlantenApplicatie.ViewModel;
 using Prism.Commands;
-
+using GalaSoft.MvvmLight.Messaging;
+using Planten2021.Domain.Models;
+using PlantenApplicatie.HelpClasses;
 namespace PlantenApplicatie.Viewmodel
 {
+    
+
     public class ViewModelName : ViewModelBase
     {
         private DAO _dao;
+        private readonly _Planten2021Context context;
 
         public ViewModelName()
         {
+            // van de broadcast op
+            Messenger.Default.Register<PlantSearchAction>(this, ProcessSearchAction);
+
             cmbType = new Dictionary<long, string>();
             cmbFamilie = new Dictionary<long, string>();
             cmbGeslacht = new Dictionary<long, string>();
             cmbSoort = new Dictionary<long, string>();
             cmbVariant = new Dictionary<long, string>();
             cmbRatioBloeiBlad = new Dictionary<long, string>();
+
+           
 
             this._dao = DAO.Instance();
 
@@ -33,7 +44,15 @@ namespace PlantenApplicatie.Viewmodel
             fillComboBoxVariant();
             fillComboBoxRatioBloeiBlad();
 
-            searchCommand = new DelegateCommand(BtnZoeken);
+            searchCommand = new DelegateCommand(SearchCascade);
+        }
+
+        // handler voor de messenger broadcast
+        // maakt gebruikt van het Mediator patroon met de gebruik van een singleton het bestaat uit een sender receiver en handler
+        private void ProcessSearchAction(PlantSearchAction plantSearchAction)
+        {
+            SearchCascade();
+            var action = plantSearchAction;
         }
 
         #region Commands
@@ -196,6 +215,8 @@ namespace PlantenApplicatie.Viewmodel
 
         #region Search function
 
+     
+
         private string _selectedNederlandseNaam;
 
         public string SelectedNederlandseNaam
@@ -207,6 +228,9 @@ namespace PlantenApplicatie.Viewmodel
                 OnPropertyChanged();
             }
         }
+
+
+
         public string Simplify(string stringToSimplify, string id)
         {
             // Door dictionary moeten we een string simplifyen zo dat we deze kunnen gebruiken
@@ -216,12 +240,14 @@ namespace PlantenApplicatie.Viewmodel
             return answer;
         }
 
-        private void BtnZoeken()
+        
+
+        public void SearchCascade()
         {
-            
+
             var listPlants = _dao.getAllPlants();
 
-           
+
             if (SelectedTypeId != null)
             {
 
@@ -347,6 +373,10 @@ namespace PlantenApplicatie.Viewmodel
                     }
 
                 }
+
+                // fillListResult();
+
+                Messenger.Default.Send<List<Plant>>(listPlants);
 
             }
 

@@ -5,6 +5,7 @@ using System.Security.RightsManagement;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 using PlantenApplicatie.HelpClasses;
 using PlantenApplicatie.Viewmodel;
 using Prism.Commands;
@@ -39,9 +40,20 @@ namespace PlantenApplicatie.ViewModel
 
         }
 
+      
+
         private void _onNavigationChanged(string userControlName)
         {
+            //execute query
+  if (userControlName == "VIEWRESULT")
+            { 
+                //singleton om boodschappen to broadcasten
+                Messenger.Default.Send<PlantSearchAction>( new PlantSearchAction() );
+            }
             this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
+          
+
+
         }
 
     }

@@ -167,8 +167,8 @@
         </Button>
 
         <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
-                Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWZOEKEN" >
+                Command="{ Binding mainNavigationCommand }"
+                CommandParameter="VIEWRESULT" >
             <Button.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius" Value="10"/>
@@ -178,6 +178,8 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
+
+
 
 
         <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,184,47,42" Background="#99FFFFFF"/>
@@ -198,8 +200,8 @@
         <!--<Frame x:Name="MainFrame" Margin="0,190,0,0"  Content=""/>-->
 
         <!-- hier doe je de binding van het currentViewModel !Clue van et stysteem -->
-        <Grid x:Name="MainContent">
-            <ContentControl Content="{Binding currentViewModel}"/>
+        <Grid x:Name="MainContent" Margin="0,196,10,0">
+            <ContentControl Content="{Binding currentViewModel}" Margin="38,36,10,0"/>
         </Grid>
     </Grid>
 </Window>

@@ -7,9 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1250">
     <Grid>
-        <ListBox x:Name="lstResultSearch" Margin="42,184,0,42" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="512"/>
+        <ListBox x:Name="lstResultSearch" Margin="43,10,695,0" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Height="674" VerticalAlignment="Top"
+                 ItemsSource="{Binding listboxDetails}" 
+                 SelectedItem="{Binding SelectedPlant, Mode=TwoWay}"
+                 DisplayMemberPath="Planttypenaam"/>
 
-        <Canvas x:Name="cvsDetails" Visibility="Visible" Margin="560,184,0,42" Background="#99FFFFFF" HorizontalAlignment="Left" Width="643" >
+        <Canvas x:Name="cvsDetails" Visibility="Visible" Margin="560,10,47,0" Background="#99FFFFFF" Height="674" VerticalAlignment="Top" >
             <Label Content="Type:" Canvas.Left="42" Canvas.Top="59" FontWeight="Bold" Width="60"/>
             <Label Content="Familie:" Canvas.Left="42" Canvas.Top="90" FontWeight="Bold" Width="80"/>
             <Label Content="Geslacht:" Canvas.Left="41" Canvas.Top="118" FontWeight="Bold" Width="92"/>

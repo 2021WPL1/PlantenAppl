@@ -44,6 +44,7 @@ namespace PlantenApplicatie.View
             //fillComboBoxVariant();
         }
 
+
         // new dictionary aanmaken hier komen de resultaten in met als long het plant id en string is de plant info
         //Dictionary<long, string> dictionaryresult = new Dictionary<long, string>();
         // dit is de lijst waar geslecteerde filters inkomen men als eerste string  bv. de combobox naam en als 2 string de info
@@ -63,7 +64,7 @@ namespace PlantenApplicatie.View
         //    // achtergrond van buttons terug normaal zetten
         //    btnNaam.Background = Brushes.Olive;
         //    btnHabitat.Background = Brushes.Olive;
-            
+
         //}
 
         //private void BtnNaam_Click(object sender, RoutedEventArgs e)
@@ -108,7 +109,7 @@ namespace PlantenApplicatie.View
 
         //        foreach (var item in listPlants.ToList())
         //        {
-                    
+
         //            if (item.Familie.Contains(simp) == false)
         //            {
         //                listPlants.Remove(item);
@@ -121,7 +122,7 @@ namespace PlantenApplicatie.View
 
         //        foreach (var item in listPlants.ToList())
         //        {
-                   
+
         //            if (item.Geslacht.Contains(simp) == false)
         //            {
         //                listPlants.Remove(item);
@@ -131,10 +132,10 @@ namespace PlantenApplicatie.View
         //    if (cmbSoort.SelectedValue != null)
         //    {
         //        var simp = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
-               
+
         //        foreach (var item in listPlants.ToList())
         //        {
-                     
+
         //            if (item.Soort.Contains(simp) == false)
         //            {
         //                listPlants.Remove(item);
@@ -161,7 +162,7 @@ namespace PlantenApplicatie.View
         //        }
         //    }
 
-            
+
 
         //    // dictionary clearen zo da je niet het bijft opvullen met hezelfde als je meerdere keren op zoeken clickt
         //    dictionaryresult.Clear();
@@ -209,7 +210,7 @@ namespace PlantenApplicatie.View
         //{        
         //    // lijst opvragen
         //    var filltype = dao.fillTfgsvType();
-           
+
         //    // alle objecten in combobox plaatsen
         //    cmbType.ItemsSource = filltype;
         //    cmbType.DisplayMemberPath = "Value";
@@ -271,27 +272,27 @@ namespace PlantenApplicatie.View
         //    return answer;
         //}
 
-        
+
 
         //private void fillLstOpgeslagenFilters(string Id, string Name)
         //{
-           
+
         //    //lijst opvragen kijken of een bepaalde compo box al eens voor komt in de opgeslagen lijst is dat zo dan word die verwijderd
         //    if (opgeslagenFilters.ContainsKey(Id))
         //    {
         //        opgeslagenFilters.Remove(Id);
-               
+
         //    }
         //    // voegt niewe filter toe aan opgeslagen filter
         //    opgeslagenFilters.Add(Id,Name);
-            
+
         //    // de list box clearen
         //    LstOpgeslagenFilters.Items.Clear();
         //    //alle objecten in listbox plaatsen
 
         //    foreach (var item in opgeslagenFilters)
         //    {
-               
+
         //        LstOpgeslagenFilters.Items.Add(item.Value);
         //    }
 
@@ -307,7 +308,7 @@ namespace PlantenApplicatie.View
         //        var fillFilters = Simplify(cmbType.SelectedItem.ToString(), cmbType.SelectedValue.ToString());
         //        fillLstOpgeslagenFilters("cmbType", "Type : " + fillFilters);
         //    }
-            
+
         //}
 
         //private void cmbFamilie_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -318,7 +319,7 @@ namespace PlantenApplicatie.View
         //        var fillFilters = Simplify(cmbFamilie.SelectedItem.ToString(), cmbFamilie.SelectedValue.ToString());
         //        fillLstOpgeslagenFilters("cmbFamilie", "Familie : "+fillFilters);
         //    }
-           
+
         //}
 
         //private void cmbGeslacht_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -330,7 +331,7 @@ namespace PlantenApplicatie.View
         //        var fillFilters = Simplify(cmbGeslacht.SelectedItem.ToString(), cmbGeslacht.SelectedValue.ToString());
         //        fillLstOpgeslagenFilters("cmbGeslacht", "Geslacht : " +fillFilters);
         //    }
-           
+
         //}
 
         //private void cmbSoort_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -345,11 +346,11 @@ namespace PlantenApplicatie.View
         //                opgeslagenFilters.Remove("cmbVariant");
         //            }
         //        }
-               
+
         //        var fillFilters = Simplify(cmbSoort.SelectedItem.ToString(), cmbSoort.SelectedValue.ToString());
         //        fillLstOpgeslagenFilters("cmbSoort", "Soort : " +fillFilters);
         //    }
-            
+
         //}
         //private void cmbVariant_SelectionChanged(object sender, SelectionChangedEventArgs e)
         //{
@@ -390,7 +391,7 @@ namespace PlantenApplicatie.View
         //            lblPlanctdichtheidMax.Content = item.PlantdichtheidMax;
         //            lblStatus.Content = item.Status;
         //            lblPlantId.Content = item.PlantId;
-                    
+
         //            //Plant.Abiotiek moet ook apart worden uitgelezen
         //            foreach(var abItem in item.Abiotiek)
         //            {
@@ -402,7 +403,7 @@ namespace PlantenApplicatie.View
         //                //lblGrondsoort.Content = abItem.Grondsoort;
         //                //lblVoedingsbehoefte.Content = abItem.AntagonischeOmgeving;
         //            }
-                    
+
 
         //            //Deze zijn ter voorbereiding van de nog te komen data
         //            //lblGrondsoort.Content = item.Grondsoort;
@@ -430,14 +431,14 @@ namespace PlantenApplicatie.View
         //            //lblLevensvorm.Content = item.Levensvorm;
         //            //lblSpruitfenologie.Content = item.Spruitfenologie;
         //            //lblOptimalePlantdichtheid.Content = item.Plantdichtheid;
-               
+
         //        }
         //        //foreach(var abiotiekType in plantAbiotiek)
         //        //{
         //        //    lblBezonning.Content = abiotiekType.Bezonning;
         //        //}
         //    }
-            
+
         //}
 
         //private void btnReset_Click(object sender, RoutedEventArgs e)
@@ -446,7 +447,7 @@ namespace PlantenApplicatie.View
         //    opgeslagenFilters.Clear();
 
         //    dictionaryresult.Clear();
-            
+
         //    cmbType.SelectedIndex = -1;
         //    cmbFamilie.SelectedIndex = -1;
         //    cmbGeslacht.SelectedIndex = -1;
