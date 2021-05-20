@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using Microsoft.EntityFrameworkCore;
 
 namespace Test_EF
 {
@@ -22,17 +23,17 @@ namespace Test_EF
         }
         public static void Main(string[] args)
         {
-            _readObjectProperties<Plant>(32);
-            _readObjectProperties<Plant>(66);
-            _readObjectProperties<Plant>(400);
-            _readObjectProperties<Plant>(20);
+
+            _readObjectProperties<Plant>(351);
+
         }
 
         private static void _readObjectProperties<T>(int plantid)
         {
-            
+
             Type t = typeof(T);
             var objectTypeProperties = t.GetProperties();
+
 
             var objectToRead = context.Plant.SingleOrDefault(p => p.PlantId == plantid);
             Console.WriteLine($"=======>{objectToRead.Variant}<=======");
@@ -42,12 +43,32 @@ namespace Test_EF
                 if (_CheckIfPropertyIsObject(p))
                 {
                     _readPropertysThatIsType(plantid, p);
+
+                    var plant = context.Plant.FirstOrDefault(p => p.PlantId == plantid);
+
+                    var propvalsAbiot = GetEntityProperties(context.Abiotiek.FirstOrDefault(a => a.PlantId == plantid));
+
+                    //var propvals = GetEntityProperties(context.Abiotiek.FirstOrDefault(a => a.PlantId == plantid));
+
+                    //propvals.Concat(GetEntityProperties(context.AbiotiekMulti.FirstOrDefault(a => a.PlantId == plantid)));
+                    // propvals.Concat(GetEntityProperties(context.Abiotiek.FirstOrDefault(a => a.PlantId == plantid)));
+
+                    //PrintPropsToScreen(propvals);
+                    // _readPropertysThatIsType(plantid, p);
                 }
                 else
                 {
                     var propertyText = p.GetValue(objectToRead);
                     Console.WriteLine($"{p.Name}: {propertyText} ");
                 }
+            }
+        }
+
+        private static void PrintPropsToScreen(Dictionary<string, string> propvals)
+        {
+            foreach (var propval in propvals)
+            {
+             Console.WriteLine($"{propval.Key}: {propval.Value}");   
             }
         }
 
@@ -79,12 +100,20 @@ namespace Test_EF
         {
             var type = typeof(T);
             var objectTypeProperties = type.GetProperties();
-            foreach (var p in objectTypeProperties)
+            var objectToRead = context.BeheerMaand.SingleOrDefault(p => p.PlantId == plantId);
+            if (objectToRead == null)
             {
-                var objectToRead = context.BeheerMaand.SingleOrDefault(p => p.PlantId == plantId);
-                var propertyText = p.GetValue(objectToRead);
-                Console.WriteLine($"{p.Name}: {propertyText} ");
+                Console.WriteLine("this object was null");
             }
+            else
+            {
+                foreach (var p in objectTypeProperties)
+                {
+                    var propertyText = p.GetValue(objectToRead);
+                    Console.WriteLine($"{p.Name}: {propertyText} ");
+                }
+            }
+              
         }
         private static void _readPropertysCommensalismeMulti<T>(int plantId)
         {
@@ -103,7 +132,7 @@ namespace Test_EF
             var objectTypeProperties = type.GetProperties();
             foreach (var p in objectTypeProperties)
             {
-                var objectToRead = context.AbiotiekMulti.SingleOrDefault(p => p.PlantId == plantId);
+                var objectToRead = context.AbiotiekMulti.Where(p => p.PlantId == plantId);
                 var propertyText = p.GetValue(objectToRead);
                 Console.WriteLine($"{p.Name}: {propertyText} ");
             }
@@ -121,19 +150,66 @@ namespace Test_EF
         }
         private static void _readPropertysExtraEigenschap<T>(int plantId)
         {
-            var type = typeof(T);
+            var type = typeof(ExtraEigenschap);
             var objectTypeProperties = type.GetProperties();
+            
             foreach (var p in objectTypeProperties)
             {
+                
                 var objectToRead = context.ExtraEigenschap.SingleOrDefault(p => p.PlantId == plantId);
                 var propertyText = p.GetValue(objectToRead);
                 Console.WriteLine($"{p.Name}: {propertyText} ");
             }
         }
 
+        #region Roy
+        public static Dictionary<string, string> GetEntityProperties<TEntity>(TEntity entiteit) where TEntity : class
+        {
+            var d = new Dictionary<string, string>();
+            var props = typeof(TEntity).GetProperties();
+            foreach (var p in props)
+            {
+                try
+                {
+                    if (IsSimpleType(p.PropertyType))
+                    {
+                        var val = p.GetValue(entiteit);
+                        d.Add(p.Name, val?.ToString());
+                    }
+                }
+                catch (Exception e)
+                {
+                    var error = e;
+                }
+            }
+            return d;
+        }
+        public static bool IsSimpleType(Type type)
+        {
+            return
+                type.IsPrimitive ||
+                new Type[] {
+                    typeof(string),
+                    typeof(decimal),
+                    typeof(DateTime),
+                    typeof(DateTimeOffset),
+                    typeof(TimeSpan),
+                    typeof(Guid)
+                }.Contains(type) ||
+                type.IsEnum ||
+                Convert.GetTypeCode(type) != TypeCode.Object ||
+                (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(Nullable<>) && IsSimpleType(type.GetGenericArguments()[0]))
+                ;
+        }
 
         #endregion
 
+
+
+        #endregion
+
+        //To Do => make a dictionary<Key,Value> string string
+        // this to change the property name to a userfriendly name.
         private static void _readPropertysThatIsType(int plantid, PropertyInfo specialProperty)
         {
             switch (specialProperty.Name)
@@ -148,11 +224,11 @@ namespace Test_EF
                     break;
                 case "BeheerMaand":
                     Console.WriteLine("---->BeheerMaand<----" + "\r\n");
-                    //_readPropertysBeheerMaand<BeheerMaand>(plantid);
+                    _readPropertysBeheerMaand<BeheerMaand>(plantid);
                     break;
                 case "CommensalismeMulti":
                     Console.WriteLine("---->CommensalismeMulti<----" + "\r\n");
-                    //_readPropertysCommensalismeMulti<CommensalismeMulti>(plantid);
+                    ////_readPropertysCommensalismeMulti<CommensalismeMulti>(plantid);
                     break;
                 case "AbiotiekMulti":
                     Console.WriteLine("---->AbiotiekMulti<----" + "\r\n");
@@ -170,7 +246,7 @@ namespace Test_EF
                     break;
                 case "ExtraEigenschap":
                     Console.WriteLine("---->ExtraEigenschap<----" + "\r\n");
-                    _readPropertysExtraEigenschap<ExtraEigenschap>(plantid);
+                    //_readPropertysExtraEigenschap<ExtraEigenschap>(plantid);
                     break;
                 default:
                     Console.WriteLine("---->default<----" + "\r\n");
