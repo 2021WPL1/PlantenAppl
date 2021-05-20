@@ -4,34 +4,26 @@ using System.Runtime.Serialization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using PlantenApplicatie.HelpClasses;
+using PlantenApplicatie.Viewmodel;
 using Prism.Commands;
 
 namespace PlantenApplicatie.ViewModel
 {
-    class ViewModelMain:ViewModelBase
+    class ViewModelMain : ViewModelBase
     {
-        private DAO _dao;
- 
-        private ViewModelSearchTfgsv viewModelTFGSV;
 
-       
 
-        //private variables
-        private Page _currentView;
+        private ViewModelBase _currentViewModel;
 
-        //ICommands
-        public ICommand OpenTfgsvViewCommand { get; set; }
-
-        
- 
-        public ViewModelMain(DAO dao)
+        public MyICommand<string> mainNavigationCommand { get; set; }
+        public ViewModelBase currentViewModel
         {
-            this._dao = dao;
+            get { return _currentViewModel; }
+            set { SetProperty(ref _currentViewModel, value); }
+        }
 
-            viewModelTFGSV = new ViewModelSearchTfgsv(dao);
-
-            viewModelTFGSV = new ViewModelSearchTfgsv(dao);
-
+        private ViewModelRepo _viewModelsRepo = new ViewModelRepo();
 
 
 
@@ -42,7 +34,13 @@ namespace PlantenApplicatie.ViewModel
 
 
         }
-    
+
+        private void _onNavigationChanged(string userControlName)
+        {
+            this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
+        }
+
     }
+
 
 }
