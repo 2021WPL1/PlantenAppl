@@ -31,9 +31,6 @@ namespace PlantenApplicatie.Viewmodel
 
         #region FillComboBoxes
 
-        
-
-        
 
         public Dictionary<long, string> cmbType { get; set; }
         public Dictionary<long, string> cmbFamilie { get; set; }
@@ -50,8 +47,10 @@ namespace PlantenApplicatie.Viewmodel
             get { return _selectedTypeId; }
             set
             {
-                _selectedTypeId = value;
+                _selectedTypeId = value; 
+                fillComboBoxFamilie();
                 OnPropertyChanged();
+              
             }
         }
 
@@ -117,7 +116,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxFamilie()
         {
-            var list = _dao.fillTfgsvFamilie(_selectedTypeId);
+            var list = _dao.fillTfgsvFamilie(SelectedTypeId);
 
             foreach (var item in list)
             {
@@ -128,7 +127,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxGeslacht()
         {
-            var list = _dao.fillTfgsvGeslacht(_selectedFamilieId);
+            var list = _dao.fillTfgsvGeslacht(SelectedFamilieId);
 
             foreach (var item in list)
             {
@@ -139,7 +138,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxSoort()
         {
-            var list = _dao.fillTfgsvSoort(_selectedGeslachtId);
+            var list = _dao.fillTfgsvSoort(SelectedSoortId);
 
             foreach (var item in list)
             {
