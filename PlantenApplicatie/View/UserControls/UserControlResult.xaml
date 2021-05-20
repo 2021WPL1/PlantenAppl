@@ -7,7 +7,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1250">
     <Grid>
-        <ListBox x:Name="lstResultSearch" Margin="42,184,0,42" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="512"/>
-        <ListBox x:Name="lstDetailsy" Margin="673,184,50,50" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14"/>
+        <ListBox x:Name="lstResultSearch" Margin="42,184,696,42" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14"
+                 ItemsSource="{Binding listboxDetails}" 
+                 SelectedItem="{Binding SelectedPlant, Mode=TwoWay}"
+                 DisplayMemberPath="Name"/>
+        <ListBox x:Name="lstDetails" Margin="673,184,50,50" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14"/>
     </Grid>
 </UserControl>
