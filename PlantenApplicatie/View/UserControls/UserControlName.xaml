@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlantenApplicatie.View.UserControls"
+             xmlns:viewModel="clr-namespace:PlantenApplicatie.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1250">
     <Grid>
@@ -14,9 +15,11 @@
                 </Label.Effect>
             </Label>
             <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31"
-                      ItemsSource="{Binding Path=cmbType}"   
-                      SelectedItem="{Binding Path=SelectedTypeId}"  
-                      DisplayMemberPath="Value" >
+                      ItemsSource="{Binding cmbTypes}" 
+                      DisplayMemberPath="Planttypenaam"
+                      SelectedValuePath="Planttypeid"
+                      SelectedItem="{Binding Path=SelectedType, Mode=TwoWay}"  >
+
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -32,11 +35,6 @@
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <TextBox x:Name="txtRatioBladBloei" Text="" TextWrapping="Wrap" Height="32" Canvas.Left="312" Canvas.Top="117" Width="200">
-                <TextBox.Effect>
-                    <DropShadowEffect/>
-                </TextBox.Effect>
-            </TextBox>
             <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="211" Canvas.Top="8" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
@@ -53,9 +51,11 @@
                 </TextBox.Effect>
             </TextBox>
             <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" 
-                      ItemsSource="{Binding Path=cmbFamilie}"   
-                      SelectedItem="{Binding Path=SelectedFamilieId}"  
-                      DisplayMemberPath="Value" >
+                      ItemsSource="{Binding cmbFamilies}"   
+                      SelectedItem="{Binding Path=SelectedFamilie}"
+                      DisplayMemberPath="Familienaam"
+                      SelectedValuePath="FamileId">
+
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -70,17 +70,40 @@
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30">
+            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30"
+                      ItemsSource="{Binding cmbGeslacht}" 
+                      DisplayMemberPath="Geslachtnaam"
+                      SelectedValuePath="GeslachtId"
+                      SelectedItem="{Binding Path=SelectedGeslacht, Mode=TwoWay}"
+                      >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30">
+            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30"
+                      ItemsSource="{Binding cmbSoort}"
+                      DisplayMemberPath="Soortnaam"
+                      SelectedValuePath="Soortid"
+                      SelectedItem="{Binding Path=SelectedSoort, Mode=TwoWay}"
+                      >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29">
+            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29"
+                      ItemsSource="{Binding cmbVariant}"
+                      DisplayMemberPath="Variantnaam"
+                      SelectedValuePath="VariantId"
+                      SelectedItem="{Binding Path= SelectedVariant}"
+                      >
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox  Canvas.Left="312" Canvas.Top="117" Width="200" Height="30" 
+                      ItemsSource="{Binding cmbRatioBladBloei}"
+                      DisplayMemberPath="RatioBloeiBlad" 
+                      >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
