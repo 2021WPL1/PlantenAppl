@@ -6,15 +6,18 @@ using System.Text;
 using System.Windows.Input;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
+using PlantenApplicatie.View;
 using PlantenApplicatie.View.UserControls;
 using PlantenApplicatie.ViewModel;
 using Prism.Commands;
+using PlantenApplicatie.View.UserControls;
 
 namespace PlantenApplicatie.Viewmodel
 {
     public class ViewModelName : ViewModelBase
     {
         private DAO _dao;
+   
 
 
         public ViewModelName()
@@ -54,7 +57,7 @@ namespace PlantenApplicatie.Viewmodel
         public ObservableCollection<TfgsvVariant> cmbVariant { get; set; }
         public ObservableCollection<Fenotype> cmbRatioBladBloei { get; set; }
 
-        #region MyRegion
+        #region icommands
 
         //ICommands
         public ICommand SearchCommand { get; set; }
@@ -226,141 +229,151 @@ namespace PlantenApplicatie.Viewmodel
 
         #region Methods to use in our DelegateCommands
 
-        //private void BtnZoeken()
-        //{
+        public void BtnZoeken()
+        {
 
-        //    var listPlants = _dao.getAllPlants();
-
-
-        //    if (SelectedType != null)
-        //    {
-
-        //        foreach (var item in listPlants.ToList())
-        //        {
-
-        //            if (item.TypeId != SelectedType.Planttypeid)
-        //            {
-        //                listPlants.Remove(item);
-        //            }
-        //        }
-        //    }
-        //    if (SelectedFamilie != null)
-        //    {
-
-        //        foreach (var item in listPlants.ToList())
-        //        {
-
-        //            if (item.FamilieId != SelectedFamilie.FamileId)
-        //            {
-        //                listPlants.Remove(item);
-        //            }
-        //        }
-        //    }
-        //    if (SelectedGeslacht != null)
-        //    {
-
-        //        //foreach (var item in listPlants.ToList())
-        //        //{
-
-        //        //    if (item.Geslacht != SelectedGeslacht.)
-        //        //    {
-        //        //        listPlants.Remove(item);
-        //        //    }
-        //        //}
-        //    }
-        //    if (SelectedSoort != null)
-        //    {
-
-        //        foreach (var item in listPlants.ToList())
-        //        {
-
-        //            if (item.SoortId != SelectedSoort.Soortid)
-        //            {
-        //                listPlants.Remove(item);
-        //            }
-        //        }
-        //    }
-        //    if (SelectedVariant != null)
-        //    {
-
-        //        foreach (var item in listPlants.ToList())
-        //        {
-
-        //            if (item.VariantId != null)
-        //            {
-
-        //                if (item.VariantId != SelectedVariant.VariantId)
-        //                {
-
-        //                    listPlants.Remove(item);
-        //                }
-        //            }
-        //            else if (item.VariantId == null)
-        //            {
-        //                listPlants.Remove(item);
-        //            }
-
-        //        }
-        //    }
-
-        //    //if (SelectedNederlandseNaam != string.Empty)
-        //    //{
-        //    //    foreach (var item in listPlants.ToList())
-        //    //    {
-
-        //    //        if (item.NederlandsNaam != null)
-        //    //        {
-        //    //            if (item.NederlandsNaam != SelectedNederlandseNaam)
-        //    //            {
-        //    //                listPlants.Remove(item);
-        //    //            }
-
-        //    //        }
-        //    //        else if (item.NederlandsNaam == null)
-        //    //        {
-        //    //            listPlants.Remove(item);
-        //    //        }
-
-        //    //    }
-        //    //}
-
-        //    //if (SelectedRatioBloeiBlad != null)
-        //    //{
+            //var listPlants = _dao.getAllPlants();
 
 
-        //    //    foreach (var item in listPlants.ToList())
-        //    //    {
-        //    //        if (item.Fenotype.Count != 0)
-        //    //        {
-        //    //            foreach (var itemFenotype in item.Fenotype)
-        //    //            {
+            //if (SelectedType != null)
+            //{
 
-        //    //                if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
-        //    //                {
+            //    foreach (var item in listPlants.ToList())
+            //    {
 
-        //    //                    if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
-        //    //                    {
+            //        if (item.TypeId != SelectedType.Planttypeid)
+            //        {
+            //            listPlants.Remove(item);
+            //        }
+            //    }
+            //}
+            //if (SelectedFamilie != null)
+            //{
 
-        //    //                        //listPlants.Remove(item);
-        //    //                        listPlants.Remove(item);
-        //    //                    }
-        //    //                }
-        //    //                else
-        //    //                {
-        //    //                    listPlants.Remove(item);
-        //    //                }
-        //    //            }
-        //    //        }
-        //    //        else
-        //    //        {
-        //    //            listPlants.Remove(item);
-        //    //        }
+            //    foreach (var item in listPlants.ToList())
+            //    {
 
-        //    //    }
+            //        if (item.FamilieId != SelectedFamilie.FamileId)
+            //        {
+            //            listPlants.Remove(item);
+            //        }
+            //    }
+            //}
+            //if (SelectedGeslacht != null)
+            //{
 
-        //    }
+            //    foreach (var item in listPlants.ToList())
+            //    {
 
-        //}
+            //        if (item.GeslachtId != SelectedGeslacht.GeslachtId)
+            //        {
+            //            listPlants.Remove(item);
+            //        }
+            //    }
+            //}
+            //if (SelectedSoort != null)
+            //{
+
+            //    foreach (var item in listPlants.ToList())
+            //    {
+
+            //        if (item.SoortId != SelectedSoort.Soortid)
+            //        {
+            //            listPlants.Remove(item);
+            //        }
+            //    }
+            //}
+            //if (SelectedVariant != null)
+            //{
+
+            //    foreach (var item in listPlants.ToList())
+            //    {
+
+            //        if (item.VariantId != null)
+            //        {
+
+            //            if (item.VariantId != SelectedVariant.VariantId)
+            //            {
+
+            //                listPlants.Remove(item);
+            //            }
+            //        }
+            //        else if (item.VariantId == null)
+            //        {
+            //            listPlants.Remove(item);
+            //        }
+
+            //    }
+            //}
+
+            //if (SelectedNederlandseNaam != string.Empty)
+            //{
+            //    foreach (var item in listPlants.ToList())
+            //    {
+
+            //        if (item.NederlandsNaam != null)
+            //        {
+            //            if (item.NederlandsNaam != SelectedNederlandseNaam)
+            //            {
+            //                listPlants.Remove(item);
+            //            }
+
+            //        }
+            //        else if (item.NederlandsNaam == null)
+            //        {
+            //            listPlants.Remove(item);
+            //        }
+
+            //    }
+            //}
+
+            //if (SelectedRatioBloeiBlad != null)
+            //{
+
+            //    foreach (var item in listPlants.ToList())
+            //    {
+            //        if (item.Fenotype.Count != 0)
+            //        {
+            //            foreach (var itemFenotype in item.Fenotype)
+            //            {
+
+            //                if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
+            //                {
+
+            //                    if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
+            //                    {
+
+            //                        listPlants.Remove(item);
+            //                        listPlants.Remove(item);
+            //                    }
+            //                }
+            //                else
+            //                {
+            //                    listPlants.Remove(item);
+            //                }
+            //            }
+            //        }
+            //        else
+            //        {
+            //            listPlants.Remove(item);
+            //        }
+
+            //    }
+
+            //}
+
+            List<string> list = new List<string>()
+            {
+                "test",
+                "test",
+                "test"
+            };
+            //foreach (var item in list)
+            //{
+            //    UserControlResult.
+            //}
+
+        }
 
 
         #endregion
