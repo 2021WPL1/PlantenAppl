@@ -21,6 +21,9 @@ namespace PlantenApplicatie.View.UserControls
         public UserControlName()
         {
             InitializeComponent();
+
+           // cmbType.IsEnabled = false;
         }
+
     }
 }

@@ -39,7 +39,12 @@ namespace PlantenApplicatie.Viewmodel
 
             //These comboboxes will already be filled with data on startup
             fillComboBoxType();
+            //fillComboBoxFamilie();
+            //fillComboBoxGeslacht();
+            //fillComboBoxSoort();
+            //fillComboBoxVariant();
             fillComboBoxRatioBloeiBlad();
+
             //This will show all the unfiltered plants in the listbox on startup
             FillPlantResult();
 
@@ -76,6 +81,7 @@ namespace PlantenApplicatie.Viewmodel
 
 
         private TfgsvType _selectedType;
+        private TfgsvType _autoSelectedType;
 
         public TfgsvType SelectedType
         {
@@ -83,6 +89,15 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedType = value;
+                fillComboBoxFamilie();
+                OnPropertyChanged();
+            }
+        } public TfgsvType AutoSelectedType
+        {
+            get { return _autoSelectedType; }
+            set
+            {
+                _autoSelectedType = value;
                 fillComboBoxFamilie();
                 OnPropertyChanged();
             }
@@ -157,8 +172,18 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxType()
         {
+
+            //Clear the remaining comboboxes, so it will be possible to return to
+            //an earlier combobox without crashing.
+            cmbTypes.Clear();
+            cmbVariant.Clear();
+            cmbGeslacht.Clear();
+            cmbSoort.Clear();
+            cmbRatioBladBloei.Clear();
+            //cmbFamilies.Clear();
+
             var list = _dao.fillTfgsvType();
-            
+
             foreach (var item in list)
             {
                 cmbTypes.Add(item);
@@ -167,25 +192,39 @@ namespace PlantenApplicatie.Viewmodel
 
         public void fillComboBoxFamilie()
         {
+
+            //Clear the remaining comboboxes, so it will be possible to return to
+            //an earlier combobox without crashing.
+            //cmbTypes.Clear();
+            //cmbVariant.Clear();
+            //cmbGeslacht.Clear();
+            //cmbSoort.Clear();
+            //cmbRatioBladBloei.Clear();
+            cmbFamilies.Clear();
+
             //use the typeId, selected in the combobox to filter the list and load the remaining plant families in the family combobox
             var list = _dao.fillTfgsvFamilie(Convert.ToInt32(SelectedType.Planttypeid));
-
-            cmbFamilies.Clear();
 
             foreach (var item in list)
             {
                 cmbFamilies.Add(item);
             }
-
         }
 
         public void fillComboBoxGeslacht()
         {
+            //Clear the remaining comboboxes, so it will be possible to return to
+            //an earlier combobox without crashing.
+            //cmbTypes.Clear();
+            //cmbVariant.Clear();
+            //cmbGeslacht.Clear();
+            //cmbSoort.Clear();
+            //cmbRatioBladBloei.Clear();
+            //cmbFamilies.Clear();
+
             //use the FamilieId, selected in the combobox to filter the list and load the remaining plantgeslachten in the geslacht combobox
             var list = _dao.fillTfgsvGeslacht(Convert.ToInt32(SelectedFamilie.FamileId));
-            
-            cmbGeslacht.Clear();
-            
+
             foreach (var item in list)
             {
                 cmbGeslacht.Add(item);
@@ -198,7 +237,14 @@ namespace PlantenApplicatie.Viewmodel
             //use GeslachtId, selected in the combobox to filter the list and load the remaining plantsoorten in the soort combobox
             var list = _dao.fillTfgsvSoort(Convert.ToInt32(SelectedGeslacht.GeslachtId));
 
-            cmbSoort.Clear();
+            //Clear the remaining comboboxes, so it will be possible to return to
+            //an earlier combobox without crashing.
+            //cmbTypes.Clear();
+            //cmbVariant.Clear();
+            //cmbGeslacht.Clear();
+            //cmbSoort.Clear();
+            //cmbRatioBladBloei.Clear();
+            //cmbFamilies.Clear();
 
             foreach (var item in list)
             {
@@ -212,7 +258,14 @@ namespace PlantenApplicatie.Viewmodel
             //use SoortId, selected in the combobox to filter the list and load the remaining plantvarianten in the variant combobox
             var list = _dao.fillTfgsvVariant(Convert.ToInt32(SelectedSoort.Soortid));
 
-            cmbVariant.Clear();
+            //Clear the remaining comboboxes, so it will be possible to return to
+            //an earlier combobox without crashing.
+            //cmbTypes.Clear();
+            //cmbVariant.Clear();
+            //cmbGeslacht.Clear();
+            //cmbSoort.Clear();
+            //cmbRatioBladBloei.Clear();
+            //cmbFamilies.Clear();
 
             foreach (var item in list)
             {
