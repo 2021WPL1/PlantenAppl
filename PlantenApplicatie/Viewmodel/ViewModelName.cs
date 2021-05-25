@@ -160,7 +160,7 @@ namespace PlantenApplicatie.Viewmodel
         public string Simplify(string stringToSimplify)
         {
             // Door dictionary moeten we een string simplifyen zo dat we deze kunnen gebruiken
-            string answer = stringToSimplify.Replace(",", "").Replace("'","");
+            string answer = stringToSimplify.Replace(",", "").Replace("'", "").Replace("__","");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
