@@ -17,6 +17,7 @@ namespace PlantenApplicatie.ViewModel
 {
     class ViewModelMain :ViewModelBase
     {
+        private ViewModelNameResult viewModelNameResult = new ViewModelNameResult();
         private ViewModelBase _currentViewModel;
 
         public MyICommand<string> mainNavigationCommand { get; set; }
@@ -41,6 +42,11 @@ namespace PlantenApplicatie.ViewModel
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
+            if (userControlName == "VIEWRESULT" )
+            {
+                viewModelNameResult.BtnZoeken();
+            }
+            
         }
 
     }

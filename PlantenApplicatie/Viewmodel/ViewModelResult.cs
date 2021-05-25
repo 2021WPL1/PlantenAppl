@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using PlantenApplicatie.View.UserControls;
-using PlantenApplicatie.ViewModel;
+﻿using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Viewmodel
 {
-    public class ViewModelResult : ViewModelBase
+    internal class ViewModelResult : ViewModelBase
     {
-        public ViewModelResult(){}
+        public ViewModelResult() { }
     }
 }

@@ -35,7 +35,7 @@ namespace PlantenApplicatie.View
             //Frame_Navigated();
             //// De comboBoxen vullen.
 
-
+            
             //fillComboBoxType();
 
             //fillComboBoxFamilie();

@@ -18,8 +18,7 @@
                       ItemsSource="{Binding cmbTypes}" 
                       DisplayMemberPath="Planttypenaam"
                       SelectedValuePath="Planttypeid"
-                      SelectedItem="{Binding Path=SelectedType, Mode=TwoWay}" IsEditable="True"
-                      >
+                      SelectedItem="{Binding Path=SelectedType, Mode=TwoWay}">
 
                 <ComboBox.Effect>
                     <DropShadowEffect/>

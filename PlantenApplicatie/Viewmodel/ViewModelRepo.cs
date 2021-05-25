@@ -15,7 +15,7 @@ namespace PlantenApplicatie.Viewmodel
             public ViewModelRepo()
             {
                 //hier een extra lijn code per user control
-                _viewModels.Add("VIEWNAME", new ViewModelName());
+                _viewModels.Add("VIEWNAME", new ViewModelNameResult());
                 _viewModels.Add("VIEWHABITAT", new ViewModelHabitat());
                 _viewModels.Add("VIEWRESULT", new ViewModelResult());
             }
