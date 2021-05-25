@@ -18,7 +18,8 @@
                       ItemsSource="{Binding cmbTypes}" 
                       DisplayMemberPath="Planttypenaam"
                       SelectedValuePath="Planttypeid"
-                      SelectedItem="{Binding Path=SelectedType, Mode=TwoWay}"  >
+                      SelectedItem="{Binding Path=SelectedType, Mode=TwoWay}" IsEditable="True"
+                      >
 
                 <ComboBox.Effect>
                     <DropShadowEffect/>
@@ -54,7 +55,7 @@
                       ItemsSource="{Binding cmbFamilies}"   
                       SelectedItem="{Binding Path=SelectedFamilie}"
                       DisplayMemberPath="Familienaam"
-                      SelectedValuePath="FamileId">
+                      SelectedValuePath="FamileId" IsEditable="True">
 
                 <ComboBox.Effect>
                     <DropShadowEffect/>
@@ -74,7 +75,7 @@
                       ItemsSource="{Binding cmbGeslacht}" 
                       DisplayMemberPath="Geslachtnaam"
                       SelectedValuePath="GeslachtId"
-                      SelectedItem="{Binding Path=SelectedGeslacht, Mode=TwoWay}"
+                      SelectedItem="{Binding Path=SelectedGeslacht, Mode=TwoWay}" IsEditable="True"
                       >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
@@ -84,7 +85,7 @@
                       ItemsSource="{Binding cmbSoort}"
                       DisplayMemberPath="Soortnaam"
                       SelectedValuePath="Soortid"
-                      SelectedItem="{Binding Path=SelectedSoort, Mode=TwoWay}"
+                      SelectedItem="{Binding Path=SelectedSoort, Mode=TwoWay}" IsEditable="True"
                       >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
@@ -94,7 +95,7 @@
                       ItemsSource="{Binding cmbVariant}"
                       DisplayMemberPath="Variantnaam"
                       SelectedValuePath="VariantId"
-                      SelectedItem="{Binding Path= SelectedVariant}"
+                      SelectedItem="{Binding Path= SelectedVariant}" IsEditable="True"
                       >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
@@ -102,7 +103,7 @@
             </ComboBox>
             <ComboBox  Canvas.Left="312" Canvas.Top="117" Width="200" Height="30" 
                       ItemsSource="{Binding cmbRatioBladBloei}"
-                      DisplayMemberPath="RatioBloeiBlad" 
+                      DisplayMemberPath="RatioBloeiBlad" IsEditable="True" 
                       >
                 <ComboBox.Effect>
                     <DropShadowEffect/>

@@ -179,46 +179,33 @@ namespace Planten2021.Data
             return plants;
         }
 
-        //A function that takes a string, puts it to lowercase, 
-        //changes all the ' and " chars and replaces them by a space
-        //next it deletes al the spaces and returns the string.
-        public string Simplify(string stringToSimplify)
-        {
-            string answer = stringToSimplify.Replace("\'", " ").Replace("\"", " ");
-            answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
-            return answer;
-        }
+        ////////////A function that takes a string, puts it to lowercase, 
+        ////////////changes all the ' and " chars and replaces them by a space
+        ////////////next it deletes al the spaces and returns the string.
+        //////////public string Simplify(string stringToSimplify)
+        //////////{
+        //////////    string answer = stringToSimplify.Replace("\'", " ").Replace("\"", " ");
+        //////////    answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
+        //////////    return answer;
+        //////////}
 
-        //public IQueryable<T> DuplicationCheck<T>(IQueryable<T> selection)
-        //{
-        //    //This is to check for duplication that got through the distinct
-        //    //Initialize IQueryable
-        //    IQueryable<T> duplicationcheck= Enumerable.Empty<T>().AsQueryable();
+        //////////public IQueryable<T> DuplicationCheck<T>(IQueryable<T> selection)
+        //////////{
+        //////////    //This is to check for duplication that got through the distinct
+        //////////    //Initialize IQueryable
+        //////////    IQueryable<T> duplicationcheck = Enumerable.Empty<T>().AsQueryable();
 
-        //    foreach (var item in selection)
-        //    {
-        //        if (!duplicationcheck.Contains(item))
-        //        {
-        //            duplicationcheck.Append(item);
-        //        }
-        //    }
-        //    return duplicationcheck;
-        //}
-        public Dictionary<long, string> DuplicationCheck(Dictionary<long, string> selection)
-        {
-            // this is to check for duplication that got through the distinct
+        //////////    foreach (var item in selection)
+        //////////    {
+        //////////        if (!duplicationcheck.Contains(item))
+        //////////        {
+        //////////            duplicationcheck.Append(item);
+        //////////        }
+        //////////    }
+        //////////    return duplicationcheck;
+        //////////}
 
-            Dictionary<long, string> Duplicationcheck = new Dictionary<long, string>();
-            foreach (var item in selection)
-            {
-                if (!Duplicationcheck.ContainsValue(item.Value))
-                {
-                    Duplicationcheck.Add(item.Key, item.Value);
-                }
-            }
 
-            return Duplicationcheck;
-        }
 
         /// <summary>
         ///                            FILL COMBOBOX
@@ -229,8 +216,8 @@ namespace Planten2021.Data
 
         public IQueryable<TfgsvType> fillTfgsvType()
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
             // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
             // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
             // Good way to interact with our datacontext
@@ -240,15 +227,14 @@ namespace Planten2021.Data
 
         public IQueryable<TfgsvFamilie> fillTfgsvFamilie(int selectedItem)
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // 
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
 
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
-                return selection;
+               return selection;
 
             }
             else
@@ -260,10 +246,9 @@ namespace Planten2021.Data
         }
         public IQueryable<TfgsvGeslacht> fillTfgsvGeslacht(int selectedItem)
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // 
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam)
@@ -279,10 +264,9 @@ namespace Planten2021.Data
         }
         public IQueryable<TfgsvSoort> fillTfgsvSoort(int selectedItem)
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // 
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct();
@@ -296,29 +280,22 @@ namespace Planten2021.Data
 
         }
 
-        public IQueryable<TfgsvVariant> fillTfgsvVariant(int selectedItem)
+        public IQueryable<TfgsvVariant> fillTfgsvVariant()
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // 
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
-            if (selectedItem > 0)
-            {
-                var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).Where(s => s.SoortSoortid == selectedItem);
-                return selection;
-            }
-            else
-            {
-                var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam);
-                return selection;
-            }
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+
+            var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam); 
+            return selection;
+
         }
         public IQueryable<Fenotype> fillFenoTypeRatioBloeiBlad()
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // 
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            // this is NOT part of the cascade function and wil not be added as it is not needed 
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter.
 
             var selection = context.Fenotype.Distinct().OrderBy(s => s.RatioBloeiBlad);
             return selection;
