@@ -226,7 +226,7 @@ namespace Planten2021.Data
         /// </summary>
         /// <returns></returns>
 
-
+        #region Fill
         public IQueryable<TfgsvType> fillTfgsvType()
         {
             // lijst type opvragen.
@@ -324,6 +324,88 @@ namespace Planten2021.Data
             return selection;
 
         }
+
+
+        #endregion
+
+        #region FilterFromPlant
+
+        #region FilterFenoTypeFromPlant 
+
+        public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
+        {
+
+            var selection = context.Fenotype.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        public IQueryable<FenotypeMulti> FilterFenotypeMultiFromPlant(int selectedItem)
+        {
+
+            var selection = context.FenotypeMulti.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+        #endregion
+
+        #region FilterAbiotiekFromPlant
+        public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
+        {
+
+            var selection = context.Abiotiek.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        public IQueryable<AbiotiekMulti> filterAbiotiekMultiFromPlant(int selectedItem)
+        {
+
+            var selection = context.AbiotiekMulti.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+        #endregion
+
+        #region FilterBeheerMaandFromPlant
+        public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
+        {
+
+            var selection = context.BeheerMaand.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+        #endregion
+
+        #region FilterCommensalismeFromPlant
+        public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
+        {
+
+            var selection = context.Commensalisme.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        public IQueryable<CommensalismeMulti> FilterCommensalismeMulti(int selectedItem)
+        {
+
+            var selection = context.CommensalismeMulti.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+        #endregion
+
+        #region FilterExtraEigenschapFromPlant
+        public IQueryable<ExtraEigenschap> FilterExtraEigenschapFromPlant(int selectedItem)
+        {
+
+            var selection = context.ExtraEigenschap.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+        #endregion
+
+        #endregion
 
         public List<Plant> detailsAanvullen(long ID)
         {
