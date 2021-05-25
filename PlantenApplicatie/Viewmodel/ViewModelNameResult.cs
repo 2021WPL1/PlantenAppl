@@ -14,13 +14,11 @@ using PlantenApplicatie.View.UserControls;
 
 namespace PlantenApplicatie.Viewmodel
 {
-    public class ViewModelName : ViewModelBase
+    public class ViewModelNameResult : ViewModelBase
     {
         private DAO _dao;
-   
 
-
-        public ViewModelName()
+        public ViewModelNameResult()
         {
 
             this._dao = DAO.Instance();
@@ -33,6 +31,7 @@ namespace PlantenApplicatie.Viewmodel
             cmbSoort = new ObservableCollection<TfgsvSoort>();
             cmbVariant = new ObservableCollection<TfgsvVariant>();
             cmbRatioBladBloei = new ObservableCollection<Fenotype>();
+            filteredPlantResults = new ObservableCollection<Plant>();
 
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
@@ -40,14 +39,22 @@ namespace PlantenApplicatie.Viewmodel
 
             //These comboboxes will already be filled with data on startup
             fillComboBoxType();
-            //fillComboBoxFamilie();
-            //fillComboBoxGeslacht();
-            //fillComboBoxSoort();
-            //fillComboBoxVariant();
             fillComboBoxRatioBloeiBlad();
+            //This will show all the unfiltered plants in the listbox on startup
+            FillPlantResult();
 
         }
-
+        #region Fill result test
+        public void FillPlantResult()
+        {
+            var list = _dao.getAllPlants();
+            
+            foreach (var item in list)
+            {
+                filteredPlantResults.Add(item);
+            }
+        }
+        #endregion
 
         //Observable collections
         public ObservableCollection<TfgsvType> cmbTypes { get; set; }
@@ -56,6 +63,7 @@ namespace PlantenApplicatie.Viewmodel
         public ObservableCollection<TfgsvSoort> cmbSoort { get; set; }
         public ObservableCollection<TfgsvVariant> cmbVariant { get; set; }
         public ObservableCollection<Fenotype> cmbRatioBladBloei { get; set; }
+        public ObservableCollection<Plant> filteredPlantResults { get; set; }
 
         #region icommands
 
@@ -150,7 +158,7 @@ namespace PlantenApplicatie.Viewmodel
         public void fillComboBoxType()
         {
             var list = _dao.fillTfgsvType();
-
+            
             foreach (var item in list)
             {
                 cmbTypes.Add(item);
@@ -374,8 +382,6 @@ namespace PlantenApplicatie.Viewmodel
             //}
 
         }
-
-
         #endregion
     }
 }

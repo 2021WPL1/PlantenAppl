@@ -17,7 +17,7 @@
 
     <Window.Resources>
 
-        <DataTemplate DataType = "{x:Type viewModels:ViewModelName}">
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelNameResult}">
             <pages:UserControlName/>
         </DataTemplate>
 

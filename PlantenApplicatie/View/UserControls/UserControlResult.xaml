@@ -4,10 +4,27 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlantenApplicatie.View.UserControls"
+             xmlns:viewmodel="clr-namespace:PlantenApplicatie.Viewmodel"
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1250">
-    <Grid>
-        <ListBox x:Name="lstResultSearch" Margin="108,10,0,216" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="512"/>
+   
+    
+    <UserControl.DataContext>
+        <viewmodel:ViewModelNameResult/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <DataTemplate DataType = "{x:Type viewmodel:ViewModelNameResult}">
+            <local:UserControlName/>
+        </DataTemplate>
+    </UserControl.Resources>
+
+        <Grid>
+        <ListBox x:Name="lstResultSearch" 
+                 ItemsSource="{Binding filteredPlantResults}"
+                 DisplayMemberPath="Fgsv"
+
+                 Margin="108,10,0,216" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="512"/>
         <ListBox x:Name="lstDetails" Margin="625,10,0,216" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="512"/>
     </Grid>
 </UserControl>
