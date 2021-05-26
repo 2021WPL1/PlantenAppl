@@ -42,11 +42,11 @@ namespace PlantenApplicatie.ViewModel
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
-            if (userControlName == "VIEWRESULT" )
+            if (userControlName == "VIEWRESULT")
             {
                 viewModelNameResult.BtnZoeken();
             }
-            
+
         }
 
     }

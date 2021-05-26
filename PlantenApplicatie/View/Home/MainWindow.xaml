@@ -29,6 +29,10 @@
             <pages:UserControlResult/>
         </DataTemplate>
 
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelBloom}">
+            <pages:UserControlBloom/>
+        </DataTemplate>
+
     </Window.Resources>
 
     <Grid Opacity="0.9">
@@ -41,7 +45,9 @@
             <ImageBrush  Stretch="Fill" ImageSource="../../Image/waterval.jpeg"/>
         </Grid.Background>
 
-        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWBLOOM">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
