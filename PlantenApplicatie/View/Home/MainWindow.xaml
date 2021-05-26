@@ -13,7 +13,7 @@
 
     <Window.DataContext>
         <viewModel:ViewModelMain/>
-    </Window.DataContext>
+       </Window.DataContext>
 
     <Window.Resources>
 
@@ -25,9 +25,6 @@
             <pages:UserControlHabitat/>
         </DataTemplate>
 
-        <DataTemplate DataType = "{x:Type viewModels:ViewModelResult}">
-            <pages:UserControlResult/>
-        </DataTemplate>
 
     </Window.Resources>
 
@@ -166,20 +163,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-
-        <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
-                Command="{Binding Path=mainNavigationCommandSearch}"
-                CommandParameter="VIEWRESULT" >
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-        </Button>
-
+        
 
         <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,184,47,42" Background="#99FFFFFF"/>
 

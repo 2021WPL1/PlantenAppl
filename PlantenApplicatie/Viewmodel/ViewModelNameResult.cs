@@ -488,7 +488,7 @@ namespace PlantenApplicatie.Viewmodel
             }
             //lijst
             //filteredPlantResults.Clear();
-            //MessageBox.Show(SelectedType.ToString());
+            MessageBox.Show(SelectedType.ToString());
             foreach (var item in listPlants)
             {
                 filteredPlantResults.Add(item);

@@ -8,7 +8,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="1250">
     <Grid>
-        <Canvas x:Name="CvsZoeken" Margin="0,190,0,0" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="158" VerticalAlignment="Top" >
+        <Canvas x:Name="CvsZoeken" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="154" VerticalAlignment="Top" >
             <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
                 <Label.Effect>
                     <DropShadowEffect/>
@@ -108,6 +108,24 @@
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
+            <ListBox x:Name="lstResultSearch" 
+                     ItemsSource="{Binding filteredPlantResults}"
+                     DisplayMemberPath="Fgsv"
+                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Canvas.Top="281" Height="419"/>
+            <ListBox x:Name="lstDetails" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Height="419" Canvas.Left="517" Canvas.Top="281"/>
+            <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" BorderBrush="#FF2AE633" Margin="818,88,0,0" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
+                    Command="{Binding Path=SearchCommand}" Canvas.Left="-492" Canvas.Top="80"
+            >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+
         </Canvas>
     </Grid>
 </UserControl>
