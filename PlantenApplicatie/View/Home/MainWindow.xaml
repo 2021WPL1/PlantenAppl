@@ -142,7 +142,8 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="btnExporteergeselecteerd" Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="818,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnExporteergeselecteerd" 
+                Content="Exporteer geselecteerd" HorizontalAlignment="Left" Margin="818,51,0,0" VerticalAlignment="Top" Height="32" Width="255" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -167,7 +168,7 @@
         </Button>
 
         <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
-                Command="{Binding mainNavigationCommand}"
+                Command="{Binding Path =mainNavigationCommandSearch}"
                 CommandParameter="VIEWRESULT" >
             <Button.Resources>
                 <Style TargetType="Border">

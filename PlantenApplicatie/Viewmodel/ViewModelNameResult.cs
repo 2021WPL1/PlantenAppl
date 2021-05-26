@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.View;
@@ -17,8 +19,13 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelNameResult : ViewModelBase
     {
         private DAO _dao;
+        private static readonly ViewModelNameResult instance = new ViewModelNameResult();
 
-        public ViewModelNameResult()
+        public static ViewModelNameResult Instance()
+        {
+            return instance;
+        }
+        private ViewModelNameResult()
         {
 
             this._dao = DAO.Instance();
@@ -36,6 +43,7 @@ namespace PlantenApplicatie.Viewmodel
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
             SearchCommand = new DelegateCommand(BtnZoeken);
+            CommandTest = new DelegateCommand(Test);
 
             //These comboboxes will already be filled with data on startup
             fillComboBoxType();
@@ -48,18 +56,23 @@ namespace PlantenApplicatie.Viewmodel
             //This will show all the unfiltered plants in the listbox on startup
             //FillPlantResult();
             //BtnZoeken();
+        }
 
-        }
-        #region Fill result test
-        public void FillPlantResult()
+        public void Test()
         {
-            var list = _dao.getAllPlants();
-            
-            foreach (var item in list)
-            {
-                filteredPlantResults.Add(item);
-            }
+            MessageBox.Show("Test message");
         }
+
+        #region Fill result test
+        //public void FillPlantResult()
+        //{
+        //    var list = _dao.getAllPlants();
+
+        //    foreach (var item in list)
+        //    {
+        //        filteredPlantResults.Add(item);
+        //    }
+        //}
         #endregion
 
         //Observable collections
@@ -75,14 +88,13 @@ namespace PlantenApplicatie.Viewmodel
 
         //ICommands
         public ICommand SearchCommand { get; set; }
+        public ICommand CommandTest { get; set; }
 
         #endregion
 
         #region Selected Item variables for each combobox
 
-
         private TfgsvType _selectedType;
-        private TfgsvType _autoSelectedType;
 
         public TfgsvType SelectedType
         {
@@ -96,15 +108,6 @@ namespace PlantenApplicatie.Viewmodel
                 //cmbSoort.Clear();
                 //cmbVariant.Clear();
 
-                fillComboBoxFamilie();
-                OnPropertyChanged();
-            }
-        } public TfgsvType AutoSelectedType
-        {
-            get { return _autoSelectedType; }
-            set
-            {
-                _autoSelectedType = value;
                 fillComboBoxFamilie();
                 OnPropertyChanged();
             }
@@ -480,13 +483,12 @@ namespace PlantenApplicatie.Viewmodel
 
             }
             //lijst
-            filteredPlantResults.Clear();
-
+            //filteredPlantResults.Clear();
+            //MessageBox.Show(SelectedType.ToString());
             foreach (var item in listPlants)
             {
                 filteredPlantResults.Add(item);
             }
-
         }
         #endregion
     }

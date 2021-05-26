@@ -22,10 +22,11 @@ namespace PlantenApplicatie.Viewmodel
             private ViewModelRepo()
             {
                 //hier een extra lijn code per user control
-                _viewModels.Add("VIEWNAME", new ViewModelNameResult());
+                _viewModels.Add("VIEWNAME", ViewModelNameResult.Instance());
                 _viewModels.Add("VIEWHABITAT", new ViewModelHabitat());
                 _viewModels.Add("VIEWRESULT", new ViewModelResult());
             }
+            //
             public ViewModelBase GetViewModel(string modelName)
             {
                 ViewModelBase result;
