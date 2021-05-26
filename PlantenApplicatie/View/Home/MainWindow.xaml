@@ -37,6 +37,10 @@
             <pages:UserControlGrow/>
         </DataTemplate>
 
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelGrooming}">
+            <pages:UserControlGrooming/>
+        </DataTemplate>
+
     </Window.Resources>
 
     <Grid Opacity="0.9">
@@ -62,7 +66,9 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWGROOMING">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

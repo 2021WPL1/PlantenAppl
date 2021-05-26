@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1250">
     <Grid>
-        <Canvas x:Name="cvsGroei" Margin="20,27,0,79" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1150">
+        <Canvas x:Name="cvsGroei" Margin="20,27,0,79" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1250">
 
             <Label Content="Grondsoort" Canvas.Left="19" Canvas.Top="10" Height="25" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Strategie" Canvas.Left="662" Canvas.Top="10" Height="26" Width="75" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
@@ -16,11 +16,7 @@
             <Label Content="GB3" Canvas.Left="19" Canvas.Top="130" Height="25" Width="40" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="OP1" Canvas.Left="19" Canvas.Top="171" Height="25" Width="40" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="OP1B" Canvas.Left="19" Canvas.Top="212" Height="25" Width="40" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxGrondsoortGB1" Content="CheckBox" Canvas.Left="84" Canvas.Top="55" Height="15" Width="15" BorderBrush="Gray">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
+            
             <CheckBox x:Name="CbxGrondsoortGB2" Content="CheckBox" Canvas.Left="84" Canvas.Top="94" Height="15" Width="15" BorderBrush="Gray">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
