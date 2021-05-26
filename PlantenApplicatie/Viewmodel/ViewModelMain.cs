@@ -21,6 +21,7 @@ namespace PlantenApplicatie.ViewModel
         private ViewModelBase _currentViewModel;
 
         public MyICommand<string> mainNavigationCommand { get; set; }
+        public MyICommand<string> mainNavigationCommandSearch { get; set; }
         public ViewModelBase currentViewModel
         {
             get { return _currentViewModel; }
@@ -34,6 +35,7 @@ namespace PlantenApplicatie.ViewModel
         public ViewModelMain()
         {
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
+            mainNavigationCommandSearch = new MyICommand<string>(this._onNavigationChangedSearch);
             //  dialogService.ShowMessageBox(this, "", "");
 
 
@@ -42,11 +44,13 @@ namespace PlantenApplicatie.ViewModel
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
-            if (userControlName == "VIEWRESULT" )
-            {
-                viewModelNameResult.BtnZoeken();
-            }
-            
+        }
+        private void _onNavigationChangedSearch(string userControlName)
+        {
+            this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
+            viewModelNameResult.BtnZoeken();
+
+
         }
 
     }
