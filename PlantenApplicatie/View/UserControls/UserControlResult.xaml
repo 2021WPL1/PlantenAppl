@@ -23,7 +23,6 @@
         <ListBox x:Name="lstResultSearch" 
                  ItemsSource="{Binding filteredPlantResults}"
                  DisplayMemberPath="Fgsv"
-
                  Margin="108,10,0,216" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="512"/>
         <ListBox x:Name="lstDetails" Margin="625,10,0,216" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" HorizontalAlignment="Left" Width="512"/>
     </Grid>

@@ -28,10 +28,6 @@ namespace PlantenApplicatie.ViewModel
             set { SetProperty(ref _currentViewModel, value); }
         }
 
-        //singleton maken
-        //instance gebruiken
-
-
         public ViewModelMain()
         {
             this._viewModelsRepo = ViewModelRepo.Instance();

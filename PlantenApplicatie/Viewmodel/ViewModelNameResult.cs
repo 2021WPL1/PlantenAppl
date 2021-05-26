@@ -8,6 +8,7 @@ using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
+using PlantenApplicatie.HelpClasses;
 using PlantenApplicatie.View;
 using PlantenApplicatie.View.UserControls;
 using PlantenApplicatie.ViewModel;
@@ -19,16 +20,13 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelNameResult : ViewModelBase
     {
         private DAO _dao;
-        private static readonly ViewModelNameResult instance = new ViewModelNameResult();
-
-        public static ViewModelNameResult Instance()
-        {
-            return instance;
-        }
-        private ViewModelNameResult()
+        //private ViewModelData _viewModelData;
+        
+        public ViewModelNameResult()
         {
 
             this._dao = DAO.Instance();
+            //this._viewModelData = ViewModelData.Instance();
 
             //Observable Collections 
             ////Obserbable collections to fill with the necessary objects to show in our comboboxes
@@ -39,6 +37,9 @@ namespace PlantenApplicatie.Viewmodel
             cmbVariant = new ObservableCollection<TfgsvVariant>();
             cmbRatioBladBloei = new ObservableCollection<Fenotype>();
             filteredPlantResults = new ObservableCollection<Plant>();
+
+            ////testcollection
+            //detailTest = new ObservableCollection<Plant>();
 
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
@@ -64,15 +65,15 @@ namespace PlantenApplicatie.Viewmodel
         }
 
         #region Fill result test
-        //public void FillPlantResult()
-        //{
-        //    var list = _dao.getAllPlants();
+        public void FillPlantResult()
+        {
+            var list = _dao.getAllPlants();
 
-        //    foreach (var item in list)
-        //    {
-        //        filteredPlantResults.Add(item);
-        //    }
-        //}
+            foreach (var item in list)
+            {
+                filteredPlantResults.Add(item);
+            }
+        }
         #endregion
 
         //Observable collections
@@ -83,6 +84,9 @@ namespace PlantenApplicatie.Viewmodel
         public ObservableCollection<TfgsvVariant> cmbVariant { get; set; }
         public ObservableCollection<Fenotype> cmbRatioBladBloei { get; set; }
         public ObservableCollection<Plant> filteredPlantResults { get; set; }
+
+        ////testcollection
+        //public ObservableCollection<Plant> detailTest { get; set; }
 
         #region icommands
 
