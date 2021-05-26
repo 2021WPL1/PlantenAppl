@@ -35,7 +35,7 @@ namespace PlantenApplicatie.Viewmodel
 
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
-            //SearchCommand = new DelegateCommand(BtnZoeken);
+            SearchCommand = new DelegateCommand(BtnZoeken);
 
             //These comboboxes will already be filled with data on startup
             fillComboBoxType();
@@ -46,7 +46,7 @@ namespace PlantenApplicatie.Viewmodel
             fillComboBoxRatioBloeiBlad();
 
             //This will show all the unfiltered plants in the listbox on startup
-            FillPlantResult();
+            //FillPlantResult();
 
         }
         #region Fill result test
@@ -73,7 +73,7 @@ namespace PlantenApplicatie.Viewmodel
         #region icommands
 
         //ICommands
-        //public ICommand SearchCommand { get; set; }
+        public ICommand SearchCommand { get; set; }
 
         #endregion
 
@@ -458,7 +458,6 @@ namespace PlantenApplicatie.Viewmodel
                     ControleList.Add(item.RatioBloeiBlad);
                 }
             }
-
         }
 
         #endregion
@@ -468,79 +467,79 @@ namespace PlantenApplicatie.Viewmodel
         public void BtnZoeken()
         {
 
-            //var listPlants = _dao.getAllPlants();
+            var listPlants = _dao.getAllPlants();
 
 
-            //if (SelectedType != null)
-            //{
+            if (SelectedType != null)
+            {
 
-            //    foreach (var item in listPlants.ToList())
-            //    {
+                foreach (var item in listPlants.ToList())
+                {
 
-            //        if (item.TypeId != SelectedType.Planttypeid)
-            //        {
-            //            listPlants.Remove(item);
-            //        }
-            //    }
-            //}
-            //if (SelectedFamilie != null)
-            //{
+                    if (item.TypeId != SelectedType.Planttypeid)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedFamilie != null)
+            {
 
-            //    foreach (var item in listPlants.ToList())
-            //    {
+                foreach (var item in listPlants.ToList())
+                {
 
-            //        if (item.FamilieId != SelectedFamilie.FamileId)
-            //        {
-            //            listPlants.Remove(item);
-            //        }
-            //    }
-            //}
-            //if (SelectedGeslacht != null)
-            //{
+                    if (item.FamilieId != SelectedFamilie.FamileId)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedGeslacht != null)
+            {
 
-            //    foreach (var item in listPlants.ToList())
-            //    {
+                foreach (var item in listPlants.ToList())
+                {
 
-            //        if (item.GeslachtId != SelectedGeslacht.GeslachtId)
-            //        {
-            //            listPlants.Remove(item);
-            //        }
-            //    }
-            //}
-            //if (SelectedSoort != null)
-            //{
+                    if (item.GeslachtId != SelectedGeslacht.GeslachtId)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedSoort != null)
+            {
 
-            //    foreach (var item in listPlants.ToList())
-            //    {
+                foreach (var item in listPlants.ToList())
+                {
 
-            //        if (item.SoortId != SelectedSoort.Soortid)
-            //        {
-            //            listPlants.Remove(item);
-            //        }
-            //    }
-            //}
-            //if (SelectedVariant != null)
-            //{
+                    if (item.SoortId != SelectedSoort.Soortid)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedVariant != null)
+            {
 
-            //    foreach (var item in listPlants.ToList())
-            //    {
+                foreach (var item in listPlants.ToList())
+                {
 
-            //        if (item.VariantId != null)
-            //        {
+                    if (item.VariantId != null)
+                    {
 
-            //            if (item.VariantId != SelectedVariant.VariantId)
-            //            {
+                        if (item.VariantId != SelectedVariant.VariantId)
+                        {
 
-            //                listPlants.Remove(item);
-            //            }
-            //        }
-            //        else if (item.VariantId == null)
-            //        {
-            //            listPlants.Remove(item);
-            //        }
+                            listPlants.Remove(item);
+                        }
+                    }
+                    else if (item.VariantId == null)
+                    {
+                        listPlants.Remove(item);
+                    }
 
-            //    }
-            //}
+                }
+            }
 
             //if (SelectedNederlandseNaam != string.Empty)
             //{
@@ -563,51 +562,47 @@ namespace PlantenApplicatie.Viewmodel
             //    }
             //}
 
-            //if (SelectedRatioBloeiBlad != null)
-            //{
-
-            //    foreach (var item in listPlants.ToList())
-            //    {
-            //        if (item.Fenotype.Count != 0)
-            //        {
-            //            foreach (var itemFenotype in item.Fenotype)
-            //            {
-
-            //                if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
-            //                {
-
-            //                    if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
-            //                    {
-
-            //                        listPlants.Remove(item);
-            //                        listPlants.Remove(item);
-            //                    }
-            //                }
-            //                else
-            //                {
-            //                    listPlants.Remove(item);
-            //                }
-            //            }
-            //        }
-            //        else
-            //        {
-            //            listPlants.Remove(item);
-            //        }
-
-            //    }
-
-            //}
-
-            List<string> list = new List<string>()
+            if (SelectedRatioBloeiBlad != null)
             {
-                "test",
-                "test",
-                "test"
-            };
-            //foreach (var item in list)
-            //{
-            //    UserControlResult.
-            //}
+
+                foreach (var item in listPlants.ToList())
+                {
+                    if (item.Fenotype.Count != 0)
+                    {
+                        foreach (var itemFenotype in item.Fenotype)
+                        {
+
+                            if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
+                            {
+
+                                if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
+                                {
+
+                                    listPlants.Remove(item);
+                                    listPlants.Remove(item);
+                                }
+                            }
+                            else
+                            {
+                                listPlants.Remove(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        listPlants.Remove(item);
+                    }
+
+                }
+
+            }
+            //lijst
+            filteredPlantResults.Clear();
+
+            foreach (var item in listPlants)
+            {
+                filteredPlantResults.Add(item);
+            }
 
         }
         #endregion
