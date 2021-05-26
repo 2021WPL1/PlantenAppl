@@ -5,6 +5,9 @@
     <Compile Update="View\UserControls\UserControlBloom.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="View\UserControls\UserControlGrow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="View\UserControls\UserControlHabitat.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -17,6 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="View\UserControls\UserControlBloom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserControls\UserControlGrow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="View\UserControls\UserControlHabitat.xaml">
