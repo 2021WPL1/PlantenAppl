@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
@@ -36,6 +37,7 @@ namespace PlantenApplicatie.Viewmodel
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
             SearchCommand = new DelegateCommand(BtnZoeken);
+            Reset = new DelegateCommand(btnReset);
 
             //These comboboxes will already be filled with data on startup
             fillComboBoxType();
@@ -74,6 +76,7 @@ namespace PlantenApplicatie.Viewmodel
 
         //ICommands
         public ICommand SearchCommand { get; set; }
+        public ICommand Reset { get; set; }
 
         #endregion
 
@@ -90,10 +93,10 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedType = value;
 
-                //cmbFamilies.Clear();
-                //cmbGeslacht.Clear();
-                //cmbSoort.Clear();
-                //cmbVariant.Clear();
+                cmbFamilies.Clear();
+                cmbGeslacht.Clear();
+                cmbSoort.Clear();
+                cmbVariant.Clear();
 
                 fillComboBoxFamilie();
                 OnPropertyChanged();
@@ -117,6 +120,9 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedFamilie = value;
+                cmbGeslacht.Clear();
+                cmbSoort.Clear();
+                cmbVariant.Clear();
                 fillComboBoxGeslacht();
                 OnPropertyChanged();
             }
@@ -130,6 +136,8 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedGeslacht = value;
+                cmbSoort.Clear();
+                cmbVariant.Clear();
                 fillComboBoxSoort();
                 OnPropertyChanged();
             }
@@ -143,7 +151,8 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedSoort = value;
-                fillComboBoxVariant();
+                cmbVariant.Clear();
+              
                 OnPropertyChanged();
             }
         }
@@ -172,127 +181,6 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
         #endregion
-
-        //#region Fill combobox methods
-
-
-        //public void fillComboBoxType()
-        //{
-
-        //    //Clear the remaining comboboxes, so it will be possible to return to
-        //    //an earlier combobox without crashing.
-        //    cmbTypes.Clear();
-        //    cmbVariant.Clear();
-        //    cmbGeslacht.Clear();
-        //    cmbSoort.Clear();
-        //    cmbRatioBladBloei.Clear();
-        //    //cmbFamilies.Clear();
-
-        //    var list = _dao.fillTfgsvType();
-
-        //    foreach (var item in list)
-        //    {
-        //        cmbTypes.Add(item);
-        //    }
-        //}
-
-        //public void fillComboBoxFamilie()
-        //{
-
-        //    //Clear the remaining comboboxes, so it will be possible to return to
-        //    //an earlier combobox without crashing.
-        //    //cmbTypes.Clear();
-        //    //cmbVariant.Clear();
-        //    //cmbGeslacht.Clear();
-        //    //cmbSoort.Clear();
-        //    //cmbRatioBladBloei.Clear();
-        //    cmbFamilies.Clear();
-
-        //    //use the typeId, selected in the combobox to filter the list and load the remaining plant families in the family combobox
-        //    var list = _dao.fillTfgsvFamilie(Convert.ToInt32(SelectedType.Planttypeid));
-
-        //    foreach (var item in list)
-        //    {
-        //        cmbFamilies.Add(item);
-        //    }
-        //}
-
-        //public void fillComboBoxGeslacht()
-        //{
-        //    //Clear the remaining comboboxes, so it will be possible to return to
-        //    //an earlier combobox without crashing.
-        //    //cmbTypes.Clear();
-        //    //cmbVariant.Clear();
-        //    //cmbGeslacht.Clear();
-        //    //cmbSoort.Clear();
-        //    //cmbRatioBladBloei.Clear();
-        //    //cmbFamilies.Clear();
-
-        //    //use the FamilieId, selected in the combobox to filter the list and load the remaining plantgeslachten in the geslacht combobox
-        //    var list = _dao.fillTfgsvGeslacht(Convert.ToInt32(SelectedFamilie.FamileId));
-
-        //    foreach (var item in list)
-        //    {
-        //        cmbGeslacht.Add(item);
-        //    }
-
-        //}
-
-        //public void fillComboBoxSoort()
-        //{
-        //    //use GeslachtId, selected in the combobox to filter the list and load the remaining plantsoorten in the soort combobox
-        //    var list = _dao.fillTfgsvSoort(Convert.ToInt32(SelectedGeslacht.GeslachtId));
-
-        //    //Clear the remaining comboboxes, so it will be possible to return to
-        //    //an earlier combobox without crashing.
-        //    //cmbTypes.Clear();
-        //    //cmbVariant.Clear();
-        //    //cmbGeslacht.Clear();
-        //    //cmbSoort.Clear();
-        //    //cmbRatioBladBloei.Clear();
-        //    //cmbFamilies.Clear();
-
-        //    foreach (var item in list)
-        //    {
-        //        cmbSoort.Add(item);
-        //    }
-
-        //}
-
-        //public void fillComboBoxVariant()
-        //{
-        //    //use SoortId, selected in the combobox to filter the list and load the remaining plantvarianten in the variant combobox
-        //    var list = _dao.fillTfgsvVariant(Convert.ToInt32(SelectedSoort.Soortid));
-
-        //    //Clear the remaining comboboxes, so it will be possible to return to
-        //    //an earlier combobox without crashing.
-        //    //cmbTypes.Clear();
-        //    //cmbVariant.Clear();
-        //    //cmbGeslacht.Clear();
-        //    //cmbSoort.Clear();
-        //    //cmbRatioBladBloei.Clear();
-        //    //cmbFamilies.Clear();
-
-        //    foreach (var item in list)
-        //    {
-        //        cmbVariant.Add(item);
-        //    }
-        //}
-
-        //public void fillComboBoxRatioBloeiBlad()
-        //{
-        //    //not currently used in the cascade search
-        //    //will be adjusted later (dao)
-        //    var list = _dao.fillFenoTypeRatioBloeiBlad();
-
-        //    foreach (var item in list)
-        //    {
-        //        cmbRatioBladBloei.Add(item);
-        //    }
-
-        //}
-
-        //#endregion
 
         #region Fill combobox methods
 
@@ -464,6 +352,34 @@ namespace PlantenApplicatie.Viewmodel
 
         #region Methods to use in our DelegateCommands
 
+        #region Reset
+
+        private void btnReset()
+        {
+            filteredPlantResults.Clear();
+
+            cmbTypes.Clear();
+            cmbFamilies.Clear();
+            cmbGeslacht.Clear();
+            cmbSoort.Clear();
+            cmbVariant.Clear();
+            cmbRatioBladBloei.Clear();
+
+            fillComboBoxType();
+            fillComboBoxFamilie();
+            fillComboBoxGeslacht();
+            fillComboBoxSoort();
+            fillComboBoxVariant();
+            fillComboBoxRatioBloeiBlad();
+
+        }
+
+
+        #endregion
+
+        #region Zoeken
+
+
         public void BtnZoeken()
         {
 
@@ -605,6 +521,8 @@ namespace PlantenApplicatie.Viewmodel
             }
 
         }
+        #endregion
+
         #endregion
     }
 }
