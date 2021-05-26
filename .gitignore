@@ -3,7 +3,7 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-Data/Constants.cs
+/Planten2021.Data/Constants.cs
 
 # User-specific files
 *.rsuser
