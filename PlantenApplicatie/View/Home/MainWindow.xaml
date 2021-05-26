@@ -168,7 +168,7 @@
         </Button>
 
         <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" HorizontalAlignment="Left" BorderBrush="#FF2AE633" Margin="818,88,0,0" VerticalAlignment="Top" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
-                Command="{Binding Path=mainNavigationCommandSearch}"
+                Command="{Binding Path=mainNavigationCommand}"
                 CommandParameter="VIEWRESULT" >
             <Button.Resources>
                 <Style TargetType="Border">

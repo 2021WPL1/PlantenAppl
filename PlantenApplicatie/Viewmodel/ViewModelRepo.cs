@@ -10,7 +10,7 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelRepo
     {
         //singleton pattern
-        private static readonly ViewModelRepo instance = new ViewModelRepo();
+        public static readonly ViewModelRepo instance = new ViewModelRepo();
 
         private Dictionary<string, ViewModelBase> _viewModels = new Dictionary<string, ViewModelBase>();
 

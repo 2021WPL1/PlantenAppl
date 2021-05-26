@@ -17,11 +17,12 @@ namespace PlantenApplicatie.ViewModel
 {
     class ViewModelMain :ViewModelBase
     {
+        private DAO _dao;
         private ViewModelRepo _viewModelsRepo;
         private ViewModelBase _currentViewModel;
 
         public MyICommand<string> mainNavigationCommand { get; set; }
-        public MyICommand<string> mainNavigationCommandSearch { get; set; }
+
         public ViewModelBase currentViewModel
         {
             get { return _currentViewModel; }
@@ -33,22 +34,18 @@ namespace PlantenApplicatie.ViewModel
             this._viewModelsRepo = ViewModelRepo.Instance();
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
-            mainNavigationCommandSearch = new MyICommand<string>(this._onNavigationCommandSearch);
             //  dialogService.ShowMessageBox(this, "", "");
         }
 
         private void _onNavigationChanged(string userControlName)
-        {
-            this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
+        {  this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
+            if (userControlName == "VIEWRESULT")
+            {
+                var viewModelNameResult = (ViewModelNameResult)_viewModelsRepo.GetViewModel("VIEWNAME");
+                viewModelNameResult.BtnZoeken();
+            }
         }
 
-        private void _onNavigationCommandSearch(string userControlName)
-        {
-            this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
-
-            var viewModelNameResult = (ViewModelNameResult)_viewModelsRepo.GetViewModel("VIEWNAME");
-            viewModelNameResult.BtnZoeken();
-        }
 
     }
 }

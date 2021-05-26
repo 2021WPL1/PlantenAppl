@@ -56,7 +56,7 @@ namespace PlantenApplicatie.Viewmodel
 
             //This will show all the unfiltered plants in the listbox on startup
             //FillPlantResult();
-            //BtnZoeken();
+           //BtnZoeken();
         }
 
         public void Test()
@@ -180,9 +180,6 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
         #endregion
-
-        //#region Fill combobox methods
-
 
         #region Fill combobox methods
 
@@ -356,16 +353,12 @@ namespace PlantenApplicatie.Viewmodel
 
         public void BtnZoeken()
         {
-
             var listPlants = _dao.getAllPlants();
-
 
             if (SelectedType != null)
             {
-
                 foreach (var item in listPlants.ToList())
                 {
-
                     if (item.TypeId != SelectedType.Planttypeid)
                     {
                         listPlants.Remove(item);
@@ -489,7 +482,7 @@ namespace PlantenApplicatie.Viewmodel
             //lijst
             //filteredPlantResults.Clear();
             //MessageBox.Show(SelectedType.ToString());
-            foreach (var item in listPlants)
+            foreach (var item in listPlants.ToList())
             {
                 filteredPlantResults.Add(item);
             }

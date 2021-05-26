@@ -2,7 +2,7 @@
 
 namespace PlantenApplicatie.Viewmodel
 {
-    internal class ViewModelResult : ViewModelBase
+    public class ViewModelResult : ViewModelBase
     {
         public ViewModelResult() { }
     }
