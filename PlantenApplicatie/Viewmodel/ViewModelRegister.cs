@@ -10,12 +10,17 @@ using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Viewmodel
 {
-
+    //written by kenny
     public class ViewModelRegister : ViewModelBase
     {
         private DAO _dao;
         public RelayCommand registerCommand { get; set; }
-
+        public ViewModelRegister()
+        {
+            this._dao = DAO.Instance();
+            registerCommand = new RelayCommand(RegisterButton);
+        }
+        #region MVVM TextFieldsBinding
         private string _vivesNrInput;
         private string _firstNameInput;
         private string _lastNameInput;
@@ -23,13 +28,6 @@ namespace PlantenApplicatie.Viewmodel
         private string _passwordInput;
         private string _passwordRepeatInput;
         private string _rolInput;
-
-
-        public ViewModelRegister()
-        {
-            this._dao = DAO.Instance();
-            registerCommand = new RelayCommand(RegisterButton);
-        }
 
         public string vivesNrInput
         {
@@ -116,6 +114,8 @@ namespace PlantenApplicatie.Viewmodel
                 OnPropertyChanged();
             }
         }
+        #endregion
+
 
         public void RegisterButton()
         {
@@ -132,7 +132,7 @@ namespace PlantenApplicatie.Viewmodel
                     if (passwordInput == passwordRepeatInput)
                     {
                         _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
-                        MessageBox.Show($"{firstNameInput}, je bent succevol geregistreed, uw gebruikersnaam is {emailAdresInput} en uw wachtwoord is {passwordInput} .");
+                        MessageBox.Show($"{firstNameInput}, je bent succevol geregistreerd, uw gebruikersnaam is {emailAdresInput} en uw wachtwoord is {passwordInput} .");
                         LoginWindow loginWindow = new LoginWindow();
                         loginWindow.Show();
                     }

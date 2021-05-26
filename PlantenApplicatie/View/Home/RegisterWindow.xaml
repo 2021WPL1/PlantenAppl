@@ -7,13 +7,13 @@
         xmlns:viewmodel="clr-namespace:PlantenApplicatie.Viewmodel"
         xmlns:userControls="clr-namespace:PlantenApplicatie.View.UserControls"
         mc:Ignorable="d"
-        Title="RegisterWindow" Height="457" Width="459">
-
+        Title="RegisterWindow" Height="352" Width="465">
+<!--Written by Kenny -->
     <Window.DataContext>
         <viewmodel:ViewModelRegister/>
     </Window.DataContext>
 
-    <Grid Margin="0,0,10,-6">
+    <Grid>
         <Grid.Background>
             <!--add background image-->
             <ImageBrush  Stretch="Fill" ImageSource="../../Image/waterval.jpeg"/>
@@ -24,7 +24,7 @@
         <Label x:Name="lblAchternaam" Content="Achternaam:" HorizontalAlignment="Left" Margin="60,71,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="lblEmailadres" Content="emailadres:" HorizontalAlignment="Left" Margin="67,102,0,0" VerticalAlignment="Top" Foreground="White"/>
         <Label x:Name="lblWachtwoord" Content="wachtwoord:" HorizontalAlignment="Left" Margin="59,173,0,0" VerticalAlignment="Top" Foreground="White"/>
-        <Label x:Name="lblWachtwoordHerhaal" Content="herhaal wachtwoord:" HorizontalAlignment="Left" Margin="17,0,0,0" VerticalAlignment="Center" Foreground="White" RenderTransformOrigin="0.574,0.559"/>
+        <Label x:Name="lblWachtwoordHerhaal" Content="herhaal wachtwoord:" HorizontalAlignment="Left" Margin="17,208,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.574,0.559"/>
         <Label x:Name="lblRol" Content="Rol:" HorizontalAlignment="Left" Margin="107,133,0,0" VerticalAlignment="Top" Foreground="White"/>
 
         <TextBox Name="txtVivesNr"

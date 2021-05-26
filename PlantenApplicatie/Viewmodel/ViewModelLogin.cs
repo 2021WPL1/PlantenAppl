@@ -12,7 +12,7 @@ using PlantenApplicatie.HelpClasses.Login.enums;
 using PlantenApplicatie.View;
 using PlantenApplicatie.View.Home;
 using PlantenApplicatie.ViewModel;
-
+//written by kenny
 namespace PlantenApplicatie.Viewmodel
 {
     class ViewModelLogin : ViewModelBase
@@ -113,7 +113,7 @@ namespace PlantenApplicatie.Viewmodel
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
-            Application.Current.Windows[0].Close();
+            Application.Current.Windows[0]?.Close();
         }
     }
 }

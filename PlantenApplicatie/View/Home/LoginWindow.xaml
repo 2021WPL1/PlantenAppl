@@ -9,7 +9,7 @@
         xmlns:viewModel="clr-namespace:PlantenApplicatie.ViewModel"
         mc:Ignorable="d"
         Title="LoginWindow" Height="300" Width="464">
-
+    <!--Written by Kenny -->
     <Window.DataContext>
         <viewModels:ViewModelLogin/>
     </Window.DataContext>
