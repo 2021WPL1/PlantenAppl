@@ -18,6 +18,7 @@ namespace PlantenApplicatie.ViewModel
     class ViewModelMain :ViewModelBase
     {
         private ViewModelNameResult viewModelNameResult = new ViewModelNameResult();
+        private ViewModelRepo _viewModelsRepo;
         private ViewModelBase _currentViewModel;
 
         public MyICommand<string> mainNavigationCommand { get; set; }
@@ -27,24 +28,26 @@ namespace PlantenApplicatie.ViewModel
             set { SetProperty(ref _currentViewModel, value); }
         }
 
-        private ViewModelRepo _viewModelsRepo = new ViewModelRepo();
-
+        //singleton maken
+        //instance gebruiken
 
 
         public ViewModelMain()
         {
+            this._viewModelsRepo = ViewModelRepo.Instance();
+
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
-
-
         }
 
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
+
             if (userControlName == "VIEWRESULT" )
             {
                 viewModelNameResult.BtnZoeken();
+                //_viewModelsRepo.
             }
             
         }

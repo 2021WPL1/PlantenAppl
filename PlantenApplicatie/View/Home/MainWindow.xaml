@@ -185,7 +185,7 @@
 
         <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="641" Background="#99F5F5F5" FontWeight="Bold"/>
         
-        <Button x:Name="btnReset" 
+        <Button x:Name="btnReset"
                 Content="Reset" HorizontalAlignment="Left" Margin="688,51,0,0" VerticalAlignment="Top" Height="128" Width="125" Background="#FF5A533F" BorderBrush="#FF40E948" Foreground="#FFABC36C" FontWeight="Bold" FontSize="24">
             <Button.Effect>
                 <DropShadowEffect/>

@@ -9,10 +9,17 @@ namespace PlantenApplicatie.Viewmodel
    
         public class ViewModelRepo
         {
-            private Dictionary<string, ViewModelBase> _viewModels = new Dictionary<string, ViewModelBase>();
-         
+            //singleton pattern
+            private static readonly ViewModelRepo instance = new ViewModelRepo();
 
-            public ViewModelRepo()
+            private Dictionary<string, ViewModelBase> _viewModels = new Dictionary<string, ViewModelBase>();
+
+            public static ViewModelRepo Instance()
+            {
+                return instance;
+            }
+
+            private ViewModelRepo()
             {
                 //hier een extra lijn code per user control
                 _viewModels.Add("VIEWNAME", new ViewModelNameResult());
