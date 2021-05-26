@@ -38,13 +38,9 @@ namespace PlantenApplicatie.Viewmodel
             cmbRatioBladBloei = new ObservableCollection<Fenotype>();
             filteredPlantResults = new ObservableCollection<Plant>();
 
-            ////testcollection
-            //detailTest = new ObservableCollection<Plant>();
-
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
-            SearchCommand = new DelegateCommand(BtnZoeken);
-            CommandTest = new DelegateCommand(Test);
+            SearchCommand = new DelegateCommand(ApplyFilter);
 
             //These comboboxes will already be filled with data on startup
             fillComboBoxType();
@@ -53,16 +49,8 @@ namespace PlantenApplicatie.Viewmodel
             fillComboBoxSoort();
             fillComboBoxVariant();
             fillComboBoxRatioBloeiBlad();
-
-            //This will show all the unfiltered plants in the listbox on startup
-            //FillPlantResult();
-            //BtnZoeken();
         }
 
-        public void Test()
-        {
-            MessageBox.Show("Test message");
-        }
 
         #region Fill result test
         public void FillPlantResult()
@@ -85,14 +73,11 @@ namespace PlantenApplicatie.Viewmodel
         public ObservableCollection<Fenotype> cmbRatioBladBloei { get; set; }
         public ObservableCollection<Plant> filteredPlantResults { get; set; }
 
-        ////testcollection
-        //public ObservableCollection<Plant> detailTest { get; set; }
 
         #region icommands
 
         //ICommands
         public ICommand SearchCommand { get; set; }
-        public ICommand CommandTest { get; set; }
 
         #endregion
 
@@ -354,11 +339,10 @@ namespace PlantenApplicatie.Viewmodel
 
         #region Methods to use in our DelegateCommands
 
-        public void BtnZoeken()
+        public void ApplyFilter()
         {
 
             var listPlants = _dao.getAllPlants();
-
 
             if (SelectedType != null)
             {
@@ -486,9 +470,11 @@ namespace PlantenApplicatie.Viewmodel
                 }
 
             }
-            //lijst
-            //filteredPlantResults.Clear();
-            MessageBox.Show(SelectedType.ToString());
+            //Clear observable collection everytime the searchbutton is clicked
+            filteredPlantResults.Clear();
+            
+            //The listPlants is now completely filtered.
+            //Add every listPlants plantobject to our observable collection
             foreach (var item in listPlants)
             {
                 filteredPlantResults.Add(item);
