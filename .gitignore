@@ -3,10 +3,9 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-.Constants.cs
-Constants.cs
-.Constants
-Constants
+**/.Constants.cs
+**/Constants.cs
+**/.Constants
 
 # User-specific files
 *.rsuser
