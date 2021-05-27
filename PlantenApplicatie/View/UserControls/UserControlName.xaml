@@ -137,6 +137,7 @@
         </Canvas>
         <ListBox x:Name="lstResultSearch" 
                      ItemsSource="{Binding filteredPlantResults}"
+                     SelectedItem="{Binding Path= SelectedPlantInResult, Mode=TwoWay}"
                      Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="232,85,0,0" Height="695" VerticalAlignment="Top" HorizontalAlignment="Left" Width="450">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -173,7 +174,10 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox x:Name="lstDetails" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="710,85,0,0" HorizontalAlignment="Left" Width="450" Height="695" VerticalAlignment="Top"/>
+        <ListBox x:Name="lstDetails"
+                 ItemsSource="{Binding detailsSelectedPlant}"
+
+                 Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="710,85,0,0" HorizontalAlignment="Left" Width="450" Height="695" VerticalAlignment="Top"/>
         <Label Content="Resultaat planten" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C" Margin="359,27,0,0" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label.Effect>
                 <DropShadowEffect/>

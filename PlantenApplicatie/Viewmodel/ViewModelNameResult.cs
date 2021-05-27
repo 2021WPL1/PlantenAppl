@@ -224,7 +224,7 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedPlantInResult = value;
                 OnPropertyChanged();
-                fillDetailPlantResult();
+                FillDetailPlantResult();
             }
         }
         #endregion
@@ -402,7 +402,7 @@ namespace PlantenApplicatie.Viewmodel
 
         #region Fill plantDetail listbox
 
-        public void fillDetailPlantResult()
+        public void FillDetailPlantResult()
         {
             detailsSelectedPlant.Clear();
             //Every property of the selected plant will be added to the OC
@@ -430,18 +430,18 @@ namespace PlantenApplicatie.Viewmodel
                 //the following properties consist of multiple values, use a foreach
                 ////Abiotiek
                 
-                foreach(var item in SelectedPlantInResult.Abiotiek)
-                {
-                    if (SelectedPlantInResult.PlantId == item.PlantId)
-                    {
-                        detailsSelectedPlant.Add("Antagonische omgeving: " + item.AntagonischeOmgeving);
-                        detailsSelectedPlant.Add("Bezonning: " + item.Bezonning);
-                        detailsSelectedPlant.Add("Grondsoort: " + item.Grondsoort);
-                        detailsSelectedPlant.Add("Vochtbehoefte: " + item.Vochtbehoefte);
-                        detailsSelectedPlant.Add("Voedingsbehoefte" + item.Voedingsbehoefte);
-                    }
+                //foreach(var item in SelectedPlantInResult.Abiotiek)
+                //{
+                //    if (SelectedPlantInResult.PlantId == item.PlantId)
+                //    {
+                //        detailsSelectedPlant.Add("Antagonische omgeving: " + item.AntagonischeOmgeving);
+                //        detailsSelectedPlant.Add("Bezonning: " + item.Bezonning);
+                //        detailsSelectedPlant.Add("Grondsoort: " + item.Grondsoort);
+                //        detailsSelectedPlant.Add("Vochtbehoefte: " + item.Vochtbehoefte);
+                //        detailsSelectedPlant.Add("Voedingsbehoefte" + item.Voedingsbehoefte);
+                //    }
                   
-                }
+                //}
                 //AbiotiekMulti
 
             }
