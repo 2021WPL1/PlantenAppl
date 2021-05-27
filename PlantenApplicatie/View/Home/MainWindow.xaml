@@ -187,23 +187,19 @@
                 </Style>
             </Button.Resources>
         </Button>
-        
+
 
         <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,184,47,42" Background="#99FFFFFF"/>
 
 
-        <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="641" Background="#99F5F5F5" FontWeight="Bold"/>
+        <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="32" Width="771" Background="#99F5F5F5" FontWeight="Bold"/>
 
-        
+
         <!--<Frame x:Name="MainFrame" Margin="0,190,0,0"  Content=""/>-->
 
         <!-- hier doe je de binding van het currentViewModel !Clue van et stysteem -->
-        <Grid x:Name="MainContent" Margin="0,179,10,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="117*"/>
-                <ColumnDefinition Width="7*"/>
-            </Grid.ColumnDefinitions>
-            <ContentControl Content="{Binding currentViewModel}" Margin="0,10,10,0" Grid.ColumnSpan="2"/>
+        <Grid x:Name="MainContent" Height="796" VerticalAlignment="Bottom" Margin="42,0,0,0" HorizontalAlignment="Left" Width="1161">
+            <ContentControl Content="{Binding currentViewModel}" Height="786" VerticalAlignment="Bottom"/>
         </Grid>
     </Grid>
 </Window>
