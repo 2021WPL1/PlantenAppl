@@ -405,14 +405,15 @@ namespace Planten2021.Data
             return plants;
         }
 
+        //written by kenny
         public Gebruiker GetGebruikerWithEmail(string userEmail)
         {
-            Gebruiker gebruiker;
-            gebruiker = context.Gebruiker.SingleOrDefault(g => g.Emailadres == userEmail);
+            var gebruiker = context.Gebruiker.SingleOrDefault(g => g.Emailadres == userEmail);
             return gebruiker;
 
         }
 
+        //written by kenny
         public void RegisterUser(string vivesNr, string firstName, string lastName, string rol, string emailadres, string password)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);
@@ -431,6 +432,25 @@ namespace Planten2021.Data
             context.Gebruiker.Add(gebruiker);
             context.SaveChanges();
         }
+        //written by kenny
+        public List<Gebruiker> getAllGebruikers()
+        {
+            var gebruiker = context.Gebruiker.ToList();
+            return gebruiker;
+        }
+        //written by kenny
+        public bool CheckIfEmailAlreadyExists(string email)
+        {
+            bool result = false;
+            if (GetGebruikerWithEmail(email) == null)
+            {
+                result = true;
+            }
+
+            return result;
+        }
 
     }
+
+
 }
