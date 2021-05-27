@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="View\Home\LoginWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\Home\RegisterWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserControls\UserControlHabitat.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="View\UserControls\UserControlName.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="View\Home\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\Home\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserControls\UserControlHabitat.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="View\UserControls\UserControlName.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

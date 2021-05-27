@@ -1,0 +1,131 @@
+﻿<UserControl x:Class="PlantenApplicatie.View.UserControls.UserControlName"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PlantenApplicatie.View.UserControls"
+             xmlns:viewModel="clr-namespace:PlantenApplicatie.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="900" d:DesignWidth="1250">
+    <Grid>
+        <Canvas x:Name="CvsZoeken" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="154" VerticalAlignment="Top" >
+            <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31"
+                      ItemsSource="{Binding cmbTypes}" 
+                      DisplayMemberPath="Planttypenaam"
+                      SelectedValuePath="Planttypeid"
+                      SelectedItem="{Binding Path=SelectedType, Mode=TwoWay}" IsEditable="True">
+
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="33" Canvas.Left="312" Canvas.Top="79" Width="200">
+
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Variant" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="32" Canvas.Left="826" Canvas.Top="8" Width="200">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="211" Canvas.Top="8" Width="200">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32" Canvas.Left="516" Canvas.Top="80" Width="200" RenderTransformOrigin="0.487,0.673">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <TextBox x:Name="txtNaam" TextWrapping="Wrap" Height="32" Canvas.Left="516" Canvas.Top="117" Width="200">
+                <TextBox.Effect>
+                    <DropShadowEffect/>
+                </TextBox.Effect>
+            </TextBox>
+            <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" 
+                      ItemsSource="{Binding cmbFamilies}"   
+                      SelectedItem="{Binding Path=SelectedFamilie}"
+                      DisplayMemberPath="Familienaam"
+                      SelectedValuePath="FamileId" IsEditable="True">
+
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <Label Content="Geslacht" Canvas.Left="417" Canvas.Top="7" Width="200"  BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <Label Content="Soort" Canvas.Left="623" Canvas.Top="8" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+                <Label.Effect>
+                    <DropShadowEffect/>
+                </Label.Effect>
+            </Label>
+            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30"
+                      ItemsSource="{Binding cmbGeslacht}" 
+                      DisplayMemberPath="Geslachtnaam"
+                      SelectedValuePath="GeslachtId"
+                      SelectedItem="{Binding Path=SelectedGeslacht, Mode=TwoWay}" IsEditable="True"
+                      >
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30"
+                      ItemsSource="{Binding cmbSoort}"
+                      DisplayMemberPath="Soortnaam"
+                      SelectedValuePath="Soortid"
+                      SelectedItem="{Binding Path=SelectedSoort, Mode=TwoWay}" IsEditable="True"
+                      >
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29"
+                      ItemsSource="{Binding cmbVariant}"
+                      DisplayMemberPath="Variantnaam"
+                      SelectedValuePath="VariantId"
+                      SelectedItem="{Binding Path= SelectedVariant}" IsEditable="True"
+                      >
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox  Canvas.Left="312" Canvas.Top="117" Width="200" Height="30" 
+                      ItemsSource="{Binding cmbRatioBladBloei}"
+                      DisplayMemberPath="RatioBloeiBlad" IsEditable="True" 
+                      >
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ListBox x:Name="lstResultSearch" 
+                     ItemsSource="{Binding filteredPlantResults}"
+                     DisplayMemberPath="Fgsv"
+                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Canvas.Top="281" Height="419"/>
+            <ListBox x:Name="lstDetails" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Height="419" Canvas.Left="517" Canvas.Top="281"/>
+            <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" BorderBrush="#FF2AE633" Margin="818,88,0,0" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
+                    Command="{Binding Path=SearchCommand}" Canvas.Left="-492" Canvas.Top="80"
+            >
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+
+        </Canvas>
+    </Grid>
+</UserControl>

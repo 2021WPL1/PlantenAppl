@@ -14,8 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="pexels-arthouse-studio-4534200.jpg" />
-    <None Remove="waterval.jpeg" />
+    <None Remove="Image\waterval.jpeg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +26,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="Prism.Core" Version="8.0.0.1909" />
+    <PackageReference Include="Refractored.MvvmHelpers" Version="1.6.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -36,8 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="pexels-arthouse-studio-4534200.jpg" />
-    <Resource Include="waterval.jpeg" />
+    <Resource Include="Image\waterval.jpeg" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,1363 @@
+﻿<UserControl x:Class="PlantenApplicatie.View.UserControls.UserControlAppearance"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PlantenApplicatie.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="720" d:DesignWidth="1250">
+    <Grid>
+        <Canvas x:Name="cvsUiterlijk" Margin="60,10,0,80" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Left"  Width="1150">
+            <Label Content="Kleuren" Canvas.Left="38" Canvas.Top="29" Height="34" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824"/>
+            <Label Content="Zwart" Foreground="Black" Canvas.Left="148" Canvas.Top="29" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content="  Wit" Foreground="Black" Canvas.Left="212" Canvas.Top="31" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+            <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="282" Canvas.Top="32" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
+            <Label Content=" Rood" Foreground="Red" Canvas.Left="352" Canvas.Top="31" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
+            <Label Content="Oranje" Foreground="Orange" Canvas.Left="419" Canvas.Top="30" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
+            <Label Content="  Lila" Foreground="#c8a2c8" Canvas.Left="484" Canvas.Top="29" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
+            <Label Content="  Grijs" Foreground="Gray" Canvas.Left="550" Canvas.Top="29" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
+            <Label Content=" Groen" Foreground="Green" Canvas.Left="615" Canvas.Top="30" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
+            <Label Content=" Geel" Foreground="Yellow" Canvas.Left="680" Canvas.Top="31" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
+            <Label Content=" Blauw" Foreground="Blue" Canvas.Left="742" Canvas.Top="31" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
+            <Label Content=" Violet" Foreground="Violet" Canvas.Left="802" Canvas.Top="30" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
+            <Label Content=" Paars" Foreground="Purple" Canvas.Left="866" Canvas.Top="30" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
+            <Label Content=" Bruin" Foreground="Brown" Canvas.Left="928" Canvas.Top="30" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
+
+            <TextBox Canvas.Left="155" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="36" Background="Black"/>
+            <CheckBox x:Name="CbxBloeikleurZwart" Content="CheckBox" Canvas.Left="166" Canvas.Top="83" Height="15" Width="16"/>
+            <TextBox Canvas.Left="215" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="White"/>
+            <CheckBox x:Name="CbxBloeikleurWit" Content="CheckBox" Canvas.Left="226" Canvas.Top="83" Height="15" Width="14"/>
+            <TextBox Canvas.Left="288" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
+            <CheckBox x:Name="CbxBloeikleurRosé" Content="CheckBox" Canvas.Left="298" Canvas.Top="80" Height="15" Width="14"/>
+            <TextBox Canvas.Left="360" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Red"/>
+            <CheckBox x:Name="CbxBloeikleurRood" Content="CheckBox" Canvas.Left="370" Canvas.Top="80" Height="15" Width="14"/>
+            <TextBox Canvas.Left="424" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
+            <CheckBox x:Name="CbxBloeikleurOranje" Content="CheckBox" Canvas.Left="434" Canvas.Top="80" Height="15" Width="14"/>
+            <TextBox Canvas.Left="492" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
+            <CheckBox x:Name="CbxBloeikleurLila" Content="CheckBox" Canvas.Left="502" Canvas.Top="80" Height="15" Width="14"/>
+            <TextBox Canvas.Left="558" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Gray"/>
+            <CheckBox x:Name="CbxBloeikleurGrijs" Content="CheckBox" Canvas.Left="568" Canvas.Top="80" Height="15" Width="14"/>
+            <TextBox Canvas.Left="618" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Green"/>
+            <CheckBox x:Name="CbxBloeikleurGroen" Content="CheckBox" Canvas.Left="628" Canvas.Top="80" Height="15" Width="14"/>
+            <TextBox Canvas.Left="688" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Yellow"/>
+            <CheckBox x:Name="CbxBloeikleurGeel" Content="CheckBox" Canvas.Left="697" Canvas.Top="80" Height="15" Width="16"/>
+            <TextBox Canvas.Left="748" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Blue"/>
+            <CheckBox x:Name="CbxBloeikleurBlauw" Content="CheckBox" Canvas.Left="758" Canvas.Top="81" Height="15" Width="14"/>
+            <TextBox Canvas.Left="810" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Violet"/>
+            <CheckBox x:Name="CbxBloeikleurViolet" Content="CheckBox" Canvas.Left="820" Canvas.Top="80" Height="15" Width="14"/>
+            <TextBox Canvas.Left="874" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Purple"/>
+            <CheckBox x:Name="CbxBloeikleurPaars" Content="CheckBox" Canvas.Left="884" Canvas.Top="81" Height="15" Width="14"/>
+            <TextBox Canvas.Left="936" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Brown"/>
+            <CheckBox x:Name="CbxBloeikleurBruin" Content="CheckBox" Canvas.Left="946" Canvas.Top="81" Height="15" Width="14"/>
+
+            <Label Content="Bladkleur" Canvas.Left="38" Canvas.Top="78" Height="28" Width="79" BorderBrush="Orange"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571"/>
+
+            <Label Content="Maanden"  Canvas.Left="38" Canvas.Top="165" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="  Feb"  Canvas.Left="215" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="  Mar"  Canvas.Left="282" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Apr" Canvas.Left="347" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="  May"  Canvas.Left="416" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Jun"  Canvas.Left="484" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Jul"  Canvas.Left="552" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Aug"  Canvas.Left="618" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Sep"  Canvas.Left="688" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Oct"  Canvas.Left="756" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Nov"  Canvas.Left="822" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Dec"  Canvas.Left="890" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" Min" Canvas.Left="822" Canvas.Top="290" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" Max" Canvas.Left="900" Canvas.Top="290" Height="26" Width="52" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Bladhoogte"  Canvas.Left="38" Canvas.Top="210" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Bladvormen"  Canvas.Left="38" Canvas.Top="260" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+
+            <CheckBox x:Name="CbxBloeihoogteJan" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteFeb" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteMar" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteApr" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteMay" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteJun" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteJul" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteAug" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteSep" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteOct" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteNov" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteDec" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <ComboBox x:Name="CboBloeihoogteMin" Canvas.Left="827" Canvas.Top="340" Height="26" Width="40">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMax" Canvas.Left="905" Canvas.Top="340" Height="26" Width="40">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+            </ComboBox>
+
+            <CheckBox x:Name="CbxBloeitInJan" Content="CheckBox" Canvas.Left="168" Canvas.Top="384" Height="14" Width="14">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInFeb" Content="CheckBox" Canvas.Left="232" Canvas.Top="384" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInMar" Content="CheckBox" Canvas.Left="300" Canvas.Top="384" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInApr" Content="CheckBox" Canvas.Left="364" Canvas.Top="384" Height="15" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInMay" Content="CheckBox" Canvas.Left="434" Canvas.Top="384" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInJun" Content="CheckBox" Canvas.Left="502" Canvas.Top="383" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInJul" Content="CheckBox" Canvas.Left="570" Canvas.Top="383" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInAug" Content="CheckBox" Canvas.Left="635" Canvas.Top="384" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInSep" Content="CheckBox" Canvas.Left="706" Canvas.Top="383" Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="Stengelvormen"  Canvas.Left="38" Canvas.Top="417" Height="28" Width="115" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="340" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 2"  Canvas.Left="212" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 4"  Canvas.Left="344" Canvas.Top="340" Height="28" Width="67" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 5"  Canvas.Left="416" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 6"  Canvas.Left="482" Canvas.Top="340" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 7"  Canvas.Left="550" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 8"  Canvas.Left="615" Canvas.Top="340" Height="28" Width="68" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 9"  Canvas.Left="688" Canvas.Top="340" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 1"  Canvas.Left="150" Canvas.Top="450" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 2"  Canvas.Left="215" Canvas.Top="450" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="450" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 4"  Canvas.Left="350" Canvas.Top="450" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 5"  Canvas.Left="417" Canvas.Top="450" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 6"  Canvas.Left="484" Canvas.Top="450" Height="28" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="CbxBloeitInJan_Copy" Content="CheckBox" Canvas.Left="170" Canvas.Top="496" Height="14" Width="14">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInJan_Copy1" Canvas.Left="233" Canvas.Top="496" Height="14" Width="14">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <Canvas x:Name="cvsUiterlijk_Copy"  HorizontalAlignment="Left"  Width="1150" Height="606">
+                    <Label Content="Kleuren" Canvas.Left="38" Canvas.Top="29" Height="34" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824"/>
+                    <Label Content="Zwart" Foreground="Black" Canvas.Left="189" Canvas.Top="29" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content="  Wit" Foreground="Black" Canvas.Left="260" Canvas.Top="31" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="325" Canvas.Top="31" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
+                    <Label Content=" Rood" Foreground="Red" Canvas.Left="387" Canvas.Top="31" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
+                    <Label Content="Oranje" Foreground="Orange" Canvas.Left="454" Canvas.Top="31" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
+                    <Label Content="  Lila" Foreground="#c8a2c8" Canvas.Left="519" Canvas.Top="31" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
+                    <Label Content="  Grijs" Foreground="Gray" Canvas.Left="590" Canvas.Top="31" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
+                    <Label Content=" Groen" Foreground="Green" Canvas.Left="655" Canvas.Top="31" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
+                    <Label Content=" Geel" Foreground="Yellow" Canvas.Left="717" Canvas.Top="31" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
+                    <Label Content=" Blauw" Foreground="Blue" Canvas.Left="784" Canvas.Top="31" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
+                    <Label Content=" Violet" Foreground="Violet" Canvas.Left="850" Canvas.Top="31" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
+                    <Label Content=" Paars" Foreground="Purple" Canvas.Left="920" Canvas.Top="31" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
+                    <Label Content=" Bruin" Foreground="Brown" Canvas.Left="986" Canvas.Top="29" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
+
+                    <TextBox Canvas.Left="196" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="36" Background="Black"/>
+                    <CheckBox x:Name="CbxBloeikleurZwart1" Content="CheckBox" Canvas.Left="206" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="268" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="White"/>
+                    <CheckBox x:Name="CbxBloeikleurWit1" Content="CheckBox" Canvas.Left="278" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="333" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
+                    <CheckBox x:Name="CbxBloeikleurRosé1" Content="CheckBox" Canvas.Left="343" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="395" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Red"/>
+                    <CheckBox x:Name="CbxBloeikleurRood1" Content="CheckBox" Canvas.Left="405" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="462" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
+                    <CheckBox x:Name="CbxBloeikleurOranje1" Content="CheckBox" Canvas.Left="472" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="527" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
+                    <CheckBox x:Name="CbxBloeikleurLila1" Content="CheckBox" Canvas.Left="537" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="598" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Gray"/>
+                    <CheckBox x:Name="CbxBloeikleurGrijs1" Content="CheckBox" Canvas.Left="608" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="663" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Green"/>
+                    <CheckBox x:Name="CbxBloeikleurGroen1" Content="CheckBox" Canvas.Left="673" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="725" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Yellow"/>
+                    <CheckBox x:Name="CbxBloeikleurGeel1" Content="CheckBox" Canvas.Left="734" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="792" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Blue"/>
+                    <CheckBox x:Name="CbxBloeikleurBlauw1" Content="CheckBox" Canvas.Left="802" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="858" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Violet"/>
+                    <CheckBox x:Name="CbxBloeikleurViolet1" Content="CheckBox" Canvas.Left="868" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="928" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Purple"/>
+                    <CheckBox x:Name="CbxBloeikleurPaars1" Content="CheckBox" Canvas.Left="938" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="994" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Brown"/>
+                    <CheckBox x:Name="CbxBloeikleurBruin1" Content="CheckBox" Canvas.Left="1004" Canvas.Top="83" Height="15" Width="14"/>
+
+                    <Label Content="Bladkleur" Canvas.Left="38" Canvas.Top="78" Height="28" Width="79" BorderBrush="Orange"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571"/>
+
+                    <Label Content="Maanden"  Canvas.Left="38" Canvas.Top="165" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Feb"  Canvas.Left="215" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Mar"  Canvas.Left="282" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Apr" Canvas.Left="347" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  May"  Canvas.Left="416" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jun"  Canvas.Left="484" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jul"  Canvas.Left="552" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Aug"  Canvas.Left="618" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Sep"  Canvas.Left="688" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Oct"  Canvas.Left="756" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Nov"  Canvas.Left="822" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Dec"  Canvas.Left="890" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Min" Canvas.Left="958" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Max" Canvas.Left="1016" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladhoogte"  Canvas.Left="38" Canvas.Top="210" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladvormen"  Canvas.Left="38" Canvas.Top="260" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+
+                    <CheckBox x:Name="CbxBloeihoogteJan1" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteFeb1" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMar1" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteApr1" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMay1" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJun1" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJul1" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteAug1" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteSep1" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteOct1" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteNov1" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteDec1" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <ComboBox x:Name="CboBloeihoogteMin1" Canvas.Left="958" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+                    <ComboBox x:Name="CboBloeihoogteMax1" Canvas.Left="1016" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <CheckBox x:Name="CbxBloeitInJan1" Content="CheckBox" Canvas.Left="168" Canvas.Top="384" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInFeb1" Content="CheckBox" Canvas.Left="232" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMar1" Content="CheckBox" Canvas.Left="300" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInApr1" Content="CheckBox" Canvas.Left="364" Canvas.Top="384" Height="15" Width="16">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMay1" Content="CheckBox" Canvas.Left="434" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJun1" Content="CheckBox" Canvas.Left="502" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJul1" Content="CheckBox" Canvas.Left="570" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInAug1" Content="CheckBox" Canvas.Left="635" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInSep1" Content="CheckBox" Canvas.Left="706" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <Label Content="Stengelvormen"  Canvas.Left="38" Canvas.Top="434" Height="28" Width="115" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="340" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="212" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="344" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="416" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="482" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 7"  Canvas.Left="550" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 8"  Canvas.Left="615" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 9"  Canvas.Left="688" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="477" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="215" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="477" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="350" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="417" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="484" Canvas.Top="477" Height="28" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy2" Content="CheckBox" Canvas.Left="168" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy3" Content="CheckBox" Canvas.Left="235" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                </Canvas>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInJan_Copy4" Canvas.Left="300" Canvas.Top="496" Height="14" Width="14">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <Canvas x:Name="cvsUiterlijk_Copy1"  HorizontalAlignment="Left"  Width="1150" Height="606">
+                    <Label Content="Kleuren" Canvas.Left="38" Canvas.Top="29" Height="34" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824"/>
+                    <Label Content="Zwart" Foreground="Black" Canvas.Left="189" Canvas.Top="29" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content="  Wit" Foreground="Black" Canvas.Left="260" Canvas.Top="31" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="325" Canvas.Top="31" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
+                    <Label Content=" Rood" Foreground="Red" Canvas.Left="387" Canvas.Top="31" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
+                    <Label Content="Oranje" Foreground="Orange" Canvas.Left="454" Canvas.Top="31" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
+                    <Label Content="  Lila" Foreground="#c8a2c8" Canvas.Left="519" Canvas.Top="31" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
+                    <Label Content="  Grijs" Foreground="Gray" Canvas.Left="590" Canvas.Top="31" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
+                    <Label Content=" Groen" Foreground="Green" Canvas.Left="655" Canvas.Top="31" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
+                    <Label Content=" Geel" Foreground="Yellow" Canvas.Left="717" Canvas.Top="31" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
+                    <Label Content=" Blauw" Foreground="Blue" Canvas.Left="784" Canvas.Top="31" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
+                    <Label Content=" Violet" Foreground="Violet" Canvas.Left="850" Canvas.Top="31" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
+                    <Label Content=" Paars" Foreground="Purple" Canvas.Left="920" Canvas.Top="31" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
+                    <Label Content=" Bruin" Foreground="Brown" Canvas.Left="986" Canvas.Top="29" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
+
+                    <TextBox Canvas.Left="196" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="36" Background="Black"/>
+                    <CheckBox x:Name="CbxBloeikleurZwart2" Content="CheckBox" Canvas.Left="206" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="268" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="White"/>
+                    <CheckBox x:Name="CbxBloeikleurWit2" Content="CheckBox" Canvas.Left="278" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="333" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
+                    <CheckBox x:Name="CbxBloeikleurRosé2" Content="CheckBox" Canvas.Left="343" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="395" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Red"/>
+                    <CheckBox x:Name="CbxBloeikleurRood2" Content="CheckBox" Canvas.Left="405" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="462" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
+                    <CheckBox x:Name="CbxBloeikleurOranje2" Content="CheckBox" Canvas.Left="472" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="527" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
+                    <CheckBox x:Name="CbxBloeikleurLila2" Content="CheckBox" Canvas.Left="537" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="598" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Gray"/>
+                    <CheckBox x:Name="CbxBloeikleurGrijs2" Content="CheckBox" Canvas.Left="608" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="663" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Green"/>
+                    <CheckBox x:Name="CbxBloeikleurGroen2" Content="CheckBox" Canvas.Left="673" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="725" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Yellow"/>
+                    <CheckBox x:Name="CbxBloeikleurGeel2" Content="CheckBox" Canvas.Left="734" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="792" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Blue"/>
+                    <CheckBox x:Name="CbxBloeikleurBlauw2" Content="CheckBox" Canvas.Left="802" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="858" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Violet"/>
+                    <CheckBox x:Name="CbxBloeikleurViolet2" Content="CheckBox" Canvas.Left="868" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="928" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Purple"/>
+                    <CheckBox x:Name="CbxBloeikleurPaars2" Content="CheckBox" Canvas.Left="938" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="994" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Brown"/>
+                    <CheckBox x:Name="CbxBloeikleurBruin2" Content="CheckBox" Canvas.Left="1004" Canvas.Top="83" Height="15" Width="14"/>
+
+                    <Label Content="Bladkleur" Canvas.Left="38" Canvas.Top="78" Height="28" Width="79" BorderBrush="Orange"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571"/>
+
+                    <Label Content="Maanden"  Canvas.Left="38" Canvas.Top="165" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Feb"  Canvas.Left="215" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Mar"  Canvas.Left="282" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Apr" Canvas.Left="347" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  May"  Canvas.Left="416" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jun"  Canvas.Left="484" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jul"  Canvas.Left="552" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Aug"  Canvas.Left="618" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Sep"  Canvas.Left="688" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Oct"  Canvas.Left="756" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Nov"  Canvas.Left="822" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Dec"  Canvas.Left="890" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Min" Canvas.Left="958" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Max" Canvas.Left="1016" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladhoogte"  Canvas.Left="38" Canvas.Top="210" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladvormen"  Canvas.Left="38" Canvas.Top="260" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+
+                    <CheckBox x:Name="CbxBloeihoogteJan2" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteFeb2" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMar2" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteApr2" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMay2" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJun2" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJul2" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteAug2" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteSep2" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteOct2" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteNov2" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteDec2" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <ComboBox x:Name="CboBloeihoogteMin2" Canvas.Left="958" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+                    <ComboBox x:Name="CboBloeihoogteMax2" Canvas.Left="1016" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <CheckBox x:Name="CbxBloeitInJan2" Content="CheckBox" Canvas.Left="168" Canvas.Top="384" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInFeb2" Content="CheckBox" Canvas.Left="232" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMar2" Content="CheckBox" Canvas.Left="300" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInApr2" Content="CheckBox" Canvas.Left="364" Canvas.Top="384" Height="15" Width="16">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMay2" Content="CheckBox" Canvas.Left="434" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJun2" Content="CheckBox" Canvas.Left="502" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJul2" Content="CheckBox" Canvas.Left="570" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInAug2" Content="CheckBox" Canvas.Left="635" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInSep2" Content="CheckBox" Canvas.Left="706" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <Label Content="Stengelvormen"  Canvas.Left="38" Canvas.Top="434" Height="28" Width="115" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="340" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="212" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="344" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="416" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="482" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 7"  Canvas.Left="550" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 8"  Canvas.Left="615" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 9"  Canvas.Left="688" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="477" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="215" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="477" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="350" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="417" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="484" Canvas.Top="477" Height="28" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy5" Content="CheckBox" Canvas.Left="168" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy6" Content="CheckBox" Canvas.Left="235" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                </Canvas>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInJan_Copy7" Canvas.Left="370" Canvas.Top="496" Height="14" Width="14">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <Canvas x:Name="cvsUiterlijk_Copy2"  HorizontalAlignment="Left"  Width="1150" Height="606">
+                    <Label Content="Kleuren" Canvas.Left="38" Canvas.Top="29" Height="34" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824"/>
+                    <Label Content="Zwart" Foreground="Black" Canvas.Left="189" Canvas.Top="29" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content="  Wit" Foreground="Black" Canvas.Left="260" Canvas.Top="31" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="325" Canvas.Top="31" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
+                    <Label Content=" Rood" Foreground="Red" Canvas.Left="387" Canvas.Top="31" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
+                    <Label Content="Oranje" Foreground="Orange" Canvas.Left="454" Canvas.Top="31" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
+                    <Label Content="  Lila" Foreground="#c8a2c8" Canvas.Left="519" Canvas.Top="31" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
+                    <Label Content="  Grijs" Foreground="Gray" Canvas.Left="590" Canvas.Top="31" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
+                    <Label Content=" Groen" Foreground="Green" Canvas.Left="655" Canvas.Top="31" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
+                    <Label Content=" Geel" Foreground="Yellow" Canvas.Left="717" Canvas.Top="31" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
+                    <Label Content=" Blauw" Foreground="Blue" Canvas.Left="784" Canvas.Top="31" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
+                    <Label Content=" Violet" Foreground="Violet" Canvas.Left="850" Canvas.Top="31" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
+                    <Label Content=" Paars" Foreground="Purple" Canvas.Left="920" Canvas.Top="31" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
+                    <Label Content=" Bruin" Foreground="Brown" Canvas.Left="986" Canvas.Top="29" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
+
+                    <TextBox Canvas.Left="196" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="36" Background="Black"/>
+                    <CheckBox x:Name="CbxBloeikleurZwart3" Content="CheckBox" Canvas.Left="206" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="268" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="White"/>
+                    <CheckBox x:Name="CbxBloeikleurWit3" Content="CheckBox" Canvas.Left="278" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="333" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
+                    <CheckBox x:Name="CbxBloeikleurRosé3" Content="CheckBox" Canvas.Left="343" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="395" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Red"/>
+                    <CheckBox x:Name="CbxBloeikleurRood3" Content="CheckBox" Canvas.Left="405" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="462" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
+                    <CheckBox x:Name="CbxBloeikleurOranje3" Content="CheckBox" Canvas.Left="472" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="527" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
+                    <CheckBox x:Name="CbxBloeikleurLila3" Content="CheckBox" Canvas.Left="537" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="598" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Gray"/>
+                    <CheckBox x:Name="CbxBloeikleurGrijs3" Content="CheckBox" Canvas.Left="608" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="663" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Green"/>
+                    <CheckBox x:Name="CbxBloeikleurGroen3" Content="CheckBox" Canvas.Left="673" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="725" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Yellow"/>
+                    <CheckBox x:Name="CbxBloeikleurGeel3" Content="CheckBox" Canvas.Left="734" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="792" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Blue"/>
+                    <CheckBox x:Name="CbxBloeikleurBlauw3" Content="CheckBox" Canvas.Left="802" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="858" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Violet"/>
+                    <CheckBox x:Name="CbxBloeikleurViolet3" Content="CheckBox" Canvas.Left="868" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="928" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Purple"/>
+                    <CheckBox x:Name="CbxBloeikleurPaars3" Content="CheckBox" Canvas.Left="938" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="994" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Brown"/>
+                    <CheckBox x:Name="CbxBloeikleurBruin3" Content="CheckBox" Canvas.Left="1004" Canvas.Top="83" Height="15" Width="14"/>
+
+                    <Label Content="Bladkleur" Canvas.Left="38" Canvas.Top="78" Height="28" Width="79" BorderBrush="Orange"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571"/>
+
+                    <Label Content="Maanden"  Canvas.Left="38" Canvas.Top="165" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Feb"  Canvas.Left="215" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Mar"  Canvas.Left="282" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Apr" Canvas.Left="347" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  May"  Canvas.Left="416" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jun"  Canvas.Left="484" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jul"  Canvas.Left="552" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Aug"  Canvas.Left="618" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Sep"  Canvas.Left="688" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Oct"  Canvas.Left="756" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Nov"  Canvas.Left="822" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Dec"  Canvas.Left="890" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Min" Canvas.Left="958" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Max" Canvas.Left="1016" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladhoogte"  Canvas.Left="38" Canvas.Top="210" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladvormen"  Canvas.Left="38" Canvas.Top="260" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+
+                    <CheckBox x:Name="CbxBloeihoogteJan3" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteFeb3" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMar3" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteApr3" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMay3" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJun3" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJul3" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteAug3" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteSep3" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteOct3" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteNov3" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteDec3" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <ComboBox x:Name="CboBloeihoogteMin3" Canvas.Left="958" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+                    <ComboBox x:Name="CboBloeihoogteMax3" Canvas.Left="1016" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <CheckBox x:Name="CbxBloeitInJan3" Content="CheckBox" Canvas.Left="168" Canvas.Top="384" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInFeb3" Content="CheckBox" Canvas.Left="232" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMar3" Content="CheckBox" Canvas.Left="300" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInApr3" Content="CheckBox" Canvas.Left="364" Canvas.Top="384" Height="15" Width="16">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMay3" Content="CheckBox" Canvas.Left="434" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJun3" Content="CheckBox" Canvas.Left="502" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJul3" Content="CheckBox" Canvas.Left="570" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInAug3" Content="CheckBox" Canvas.Left="635" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInSep3" Content="CheckBox" Canvas.Left="706" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <Label Content="Stengelvormen"  Canvas.Left="38" Canvas.Top="434" Height="28" Width="115" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="340" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="212" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="344" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="416" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="482" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 7"  Canvas.Left="550" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 8"  Canvas.Left="615" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 9"  Canvas.Left="688" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="477" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="215" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="477" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="350" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="417" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="484" Canvas.Top="477" Height="28" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy8" Content="CheckBox" Canvas.Left="168" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy9" Content="CheckBox" Canvas.Left="235" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                </Canvas>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInJan_Copy10" Canvas.Left="437" Canvas.Top="496" Height="14" Width="14">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <Canvas x:Name="cvsUiterlijk_Copy3"  HorizontalAlignment="Left"  Width="1150" Height="606">
+                    <Label Content="Kleuren" Canvas.Left="38" Canvas.Top="29" Height="34" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824"/>
+                    <Label Content="Zwart" Foreground="Black" Canvas.Left="189" Canvas.Top="29" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content="  Wit" Foreground="Black" Canvas.Left="260" Canvas.Top="31" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="325" Canvas.Top="31" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
+                    <Label Content=" Rood" Foreground="Red" Canvas.Left="387" Canvas.Top="31" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
+                    <Label Content="Oranje" Foreground="Orange" Canvas.Left="454" Canvas.Top="31" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
+                    <Label Content="  Lila" Foreground="#c8a2c8" Canvas.Left="519" Canvas.Top="31" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
+                    <Label Content="  Grijs" Foreground="Gray" Canvas.Left="590" Canvas.Top="31" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
+                    <Label Content=" Groen" Foreground="Green" Canvas.Left="655" Canvas.Top="31" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
+                    <Label Content=" Geel" Foreground="Yellow" Canvas.Left="717" Canvas.Top="31" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
+                    <Label Content=" Blauw" Foreground="Blue" Canvas.Left="784" Canvas.Top="31" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
+                    <Label Content=" Violet" Foreground="Violet" Canvas.Left="850" Canvas.Top="31" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
+                    <Label Content=" Paars" Foreground="Purple" Canvas.Left="920" Canvas.Top="31" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
+                    <Label Content=" Bruin" Foreground="Brown" Canvas.Left="986" Canvas.Top="29" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
+
+                    <TextBox Canvas.Left="196" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="36" Background="Black"/>
+                    <CheckBox x:Name="CbxBloeikleurZwart4" Content="CheckBox" Canvas.Left="206" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="268" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="White"/>
+                    <CheckBox x:Name="CbxBloeikleurWit4" Content="CheckBox" Canvas.Left="278" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="333" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
+                    <CheckBox x:Name="CbxBloeikleurRosé4" Content="CheckBox" Canvas.Left="343" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="395" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Red"/>
+                    <CheckBox x:Name="CbxBloeikleurRood4" Content="CheckBox" Canvas.Left="405" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="462" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
+                    <CheckBox x:Name="CbxBloeikleurOranje4" Content="CheckBox" Canvas.Left="472" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="527" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
+                    <CheckBox x:Name="CbxBloeikleurLila4" Content="CheckBox" Canvas.Left="537" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="598" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Gray"/>
+                    <CheckBox x:Name="CbxBloeikleurGrijs4" Content="CheckBox" Canvas.Left="608" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="663" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Green"/>
+                    <CheckBox x:Name="CbxBloeikleurGroen4" Content="CheckBox" Canvas.Left="673" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="725" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Yellow"/>
+                    <CheckBox x:Name="CbxBloeikleurGeel4" Content="CheckBox" Canvas.Left="734" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="792" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Blue"/>
+                    <CheckBox x:Name="CbxBloeikleurBlauw4" Content="CheckBox" Canvas.Left="802" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="858" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Violet"/>
+                    <CheckBox x:Name="CbxBloeikleurViolet4" Content="CheckBox" Canvas.Left="868" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="928" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Purple"/>
+                    <CheckBox x:Name="CbxBloeikleurPaars4" Content="CheckBox" Canvas.Left="938" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="994" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Brown"/>
+                    <CheckBox x:Name="CbxBloeikleurBruin4" Content="CheckBox" Canvas.Left="1004" Canvas.Top="83" Height="15" Width="14"/>
+
+                    <Label Content="Bladkleur" Canvas.Left="38" Canvas.Top="78" Height="28" Width="79" BorderBrush="Orange"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571"/>
+
+                    <Label Content="Maanden"  Canvas.Left="38" Canvas.Top="165" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Feb"  Canvas.Left="215" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Mar"  Canvas.Left="282" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Apr" Canvas.Left="347" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  May"  Canvas.Left="416" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jun"  Canvas.Left="484" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jul"  Canvas.Left="552" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Aug"  Canvas.Left="618" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Sep"  Canvas.Left="688" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Oct"  Canvas.Left="756" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Nov"  Canvas.Left="822" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Dec"  Canvas.Left="890" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Min" Canvas.Left="958" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Max" Canvas.Left="1016" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladhoogte"  Canvas.Left="38" Canvas.Top="210" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladvormen"  Canvas.Left="38" Canvas.Top="260" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+
+                    <CheckBox x:Name="CbxBloeihoogteJan4" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteFeb4" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMar4" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteApr4" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMay4" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJun4" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJul4" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteAug4" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteSep4" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteOct4" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteNov4" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteDec4" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <ComboBox x:Name="CboBloeihoogteMin4" Canvas.Left="958" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+                    <ComboBox x:Name="CboBloeihoogteMax4" Canvas.Left="1016" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <CheckBox x:Name="CbxBloeitInJan4" Content="CheckBox" Canvas.Left="168" Canvas.Top="384" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInFeb4" Content="CheckBox" Canvas.Left="232" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMar4" Content="CheckBox" Canvas.Left="300" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInApr4" Content="CheckBox" Canvas.Left="364" Canvas.Top="384" Height="15" Width="16">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMay4" Content="CheckBox" Canvas.Left="434" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJun4" Content="CheckBox" Canvas.Left="502" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJul4" Content="CheckBox" Canvas.Left="570" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInAug4" Content="CheckBox" Canvas.Left="635" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInSep4" Content="CheckBox" Canvas.Left="706" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <Label Content="Stengelvormen"  Canvas.Left="38" Canvas.Top="434" Height="28" Width="115" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="340" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="212" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="344" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="416" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="482" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 7"  Canvas.Left="550" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 8"  Canvas.Left="615" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 9"  Canvas.Left="688" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="477" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="215" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="477" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="350" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="417" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="484" Canvas.Top="477" Height="28" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy11" Content="CheckBox" Canvas.Left="168" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy12" Content="CheckBox" Canvas.Left="235" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                </Canvas>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeitInJan_Copy13" Canvas.Left="503" Canvas.Top="496" Height="14" Width="14">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <Canvas x:Name="cvsUiterlijk_Copy4"  HorizontalAlignment="Left"  Width="1150" Height="606">
+                    <Label Content="Kleuren" Canvas.Left="38" Canvas.Top="29" Height="34" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.5,0.824"/>
+                    <Label Content="Zwart" Foreground="Black" Canvas.Left="189" Canvas.Top="29" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content="  Wit" Foreground="Black" Canvas.Left="260" Canvas.Top="31" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
+                    <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="325" Canvas.Top="31" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
+                    <Label Content=" Rood" Foreground="Red" Canvas.Left="387" Canvas.Top="31" Height="28" Width="50" BorderBrush="Red" BorderThickness="1"/>
+                    <Label Content="Oranje" Foreground="Orange" Canvas.Left="454" Canvas.Top="31" Height="28" Width="50" BorderBrush="Orange" BorderThickness="1"/>
+                    <Label Content="  Lila" Foreground="#c8a2c8" Canvas.Left="519" Canvas.Top="31" Height="28" Width="50" BorderBrush="#c8a2c8" BorderThickness="1"/>
+                    <Label Content="  Grijs" Foreground="Gray" Canvas.Left="590" Canvas.Top="31" Height="28" Width="50" BorderBrush="Gray" BorderThickness="1"/>
+                    <Label Content=" Groen" Foreground="Green" Canvas.Left="655" Canvas.Top="31" Height="28" Width="50" BorderBrush="Green" BorderThickness="1"/>
+                    <Label Content=" Geel" Foreground="Yellow" Canvas.Left="717" Canvas.Top="31" Height="28" Width="50" BorderBrush="Yellow" BorderThickness="1"/>
+                    <Label Content=" Blauw" Foreground="Blue" Canvas.Left="784" Canvas.Top="31" Height="28" Width="50" BorderBrush="Blue" BorderThickness="1"/>
+                    <Label Content=" Violet" Foreground="Violet" Canvas.Left="850" Canvas.Top="31" Height="28" Width="50" BorderBrush="Violet" BorderThickness="1"/>
+                    <Label Content=" Paars" Foreground="Purple" Canvas.Left="920" Canvas.Top="31" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
+                    <Label Content=" Bruin" Foreground="Brown" Canvas.Left="986" Canvas.Top="29" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
+
+                    <TextBox Canvas.Left="196" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="36" Background="Black"/>
+                    <CheckBox x:Name="CbxBloeikleurZwart5" Content="CheckBox" Canvas.Left="206" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="268" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="White"/>
+                    <CheckBox x:Name="CbxBloeikleurWit5" Content="CheckBox" Canvas.Left="278" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="333" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
+                    <CheckBox x:Name="CbxBloeikleurRosé5" Content="CheckBox" Canvas.Left="343" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="395" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Red"/>
+                    <CheckBox x:Name="CbxBloeikleurRood5" Content="CheckBox" Canvas.Left="405" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="462" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
+                    <CheckBox x:Name="CbxBloeikleurOranje5" Content="CheckBox" Canvas.Left="472" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="527" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
+                    <CheckBox x:Name="CbxBloeikleurLila5" Content="CheckBox" Canvas.Left="537" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="598" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Gray"/>
+                    <CheckBox x:Name="CbxBloeikleurGrijs5" Content="CheckBox" Canvas.Left="608" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="663" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Green"/>
+                    <CheckBox x:Name="CbxBloeikleurGroen5" Content="CheckBox" Canvas.Left="673" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="725" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Yellow"/>
+                    <CheckBox x:Name="CbxBloeikleurGeel5" Content="CheckBox" Canvas.Left="734" Canvas.Top="83" Height="15" Width="16"/>
+                    <TextBox Canvas.Left="792" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Blue"/>
+                    <CheckBox x:Name="CbxBloeikleurBlauw5" Content="CheckBox" Canvas.Left="802" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="858" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Violet"/>
+                    <CheckBox x:Name="CbxBloeikleurViolet5" Content="CheckBox" Canvas.Left="868" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="928" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Purple"/>
+                    <CheckBox x:Name="CbxBloeikleurPaars5" Content="CheckBox" Canvas.Left="938" Canvas.Top="83" Height="15" Width="14"/>
+                    <TextBox Canvas.Left="994" Canvas.Top="73" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Brown"/>
+                    <CheckBox x:Name="CbxBloeikleurBruin5" Content="CheckBox" Canvas.Left="1004" Canvas.Top="83" Height="15" Width="14"/>
+
+                    <Label Content="Bladkleur" Canvas.Left="38" Canvas.Top="78" Height="28" Width="79" BorderBrush="Orange"  FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.215,0.571"/>
+
+                    <Label Content="Maanden"  Canvas.Left="38" Canvas.Top="165" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Feb"  Canvas.Left="215" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  Mar"  Canvas.Left="282" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Apr" Canvas.Left="347" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="  May"  Canvas.Left="416" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jun"  Canvas.Left="484" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Jul"  Canvas.Left="552" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Aug"  Canvas.Left="618" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Sep"  Canvas.Left="688" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Oct"  Canvas.Left="756" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Nov"  Canvas.Left="822" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="   Dec"  Canvas.Left="890" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Min" Canvas.Left="958" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content=" Max" Canvas.Left="1016" Canvas.Top="167" Height="26" Width="40" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladhoogte"  Canvas.Left="38" Canvas.Top="210" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Bladvormen"  Canvas.Left="38" Canvas.Top="260" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+
+                    <CheckBox x:Name="CbxBloeihoogteJan5" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteFeb5" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMar5" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteApr5" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteMay5" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJun5" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteJul5" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteAug5" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteSep5" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteOct5" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteNov5" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeihoogteDec5" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <ComboBox x:Name="CboBloeihoogteMin5" Canvas.Left="958" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+                    <ComboBox x:Name="CboBloeihoogteMax5" Canvas.Left="1016" Canvas.Top="217" Height="26" Width="40">
+                        <ComboBox.Effect>
+                            <DropShadowEffect/>
+                        </ComboBox.Effect>
+                    </ComboBox>
+
+                    <CheckBox x:Name="CbxBloeitInJan5" Content="CheckBox" Canvas.Left="168" Canvas.Top="384" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInFeb5" Content="CheckBox" Canvas.Left="232" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMar5" Content="CheckBox" Canvas.Left="300" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInApr5" Content="CheckBox" Canvas.Left="364" Canvas.Top="384" Height="15" Width="16">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInMay5" Content="CheckBox" Canvas.Left="434" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJun5" Content="CheckBox" Canvas.Left="502" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJul5" Content="CheckBox" Canvas.Left="570" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInAug5" Content="CheckBox" Canvas.Left="635" Canvas.Top="384" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInSep5" Content="CheckBox" Canvas.Left="706" Canvas.Top="383" Height="15" Width="15">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <Label Content="Stengelvormen"  Canvas.Left="38" Canvas.Top="434" Height="28" Width="115" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="340" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="212" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="344" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="416" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="482" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 7"  Canvas.Left="550" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 8"  Canvas.Left="615" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 9"  Canvas.Left="688" Canvas.Top="340" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 1"  Canvas.Left="148" Canvas.Top="477" Height="28" Width="55" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 2"  Canvas.Left="215" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 3"  Canvas.Left="282" Canvas.Top="477" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 4"  Canvas.Left="350" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 5"  Canvas.Left="417" Canvas.Top="477" Height="28" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <Label Content="Vorm 6"  Canvas.Left="484" Canvas.Top="477" Height="28" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy14" Content="CheckBox" Canvas.Left="168" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                    <CheckBox x:Name="CbxBloeitInJan_Copy15" Content="CheckBox" Canvas.Left="235" Canvas.Top="530" Height="14" Width="14">
+                        <CheckBox.Effect>
+                            <DropShadowEffect/>
+                        </CheckBox.Effect>
+                    </CheckBox>
+                </Canvas>
+            </CheckBox>
+            <Label Content="Optimale plantdichtheid tussen"  Canvas.Left="38" Canvas.Top="537" Height="28" Width="227" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="en"  Canvas.Left="378" Canvas.Top="537" Height="28" Width="33" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <TextBox Canvas.Left="270" Canvas.Top="537" TextWrapping="Wrap" Width="105" Height="28"/>
+            <TextBox Canvas.Left="416" Canvas.Top="537" TextWrapping="Wrap" Width="105" Height="28"/>
+            <Label Content="stuks/m²"  Canvas.Left="528" Canvas.Top="537" Height="28" Width="74" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Levensvorm"  Canvas.Left="1011" Canvas.Top="35" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 1"  Canvas.Left="992" Canvas.Top="92" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 2"  Canvas.Left="1070" Canvas.Top="92" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy" Content="CheckBox" Canvas.Left="1012" Canvas.Top="138" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="Vorm 3"  Canvas.Left="992" Canvas.Top="173" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 4"  Canvas.Left="1070" Canvas.Top="173" Height="28" Width="70" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy1" Content="CheckBox" Canvas.Left="1090" Canvas.Top="138" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy2" Content="CheckBox" Canvas.Left="1012" Canvas.Top="218" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy3" Content="CheckBox" Canvas.Left="1090" Canvas.Top="218" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
+            <Label Content="Vorm 4"  Canvas.Left="992" Canvas.Top="254" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 5"  Canvas.Left="1070" Canvas.Top="254" Height="28" Width="56" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy4" Canvas.Left="1090" Canvas.Top="303" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteDec_Copy5" Content="CheckBox" Height="16" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy6" Canvas.Left="1012" Canvas.Top="305" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteDec_Copy7" Content="CheckBox" Height="16" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
+            </CheckBox>
+            <Label Content="Vorm 6"  Canvas.Left="992" Canvas.Top="338" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 7"  Canvas.Left="1070" Canvas.Top="340" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy8" Canvas.Left="1012" Canvas.Top="381" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteDec_Copy9" Content="CheckBox" Height="16" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy10" Canvas.Left="1090" Canvas.Top="378" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteDec_Copy11" Content="CheckBox" Height="16" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
+            </CheckBox>
+            <Label Content="Vorm 8"  Canvas.Left="992" Canvas.Top="417" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 9"  Canvas.Left="1070" Canvas.Top="417" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy12" Canvas.Left="1012" Canvas.Top="467" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteDec_Copy13" Content="CheckBox" Height="16" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteDec_Copy14" Canvas.Left="1090" Canvas.Top="467" Height="16" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteDec_Copy15" Content="CheckBox" Height="16" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
+            </CheckBox>
+        </Canvas>
+    </Grid>
+</UserControl>

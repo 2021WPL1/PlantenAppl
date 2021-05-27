@@ -5,7 +5,10 @@ using System.Linq;
 //using Planten2021.Data.Models;
 using Planten2021.Domain.Models;
 using System.Reflection.Emit;
+using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
+
 //using System.Windows.Controls;
 
 namespace Planten2021.Data
@@ -28,6 +31,8 @@ namespace Planten2021.Data
         //search functions
 
         /* NARROW DOWN FUNCTIONS */
+
+        #region Kenny's first search
 
         //DIT IS KENNY ZIJN CODE KAN ZIJN DAT WE DIT NOG GEBRUIKEN IN HET VOLGEND KWARTAAL.
 
@@ -165,6 +170,7 @@ namespace Planten2021.Data
         //    var listPlants = context.Plant.Where(p => p.Familie.Contains(family)).ToList();
         //    return listPlants;
         //}
+        #endregion
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
@@ -173,114 +179,213 @@ namespace Planten2021.Data
             // kijken hoeveel er zijn geselecteerd
 
             var plants = context.Plant.ToList();
-
             return plants;
         }
 
-        //A function that takes a string, puts it to lowercase, 
-        //changes all the ' and " chars and replaces them by a space
-        //next it deletes al the spaces and returns the string.
-        public string Simplify(string stringToSimplify)
-        {
-            string answer = stringToSimplify.Replace("\'", " ").Replace("\"", " ");
-            answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
-            return answer;
-        }
+        ////////////A function that takes a string, puts it to lowercase, 
+        ////////////changes all the ' and " chars and replaces them by a space
+        ////////////next it deletes al the spaces and returns the string.
+        //////////public string Simplify(string stringToSimplify)
+        //////////{
+        //////////    string answer = stringToSimplify.Replace("\'", " ").Replace("\"", " ");
+        //////////    answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
+        //////////    return answer;
+        //////////}
+
+        //////////public IQueryable<T> DuplicationCheck<T>(IQueryable<T> selection)
+        //////////{
+        //////////    //This is to check for duplication that got through the distinct
+        //////////    //Initialize IQueryable
+        //////////    IQueryable<T> duplicationcheck = Enumerable.Empty<T>().AsQueryable();
+
+        //////////    foreach (var item in selection)
+        //////////    {
+        //////////        if (!duplicationcheck.Contains(item))
+        //////////        {
+        //////////            duplicationcheck.Append(item);
+        //////////        }
+        //////////    }
+        //////////    return duplicationcheck;
+        //////////}
+
 
 
         /// <summary>
         ///                            FILL COMBOBOX
-        ///            Deze functie zijn voor het cascade systeem.
+        ///            Deze functies zijn voor het cascade systeem.
         /// </summary>
         /// <returns></returns>
 
-        public Dictionary<long, string> fillTfgsvType()
+        #region Fill
+        public IQueryable<TfgsvType> fillTfgsvType()
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            var selection = context.TfgsvType.Distinct().ToDictionary(s => s.Planttypeid, s => s.Planttypenaam);         
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+            // Good way to interact with our datacontext
+            var selection = context.TfgsvType.Distinct();
             return selection;
         }
 
-        public Dictionary<long, string> fillTfgsvFamilie(int selectedItem)
+        public IQueryable<TfgsvFamilie> fillTfgsvFamilie(int selectedItem)
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem).ToDictionary(s => s.FamileId, s => s.Familienaam);
-                return selection;
-                
+                var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
+               return selection;
+
             }
             else
             {
-                var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).ToDictionary(s => s.FamileId, s => s.Familienaam);
-               
-                return selection;
-            }
-
-
-        }
-        public Dictionary<long, string> fillTfgsvGeslacht(int selectedItem)
-        {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
-            if (selectedItem > 0)
-            {
-                var selection = context.TfgsvGeslacht.Distinct().OrderBy(s=>s.Geslachtnaam).Where(s => s.FamilieFamileId == selectedItem).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
-                return selection;
-            }
-            else
-            {
-                var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam).ToDictionary(s => s.GeslachtId, s => s.Geslachtnaam);
+                var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam);
                 return selection;
             }
 
         }
-        public Dictionary<long, string> fillTfgsvSoort(int selectedItem)
+        public IQueryable<TfgsvGeslacht> fillTfgsvGeslacht(int selectedItem)
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value 
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct().ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam)
+                    .Where(s => s.FamilieFamileId == selectedItem);
                 return selection;
             }
             else
             {
-                var selection = context.TfgsvSoort.Distinct().OrderBy(s => s.Soortnaam).ToDictionary(s => s.Soortid, s => s.Soortnaam);
+                var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam);
+                return selection;
+            }
+
+        }
+        public IQueryable<TfgsvSoort> fillTfgsvSoort(int selectedItem)
+        {
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+            if (selectedItem > 0)
+            {
+                var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct();
+                return selection;
+            }
+            else
+            {
+                var selection = context.TfgsvSoort.Distinct().OrderBy(s => s.Soortnaam);
                 return selection;
             }
 
         }
 
-        public Dictionary<long, string> fillTfgsvVariant(int selectedItem)
+        public IQueryable<TfgsvVariant> fillTfgsvVariant()
         {
-            // lijst type opvragen.
-            // distinct om meerdere van de zelfde tegen te gaan.
-            // to dictionary om er een dictionary van mee te geven  plantype is de key en planttypenaam is value
-            // De if else is er voor bij opstarten de comboboxen te vullen en geen error te krijgen omdat er niet geselecteerd is. en gebruikt dan gewoon geen where.
-            if (selectedItem > 0)
-            {
-                var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).Where(s => s.SoortSoortid == selectedItem).ToDictionary(s => s.VariantId, s => s.Variantnaam);
-                return selection;
-            }
-            else
-            {
-                var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam).ToDictionary(s => s.VariantId, s => s.Variantnaam);
-                return selection;
-            }
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+
+            var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam); 
+            return selection;
+
+        }
+        public IQueryable<Fenotype> fillFenoTypeRatioBloeiBlad()
+        {
+            // this is NOT part of the cascade function and wil not be added as it is not needed 
+            // request List of wanted type
+            // distinct to prevrent more than one of each type
+            // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter.
+
+            var selection = context.Fenotype.Distinct().OrderBy(s => s.RatioBloeiBlad);
+            return selection;
+
         }
 
-        //.OrderBy(s => s.Variantnaam)
-        //.OrderBy(s => s.Variantnaam)
+
+        #endregion
+
+        #region FilterFromPlant
+
+        #region FilterFenoTypeFromPlant 
+
+        public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
+        {
+
+            var selection = context.Fenotype.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        public IQueryable<FenotypeMulti> FilterFenotypeMultiFromPlant(int selectedItem)
+        {
+
+            var selection = context.FenotypeMulti.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+        #endregion
+
+        #region FilterAbiotiekFromPlant
+        public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
+        {
+
+            var selection = context.Abiotiek.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        public IQueryable<AbiotiekMulti> filterAbiotiekMultiFromPlant(int selectedItem)
+        {
+
+            var selection = context.AbiotiekMulti.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+        #endregion
+
+        #region FilterBeheerMaandFromPlant
+        public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
+        {
+
+            var selection = context.BeheerMaand.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+        #endregion
+
+        #region FilterCommensalismeFromPlant
+        public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
+        {
+
+            var selection = context.Commensalisme.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+        public IQueryable<CommensalismeMulti> FilterCommensalismeMulti(int selectedItem)
+        {
+
+            var selection = context.CommensalismeMulti.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+        #endregion
+
+        #region FilterExtraEigenschapFromPlant
+        public IQueryable<ExtraEigenschap> FilterExtraEigenschapFromPlant(int selectedItem)
+        {
+
+            var selection = context.ExtraEigenschap.Distinct().Where(s => s.PlantId == selectedItem);
+            return selection;
+        }
+
+
+        #endregion
+
+        #endregion
 
         public List<Plant> detailsAanvullen(long ID)
         {
@@ -294,10 +399,37 @@ namespace Planten2021.Data
                 .Include(s => s.Fenotype)
                 .Include(s => s.UpdatePlant)
                 .Include(s => s.Foto)
-               
+
                 .Where(s => s.PlantId == ID)
                 .ToList();
             return plants;
+        }
+
+        public Gebruiker GetGebruikerWithEmail(string userEmail)
+        {
+            Gebruiker gebruiker;
+            gebruiker = context.Gebruiker.SingleOrDefault(g => g.Emailadres == userEmail);
+            return gebruiker;
+
+        }
+
+        public void RegisterUser(string vivesNr, string firstName, string lastName, string rol, string emailadres, string password)
+        {
+            var passwordBytes = Encoding.ASCII.GetBytes(password);
+            var md5Hasher = new MD5CryptoServiceProvider();
+            var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
+
+            var gebruiker = new Gebruiker()
+            {
+                Vivesnr = vivesNr,
+                Voornaam = firstName,
+                Achternaam = lastName,
+                Rol = rol,
+                Emailadres = emailadres,
+                HashPaswoord = passwordHashed
+            };
+            context.Gebruiker.Add(gebruiker);
+            context.SaveChanges();
         }
 
     }
