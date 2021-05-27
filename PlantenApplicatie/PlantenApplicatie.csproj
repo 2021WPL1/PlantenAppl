@@ -41,4 +41,10 @@
     <Resource Include="Image\waterval.jpeg" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="HelperClasses\HelperModels\" />
+    <Folder Include="Services\DataServices\Interfaces\" />
+    <Folder Include="Services\Interfaces\" />
+  </ItemGroup>
+
 </Project>
