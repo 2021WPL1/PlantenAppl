@@ -5,7 +5,10 @@ using System.Linq;
 //using Planten2021.Data.Models;
 using Planten2021.Domain.Models;
 using System.Reflection.Emit;
+using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
+
 //using System.Windows.Controls;
 
 namespace Planten2021.Data
@@ -318,6 +321,33 @@ namespace Planten2021.Data
                 .Where(s => s.PlantId == ID)
                 .ToList();
             return plants;
+        }
+
+        public Gebruiker GetGebruikerWithEmail(string userEmail)
+        {
+            Gebruiker gebruiker;
+            gebruiker = context.Gebruiker.SingleOrDefault(g => g.Emailadres == userEmail);
+            return gebruiker;
+
+        }
+
+        public void RegisterUser(string vivesNr, string firstName, string lastName, string rol, string emailadres, string password)
+        {
+            var passwordBytes = Encoding.ASCII.GetBytes(password);
+            var md5Hasher = new MD5CryptoServiceProvider();
+            var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
+
+            var gebruiker = new Gebruiker()
+            {
+                Vivesnr = vivesNr,
+                Voornaam = firstName,
+                Achternaam = lastName,
+                Rol = rol,
+                Emailadres = emailadres,
+                HashPaswoord = passwordHashed
+            };
+            context.Gebruiker.Add(gebruiker);
+            context.SaveChanges();
         }
 
     }
