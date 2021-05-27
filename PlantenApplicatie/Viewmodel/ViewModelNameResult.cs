@@ -41,6 +41,7 @@ namespace PlantenApplicatie.Viewmodel
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
             SearchCommand = new DelegateCommand(ApplyFilter);
+            ResetCommand = new DelegateCommand(Reset);
 
             //These comboboxes will already be filled with data on startup
             fillComboBoxType();
@@ -78,6 +79,7 @@ namespace PlantenApplicatie.Viewmodel
 
         //ICommands
         public ICommand SearchCommand { get; set; }
+        public ICommand ResetCommand { get; set; }
 
         #endregion
 
@@ -92,10 +94,10 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedType = value;
 
-                //cmbFamilies.Clear();
-                //cmbGeslacht.Clear();
-                //cmbSoort.Clear();
-                //cmbVariant.Clear();
+                cmbFamilies.Clear();
+                cmbGeslacht.Clear();
+                cmbSoort.Clear();
+                cmbVariant.Clear();
 
                 fillComboBoxFamilie();
                 OnPropertyChanged();
@@ -110,6 +112,12 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedFamilie = value;
+
+
+                cmbGeslacht.Clear();
+                cmbSoort.Clear();
+                cmbVariant.Clear();
+
                 fillComboBoxGeslacht();
                 OnPropertyChanged();
             }
@@ -123,6 +131,12 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedGeslacht = value;
+
+
+
+                cmbSoort.Clear();
+                cmbVariant.Clear();
+
                 fillComboBoxSoort();
                 OnPropertyChanged();
             }
@@ -136,7 +150,9 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedSoort = value;
-                fillComboBoxVariant();
+
+                cmbVariant.Clear();
+
                 OnPropertyChanged();
             }
         }
@@ -164,6 +180,19 @@ namespace PlantenApplicatie.Viewmodel
                 OnPropertyChanged();
             }
         }
+
+        private string _selectedNederlandseNaam;
+
+        public string SelectedNederlandseNaam
+        {
+            get { return _selectedNederlandseNaam; }
+            set
+            {
+                _selectedNederlandseNaam = value;
+                OnPropertyChanged();
+            }
+        }
+
         #endregion
 
         //#region Fill combobox methods
@@ -339,6 +368,33 @@ namespace PlantenApplicatie.Viewmodel
 
         #region Methods to use in our DelegateCommands
 
+        #region ResetFunction
+
+        public void Reset()
+        {
+
+            filteredPlantResults.Clear();
+
+            cmbTypes.Clear();
+            cmbFamilies.Clear();
+            cmbGeslacht.Clear();
+            cmbSoort.Clear();
+            cmbVariant.Clear();
+            cmbRatioBladBloei.Clear();
+            SelectedNederlandseNaam = String.Empty;
+
+            fillComboBoxType();
+            fillComboBoxFamilie();
+            fillComboBoxGeslacht();
+            fillComboBoxSoort();
+            fillComboBoxVariant();
+            fillComboBoxRatioBloeiBlad();
+        }
+
+        #endregion
+
+        #region SearchFunction
+
         public void ApplyFilter()
         {
 
@@ -415,26 +471,26 @@ namespace PlantenApplicatie.Viewmodel
                 }
             }
 
-            //if (SelectedNederlandseNaam != string.Empty)
-            //{
-            //    foreach (var item in listPlants.ToList())
-            //    {
+            if (SelectedNederlandseNaam != null)
+            {
+                foreach (var item in listPlants.ToList())
+                {
 
-            //        if (item.NederlandsNaam != null)
-            //        {
-            //            if (item.NederlandsNaam != SelectedNederlandseNaam)
-            //            {
-            //                listPlants.Remove(item);
-            //            }
+                    if (item.NederlandsNaam != null)
+                    {
+                        if (!item.NederlandsNaam.Contains(SelectedNederlandseNaam))
+                        {
+                            listPlants.Remove(item);
+                        }
 
-            //        }
-            //        else if (item.NederlandsNaam == null)
-            //        {
-            //            listPlants.Remove(item);
-            //        }
+                    }
+                    else if (item.NederlandsNaam == null)
+                    {
+                        listPlants.Remove(item);
+                    }
 
-            //    }
-            //}
+                }
+            }
 
             if (SelectedRatioBloeiBlad != null)
             {
@@ -480,6 +536,10 @@ namespace PlantenApplicatie.Viewmodel
                 filteredPlantResults.Add(item);
             }
         }
+
+        #endregion
+
+       
         #endregion
     }
 }

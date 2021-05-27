@@ -45,7 +45,7 @@
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <TextBox x:Name="txtNaam" TextWrapping="Wrap" Height="32" Canvas.Left="516" Canvas.Top="117" Width="200">
+            <TextBox x:Name="txtNaam" Text="{Binding Path=SelectedNederlandseNaam}"  TextWrapping="Wrap" Height="32" Canvas.Left="516" Canvas.Top="117" Width="200">
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>
@@ -125,7 +125,19 @@
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-
+            <Button x:Name="btnNameReset"
+                    Content="Reset" Background="#FF5A533F" BorderBrush="#FF40E948" Foreground="#FFABC36C" FontWeight="Bold" FontSize="24" Canvas.Left="722" Canvas.Top="168" Height="91" Width="304"
+                    Command="{Binding Path=ResetCommand}">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect/>
+            </Button.Effect>
+        </Button>
         </Canvas>
+      
     </Grid>
 </UserControl>
