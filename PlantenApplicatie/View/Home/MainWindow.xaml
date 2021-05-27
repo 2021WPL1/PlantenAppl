@@ -26,6 +26,22 @@
         </DataTemplate>
 
 
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelBloom}">
+            <pages:UserControlBloom/>
+        </DataTemplate>
+
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelGrow}">
+            <pages:UserControlGrow/>
+        </DataTemplate>
+
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelGrooming}">
+            <pages:UserControlGrooming/>
+        </DataTemplate>
+
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelAppearance}">
+            <pages:UserControlAppearance/>
+        </DataTemplate>
+
     </Window.Resources>
 
     <Grid Opacity="0.9">
@@ -38,7 +54,9 @@
             <ImageBrush  Stretch="Fill" ImageSource="../../Image/waterval.jpeg"/>
         </Grid.Background>
 
-        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWBLOOM">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -49,7 +67,9 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnVerzorging" Content="Verzorging" HorizontalAlignment="Left" Margin="688,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWGROOMING">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -60,7 +80,9 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+        <Button x:Name="btnGroei" Content="Groei" HorizontalAlignment="Left" Margin="299,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWGROW">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -71,7 +93,9 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="560,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" RenderTransformOrigin="0.492,0.564" Foreground="#FFA2BC5B">
+        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="560,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" RenderTransformOrigin="0.492,0.564" Foreground="#FFA2BC5B"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWAPPEARANCE">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>
@@ -84,7 +108,7 @@
 
         <Button x:Name="btnHabitat" Content="Habitat" HorizontalAlignment="Left" Margin="429,14,0,0" VerticalAlignment="Top" Height="32" Width="125" BorderBrush="#FF2AE633" Background="#FF474029"  FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B"
                 Command="{Binding mainNavigationCommand}"
-                CommandParameter="VIEWHABITAT"   >
+                CommandParameter="VIEWHABITAT">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

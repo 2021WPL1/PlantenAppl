@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlantenApplicatie.View.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="1250">
+             d:DesignHeight="720" d:DesignWidth="1250">
     <Grid>
-        <Canvas x:Name="cvsHabitat" Margin="42,184,47,261" Visibility="Visible" Grid.RowSpan="2" Background="#7FFFFFFF">
+        <Canvas x:Name="cvsHabitat" Margin="44,10,44,259" Visibility="Visible" Background="#99FFFFFF">
             <Canvas.Effect>
                 <DropShadowEffect/>
             </Canvas.Effect>
