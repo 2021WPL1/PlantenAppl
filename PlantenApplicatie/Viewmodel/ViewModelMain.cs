@@ -38,8 +38,7 @@ namespace PlantenApplicatie.ViewModel
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
+            var viewModelResult = (ViewModelNameResult)_viewModelsRepo.GetViewModel("VIEWNAME");
         }
-
-
     }
 }

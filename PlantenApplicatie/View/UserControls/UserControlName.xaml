@@ -110,6 +110,7 @@
             </ComboBox>
             <ListBox x:Name="lstResultSearch" 
                      ItemsSource="{Binding filteredPlantResults}"
+                     SelectedItem="{Binding Path=SelectedPlantInResult, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Canvas.Top="281" Height="419" Canvas.Left="6">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -146,7 +147,10 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <ListBox x:Name="lstDetails" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Height="419" Canvas.Left="517" Canvas.Top="281"/>
+            <ListBox x:Name="lstDetails"
+                     ItemsSource="{Binding detailsSelectedPlant}"
+                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Height="419" Canvas.Left="517" Canvas.Top="281"/>
+            
             <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" BorderBrush="#FF2AE633" Margin="818,88,0,0" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
                     Command="{Binding Path=SearchCommand}" Canvas.Left="-492" Canvas.Top="80"
             >

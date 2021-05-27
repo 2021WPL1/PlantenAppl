@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
@@ -21,7 +22,7 @@ namespace PlantenApplicatie.Viewmodel
     {
         private DAO _dao;
         //private ViewModelData _viewModelData;
-        
+
         public ViewModelNameResult()
         {
 
@@ -29,14 +30,17 @@ namespace PlantenApplicatie.Viewmodel
             //this._viewModelData = ViewModelData.Instance();
 
             //Observable Collections 
-            ////Obserbable collections to fill with the necessary objects to show in our comboboxes
+            ////Obserbable collections to fill with the necessary objects to show in the comboboxes
             cmbTypes = new ObservableCollection<TfgsvType>();
             cmbFamilies = new ObservableCollection<TfgsvFamilie>();
             cmbGeslacht = new ObservableCollection<TfgsvGeslacht>();
             cmbSoort = new ObservableCollection<TfgsvSoort>();
             cmbVariant = new ObservableCollection<TfgsvVariant>();
             cmbRatioBladBloei = new ObservableCollection<Fenotype>();
+
+            ////Observable Collections to bind to listboxes
             filteredPlantResults = new ObservableCollection<Plant>();
+            detailsSelectedPlant = new ObservableCollection<string>();
 
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
@@ -66,13 +70,18 @@ namespace PlantenApplicatie.Viewmodel
         #endregion
 
         //Observable collections
+        ////Bind to comboboxes
         public ObservableCollection<TfgsvType> cmbTypes { get; set; }
         public ObservableCollection<TfgsvFamilie> cmbFamilies { get; set; }
         public ObservableCollection<TfgsvGeslacht> cmbGeslacht { get; set; }
         public ObservableCollection<TfgsvSoort> cmbSoort { get; set; }
         public ObservableCollection<TfgsvVariant> cmbVariant { get; set; }
         public ObservableCollection<Fenotype> cmbRatioBladBloei { get; set; }
+
+        ////Bind to ListBoxes
         public ObservableCollection<Plant> filteredPlantResults { get; set; }
+        public ObservableCollection<String> detailsSelectedPlant { get; set; }
+        ////
 
 
         #region icommands
@@ -196,11 +205,28 @@ namespace PlantenApplicatie.Viewmodel
                 {
                     _selectedNederlandseNaam = value;
                 }
-                
+
                 OnPropertyChanged();
             }
         }
 
+        //This will update the selected plant in the result listbox
+        //This will be used to show the selected plant details
+        private Plant _selectedPlantInResult;
+
+        public Plant SelectedPlantInResult
+        {
+            get
+            {
+                return _selectedPlantInResult;
+            }
+            set
+            {
+                _selectedPlantInResult = value;
+                OnPropertyChanged();
+                fillDetailPlantResult();
+            }
+        }
         #endregion
 
         //#region Fill combobox methods
@@ -374,6 +400,55 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
+        #region Fill plantDetail listbox
+
+        public void fillDetailPlantResult()
+        {
+            detailsSelectedPlant.Clear();
+            //Every property of the selected plant will be added to the OC
+            //Now when I bind it to the list in the xaml, they will be displayed
+            if (SelectedPlantInResult != null)
+            {
+                //Add every available plant property to the OC
+                ////start with the properties consisting of a single value
+                ////
+                ////TOE TE VOEGEN FOUTAFHANDELING -> als een bepaalde property niet aanwezig is: niet toevoegen.
+                ////(? -> PlantId, typeId, familieId, Geslachtid, soortId, variantId
+                detailsSelectedPlant.Add("Plant Id: " + SelectedPlantInResult.PlantId);
+                detailsSelectedPlant.Add("Nederlandse naam: " + SelectedPlantInResult.NederlandsNaam);
+                detailsSelectedPlant.Add("Wetenschappelijke naam: " + SelectedPlantInResult.Fgsv);
+                detailsSelectedPlant.Add("Type: " + SelectedPlantInResult.Type);
+                detailsSelectedPlant.Add("Familie: " + SelectedPlantInResult.Familie);
+                detailsSelectedPlant.Add("Geslacht: " + SelectedPlantInResult.Geslacht);
+                detailsSelectedPlant.Add("Soort: " + SelectedPlantInResult.Soort);
+                detailsSelectedPlant.Add("Variant: " + SelectedPlantInResult.Variant);
+                detailsSelectedPlant.Add("Minimale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMin);
+                detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
+                detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
+                detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
+
+                //the following properties consist of multiple values, use a foreach
+                ////Abiotiek
+                
+                foreach(var item in SelectedPlantInResult.Abiotiek)
+                {
+                    if (SelectedPlantInResult.PlantId == item.PlantId)
+                    {
+                        detailsSelectedPlant.Add("Antagonische omgeving: " + item.AntagonischeOmgeving);
+                        detailsSelectedPlant.Add("Bezonning: " + item.Bezonning);
+                        detailsSelectedPlant.Add("Grondsoort: " + item.Grondsoort);
+                        detailsSelectedPlant.Add("Vochtbehoefte: " + item.Vochtbehoefte);
+                        detailsSelectedPlant.Add("Voedingsbehoefte" + item.Voedingsbehoefte);
+                    }
+                  
+                }
+                //AbiotiekMulti
+
+            }
+
+        }
+
+        #endregion
         #region Methods to use in our DelegateCommands
 
         #region ResetFunction
@@ -537,7 +612,7 @@ namespace PlantenApplicatie.Viewmodel
             }
             //Clear observable collection everytime the searchbutton is clicked
             filteredPlantResults.Clear();
-            
+
             //The listPlants is now completely filtered.
             //Add every listPlants plantobject to our observable collection
             foreach (var item in listPlants)
@@ -548,7 +623,6 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
-       
         #endregion
     }
 }
