@@ -5,9 +5,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PlantenApplicatie.View.UserControls"
              mc:Ignorable="d" 
-             d:DesignHeight="720" d:DesignWidth="1250">
+             d:DesignHeight="790" d:DesignWidth="1160">
     <Grid>
-        <Canvas x:Name="cvsGroei" Margin="0,27,0,79" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1143">
+        <Canvas x:Name="cvsGroei" Margin="0,30,0,79" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1143">
 
             <Label Content="Grondsoort" Canvas.Left="19" Canvas.Top="10" Height="25" Width="130" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Strategie" Canvas.Left="662" Canvas.Top="10" Height="26" Width="75" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>

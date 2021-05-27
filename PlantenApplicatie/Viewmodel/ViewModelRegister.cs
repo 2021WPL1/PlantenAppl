@@ -127,7 +127,7 @@ namespace PlantenApplicatie.Viewmodel
                 passwordRepeatInput != null &&
                 rolInput != null)
             {
-                if (emailAdresInput != null && emailAdresInput.Contains("@student.vives.be"))
+                if (emailAdresInput != null && emailAdresInput.Contains("@student.vives.be") && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
                 {
                     if (passwordInput == passwordRepeatInput)
                     {
@@ -143,7 +143,7 @@ namespace PlantenApplicatie.Viewmodel
                 }
                 else
                 {
-                    MessageBox.Show("This is not a valid Email-adress.");
+                    MessageBox.Show($"{emailAdresInput} is geen geldig emailadres, of het eamiladres is al in gebruik.");
                 }
             }
             else
