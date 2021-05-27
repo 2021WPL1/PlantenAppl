@@ -58,7 +58,7 @@ namespace Planten2021.Domain.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-              optionsBuilder.UseSqlServer(Constants.connectionstring);
+              optionsBuilder.UseSqlServer(SQLConnection.connectionstring);
             }
         }
 
