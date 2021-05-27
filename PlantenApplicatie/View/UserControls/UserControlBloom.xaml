@@ -8,7 +8,10 @@
              d:DesignHeight="720" d:DesignWidth="1250">
     <Grid>
         <Canvas x:Name="cvsBloei" Margin="20,10,0,104" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1150">
-                <Label Content="Kleuren" Canvas.Left="28" Canvas.Top="21" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Canvas.Effect>
+                <DropShadowEffect/>
+            </Canvas.Effect>
+            <Label Content="Kleuren" Canvas.Left="28" Canvas.Top="21" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
                 <Label Content="Zwart" Foreground="Black" Canvas.Left="150" Canvas.Top="27" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
                 <Label Content="  Wit" Foreground="Black" Canvas.Left="215" Canvas.Top="27" Height="28" Width="50" BorderBrush="Black" BorderThickness="1"/>
                 <Label Content=" Rosé" Foreground="RosyBrown" Canvas.Left="282" Canvas.Top="27" Height="28" Width="50" BorderBrush="RosyBrown" BorderThickness="1"/>
