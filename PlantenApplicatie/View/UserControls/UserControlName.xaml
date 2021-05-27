@@ -110,8 +110,42 @@
             </ComboBox>
             <ListBox x:Name="lstResultSearch" 
                      ItemsSource="{Binding filteredPlantResults}"
-                     DisplayMemberPath="Fgsv"
-                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Canvas.Top="281" Height="419"/>
+                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Canvas.Top="281" Height="419" Canvas.Left="6">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel  Margin="10">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Nederlandse naam: " TextDecorations="Underline" />
+                                <TextBlock Text="{Binding NederlandsNaam }" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Naam: " TextDecorations="Underline" />
+                                <TextBlock Text="{Binding Fgsv }" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Type: " TextDecorations="Underline" />
+                                <TextBlock Text="{Binding Type}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Familie: " TextDecorations="Underline" />
+                                <TextBlock Text="{Binding Familie}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Geslacht: " TextDecorations="Underline" />
+                                <TextBlock Text="{Binding Geslacht}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Soort: " TextDecorations="Underline"/>
+                                <TextBlock Text="{Binding Soort}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <TextBlock Text="Variant: " TextDecorations="Underline" />
+                                <TextBlock Text="{Binding Variant}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             <ListBox x:Name="lstDetails" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Height="419" Canvas.Left="517" Canvas.Top="281"/>
             <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" BorderBrush="#FF2AE633" Margin="818,88,0,0" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
                     Command="{Binding Path=SearchCommand}" Canvas.Left="-492" Canvas.Top="80"
