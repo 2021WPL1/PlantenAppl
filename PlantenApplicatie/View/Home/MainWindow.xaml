@@ -13,7 +13,7 @@
 
     <Window.DataContext>
         <viewModel:ViewModelMain/>
-       </Window.DataContext>
+    </Window.DataContext>
 
     <Window.Resources>
 
@@ -194,17 +194,7 @@
 
         <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="128" Width="641" Background="#99F5F5F5" FontWeight="Bold"/>
 
-        <Button x:Name="btnReset"
-                Content="Reset" HorizontalAlignment="Left" Margin="688,51,0,0" VerticalAlignment="Top" Height="128" Width="125" Background="#FF5A533F" BorderBrush="#FF40E948" Foreground="#FFABC36C" FontWeight="Bold" FontSize="24">
-            <Button.Effect>
-                <DropShadowEffect/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        
         <!--<Frame x:Name="MainFrame" Margin="0,190,0,0"  Content=""/>-->
 
         <!-- hier doe je de binding van het currentViewModel !Clue van et stysteem -->
