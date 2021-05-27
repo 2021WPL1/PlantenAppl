@@ -188,7 +188,15 @@ namespace PlantenApplicatie.Viewmodel
             get { return _selectedNederlandseNaam; }
             set
             {
-                _selectedNederlandseNaam = value;
+                if (SelectedNederlandseNaam == "")
+                {
+                    _selectedNederlandseNaam = null;
+                }
+                else
+                {
+                    _selectedNederlandseNaam = value;
+                }
+                
                 OnPropertyChanged();
             }
         }
@@ -381,7 +389,8 @@ namespace PlantenApplicatie.Viewmodel
             cmbSoort.Clear();
             cmbVariant.Clear();
             cmbRatioBladBloei.Clear();
-            SelectedNederlandseNaam = String.Empty;
+            SelectedNederlandseNaam = null;
+
 
             fillComboBoxType();
             fillComboBoxFamilie();
