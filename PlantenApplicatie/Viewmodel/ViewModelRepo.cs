@@ -21,11 +21,20 @@ namespace PlantenApplicatie.Viewmodel
 
         private ViewModelNameResult viewModelNameResult = new ViewModelNameResult();
         private ViewModelHabitat viewModelHabitat = new ViewModelHabitat();
+        private ViewModelBloom viewModelBloom = new ViewModelBloom();
+        private ViewModelGrow viewModelGrow = new ViewModelGrow();
+        private ViewModelAppearance viewModelAppearance = new ViewModelAppearance();
+        private ViewModelGrooming viewModelGrooming = new ViewModelGrooming();
+
         private ViewModelRepo()
         {
             //hier een extra lijn code per user control
             _viewModels.Add("VIEWNAME", viewModelNameResult);
             _viewModels.Add("VIEWHABITAT", viewModelHabitat);
+            _viewModels.Add("VIEWBLOOM", viewModelBloom);
+            _viewModels.Add("VIEWGROW", viewModelGrow);
+            _viewModels.Add("VIEWAPPEARANCE", viewModelAppearance);
+            _viewModels.Add("VIEWGROOMING",viewModelGrooming);
         }
         //
         public ViewModelBase GetViewModel(string modelName)
