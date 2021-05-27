@@ -41,6 +41,10 @@
             <pages:UserControlGrooming/>
         </DataTemplate>
 
+        <DataTemplate DataType = "{x:Type viewModels:ViewModelAppearance}">
+            <pages:UserControlAppearance/>
+        </DataTemplate>
+
     </Window.Resources>
 
     <Grid Opacity="0.9">
@@ -92,7 +96,9 @@
             </Button.Resources>
         </Button>
 
-        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="560,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" RenderTransformOrigin="0.492,0.564" Foreground="#FFA2BC5B">
+        <Button x:Name="btnUiterlijk" Content="Uiterlijk" HorizontalAlignment="Left" Margin="560,14,0,0" VerticalAlignment="Top" Height="32" Width="124" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" RenderTransformOrigin="0.492,0.564" Foreground="#FFA2BC5B"
+                Command="{Binding mainNavigationCommand}"
+                CommandParameter="VIEWAPPEARANCE">
             <Button.Effect>
                 <DropShadowEffect/>
             </Button.Effect>

@@ -21,6 +21,7 @@ namespace PlantenApplicatie.Viewmodel
                 _viewModels.Add("VIEWBLOOM", new ViewModelBloom());
                 _viewModels.Add("VIEWGROW", new ViewModelGrow());
                 _viewModels.Add("VIEWGROOMING", new ViewModelGrooming());
+                _viewModels.Add("VIEWAPPEARANCE", new ViewModelAppearance());
         }
             public ViewModelBase GetViewModel(string modelName)
             {

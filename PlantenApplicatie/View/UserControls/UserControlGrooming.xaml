@@ -107,13 +107,12 @@
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
+
+
             <TextBox Canvas.Left="281" Canvas.Top="435" TextWrapping="Wrap" Width="172" Height="49"/>
             <TextBox Canvas.Left="510" Canvas.Top="435" TextWrapping="Wrap" Width="172" Height="49"/>
 
             <ComboBox Canvas.Left="49" Canvas.Top="435" Width="192" Height="49"/>
-
-
-
 
         </Canvas>
     </Grid>
