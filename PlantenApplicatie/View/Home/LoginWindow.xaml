@@ -12,9 +12,6 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="300" Width="464">
     <!--Written by Kenny-->
-    <!--<Window.DataContext>
-        <viewModels:ViewModelLogin/>
-    </Window.DataContext>-->
 
     <Window.Resources>
 

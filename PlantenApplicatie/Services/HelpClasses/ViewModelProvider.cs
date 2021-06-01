@@ -46,6 +46,8 @@ namespace PlantenApplicatie.Services.HelpClasses
             //SimpleIoc.Default.Unregister<ViewModelLogin>();
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
 
+            iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
+
             //SimpleIoc.Default.Unregister<ViewModelMain>();
             iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService));
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows;
 using GalaSoft.MvvmLight.Command;
 using Planten2021.Data;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.View.Home;
 using PlantenApplicatie.ViewModel;
 
@@ -13,12 +14,20 @@ namespace PlantenApplicatie.Viewmodel
     //written by kenny
     public class ViewModelRegister : ViewModelBase
     {
-        private DAO _dao;
+        private IloginUserService _loginService { get; }
+
         public RelayCommand registerCommand { get; set; }
-        public ViewModelRegister()
+        public ViewModelRegister(IloginUserService loginUserService)
         {
-            this._dao = DAO.Instance();
-            registerCommand = new RelayCommand(RegisterButton);
+            this._loginService = loginUserService;
+            registerCommand = new RelayCommand(RegisterButtonClick);
+        }
+
+        public void RegisterButtonClick()
+        {
+            _loginService.RegisterButton(vivesNrInput, lastNameInput,
+                 firstNameInput, emailAdresInput,
+                 passwordInput, passwordRepeatInput, rolInput);
         }
         #region MVVM TextFieldsBinding
         private string _vivesNrInput;
@@ -117,40 +126,7 @@ namespace PlantenApplicatie.Viewmodel
         #endregion
 
 
-        public void RegisterButton()
-        {
-            if (vivesNrInput != null && 
-                firstNameInput != null && 
-                lastNameInput != null && 
-                emailAdresInput != null && 
-                passwordInput != null && 
-                passwordRepeatInput != null &&
-                rolInput != null)
-            {
-                if (emailAdresInput != null && emailAdresInput.Contains("@student.vives.be") && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
-                {
-                    if (passwordInput == passwordRepeatInput)
-                    {
-                        _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
-                        MessageBox.Show($"{firstNameInput}, je bent succevol geregistreerd, uw gebruikersnaam is {emailAdresInput} en uw wachtwoord is {passwordInput} .");
-                        LoginWindow loginWindow = new LoginWindow();
-                        loginWindow.Show();
-                    }
-                    else
-                    {
-                        MessageBox.Show("zorg dat de wachtwoorden overeen komen.");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show($"{emailAdresInput} is geen geldig emailadres, of het eamiladres is al in gebruik.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("zorg dat alle velden ingevuld zijn");
-            }
-        }
+      
 
 }
 }
