@@ -11,11 +11,12 @@ using PlantenApplicatie.View;
 using GalaSoft.MvvmLight.Command;
 using PlantenApplicatie.HelpClasses;
 using MvvmHelpers;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.Viewmodel;
 
 namespace PlantenApplicatie.ViewModel
 {
-    class ViewModelMain :ViewModelBase
+    public class ViewModelMain :ViewModelBase
     {
         private ViewModelRepo _viewModelsRepo;
         private ViewModelBase _currentViewModel;
@@ -27,8 +28,10 @@ namespace PlantenApplicatie.ViewModel
             set { SetProperty(ref _currentViewModel, value); }
         }
 
-        public ViewModelMain()
+        private IloginUserService _loginUserService;
+        public ViewModelMain(IloginUserService loginUserService)
         {
+            this._loginUserService = loginUserService;
             this._viewModelsRepo = ViewModelRepo.Instance();
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
