@@ -411,23 +411,10 @@ namespace PlantenApplicatie.Viewmodel
             if (SelectedPlantInResult != null)
             {
                 //Add every available plant property to the OC
-                ////start with the properties consisting of a single value
-                ////
-                ////TOE TE VOEGEN FOUTAFHANDELING -> als een bepaalde property niet aanwezig is: niet toevoegen.
-                ////(? -> PlantId, typeId, familieId, Geslachtid, soortId, variantId
-                detailsSelectedPlant.Add("Plant Id: " + SelectedPlantInResult.PlantId);
-                detailsSelectedPlant.Add("Nederlandse naam: " + SelectedPlantInResult.NederlandsNaam);
-                detailsSelectedPlant.Add("Wetenschappelijke naam: " + SelectedPlantInResult.Fgsv);
-                detailsSelectedPlant.Add("Type: " + SelectedPlantInResult.Type);
-                detailsSelectedPlant.Add("Familie: " + SelectedPlantInResult.Familie);
-                detailsSelectedPlant.Add("Geslacht: " + SelectedPlantInResult.Geslacht);
-                detailsSelectedPlant.Add("Soort: " + SelectedPlantInResult.Soort);
-                detailsSelectedPlant.Add("Variant: " + SelectedPlantInResult.Variant);
-                detailsSelectedPlant.Add("Minimale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMin);
-                detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
-                detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
-                detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
+                ////start with the properties consisting of a single value              
+                FillSingleValuePlantDetails();
 
+                //Tables linked to Plant by PlantId
                 ////Abiotiek
                 FillDetailsPlantAbiotiek();
                 ////Abiotiek_Multi
@@ -442,12 +429,28 @@ namespace PlantenApplicatie.Viewmodel
                 FillExtraEigenschap();
                 ////FenoType
                 FillFenotype();
+
                 ////Foto
                 ////UpdatePlant
             }
 
         }
-
+        public void FillSingleValuePlantDetails()
+        {
+            //These are single value properties and can be added to the details screen immediatly
+            detailsSelectedPlant.Add("Plant Id: " + SelectedPlantInResult.PlantId);
+            detailsSelectedPlant.Add("Nederlandse naam: " + SelectedPlantInResult.NederlandsNaam);
+            detailsSelectedPlant.Add("Wetenschappelijke naam: " + SelectedPlantInResult.Fgsv);
+            detailsSelectedPlant.Add("Type: " + SelectedPlantInResult.Type);
+            detailsSelectedPlant.Add("Familie: " + SelectedPlantInResult.Familie);
+            detailsSelectedPlant.Add("Geslacht: " + SelectedPlantInResult.Geslacht);
+            detailsSelectedPlant.Add("Soort: " + SelectedPlantInResult.Soort);
+            detailsSelectedPlant.Add("Variant: " + SelectedPlantInResult.Variant);
+            detailsSelectedPlant.Add("Minimale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMin);
+            detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
+            detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
+            detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
+        }
         public void FillDetailsPlantAbiotiek()
         {
             ////The following property consist of multiple values in a different table
