@@ -223,6 +223,9 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedPlantInResult = value;
+                FillImageBlad = GetImageLocation("blad");
+                FillImageBloei = GetImageLocation("bloei");
+                FillImageHabitus = GetImageLocation("habitus");
                 OnPropertyChanged();
                 FillDetailPlantResult();
             }
@@ -404,6 +407,59 @@ namespace PlantenApplicatie.Viewmodel
 
         #region Fill plantDetail listbox
 
+        public string GetImageLocation(string ImageCatogrie)
+        {
+            if (SelectedPlantInResult != null)
+            {
+                var location = _dao.GetImageLocation(SelectedPlantInResult.PlantId, ImageCatogrie);
+
+                return location;
+            }
+
+            return null;
+        }
+
+        private string _fillimageBloei;
+
+        public string FillImageBloei{
+            get { return _fillimageBloei; }
+            set
+            {
+                _fillimageBloei = GetImageLocation("bloei");
+                OnPropertyChanged();
+            }
+        }
+       
+
+
+        private string _fillimageHabitus;
+
+        public string FillImageHabitus
+        {
+            get { return _fillimageHabitus; }
+            set
+            {
+                _fillimageHabitus = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _fillimageBlad;
+
+        public string FillImageBlad
+        {
+            get { return _fillimageBlad; }
+            set
+            {
+                _fillimageBlad = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+
+
         public void FillDetailPlantResult()
         {
             detailsSelectedPlant.Clear();
@@ -428,6 +484,7 @@ namespace PlantenApplicatie.Viewmodel
                 detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
                 detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
                 detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
+                detailsSelectedPlant.Add();
 
                 ////Abiotiek
                 FillDetailsPlantAbiotiek();
@@ -638,6 +695,7 @@ namespace PlantenApplicatie.Viewmodel
 
 
         #endregion
+
         #region Methods to use in our DelegateCommands
 
         #region ResetFunction

@@ -138,7 +138,15 @@
         <ListBox x:Name="lstResultSearch" 
                      ItemsSource="{Binding filteredPlantResults}"
                      SelectedItem="{Binding Path= SelectedPlantInResult, Mode=TwoWay}"
-                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="232,85,0,0" Height="695" VerticalAlignment="Top" HorizontalAlignment="Left" Width="450">
+                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="232,145,0,0" Height="635" VerticalAlignment="Top" HorizontalAlignment="Left" Width="440" RenderTransformOrigin="0.5,0.5">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.443"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-1.326"/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel  Margin="10">
@@ -170,6 +178,21 @@
                             <TextBlock Text="Variant: " TextDecorations="Underline" />
                             <TextBlock Text="{Binding Variant}"/>
                         </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                            <StackPanel Orientation="Vertical" Margin="0,5,5,0">
+                                <TextBlock Text="Foto Bloei"/>
+                                <Image Source="{Binding FillImageBlad}"  Height="100"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Vertical" Margin="0,5,5,0">
+                                    <TextBlock Text="Foto Bloei"/>
+                                <Image Source="{Binding FillImageHabitus}"  Height="100"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Vertical" Margin="0,5,5,0">
+                                    <TextBlock Text="Foto Bloei"/>
+                                <Image Source="{Binding FillImageBloei}"  Height="100"/>
+                                </StackPanel>
+                            </StackPanel>
+
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -177,17 +200,17 @@
         <ListBox x:Name="lstDetails"
                  ItemsSource="{Binding detailsSelectedPlant}"
 
-                 Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="710,85,0,0" HorizontalAlignment="Left" Width="450" Height="695" VerticalAlignment="Top"/>
-        <Label Content="Resultaat planten" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C" Margin="359,27,0,0" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top">
+                 Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="714,145,0,0" HorizontalAlignment="Left" Width="446" Height="635" VerticalAlignment="Top"/>
+        <Label Content="Resultaat planten" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C" Margin="385,49,0,0" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
-        <Label Content="Details planten" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C" Margin="850,27,0,0" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Label Content="Details planten" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C" Margin="801,49,0,0" FontSize="24" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Label.Effect>
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
-
+       
     </Grid>
 </UserControl>

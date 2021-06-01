@@ -182,6 +182,20 @@ namespace Planten2021.Data
             return plants;
         }
 
+        public string GetImageLocation(long id , string ImageCategorie)
+        {
+            var foto = context.Foto.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
+            
+
+            if (foto != null)
+            {
+                var location = foto.UrlLocatie;
+                return location;
+            }
+
+            return null;
+        }
+
         #region Lists of all the plant properties with multiple values, used to display plant details
 
         //Get a list of all the Abiotiek types
