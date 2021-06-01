@@ -70,75 +70,125 @@
             <Label Content="Bladhoogte"  Canvas.Left="38" Canvas.Top="210" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Bladvormen"  Canvas.Left="38" Canvas.Top="260" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
 
-            <CheckBox x:Name="CbxBloeihoogteJan" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteJan" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteFeb" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteFeb" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteMar" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteMar" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteApr" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteApr" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteMay" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteMei" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteJun" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteJun" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteJul" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteJul" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteAug" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteAug" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteSep" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteSep" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteOct" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteOct" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteNov" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteNov" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteDec" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBladhoogteDec" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <ComboBox x:Name="CboBloeihoogteMin" Canvas.Left="827" Canvas.Top="340" Height="26" Width="40">
+            <ComboBox x:Name="CmbBladhoogteMin" Canvas.Left="827" Canvas.Top="340" Height="26" Width="40">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
             </ComboBox>
-            <ComboBox x:Name="CboBloeihoogteMax" Canvas.Left="905" Canvas.Top="340" Height="26" Width="40">
+            <ComboBox x:Name="CmbBladhoogteMax" Canvas.Left="905" Canvas.Top="340" Height="26" Width="40">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
             </ComboBox>
 
             <CheckBox x:Name="CbxBloeitInJan" Content="CheckBox" Canvas.Left="168" Canvas.Top="384" Height="14" Width="14">
@@ -161,7 +211,7 @@
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInMay" Content="CheckBox" Canvas.Left="434" Canvas.Top="384" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInMei" Content="CheckBox" Canvas.Left="434" Canvas.Top="384" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>

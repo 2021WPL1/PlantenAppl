@@ -7,6 +7,9 @@ namespace PlantenApplicatie.Viewmodel
 {
     public class ViewModelAppearance : ViewModelBase
     {
-        public ViewModelAppearance() { }
+        public ViewModelAppearance()
+        {
+
+        }
     }
 }

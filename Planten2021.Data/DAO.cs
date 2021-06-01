@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Text;
 using System.Linq;
 //using Planten2021.Data.Models;
@@ -386,6 +387,23 @@ namespace Planten2021.Data
         #endregion
 
         #endregion
+
+        #region Fill Combobox Pollenwaarde en Nectarwaarde
+        
+        public List<ExtraPollenwaarde> FillExtraPollenwaardes()
+        {
+            var selection = context.ExtraPollenwaarde.ToList();
+            return selection;
+        }
+
+        public List<ExtraNectarwaarde> FillExtraNectarwaardes()
+        {
+            var selection = context.ExtraNectarwaarde.ToList();
+            return selection;
+        }
+
+        #endregion
+
 
         public List<Plant> detailsAanvullen(long ID)
         {

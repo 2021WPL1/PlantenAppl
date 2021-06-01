@@ -138,21 +138,41 @@
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
             <ComboBox Canvas.Left="667" Canvas.Top="43" Width="60" BorderBrush="Blue">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
             <ComboBox Canvas.Left="777" Canvas.Top="43" Width="60" BorderBrush="Blue">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
             <ComboBox Canvas.Left="837" Canvas.Top="43" Width="60" BorderBrush="Blue">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
             <Label Content="      Bijvriendelijk" Canvas.Left="438" Canvas.Top="145" Height="25" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="  Eetbaar/Kruidbaar" Canvas.Left="448" Canvas.Top="183" Height="28" Width="146" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
