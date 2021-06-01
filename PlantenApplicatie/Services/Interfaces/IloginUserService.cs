@@ -4,8 +4,9 @@ namespace PlantenApplicatie.Services.Interfaces
 {
     public interface IloginUserService
     {
-        void LoginButton();
+        void LoginButton(string userNameInput, string passwordInput);
         void CancelButton();
+        void RegisterButton();
 
 
     }

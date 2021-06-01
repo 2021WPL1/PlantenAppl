@@ -13,7 +13,8 @@ namespace PlantenApplicatie.Services.HelpClasses
             // gebruiken als container voor de services.
             SimpleIoc iocc = SimpleIoc.Default;
 
-            iocc.Register<IDialogService>(() => new MvvmDialogs.DialogService());
+            //iocc.Register<IDialogService>(() => new MvvmDialogs.DialogService());
+            //iocc.Register<IloginUserService>(() => new LoginUserService());
 
             // registreren van utility services
             iocc.Register<IloginUserService, LoginUserService>();

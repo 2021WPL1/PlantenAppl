@@ -7,13 +7,13 @@
         xmlns:viewModels="clr-namespace:PlantenApplicatie.Viewmodel"
         xmlns:userControls="clr-namespace:PlantenApplicatie.View.UserControls"
         xmlns:viewModel="clr-namespace:PlantenApplicatie.ViewModel"
-        xmlns:helpClasses="clr-namespace:PlantenApplicatie.Services.HelpClasses"
-        d:DataContext="{d:DesignInstance Type=viewModels:ViewModelLogin}"
+        xmlns:helpClasses="clr-namespace:PlantenApplicatie.Services.HelpClasses" 
+
         mc:Ignorable="d"
         Title="LoginWindow" Height="300" Width="464">
     <!--Written by Kenny-->
     <!--<Window.DataContext>
-        <helpClasses:ViewModelProvider/>
+        <viewModels:ViewModelLogin/>
     </Window.DataContext>-->
 
     <Window.Resources>

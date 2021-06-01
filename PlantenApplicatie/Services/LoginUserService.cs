@@ -20,46 +20,10 @@ namespace PlantenApplicatie.Services
     {
         private DAO _dao;
 
-
-        public RelayCommand loginCommand { get; set; }
-        public RelayCommand cancelCommand { get; set; }
-        public RelayCommand registerCommand { get; set; }
-
-        private string _userNameInput;
-        private string _passwordInput;
-
         public LoginUserService()
         {
             this._dao = DAO.Instance();
-            loginCommand = new RelayCommand(LoginButton);
-            cancelCommand = new RelayCommand(CancelButton);
-            registerCommand = new RelayCommand(RegisterButton);
-        }
 
-        public string userNameInput
-        {
-            get
-            {
-                return _userNameInput;
-            }
-            set
-            {
-                _userNameInput = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string passwordInput
-        {
-            get
-            {
-                return _passwordInput;
-            }
-            set
-            {
-                _passwordInput = value;
-                OnPropertyChanged();
-            }
         }
 
         public Gebruiker gebruiker = new Gebruiker();
@@ -67,7 +31,7 @@ namespace PlantenApplicatie.Services
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void LoginButton()
+        public void LoginButton(string userNameInput, string passwordInput)
         {
             //check if email is valid email
             if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
