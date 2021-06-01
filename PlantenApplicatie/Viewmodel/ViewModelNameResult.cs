@@ -627,7 +627,7 @@ namespace PlantenApplicatie.Viewmodel
                         }
                         else
                         {
-                            detailsSelectedPlant.Add("Kruidgebruik: Nee");
+                            detailsSelectedPlant.Add("Geurend: Nee");
                         }
                         if(itemExtraEigenschap.Kruidgebruik == true)
                         {

@@ -58,7 +58,6 @@ namespace PlantenApplicatie.Services
             if (gebruiker.HashPaswoord != null && passwordHashed.SequenceEqual(gebruiker.HashPaswoord))
             {
                 user.loginStatus = LoginStatus.LoggedIn;
-                MessageBox.Show($"{userNameInput}, je bent succevol ingelogd");
             }
             else
             {
@@ -85,10 +84,6 @@ namespace PlantenApplicatie.Services
             Application.Current.Windows[0]?.Close();
         }
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string property = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
-        }
 
         #endregion
 
@@ -111,7 +106,7 @@ namespace PlantenApplicatie.Services
                     if (passwordInput == passwordRepeatInput)
                     {
                         _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
-                        MessageBox.Show($"{firstNameInput}, je bent succevol geregistreerd, uw gebruikersnaam is {emailAdresInput} en uw wachtwoord is {passwordInput} .");
+                        MessageBox.Show($"{firstNameInput}, je bent succevol geregistreerd, uw gebruikersnaam is {emailAdresInput}.");
                         LoginWindow loginWindow = new LoginWindow();
                         loginWindow.Show();
                     }
