@@ -90,7 +90,7 @@ namespace PlantenApplicatie.Viewmodel
         public ICommand ResetCommand { get; set; }
 
         #endregion
-
+        //Robin, Owen
         #region Selected Item variables for each combobox
 
         private TfgsvType _selectedType;
@@ -397,8 +397,8 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
-        #region Fill plantDetail listbox
-
+        #region Robin: Fill plantDetail listbox
+        //Robin
         public void FillDetailPlantResult()
         {
             detailsSelectedPlant.Clear();
@@ -601,10 +601,10 @@ namespace PlantenApplicatie.Viewmodel
                 {
                     if (itemExtraEigenschap.PlantId == plantItem.PlantId)
                     {
-                        //BOOLS APART VERWERKEN ZODAT DIT OOK IN HET NEDERLANDS IS
                         detailsSelectedPlant.Add("Nectarwaarde: " + itemExtraEigenschap.Nectarwaarde);
                         detailsSelectedPlant.Add("Pollenwaarde: " + itemExtraEigenschap.Pollenwaarde);
-                        //BOOLs
+                        
+                        //Make sure the output is in dutch
                         if(itemExtraEigenschap.Bijvriendelijke==true)
                         {
                             detailsSelectedPlant.Add("Bijvriendelijk: Ja" );

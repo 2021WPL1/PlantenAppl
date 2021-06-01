@@ -139,6 +139,7 @@
                      ItemsSource="{Binding filteredPlantResults}"
                      SelectedItem="{Binding Path= SelectedPlantInResult, Mode=TwoWay}"
                      Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="232,85,0,0" Height="695" VerticalAlignment="Top" HorizontalAlignment="Left" Width="450">
+            <!--Robin-->
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel  Margin="10">

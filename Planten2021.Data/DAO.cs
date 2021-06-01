@@ -183,7 +183,7 @@ namespace Planten2021.Data
             return plants;
         }
 
-        #region Lists of all the plant properties with multiple values, used to display plant details
+        #region Robin: Lists of all the plant properties with multiple values, used to display plant details
 
         //Get a list of all the Abiotiek types
         public List<Abiotiek> GetAllAbiotieks()
@@ -217,7 +217,7 @@ namespace Planten2021.Data
         public List<CommensalismeMulti> GetAllCommensalismeMulti()
         {
             //List is unfiltered, a plantId can be present multiple times
-            //The aditional filteren will take place in the ViewModel
+            //The aditional filtering will take place in the ViewModel
 
             var commensalismeMulti = context.CommensalismeMulti.ToList();
             return commensalismeMulti;
