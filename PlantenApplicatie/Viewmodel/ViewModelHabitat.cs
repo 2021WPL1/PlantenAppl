@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.View.UserControls;
@@ -89,15 +91,9 @@ namespace PlantenApplicatie.Viewmodel
             get { return _selectedOntwikkelsnelheid; }
             set
             {
-                if (SelectedOntwikkelsnelheid == "")
-                {
-                    _selectedOntwikkelsnelheid = null;
-                }
-                else
-                {
-                    _selectedOntwikkelsnelheid = value;
-                }
+                _selectedOntwikkelsnelheid = value;
 
+                MessageBox.Show(_selectedOntwikkelsnelheid);
                 OnPropertyChanged();
             }
         }

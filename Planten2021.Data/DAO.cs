@@ -404,6 +404,13 @@ namespace Planten2021.Data
 
         #endregion
 
+        public List<BeheerMaand> FillBeheerdaad()
+        {
+            var selection = context.BeheerMaand.ToList();
+            return selection;
+        }
+
+
 
         public List<Plant> detailsAanvullen(long ID)
         {
