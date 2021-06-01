@@ -7,7 +7,5 @@ namespace PlantenApplicatie.Services.Interfaces
         void LoginButton(string userNameInput, string passwordInput);
         void CancelButton();
         void RegisterButton();
-
-
     }
 }

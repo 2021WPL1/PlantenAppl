@@ -29,9 +29,12 @@ namespace PlantenApplicatie.ViewModel
         }
 
         private IloginUserService _loginUserService;
-        public ViewModelMain(IloginUserService loginUserService)
+        private ISearchService _searchService;
+        public ViewModelMain(IloginUserService loginUserService,ISearchService searchService)
         {
             this._loginUserService = loginUserService;
+            this._searchService = searchService;
+
             this._viewModelsRepo = ViewModelRepo.Instance();
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
