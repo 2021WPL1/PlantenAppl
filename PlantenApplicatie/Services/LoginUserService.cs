@@ -23,7 +23,6 @@ namespace PlantenApplicatie.Services
         public LoginUserService()
         {
             this._dao = DAO.Instance();
-
         }
 
         public Gebruiker gebruiker = new Gebruiker();
