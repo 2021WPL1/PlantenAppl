@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using System.Linq;
 //using Planten2021.Data.Models;
@@ -194,8 +195,12 @@ namespace Planten2021.Data
         //Get a list of all the AbiotiekMulti types
         public List<AbiotiekMulti> GetAllAbiotieksMulti()
         {
-            var abiotiekMulti = context.AbiotiekMulti.ToList();
-            return abiotiekMulti;
+            //List is unfiltered, a plantId can be present multiple times
+            //The aditional filteren will take place in the ViewModel
+
+            var abioMultiList = context.AbiotiekMulti.ToList();
+
+            return abioMultiList;
         }
         //Get a list of all the Beheermaand types
         public List<BeheerMaand> GetBeheerMaanden()
@@ -211,6 +216,9 @@ namespace Planten2021.Data
         }
         public List<CommensalismeMulti> GetAllCommensalismeMulti()
         {
+            //List is unfiltered, a plantId can be present multiple times
+            //The aditional filteren will take place in the ViewModel
+
             var commensalismeMulti = context.CommensalismeMulti.ToList();
             return commensalismeMulti;
         }

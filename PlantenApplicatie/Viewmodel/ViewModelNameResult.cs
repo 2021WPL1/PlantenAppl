@@ -377,7 +377,6 @@ namespace PlantenApplicatie.Viewmodel
                     ControleList.Add(item.Variantnaam);
                     Simplify(item.Variantnaam);
                     cmbVariant.Add(item);
-
                 }
             }
         }
@@ -480,17 +479,23 @@ namespace PlantenApplicatie.Viewmodel
             ////by checking if the Abiotiek_Multi.PlantId is the same als the SelectedPlantResult.PlantId.
             ////Once filtered: put the remaining Abiotiek_Multi types in the detailSelectedPlant Observable Collection
             var abioMultiList = _dao.GetAllAbiotieksMulti();
+            bool hasCheckedPlant;
 
+            //bool gebruiken
             foreach (var itemAbioMulti in abioMultiList)
             {
+                //A multi table contains the same PlantId multiple times because it can contain multiple properties
+                //To refrain the app from showing duplicate data, I use a bool to limit the foreach to 1 run per plantId
+                hasCheckedPlant = true;
                 foreach (var plantItem in SelectedPlantInResult.AbiotiekMulti)
                 {
-                    if (itemAbioMulti.PlantId == plantItem.PlantId)
+                    if (hasCheckedPlant == true && itemAbioMulti.PlantId == plantItem.PlantId)
                     {
                         //EVENTUEEL 1 EIGENSCHAP-> VERSCHILLENDE WAARDES MEEGEVEN OP 1 LIJN OF ONDER ELKAAR
                         detailsSelectedPlant.Add("Abio Eigenschap: " + itemAbioMulti.Eigenschap);
                         detailsSelectedPlant.Add("Abio Waarde: " + itemAbioMulti.Waarde);
                     }
+                    hasCheckedPlant = false;
                 }
             }
         }
@@ -565,9 +570,12 @@ namespace PlantenApplicatie.Viewmodel
 
             ////There is currently no data in this table, but the app is prepared for when it's added.
             var commensalismeMultiList = _dao.GetAllCommensalismeMulti();
+            bool hasCheckedPlant;
 
             foreach (var itemCommensalismeMulti in commensalismeMultiList)
-            {
+            {    //A multi table contains the same PlantId multiple times because it can contain multiple properties
+                //To refrain the app from showing duplicate data, I use a bool to limit the foreach to 1 run per plantId
+                hasCheckedPlant = true;
                 foreach (var plantItem in SelectedPlantInResult.Commensalisme)
                 {
                     if (itemCommensalismeMulti.PlantId == plantItem.PlantId)
@@ -575,6 +583,7 @@ namespace PlantenApplicatie.Viewmodel
                         detailsSelectedPlant.Add("Commensalisme eigenschap: " + itemCommensalismeMulti.Eigenschap);
                         detailsSelectedPlant.Add("Commensalisme waarde: " + itemCommensalismeMulti.Waarde);
                     }
+                    hasCheckedPlant = false;
                 }
             }
         }
@@ -597,12 +606,55 @@ namespace PlantenApplicatie.Viewmodel
                         detailsSelectedPlant.Add("Nectarwaarde: " + itemExtraEigenschap.Nectarwaarde);
                         detailsSelectedPlant.Add("Pollenwaarde: " + itemExtraEigenschap.Pollenwaarde);
                         //BOOLs
-                        detailsSelectedPlant.Add("Bijvriendelijk: " + itemExtraEigenschap.Bijvriendelijke);
-                        detailsSelectedPlant.Add("Eetbaar: " + itemExtraEigenschap.Eetbaar);
-                        detailsSelectedPlant.Add("Geurend: " + itemExtraEigenschap.Geurend);
-                        detailsSelectedPlant.Add("Kruidgebruik: " + itemExtraEigenschap.Kruidgebruik);
-                        detailsSelectedPlant.Add("Vlindervriendelijk: " + itemExtraEigenschap.Vlindervriendelijk);
-                        detailsSelectedPlant.Add("Vorstgevoelig: " + itemExtraEigenschap.Vorstgevoelig);
+                        if(itemExtraEigenschap.Bijvriendelijke==true)
+                        {
+                            detailsSelectedPlant.Add("Bijvriendelijk: Ja" );
+                        }
+                        else
+                        {
+                            detailsSelectedPlant.Add("Bijvriendelijk: Nee");
+                        }
+                        if(itemExtraEigenschap.Eetbaar==true)
+                        {
+                            detailsSelectedPlant.Add("Eetbaar: Ja");
+                        }
+                        else
+                        {
+                            detailsSelectedPlant.Add("Eetbaar: Nee");
+                        }
+                        if(itemExtraEigenschap.Geurend == true)
+                        {
+                            detailsSelectedPlant.Add("Geurend: Ja");
+                        }
+                        else
+                        {
+                            detailsSelectedPlant.Add("Kruidgebruik: Nee");
+                        }
+                        if(itemExtraEigenschap.Kruidgebruik == true)
+                        {
+                            detailsSelectedPlant.Add("Kruidgebruik: Ja");
+                        }
+                        else
+                        {
+                            detailsSelectedPlant.Add("Kruidgebruik: Nee");
+                        }
+                        if(itemExtraEigenschap.Vlindervriendelijk == true)
+                        {
+                            detailsSelectedPlant.Add("Vlindervriendelijk: Ja");
+                        }
+                        else
+                        {
+                            detailsSelectedPlant.Add("Vlindervriendelijk: Nee");
+                        }
+                        if(itemExtraEigenschap.Vorstgevoelig == true)
+                        {
+                            detailsSelectedPlant.Add("Vorstgevoelig: Ja");
+                        }
+                        else
+                        {
+                            detailsSelectedPlant.Add("Vorstgevoelig: Nee");
+                        }
+
                     }
                 }
             }
