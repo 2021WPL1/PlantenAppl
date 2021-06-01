@@ -11,10 +11,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="900" Width="1250">
 
-    <Window.DataContext>
-        <viewModel:ViewModelMain/>
-    </Window.DataContext>
-
     <Window.Resources>
 
         <DataTemplate DataType = "{x:Type viewModels:ViewModelNameResult}">
