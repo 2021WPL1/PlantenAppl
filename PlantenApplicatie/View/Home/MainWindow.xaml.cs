@@ -28,6 +28,7 @@ namespace PlantenApplicatie.View
         
         public MainWindow()
         {
+            DataContext = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<ViewModelMain>();
             InitializeComponent();
             //DAO instance 
            

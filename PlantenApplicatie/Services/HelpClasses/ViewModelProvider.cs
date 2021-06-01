@@ -1,4 +1,5 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
+using Planten2021.Data;
 using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.Viewmodel;
 using PlantenApplicatie.ViewModel;
@@ -31,6 +32,7 @@ namespace PlantenApplicatie.Services.HelpClasses
 
         private void RegisterViewModels()
         {
+            DAO dao = DAO.Instance();
             // gebruik de default instantie (singleton van de SimpleIoc class)
             var iocc = SimpleIoc.Default;
 
@@ -41,7 +43,10 @@ namespace PlantenApplicatie.Services.HelpClasses
             // registreer de viewmodels in de IoC Container
             // factory pattern om een instantie te maken van de viewmodels
             // Dependency Injection: constructor injection: injecteer  de services in the constructors van de viewmodels;
-            iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
+            SimpleIoc.Default.Unregister<ViewModelLogin>();
+            iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService, dao));
+
+            SimpleIoc.Default.Unregister<ViewModelMain>();
             iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService));
 
 

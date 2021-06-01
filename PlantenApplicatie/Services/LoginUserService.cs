@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
-using GalaSoft.MvvmLight.CommandWpf;
+using GalaSoft.MvvmLight.Command;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.HelpClasses.Login.classes;

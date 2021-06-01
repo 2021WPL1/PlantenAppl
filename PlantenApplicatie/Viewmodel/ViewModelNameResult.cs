@@ -5,15 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
-using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
-using PlantenApplicatie.HelpClasses;
-using PlantenApplicatie.View;
-using PlantenApplicatie.View.UserControls;
 using PlantenApplicatie.ViewModel;
 using Prism.Commands;
-using PlantenApplicatie.View.UserControls;
+
 
 namespace PlantenApplicatie.Viewmodel
 {
