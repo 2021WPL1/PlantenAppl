@@ -58,6 +58,7 @@ namespace PlantenApplicatie.Viewmodel
 
 
         #region Fill result test
+
         public void FillPlantResult()
         {
             var list = _dao.getAllPlants();
@@ -67,6 +68,7 @@ namespace PlantenApplicatie.Viewmodel
                 filteredPlantResults.Add(item);
             }
         }
+
         #endregion
 
         //Observable collections
@@ -80,6 +82,7 @@ namespace PlantenApplicatie.Viewmodel
 
         ////Bind to ListBoxes
         public ObservableCollection<Plant> filteredPlantResults { get; set; }
+
         public ObservableCollection<String> detailsSelectedPlant { get; set; }
         ////
 
@@ -216,10 +219,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public Plant SelectedPlantInResult
         {
-            get
-            {
-                return _selectedPlantInResult;
-            }
+            get { return _selectedPlantInResult; }
             set
             {
                 _selectedPlantInResult = value;
@@ -227,6 +227,7 @@ namespace PlantenApplicatie.Viewmodel
                 FillDetailPlantResult();
             }
         }
+
         #endregion
 
         //#region Fill combobox methods
@@ -343,6 +344,7 @@ namespace PlantenApplicatie.Viewmodel
                 // Requesting te list of Soort  with 0 because there is noting selected in the combobox of type.
                 list = _dao.fillTfgsvSoort(0);
             }
+
             // clearing te content of te combobox of Soort
             cmbSoort.Clear();
             // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
@@ -427,26 +429,213 @@ namespace PlantenApplicatie.Viewmodel
                 detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
                 detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
 
-                //the following properties consist of multiple values, use a foreach
                 ////Abiotiek
-                
-                //foreach(var item in SelectedPlantInResult.Abiotiek)
-                //{
-                //    if (SelectedPlantInResult.PlantId == item.PlantId)
-                //    {
-                //        detailsSelectedPlant.Add("Antagonische omgeving: " + item.AntagonischeOmgeving);
-                //        detailsSelectedPlant.Add("Bezonning: " + item.Bezonning);
-                //        detailsSelectedPlant.Add("Grondsoort: " + item.Grondsoort);
-                //        detailsSelectedPlant.Add("Vochtbehoefte: " + item.Vochtbehoefte);
-                //        detailsSelectedPlant.Add("Voedingsbehoefte" + item.Voedingsbehoefte);
-                //    }
-                  
-                //}
-                //AbiotiekMulti
-
+                FillDetailsPlantAbiotiek();
+                ////Abiotiek_Multi
+                FillDetailsPlantAbiotiekMulti();
+                ////Beheermaand
+                FillDetailsPlantBeheermaand();
+                ////Commensalisme
+                FillDetailsPlantCommensalisme();
+                ////CommensalismeMulti
+                FillDetailsPlantCommensalismeMulti();
+                ////ExtraEigenschap
+                FillExtraEigenschap();
+                ////FenoType
+                FillFenotype();
+                ////Foto
+                ////UpdatePlant
             }
 
         }
+
+        public void FillDetailsPlantAbiotiek()
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an Abiotiek list, then we'll need to filter that list
+            ////by checking if the Abiotiek.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining Abiotiek types in the detailSelectedPlant Observable Collection
+            var abioList = _dao.GetAllAbiotieks();
+
+            foreach (var itemAbio in abioList)
+            {
+                foreach (var plantItem in SelectedPlantInResult.Abiotiek)
+                {
+                    if (itemAbio.PlantId == plantItem.PlantId)
+                    {
+                        detailsSelectedPlant.Add("Antagonische omgeving: " + itemAbio.AntagonischeOmgeving);
+                        detailsSelectedPlant.Add("Bezonning: " + itemAbio.Bezonning);
+                        detailsSelectedPlant.Add("Grondsoort: " + itemAbio.Grondsoort);
+                        detailsSelectedPlant.Add("Vochtbehoefte: " + itemAbio.Vochtbehoefte);
+                        detailsSelectedPlant.Add("Voedingsbehoefte: " + itemAbio.Voedingsbehoefte);
+                    }
+                }
+            }
+        }
+
+        public void FillDetailsPlantAbiotiekMulti()
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an Abiotiek_Multi list, then we'll need to filter that list
+            ////by checking if the Abiotiek_Multi.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining Abiotiek_Multi types in the detailSelectedPlant Observable Collection
+            var abioMultiList = _dao.GetAllAbiotieksMulti();
+
+            foreach (var itemAbioMulti in abioMultiList)
+            {
+                foreach (var plantItem in SelectedPlantInResult.AbiotiekMulti)
+                {
+                    if (itemAbioMulti.PlantId == plantItem.PlantId)
+                    {
+                        //EVENTUEEL 1 EIGENSCHAP-> VERSCHILLENDE WAARDES MEEGEVEN OP 1 LIJN OF ONDER ELKAAR
+                        detailsSelectedPlant.Add("Abio Eigenschap: " + itemAbioMulti.Eigenschap);
+                        detailsSelectedPlant.Add("Abio Waarde: " + itemAbioMulti.Waarde);
+                    }
+                }
+            }
+        }
+
+        //Table without data
+        public void FillDetailsPlantBeheermaand()
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an BeheerMaand list consisting of every possible property, then we'll need to filter that list
+            ////by checking if the Beheermaand.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining Beheermaand types in the detailSelectedPlant Observable Collection
+
+            ////There is currently no data in this table, but the app is prepared for when it's added.
+            var beheerMaandList = _dao.GetBeheerMaanden();
+
+            foreach (var itemBeheerMaand in beheerMaandList)
+            {
+                foreach (var plantItem in SelectedPlantInResult.BeheerMaand)
+                {
+                    if (itemBeheerMaand.PlantId == plantItem.PlantId)
+                    {
+                        //EVENTUEEL 1 EIGENSCHAP-> VERSCHILLENDE WAARDES MEEGEVEN OP 1 LIJN OF ONDER ELKAAR
+                        //BOOLS OP EEN ANDERE MANIER GEBRUIKEN?
+                        detailsSelectedPlant.Add("Beheerdaad: " + itemBeheerMaand.Beheerdaad);
+                        detailsSelectedPlant.Add("Januari: " + itemBeheerMaand.Jan);
+                        detailsSelectedPlant.Add("Februari" + itemBeheerMaand.Feb);
+                        detailsSelectedPlant.Add("Maart" + itemBeheerMaand.Mrt);
+                        detailsSelectedPlant.Add("April" + itemBeheerMaand.Apr);
+                        detailsSelectedPlant.Add("Mei" + itemBeheerMaand.Mei);
+                        detailsSelectedPlant.Add("Juni" + itemBeheerMaand.Jun);
+                        detailsSelectedPlant.Add("Juli" + itemBeheerMaand.Jul);
+                        detailsSelectedPlant.Add("Augustus" + itemBeheerMaand.Aug);
+                        detailsSelectedPlant.Add("September" + itemBeheerMaand.Sept);
+                        detailsSelectedPlant.Add("Oktober" + itemBeheerMaand.Okt);
+                        detailsSelectedPlant.Add("November" + itemBeheerMaand.Nov);
+                        detailsSelectedPlant.Add("December" + itemBeheerMaand.Dec);
+                    }
+                }
+            }
+        }
+
+        //Table without data
+        public void FillDetailsPlantCommensalisme()
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an Commensalisme list consisting of every possible property, then we'll need to filter that list
+            ////by checking if the Commensalisme.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining Commensalisme types in the detailSelectedPlant Observable Collection
+
+            ////There is currently no data in this table, but the app is prepared for when it's added.
+            var commensalismeList = _dao.GetAllCommensalisme();
+
+            foreach (var itemCommensalisme in commensalismeList)
+            {
+                foreach (var plantItem in SelectedPlantInResult.Commensalisme)
+                {
+                    if (itemCommensalisme.PlantId == plantItem.PlantId)
+                    {
+                        detailsSelectedPlant.Add("Ontwikkelsnelheid: " + itemCommensalisme.Ontwikkelsnelheid);
+                        detailsSelectedPlant.Add("Strategie" + itemCommensalisme.Strategie);
+                    }
+                }
+            }
+        }
+
+        public void FillDetailsPlantCommensalismeMulti()
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an CommensalismeMulti list consisting of every possible property, then we'll need to filter that list
+            ////by checking if the CommensalismeMulti.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining CommensalismeMulti types in the detailSelectedPlant Observable Collection
+
+            ////There is currently no data in this table, but the app is prepared for when it's added.
+            var commensalismeMultiList = _dao.GetAllCommensalismeMulti();
+
+            foreach (var itemCommensalismeMulti in commensalismeMultiList)
+            {
+                foreach (var plantItem in SelectedPlantInResult.Commensalisme)
+                {
+                    if (itemCommensalismeMulti.PlantId == plantItem.PlantId)
+                    {
+                        detailsSelectedPlant.Add("Commensalisme eigenschap: " + itemCommensalismeMulti.Eigenschap);
+                        detailsSelectedPlant.Add("Commensalisme waarde: " + itemCommensalismeMulti.Waarde);
+                    }
+                }
+            }
+        }
+
+        public void FillExtraEigenschap()
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an ExtraEigenschap list, then we'll need to filter that list
+            ////by checking if the ExtraEigenschap.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining ExtraEigenschap types in the detailSelectedPlant Observable Collection
+            var extraEigenschapList = _dao.GetAllExtraEigenschap();
+
+            foreach (var itemExtraEigenschap in extraEigenschapList)
+            {
+                foreach (var plantItem in SelectedPlantInResult.ExtraEigenschap)
+                {
+                    if (itemExtraEigenschap.PlantId == plantItem.PlantId)
+                    {
+                        //BOOLS APART VERWERKEN ZODAT DIT OOK IN HET NEDERLANDS IS
+                        detailsSelectedPlant.Add("Nectarwaarde: " + itemExtraEigenschap.Nectarwaarde);
+                        detailsSelectedPlant.Add("Pollenwaarde: " + itemExtraEigenschap.Pollenwaarde);
+                        //BOOLs
+                        detailsSelectedPlant.Add("Bijvriendelijk: " + itemExtraEigenschap.Bijvriendelijke);
+                        detailsSelectedPlant.Add("Eetbaar: " + itemExtraEigenschap.Eetbaar);
+                        detailsSelectedPlant.Add("Geurend: " + itemExtraEigenschap.Geurend);
+                        detailsSelectedPlant.Add("Kruidgebruik: " + itemExtraEigenschap.Kruidgebruik);
+                        detailsSelectedPlant.Add("Vlindervriendelijk: " + itemExtraEigenschap.Vlindervriendelijk);
+                        detailsSelectedPlant.Add("Vorstgevoelig: " + itemExtraEigenschap.Vorstgevoelig);
+                    }
+                }
+            }
+        }
+
+        public void FillFenotype()
+        {
+            ////The following property consist of multiple values in a different table
+            ////First we need an Fenotype list, then we'll need to filter that list
+            ////by checking if the Fenotype.PlantId is the same als the SelectedPlantResult.PlantId.
+            ////Once filtered: put the remaining Fenotype types in the detailSelectedPlant Observable Collection
+            var fenoTypeList = _dao.GetAllFenoTypes();
+
+            foreach (var itemFenotype in fenoTypeList)
+            {
+                foreach (var item in SelectedPlantInResult.Fenotype)
+                {
+                    if (item.PlantId == itemFenotype.PlantId)
+                    {
+                        //FILTER DE DUBBELE PLANTEN UIT DE DATABASE
+
+                        detailsSelectedPlant.Add("Bladgrootte: " + itemFenotype.Bladgrootte.ToString());
+                        detailsSelectedPlant.Add("Bladvorm: " + itemFenotype.Bladvorm);
+                        detailsSelectedPlant.Add("BloeiVorm: " + itemFenotype.Bloeiwijze);
+                        detailsSelectedPlant.Add("Habitus: " + itemFenotype.Habitus);
+                        detailsSelectedPlant.Add("Levensvorm: " + itemFenotype.Levensvorm);
+                        detailsSelectedPlant.Add("Spruitfenologie: " + itemFenotype.Spruitfenologie);
+                        detailsSelectedPlant.Add("Ratio blad/bloei: " + itemFenotype.RatioBloeiBlad);
+                    }
+                }
+            }
+        }
+
 
         #endregion
         #region Methods to use in our DelegateCommands

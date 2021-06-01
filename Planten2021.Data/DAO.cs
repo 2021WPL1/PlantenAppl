@@ -182,6 +182,62 @@ namespace Planten2021.Data
             return plants;
         }
 
+        #region Lists of all the plant properties with multiple values, used to display plant details
+
+        //Get a list of all the Abiotiek types
+        public List<Abiotiek> GetAllAbiotieks()
+        {
+            var abiotiek = context.Abiotiek.ToList();
+            return abiotiek;
+        }
+
+        //Get a list of all the AbiotiekMulti types
+        public List<AbiotiekMulti> GetAllAbiotieksMulti()
+        {
+            var abiotiekMulti = context.AbiotiekMulti.ToList();
+            return abiotiekMulti;
+        }
+        //Get a list of all the Beheermaand types
+        public List<BeheerMaand> GetBeheerMaanden()
+        {
+            var beheerMaanden = context.BeheerMaand.ToList();
+            return beheerMaanden;
+        }
+
+        public List<Commensalisme> GetAllCommensalisme()
+        {
+            var commensalisme = context.Commensalisme.ToList();
+            return commensalisme;
+        }
+        public List<CommensalismeMulti> GetAllCommensalismeMulti()
+        {
+            var commensalismeMulti = context.CommensalismeMulti.ToList();
+            return commensalismeMulti;
+        }
+        public List<ExtraEigenschap> GetAllExtraEigenschap()
+        {
+            var extraEigenschap = context.ExtraEigenschap.ToList();
+            return extraEigenschap;
+        }
+
+        public List<Fenotype> GetAllFenoTypes()
+        {
+            var fenoTypes = context.Fenotype
+                .ToList();
+            return fenoTypes;
+        }
+        public List<Foto> GetAllFoto()
+        {
+            var foto = context.Foto.ToList();
+            return foto;
+        }
+        public List<UpdatePlant> GetAllUpdatePlant()
+        {
+            var updatePlant = context.UpdatePlant.ToList();
+            return updatePlant;
+        }
+        #endregion
+
         ////////////A function that takes a string, puts it to lowercase, 
         ////////////changes all the ' and " chars and replaces them by a space
         ////////////next it deletes al the spaces and returns the string.
@@ -237,7 +293,7 @@ namespace Planten2021.Data
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
-               return selection;
+                return selection;
 
             }
             else
@@ -289,7 +345,7 @@ namespace Planten2021.Data
             // distinct to prevrent more than one of each type
             // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
 
-            var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam); 
+            var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam);
             return selection;
 
         }
