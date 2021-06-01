@@ -12,7 +12,7 @@ using System.Windows.Shapes;
 using PlantenApplicatie.Viewmodel;
 
 namespace PlantenApplicatie.View.Home
-{
+{/*written by kenny*/
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>

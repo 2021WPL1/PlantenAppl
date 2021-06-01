@@ -1,7 +1,7 @@
 ﻿using System.Runtime.CompilerServices;
 
 namespace PlantenApplicatie.Services.Interfaces
-{
+{/*written by kenny*/
     public interface IloginUserService
     {
         void LoginButton(string userNameInput, string passwordInput);

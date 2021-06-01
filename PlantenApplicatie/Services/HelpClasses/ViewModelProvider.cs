@@ -5,7 +5,7 @@ using PlantenApplicatie.Viewmodel;
 using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Services.HelpClasses
-{    
+{  /*written by kenny*/  
     /// <summary>
     /// Provider van viewmodels
     /// De views worden in de SimpleIoc IoC (Inversion of Control) container geregistreerd
