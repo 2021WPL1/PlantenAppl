@@ -6,8 +6,10 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 using Prism.Commands;
 
@@ -16,13 +18,13 @@ namespace PlantenApplicatie.Viewmodel
 {
     public class ViewModelNameResult : ViewModelBase
     {
-        private DAO _dao;
-        //private ViewModelData _viewModelData;
+        private ISearchService _searchService;
 
-        public ViewModelNameResult()
+
+        public ViewModelNameResult(ISearchService searchService)
         {
 
-            this._dao = DAO.Instance();
+            this._searchService = searchService;
             //this._viewModelData = ViewModelData.Instance();
 
             //Observable Collections 
@@ -40,8 +42,8 @@ namespace PlantenApplicatie.Viewmodel
 
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
-            SearchCommand = new DelegateCommand(ApplyFilter);
-            ResetCommand = new DelegateCommand(Reset);
+            SearchCommand = new RelayCommand(ApplyFilter);
+            ResetCommand = new RelayCommand(Reset);
 
             //These comboboxes will already be filled with data on startup
             fillComboBoxType();
@@ -86,8 +88,8 @@ namespace PlantenApplicatie.Viewmodel
         #region icommands
 
         //ICommands
-        public ICommand SearchCommand { get; set; }
-        public ICommand ResetCommand { get; set; }
+        public RelayCommand SearchCommand { get; set; }
+        public RelayCommand ResetCommand { get; set; }
 
         #endregion
         //Robin, Owen

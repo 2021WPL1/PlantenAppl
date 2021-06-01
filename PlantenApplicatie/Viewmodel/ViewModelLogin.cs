@@ -22,7 +22,6 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelLogin : ViewModelBase
     {
         private IloginUserService _loginService { get; }
-
         public RelayCommand loginCommand { get; set; }
         public RelayCommand cancelCommand { get; set; }
         public RelayCommand registerCommand { get; set; }

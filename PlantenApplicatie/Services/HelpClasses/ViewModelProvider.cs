@@ -37,7 +37,7 @@ namespace PlantenApplicatie.Services.HelpClasses
 
             // haal singletons (elke keer dezelfde instantie) van de services om de viewmodels te voorzien van de nodige services, 
             var loginService = iocc.GetInstance<IloginUserService>();
-            var searchSerice = iocc.GetInstance<ISearchService>();
+            var searchService = iocc.GetInstance<ISearchService>();
 
 
             // registreer de viewmodels in de IoC Container
@@ -46,9 +46,10 @@ namespace PlantenApplicatie.Services.HelpClasses
 
             //SimpleIoc.Default.Unregister<ViewModelLogin>();
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
+            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService));
 
             //SimpleIoc.Default.Unregister<ViewModelMain>();
-            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService,searchSerice));
+            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService,searchService));
             
 
 

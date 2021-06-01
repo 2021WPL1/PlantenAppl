@@ -14,6 +14,14 @@ namespace PlantenApplicatie.Services
             this._dao = DAO.Instance();
         }
 
+        public void ApplyFilters()
+        {
+            throw new NotImplementedException();
+        }
 
+        public void Reset()
+        {
+            
+        }
     }
 }
