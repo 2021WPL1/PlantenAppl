@@ -23,15 +23,17 @@ namespace PlantenApplicatie.Viewmodel
 
         cmbPollenWaarde = new ObservableCollection<ExtraPollenwaarde>();
         cmbNectarWaarde = new ObservableCollection<ExtraNectarwaarde>();
+        
 
             fillComboBoxPollenwaarde();
             fillComboBoxNectarwaarde();
+            
         }
 
         public ObservableCollection<ExtraPollenwaarde> cmbPollenWaarde { get; set; }
         public ObservableCollection<ExtraNectarwaarde> cmbNectarWaarde { get; set; }
 
-
+       
         public void fillComboBoxPollenwaarde()
         {
             var list = _dao.FillExtraPollenwaardes();
@@ -41,6 +43,18 @@ namespace PlantenApplicatie.Viewmodel
                 
                 cmbPollenWaarde.Add(item);
 
+            }
+        }
+
+        private string _selectedPollenwaarde;
+
+        public string SelectedPollenwaarde
+        {
+            get { return _selectedPollenwaarde; }
+            set
+            {
+                _selectedPollenwaarde = value;
+                OnPropertyChanged();
 
             }
         }
@@ -52,6 +66,39 @@ namespace PlantenApplicatie.Viewmodel
             foreach (var item in list)
             {
                 cmbNectarWaarde.Add(item);
+            }
+        }
+
+        private string _selectedNectarwaarde;
+
+        public string SelectedNectarwaarde
+        {
+            get { return _selectedNectarwaarde; }
+            set
+            {
+                _selectedNectarwaarde = value;
+                OnPropertyChanged();
+
+            }
+        }
+
+        private string _selectedOntwikkelsnelheid;
+
+        public string SelectedOntwikkelsnelheid
+        {
+            get { return _selectedOntwikkelsnelheid; }
+            set
+            {
+                if (SelectedOntwikkelsnelheid == "")
+                {
+                    _selectedOntwikkelsnelheid = null;
+                }
+                else
+                {
+                    _selectedOntwikkelsnelheid = value;
+                }
+
+                OnPropertyChanged();
             }
         }
     }

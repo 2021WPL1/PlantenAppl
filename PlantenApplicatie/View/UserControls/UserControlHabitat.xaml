@@ -12,7 +12,7 @@
                 <DropShadowEffect/>
             </Canvas.Effect>
             <Label Content="Ontwikkelingssnelheid" Canvas.Left="422" Width="146" Height="25" FontWeight="Bold" Canvas.Top="6"/>
-            <ComboBox x:Name="cboOntwikkelingssnelheid" Canvas.Left="423" Canvas.Top="43" Width="133" BorderBrush="Blue">
+            <ComboBox x:Name="cmbOntwikkelingssnelheid" Canvas.Left="423" Canvas.Top="43" Width="133" BorderBrush="Blue">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
