@@ -638,6 +638,7 @@ namespace PlantenApplicatie.Viewmodel
 
 
         #endregion
+
         #region Methods to use in our DelegateCommands
 
         #region ResetFunction
