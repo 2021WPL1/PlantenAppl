@@ -18,13 +18,14 @@ namespace PlantenApplicatie.Services
 {
     public class LoginUserService : IloginUserService, INotifyPropertyChanged
     {
+        /*written by kenny from an example of Roy and some help of Killian*/
         private DAO _dao;
-
         public LoginUserService()
         {
             this._dao = DAO.Instance();
 
         }
+        #region Login Region
 
         public Gebruiker gebruiker = new Gebruiker();
         private User user = new User();
@@ -77,7 +78,7 @@ namespace PlantenApplicatie.Services
         {
             Application.Current.Shutdown();
         }
-        public void RegisterButton()
+        public void RegisterButtonView()
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
@@ -88,6 +89,49 @@ namespace PlantenApplicatie.Services
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(property));
         }
+
+        #endregion
+
+        #region Register Region
+
+        public void RegisterButton(string vivesNrInput, string lastNameInput, 
+                                   string firstNameInput, string emailAdresInput,
+                                   string passwordInput, string passwordRepeatInput, string rolInput)
+        {
+            if (vivesNrInput != null &&
+                firstNameInput != null &&
+                lastNameInput != null &&
+                emailAdresInput != null &&
+                passwordInput != null &&
+                passwordRepeatInput != null &&
+                rolInput != null)
+            {
+                if (emailAdresInput != null && emailAdresInput.Contains("@student.vives.be") && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+                {
+                    if (passwordInput == passwordRepeatInput)
+                    {
+                        _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
+                        MessageBox.Show($"{firstNameInput}, je bent succevol geregistreerd, uw gebruikersnaam is {emailAdresInput} en uw wachtwoord is {passwordInput} .");
+                        LoginWindow loginWindow = new LoginWindow();
+                        loginWindow.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("zorg dat de wachtwoorden overeen komen.");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show($"{emailAdresInput} is geen geldig emailadres, of het eamiladres is al in gebruik.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("zorg dat alle velden ingevuld zijn");
+            }
+        }
+        #endregion
+
 
     }
 }
