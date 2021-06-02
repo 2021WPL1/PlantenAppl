@@ -69,62 +69,86 @@
             <Label Content=" Max" Canvas.Left="1058" Canvas.Top="167" Height="26" Width="54" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
             <Label Content="Bloeihoogte"  Canvas.Left="28" Canvas.Top="217" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Bloeit in"  Canvas.Left="28" Canvas.Top="263" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxBloeihoogteJan" Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteJan" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteFeb" Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteFeb" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteMar" Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteMar" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteApr" Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteApr" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteApr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteMay" Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteMay" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteJun" Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteJun" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteJun, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteJul" Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteJul" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteJul, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteAug" Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteAug" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteAug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteSep" Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteSep" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteSep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteOct" Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteOct" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteOct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteNov" Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteNov" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteNov, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteDec" Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeihoogteDec" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteDec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
@@ -197,62 +221,86 @@
                 <ComboBoxItem Content="0/9"/>
 
             </ComboBox>
-            <CheckBox x:Name="CbxBloeitInJan" Content="CheckBox" Canvas.Left="168" Canvas.Top="270" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInJan" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="168" Canvas.Top="270" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInFeb" Content="CheckBox" Canvas.Left="232" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInFeb" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="168" Canvas.Top="270" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInMar" Content="CheckBox" Canvas.Left="300" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInMar" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="168" Canvas.Top="270" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInApr" Content="CheckBox" Canvas.Left="364" Canvas.Top="269" Height="15" Width="16">
+            <CheckBox x:Name="CbxBloeitInApr" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInApr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="364" Canvas.Top="269" Height="15" Width="16">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInMay" Content="CheckBox" Canvas.Left="434" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInMay" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="434" Canvas.Top="269" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInJun" Content="CheckBox" Canvas.Left="502" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInJun" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInJun, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="502" Canvas.Top="269" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInJul" Content="CheckBox" Canvas.Left="570" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInJul" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInJul, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="570" Canvas.Top="269" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInAug" Content="CheckBox" Canvas.Left="635" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInAug" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInAug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="635" Canvas.Top="269" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInSep" Content="CheckBox" Canvas.Left="706" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInSep" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInSep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="706" Canvas.Top="269" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInOct" Content="CheckBox" Canvas.Left="774" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInOct" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInOct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="774" Canvas.Top="269" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInNov" Content="CheckBox" Canvas.Left="840" Canvas.Top="270" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInNov" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInNov, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="840" Canvas.Top="270" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeitInDec" Content="CheckBox" Canvas.Left="908" Canvas.Top="269" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeitInDec" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInDec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="908" Canvas.Top="269" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
