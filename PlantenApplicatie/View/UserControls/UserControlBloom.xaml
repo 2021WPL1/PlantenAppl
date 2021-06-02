@@ -129,7 +129,10 @@
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <ComboBox x:Name="CboBloeihoogteMin" Canvas.Left="948" Canvas.Top="217" Height="26" Width="80">
+            <ComboBox x:Name="CboBloeihoogteMin" 
+                      ItemsSource="{Binding cmbBloeiHoogteMin}" 
+                      SelectedItem="{Binding Path=SelectedBloeiHoogte}" IsEditable="True"
+                      Canvas.Left="948" Canvas.Top="217" Height="26" Width="80">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -160,7 +163,10 @@
                 <ComboBoxItem Content="0/9"/>
 
             </ComboBox>
-            <ComboBox x:Name="CboBloeihoogteMax" Canvas.Left="1043" Canvas.Top="218" Height="26" Width="84">
+            <ComboBox x:Name="CboBloeihoogteMax" 
+                      ItemsSource="{Binding cmbBloeiHoogteMax}" 
+                      SelectedItem="{Binding Path=SelectedBloeiHoogte}" IsEditable="True"
+                      Canvas.Left="1043" Canvas.Top="218" Height="26" Width="84">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -252,12 +258,12 @@
                 </CheckBox.Effect>
             </CheckBox>
             <Label Content="Bloeiwijze" Canvas.Left="28" Canvas.Top="368" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14" />
-            <Label Content="Vorm 1"  Canvas.Left="59" Canvas.Top="420" Height="40" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 2"  Canvas.Left="155" Canvas.Top="420" Height="40" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 3"  Canvas.Left="256" Canvas.Top="420" Height="40" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 4"  Canvas.Left="347" Canvas.Top="420" Height="40" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 5"  Canvas.Left="434" Canvas.Top="420" Height="40" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 1"  Canvas.Left="59" Canvas.Top="420" Height="40" Width="59" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 2"  Canvas.Left="155" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 3"  Canvas.Left="256" Canvas.Top="420" Height="40" Width="59" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 4"  Canvas.Left="347" Canvas.Top="420" Height="40" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 5"  Canvas.Left="434" Canvas.Top="420" Height="40" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <CheckBox x:Name="CbxBloeiwijzeVorm1" Content="CheckBox" Canvas.Left="76" Canvas.Top="483" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>

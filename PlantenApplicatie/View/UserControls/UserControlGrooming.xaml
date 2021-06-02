@@ -115,7 +115,7 @@
 
             <ComboBox x:Name="CmbBeheerdaad" 
                       ItemsSource="{Binding cmbBeheerdaad}" 
-                     Canvas.Left="49" Canvas.Top="435" Width="192" Height="49"/>
+                      Canvas.Left="49" Canvas.Top="435" Width="192" Height="49"/>
 
         </Canvas>
     </Grid>

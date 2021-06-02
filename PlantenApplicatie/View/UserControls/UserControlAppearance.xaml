@@ -130,7 +130,10 @@
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <ComboBox x:Name="CmbBladhoogteMin" Canvas.Left="827" Canvas.Top="340" Height="26" Width="40">
+            <ComboBox x:Name="CmbBladhoogteMin" 
+                      ItemsSource="{Binding cmbBladHoogteMin}" 
+                      SelectedItem="{Binding Path=SelectedBladHoogte}" IsEditable="True"
+                      Canvas.Left="827" Canvas.Top="340" Height="26" Width="40">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -160,7 +163,10 @@
                 <ComboBoxItem Content="10/19"/>
                 <ComboBoxItem Content="0/9"/>
             </ComboBox>
-            <ComboBox x:Name="CmbBladhoogteMax" Canvas.Left="905" Canvas.Top="340" Height="26" Width="40">
+            <ComboBox x:Name="CmbBladhoogteMax" 
+                      ItemsSource="{Binding cmbBladHoogteMax}" 
+                      SelectedItem="{Binding Path=SelectedBladHoogte}" IsEditable="True"
+                      Canvas.Left="905" Canvas.Top="340" Height="26" Width="40">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>

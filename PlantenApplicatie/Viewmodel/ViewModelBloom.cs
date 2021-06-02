@@ -15,10 +15,10 @@ namespace PlantenApplicatie.Viewmodel
         public ViewModelBloom()
         {
             this._dao = DAO.Instance();
-
+            
         }
 
-        private string _selectedBloeiHoogte;
+       private string _selectedBloeiHoogte;
 
         public string SelectedBloeiHoogte
         {
