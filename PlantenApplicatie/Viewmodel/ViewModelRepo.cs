@@ -1,25 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Viewmodel
 {
 
     public class ViewModelRepo
-    {
-        //singleton pattern
-        private static readonly ViewModelRepo instance = new ViewModelRepo();
+    {   //singleton pattern
+        private static SimpleIoc iocc = SimpleIoc.Default;
+        private static ViewModelRepo instance;
 
         private Dictionary<string, ViewModelBase> _viewModels = new Dictionary<string, ViewModelBase>();
-
+       
+        private static IServiceProvider _serviceProvider;
+        private static ISearchService _searchService = iocc.GetInstance<ISearchService>();
+        
         public static ViewModelRepo Instance()
         {
             return instance;
         }
-
-        private ViewModelNameResult viewModelNameResult = new ViewModelNameResult();
+        public static void CreateInstance()
+        {
+            instance = new ViewModelRepo();
+        }
+        private ViewModelNameResult viewModelNameResult = new ViewModelNameResult(_searchService);
         private ViewModelHabitat viewModelHabitat = new ViewModelHabitat();
         private ViewModelBloom viewModelBloom = new ViewModelBloom();
         private ViewModelGrow viewModelGrow = new ViewModelGrow();

@@ -6,7 +6,6 @@ namespace PlantenApplicatie.Services.HelpClasses
 {
     public class ServiceProvider
     {
-
         public static void RegisterServices()
         {
             // de Default instantie (singleton) van de class SimpleIOC container
@@ -17,7 +16,9 @@ namespace PlantenApplicatie.Services.HelpClasses
             //iocc.Register<IloginUserService>(() => new LoginUserService());
 
             // registreren van utility services
-            iocc.Register<IloginUserService, LoginUserService>();
+            iocc.Register<IloginUserService,LoginUserService>();
+
+            //iocc.Register < ISearchService>(() => new SearchService());
             iocc.Register<ISearchService, SearchService>();
         }
     }

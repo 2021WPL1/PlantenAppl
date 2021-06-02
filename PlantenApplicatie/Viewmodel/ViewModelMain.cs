@@ -13,12 +13,16 @@ using PlantenApplicatie.HelpClasses;
 using MvvmHelpers;
 using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.Viewmodel;
+using GalaSoft.MvvmLight.Ioc;
 
 namespace PlantenApplicatie.ViewModel
 {
     public class ViewModelMain :ViewModelBase
     {
-        private ViewModelRepo _viewModelsRepo;
+        private SimpleIoc iocc =
+            SimpleIoc.Default;
+        private ViewModelRepo _viewModelRepo;
+
         private ViewModelBase _currentViewModel;
 
         public MyICommand<string> mainNavigationCommand { get; set; }
@@ -30,12 +34,12 @@ namespace PlantenApplicatie.ViewModel
 
         private IloginUserService _loginUserService;
         private ISearchService _searchService;
-        public ViewModelMain(IloginUserService loginUserService,ISearchService searchService)
+        public ViewModelMain(IloginUserService loginUserService, ISearchService searchService)
         {
-            this._loginUserService = loginUserService;
-            this._searchService = searchService;
 
-            this._viewModelsRepo = ViewModelRepo.Instance();
+            this._viewModelRepo = iocc.GetInstance<ViewModelRepo>();
+            this._searchService = searchService;
+            this._loginUserService = loginUserService;
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
@@ -43,8 +47,7 @@ namespace PlantenApplicatie.ViewModel
 
         private void _onNavigationChanged(string userControlName)
         {
-            this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
-            var viewModelResult = (ViewModelNameResult)_viewModelsRepo.GetViewModel("VIEWNAME");
+            this.currentViewModel = this._viewModelRepo.GetViewModel(userControlName);
         }
     }
 }
