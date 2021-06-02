@@ -11,8 +11,11 @@
             <Canvas.Effect>
                 <DropShadowEffect/>
             </Canvas.Effect>
-            <Label Content="Ontwikkelingssnelheid" Canvas.Left="422" Width="146" Height="25" FontWeight="Bold" Canvas.Top="6"/>
-            <ComboBox x:Name="cboOntwikkelingssnelheid" Canvas.Left="423" Canvas.Top="43" Width="133" BorderBrush="Blue">
+            <Label Content="Ontwikkelsnelheid" Canvas.Left="422" Width="146" Height="25" FontWeight="Bold" Canvas.Top="6"/>
+            <ComboBox x:Name="cmbOntwikkelsnelheid" 
+                      SelectedItem="{Binding Path=SelectedOntwikkelsnelheid}" IsEditable="True"
+                      Canvas.Left="423" Canvas.Top="43" Width="133" BorderBrush="Blue" SelectionChanged="cmbOntwikkelsnelheid_SelectionChanged"
+                      >
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -134,25 +137,53 @@
             <Label Content="    Max" Canvas.Left="607" Canvas.Top="15" Height="30" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="    Max" Canvas.Left="782" Canvas.Top="15" Height="30" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="    Min" Canvas.Left="832" Canvas.Top="15" Height="30" Width="60" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <ComboBox Canvas.Left="607" Canvas.Top="43" Width="60" BorderBrush="Blue">
+            <ComboBox x:Name="cmbPollenwaardeMax" 
+                      SelectedItem="{Binding Path=SelectedPollenwaarde}" IsEditable="True"
+                      Canvas.Left="607" Canvas.Top="43" Width="60" BorderBrush="Blue">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
-            <ComboBox Canvas.Left="667" Canvas.Top="43" Width="60" BorderBrush="Blue">
+            <ComboBox x:Name="cmbPollenwaardeMin"
+                      SelectedItem="{Binding Path=SelectedPollenwaarde}" IsEditable="True"
+                      Canvas.Left="667" Canvas.Top="43" Width="60" BorderBrush="Blue">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
-            <ComboBox Canvas.Left="777" Canvas.Top="43" Width="60" BorderBrush="Blue">
+            <ComboBox x:Name="cmbNectarwaardeMax" 
+                      SelectedItem="{Binding Path=SelectedNectarwaarde}" IsEditable="True"
+                      Canvas.Left="777" Canvas.Top="43" Width="60" BorderBrush="Blue">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
-            <ComboBox Canvas.Left="837" Canvas.Top="43" Width="60" BorderBrush="Blue">
+            <ComboBox x:Name="cmbNectarwaardeMin" 
+                      SelectedItem="{Binding Path=SelectedNectarwaarde}" IsEditable="True"
+                      Canvas.Left="837" Canvas.Top="43" Width="60" BorderBrush="Blue">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
+                <ComboBoxItem Content="5"/>
+                <ComboBoxItem Content="4"/>
+                <ComboBoxItem Content="3"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="1"/>
             </ComboBox>
             <Label Content="      Bijvriendelijk" Canvas.Left="438" Canvas.Top="145" Height="25" Width="120" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="  Eetbaar/Kruidbaar" Canvas.Left="448" Canvas.Top="183" Height="28" Width="146" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
