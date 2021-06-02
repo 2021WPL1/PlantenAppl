@@ -35,7 +35,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        #region MyRegion
+        #region Checkbox Bloeikleur
 
         private bool _selectedCheckBoxBloeikleurZwart;
         public bool SelectedCheckBoxBloeikleurZwart
