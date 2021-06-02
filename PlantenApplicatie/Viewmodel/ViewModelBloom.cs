@@ -224,7 +224,7 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInApr;
         public bool SelectedCheckBoxBloeitInApr
         {
-            get { return _selectedCheckBoxBloeiHoogteApr; }
+            get { return _selectedCheckBoxBloeitInApr; }
 
             set
             {
@@ -236,7 +236,7 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInMay;
         public bool SelectedCheckBoxBloeitInMay
         {
-            get { return _selectedCheckBoxBloeiHoogteMay; }
+            get { return _selectedCheckBoxBloeitInMay; }
 
             set
             {
@@ -328,6 +328,82 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
+
+        #endregion
+
+        #region Binding checkboxes Bloeiwijzevorm
+
+        private bool _selectedCheckBoxBloeiwijzeVorm1;
+        public bool SelectedCheckBoxBloeiwijzeVorm1
+        {
+            get { return _selectedCheckBoxBloeiwijzeVorm1; }
+
+            set
+            {
+                _selectedCheckBoxBloeiwijzeVorm1 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeiwijzeVorm2;
+        public bool SelectedCheckBoxBloeiwijzeVorm2
+        {
+            get { return _selectedCheckBoxBloeiwijzeVorm2; }
+
+            set
+            {
+                _selectedCheckBoxBloeiwijzeVorm2 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeiwijzeVorm3;
+        public bool SelectedCheckBoxBloeiwijzeVorm3
+        {
+            get { return _selectedCheckBoxBloeiwijzeVorm3; }
+
+            set
+            {
+                _selectedCheckBoxBloeiwijzeVorm3 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeiwijzeVorm4;
+        public bool SelectedCheckBoxBloeiwijzeVorm4
+        {
+            get { return _selectedCheckBoxBloeiwijzeVorm4; }
+
+            set
+            {
+                _selectedCheckBoxBloeiwijzeVorm4 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeiwijzeVorm5;
+        public bool SelectedCheckBoxBloeiwijzeVorm5
+        {
+            get { return _selectedCheckBoxBloeiwijzeVorm5; }
+
+            set
+            {
+                _selectedCheckBoxBloeiwijzeVorm5 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeiwijzeVorm6;
+        public bool SelectedCheckBoxBloeiwijzeVorm6
+        {
+            get { return _selectedCheckBoxBloeiwijzeVorm6; }
+
+            set
+            {
+                _selectedCheckBoxBloeiwijzeVorm6 = value;
+                OnPropertyChanged();
+            }
+        }
 
         #endregion
     }

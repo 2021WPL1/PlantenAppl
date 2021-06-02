@@ -77,11 +77,17 @@
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeihoogteFeb" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="232" Canvas.Top="222"  Height="15" Width="15">
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="232" Canvas.Top="224"  Height="14" Width="16">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteFeb_Copy" 
+                    IsChecked="{Binding SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Content="CheckBox"  Height="15" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
             </CheckBox>
             <CheckBox x:Name="CbxBloeihoogteMar" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -312,32 +318,44 @@
             <Label Content="Vorm 4"  Canvas.Left="347" Canvas.Top="420" Height="40" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Vorm 5"  Canvas.Left="434" Canvas.Top="420" Height="40" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxBloeiwijzeVorm1" Content="CheckBox" Canvas.Left="76" Canvas.Top="483" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiwijzeVorm1" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="76" Canvas.Top="483" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm2" Content="CheckBox" Canvas.Left="172" Canvas.Top="483" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiwijzeVorm2" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="172" Canvas.Top="483" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm3" Content="CheckBox" Canvas.Left="274" Canvas.Top="483" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiwijzeVorm3" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="274" Canvas.Top="483" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm4" Content="CheckBox" Canvas.Left="365" Canvas.Top="483" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiwijzeVorm4" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="365" Canvas.Top="483" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm5" Content="CheckBox" Canvas.Left="452" Canvas.Top="483" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiwijzeVorm5" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="452" Canvas.Top="483" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm6" Content="CheckBox" Canvas.Left="536" Canvas.Top="483" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiwijzeVorm6" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="536" Canvas.Top="483" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
@@ -352,6 +370,39 @@
                     </Style>
                 </Button.Resources>
             </Button>
+            <CheckBox x:Name="CbxBloeihoogteFeb_Copy1" 
+                IsChecked="{Binding SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="232" Canvas.Top="224"  Height="14" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteFeb_Copy2" 
+                    IsChecked="{Binding SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Content="CheckBox"  Height="15" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteFeb_Copy3" 
+                IsChecked="{Binding SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="232" Canvas.Top="270"  Height="14" Width="16">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+                <CheckBox x:Name="CbxBloeihoogteFeb_Copy4" 
+                    IsChecked="{Binding SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                    Content="CheckBox"  Height="15" Width="16">
+                    <CheckBox.Effect>
+                        <DropShadowEffect/>
+                    </CheckBox.Effect>
+                </CheckBox>
+            </CheckBox>
+            <CheckBox x:Name="CbxBloeihoogteMar_Copy" 
+                IsChecked="{Binding SelectedCheckBoxBloeiHoogteMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                Content="CheckBox" Canvas.Left="300" Canvas.Top="270"  Height="15" Width="15">
+                <CheckBox.Effect>
+                    <DropShadowEffect/>
+                </CheckBox.Effect>
+            </CheckBox>
         </Canvas>
     </Grid>
 </UserControl>
