@@ -65,7 +65,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public void ApplyFilterClick()
         {
-            this._searchService.
+            //this._searchService.
         }
         #endregion
 
@@ -237,7 +237,7 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedPlantInResult = value;
                 OnPropertyChanged();
-                _searchService.FillDetailPlantResult();
+                _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
             }
         }
 
