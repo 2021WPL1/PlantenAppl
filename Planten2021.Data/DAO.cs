@@ -183,7 +183,21 @@ namespace Planten2021.Data
             return plants;
         }
 
-        #region Robin: Lists of all the plant properties with multiple values, used to display plant details
+        public string GetImages(long id , string ImageCategorie)
+        {
+            var foto = context.Foto.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
+            
+
+            if (foto != null)
+            {
+                var location = foto;
+                return location.UrlLocatie;
+            }
+
+            return null;
+        }
+
+        #region Lists of all the plant properties with multiple values, used to display plant details
 
         //Get a list of all the Abiotiek types
         public List<Abiotiek> GetAllAbiotieks()

@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <None Remove="Image\waterval.jpeg" />
+    <None Remove="View\UserControls\Kekw.jpg" />
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +41,7 @@
 
   <ItemGroup>
     <Resource Include="Image\waterval.jpeg" />
+    <Resource Include="View\UserControls\Kekw.jpg" />
   </ItemGroup>
 
   <ItemGroup>

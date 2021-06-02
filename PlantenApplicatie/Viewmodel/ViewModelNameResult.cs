@@ -6,6 +6,9 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.ViewModel;
@@ -219,6 +222,7 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedPlantInResult = value;
+                FillAllImages();
                 OnPropertyChanged();
                 FillDetailPlantResult();
             }
@@ -226,6 +230,79 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
+        #region FillImages
+
+        public void FillAllImages()
+        {
+            ImageBlad = GetImageLocation("blad");
+            ImageBloei = GetImageLocation("bloei");
+            ImageHabitus = GetImageLocation("habitus");
+        }
+
+        public ImageSource GetImageLocation(string ImageCatogrie)
+        {
+            string location = "";
+            if (SelectedPlantInResult != null)
+            {
+                location = _dao.GetImages(SelectedPlantInResult.PlantId, ImageCatogrie);
+            }
+
+            //  var fullFilePath = @"https://images0.persgroep.net/rcs/XUun1kAJgb9KiAVBcZnA9YeZMKM/diocontent/123887379/_fitwidth/763?appId=93a17a8fd81db0de025c8abd1cca1279&quality=0.8";
+
+            if (location != null)
+              {
+                      BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(location, UriKind.Absolute);
+                bitmap.EndInit();
+
+                return bitmap;
+              }
+
+              return null;
+
+        }
+
+        private ImageSource _imageBloei;
+
+        public ImageSource ImageBloei
+        {
+            get { return _imageBloei; }
+            set
+            {
+                _imageBloei = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
+        private ImageSource _imageHabitus;
+
+        public ImageSource ImageHabitus
+        {
+            get { return _imageHabitus; }
+            set
+            {
+                _imageHabitus = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private ImageSource _imageBlad;
+
+        public ImageSource ImageBlad
+        {
+            get { return _imageBlad; }
+            set
+            {
+                _imageBlad = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+        #endregion
         //#region Fill combobox methods
 
 
@@ -373,6 +450,7 @@ namespace PlantenApplicatie.Viewmodel
                     ControleList.Add(item.Variantnaam);
                     Simplify(item.Variantnaam);
                     cmbVariant.Add(item);
+
                 }
             }
         }
@@ -427,6 +505,7 @@ namespace PlantenApplicatie.Viewmodel
                 FillFenotype();
 
                 ////Foto
+
                 ////UpdatePlant
             }
 
@@ -689,6 +768,7 @@ namespace PlantenApplicatie.Viewmodel
 
 
         #endregion
+
         #region Methods to use in our DelegateCommands
 
         #region ResetFunction
@@ -831,8 +911,6 @@ namespace PlantenApplicatie.Viewmodel
 
                                 if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
                                 {
-
-                                    listPlants.Remove(item);
                                     listPlants.Remove(item);
                                 }
                             }
