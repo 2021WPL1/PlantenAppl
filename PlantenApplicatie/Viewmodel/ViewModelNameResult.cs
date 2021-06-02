@@ -247,7 +247,7 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedPlantInResult = value;
                 OnPropertyChanged();
-                _searchService.FillDetailPlantResult();
+                _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
             }
         }
 
