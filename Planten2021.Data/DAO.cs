@@ -182,15 +182,15 @@ namespace Planten2021.Data
             return plants;
         }
 
-        public string GetImageLocation(long id , string ImageCategorie)
+        public string GetImages(long id , string ImageCategorie)
         {
             var foto = context.Foto.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
             
 
             if (foto != null)
             {
-                var location = foto.UrlLocatie;
-                return location;
+                var location = foto;
+                return location.UrlLocatie;
             }
 
             return null;
