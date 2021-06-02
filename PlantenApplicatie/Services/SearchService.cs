@@ -655,30 +655,132 @@ namespace PlantenApplicatie.Services
 
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
-            throw new NotImplementedException();
+            var listPlants = _dao.getAllPlants();
+
+            if (SelectedtType != null)
+            {
+
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.TypeId != SelectedtType.Planttypeid)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedFamilie != null)
+            {
+
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.FamilieId != SelectedFamilie.FamileId)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedGeslacht != null)
+            {
+
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.GeslachtId != SelectedGeslacht.GeslachtId)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedSoort != null)
+            {
+
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.SoortId != SelectedSoort.Soortid)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedVariant != null)
+            {
+
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.VariantId != null)
+                    {
+
+                        if (item.VariantId != SelectedVariant.VariantId)
+                        {
+
+                            listPlants.Remove(item);
+                        }
+                    }
+                    else if (item.VariantId == null)
+                    {
+                        listPlants.Remove(item);
+                    }
+
+                }
+            }
+
+            if (SelectedNederlandseNaam != null)
+            {
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.NederlandsNaam != null)
+                    {
+                        if (!item.NederlandsNaam.Contains(SelectedNederlandseNaam))
+                        {
+                            listPlants.Remove(item);
+                        }
+
+                    }
+                    else if (item.NederlandsNaam == null)
+                    {
+                        listPlants.Remove(item);
+                    }
+
+                }
+            }
+
+            if (SelectedRatioBloeiBlad != null)
+            {
+
+                foreach (var item in listPlants.ToList())
+                {
+                    if (item.Fenotype.Count != 0)
+                    {
+                        foreach (var itemFenotype in item.Fenotype)
+                        {
+
+                            if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
+                            {
+
+                                if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
+                                {
+                                    listPlants.Remove(item);
+                                }
+                            }
+                            else
+                            {
+                                listPlants.Remove(item);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        listPlants.Remove(item);
+                    }
+
+                }
+            }
+            return listPlants;
         }
-    }
-}
-
-        //                }
-
-        //            }
-        //            //Clear observable collection everytime the searchbutton is clicked
-        //            filteredPlantResults.Clear();
-
-        //            //The listPlants is now completely filtered.
-        //            //Add every listPlants plantobject to our observable collection
-        //            foreach (var item in listPlants)
-        //            {
-        //                filteredPlantResults.Add(item);
-        //            }
-        //        }
-        //    }
-        //}
-
-        //        #endregion
-
-        //#endregion
-        #endregion
     }
 }

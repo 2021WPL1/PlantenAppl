@@ -18,7 +18,7 @@ namespace PlantenApplicatie.Viewmodel
        
         private static IServiceProvider _serviceProvider;
         private static ISearchService _searchService = iocc.GetInstance<ISearchService>();
-        
+        private static IloginUserService _loginService = iocc.GetInstance<IloginUserService>();
         public static ViewModelRepo Instance()
         {
             return instance;
@@ -28,6 +28,7 @@ namespace PlantenApplicatie.Viewmodel
             instance = new ViewModelRepo();
         }
         private ViewModelNameResult viewModelNameResult = new ViewModelNameResult(_searchService);
+        private ViewModelRegister viewModelRegister = new ViewModelRegister(_loginService);
         private ViewModelHabitat viewModelHabitat = new ViewModelHabitat();
         private ViewModelBloom viewModelBloom = new ViewModelBloom();
         private ViewModelGrow viewModelGrow = new ViewModelGrow();

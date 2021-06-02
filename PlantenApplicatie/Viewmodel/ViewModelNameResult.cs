@@ -46,8 +46,8 @@ namespace PlantenApplicatie.Viewmodel
 
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
-            SearchCommand = new DelegateCommand(ApplyFilterClick);
-            ResetCommand = new DelegateCommand(ResetClick);
+            SearchCommand = new RelayCommand(ApplyFilterClick);
+            ResetCommand = new RelayCommand(ResetClick);
 
             //These comboboxes will already be filled with data on startup
             _searchService.fillComboBoxType(cmbTypes);
