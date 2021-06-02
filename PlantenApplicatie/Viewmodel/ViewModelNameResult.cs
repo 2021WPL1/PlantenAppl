@@ -244,12 +244,15 @@ namespace PlantenApplicatie.Viewmodel
 
         public ImageSource GetImageLocation(string ImageCatogrie)
         {
+            string location = "";
+            if (SelectedPlantInResult != null)
+            {
+                location = _dao.GetImages(SelectedPlantInResult.PlantId, ImageCatogrie);
+            }
 
-               var location = _dao.GetImages(SelectedPlantInResult.PlantId,ImageCatogrie);
+            //  var fullFilePath = @"https://images0.persgroep.net/rcs/XUun1kAJgb9KiAVBcZnA9YeZMKM/diocontent/123887379/_fitwidth/763?appId=93a17a8fd81db0de025c8abd1cca1279&quality=0.8";
 
-              //  var fullFilePath = @"https://images0.persgroep.net/rcs/XUun1kAJgb9KiAVBcZnA9YeZMKM/diocontent/123887379/_fitwidth/763?appId=93a17a8fd81db0de025c8abd1cca1279&quality=0.8";
-
-              if (location != null)
+            if (location != null)
               {
                       BitmapImage bitmap = new BitmapImage();
                 bitmap.BeginInit();
