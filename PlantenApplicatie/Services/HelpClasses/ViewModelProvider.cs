@@ -34,6 +34,9 @@ namespace PlantenApplicatie.Services.HelpClasses
         // >
         public ViewModelMain ViewModelMain { get { return SimpleIoc.Default.GetInstance<ViewModelMain>(); } }
         public ViewModelLogin ViewModelLogin { get { return SimpleIoc.Default.GetInstance<ViewModelLogin>(); } }
+
+        //public ViewModelNameResult ViewModelNameResult { get { return SimpleIoc.Default.GetInstance<ViewModelNameResult>(); } }
+        //public ViewModelRepo ViewModelRepo
         #endregion
 
         private void RegisterViewModels()

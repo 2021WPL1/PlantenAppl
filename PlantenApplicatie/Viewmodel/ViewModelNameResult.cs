@@ -20,7 +20,6 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelNameResult : ViewModelBase
     {
         private ISearchService _searchService { get; }
-
         public ViewModelNameResult(ISearchService searchService)
         {
 
