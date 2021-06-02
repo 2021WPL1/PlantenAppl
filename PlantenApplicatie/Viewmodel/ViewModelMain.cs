@@ -13,6 +13,7 @@ using PlantenApplicatie.HelpClasses;
 using MvvmHelpers;
 using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.Viewmodel;
+using PlantenApplicatie.Services.HelpClasses;
 
 namespace PlantenApplicatie.ViewModel
 {
@@ -21,6 +22,8 @@ namespace PlantenApplicatie.ViewModel
         private ViewModelRepo _viewModelsRepo;
         private ViewModelBase _currentViewModel;
 
+        private ViewModelProvider _viewModelProvider = ViewModelProvider.Instance();
+        
         public MyICommand<string> mainNavigationCommand { get; set; }
         public ViewModelBase currentViewModel
         {
@@ -35,7 +38,7 @@ namespace PlantenApplicatie.ViewModel
             this._loginUserService = loginUserService;
             this._searchService = searchService;
 
-            this._viewModelsRepo = ViewModelRepo.Instance();
+            this._viewModelsRepo = _viewModelProvider.ReturnViewModelRepo();
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
@@ -44,7 +47,6 @@ namespace PlantenApplicatie.ViewModel
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelsRepo.GetViewModel(userControlName);
-            var viewModelResult = (ViewModelNameResult)_viewModelsRepo.GetViewModel("VIEWNAME");
         }
     }
 }

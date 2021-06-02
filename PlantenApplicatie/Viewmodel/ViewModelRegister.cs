@@ -13,11 +13,11 @@ namespace PlantenApplicatie.Viewmodel
     //written by kenny
     public class ViewModelRegister : ViewModelBase
     {
-        private DAO _dao;
+        private DAO _searchService;
         public RelayCommand registerCommand { get; set; }
         public ViewModelRegister()
         {
-            this._dao = DAO.Instance();
+            this._searchService = DAO.Instance();
             registerCommand = new RelayCommand(RegisterButton);
         }
         #region MVVM TextFieldsBinding
@@ -127,11 +127,11 @@ namespace PlantenApplicatie.Viewmodel
                 passwordRepeatInput != null &&
                 rolInput != null)
             {
-                if (emailAdresInput != null && emailAdresInput.Contains("@student.vives.be") && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+                if (emailAdresInput != null && emailAdresInput.Contains("@student.vives.be") && _searchService.CheckIfEmailAlreadyExists(emailAdresInput))
                 {
                     if (passwordInput == passwordRepeatInput)
                     {
-                        _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
+                        _searchService.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
                         MessageBox.Show($"{firstNameInput}, je bent succevol geregistreerd, uw gebruikersnaam is {emailAdresInput} en uw wachtwoord is {passwordInput} .");
                         LoginWindow loginWindow = new LoginWindow();
                         loginWindow.Show();

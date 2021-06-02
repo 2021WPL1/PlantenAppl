@@ -27,7 +27,7 @@ namespace PlantenApplicatie
             // DataContext="{Binding Source={ StaticResource VMProvider }, Path=MainWindowViewModel }" 
             // ... 
             // >
-            this.Resources.Add("VMProvider", new ViewModelProvider());
+            this.Resources.Add("VMProvider", ViewModelProvider.Instance());
 
             // de viewmodellen kunnen ook worden toegekend aan de 
             // datacontext van de view met GetInstance methode van de IoC Container

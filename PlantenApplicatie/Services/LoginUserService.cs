@@ -18,11 +18,11 @@ namespace PlantenApplicatie.Services
 {
     public class LoginUserService : IloginUserService, INotifyPropertyChanged
     {
-        private DAO _dao;
+        private DAO _searchService;
 
         public LoginUserService()
         {
-            this._dao = DAO.Instance();
+            this._searchService = DAO.Instance();
         }
 
         public Gebruiker gebruiker = new Gebruiker();
@@ -35,7 +35,7 @@ namespace PlantenApplicatie.Services
             //check if email is valid email
             if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
             {
-                gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
+                gebruiker = _searchService.GetGebruikerWithEmail(userNameInput);
                 user.gebruiker = gebruiker;
             }
             else

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Planten2021.Data;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Viewmodel
@@ -10,24 +11,22 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelRepo
     {
         //singleton pattern
-        private static readonly ViewModelRepo instance = new ViewModelRepo();
 
         private Dictionary<string, ViewModelBase> _viewModels = new Dictionary<string, ViewModelBase>();
 
-        public static ViewModelRepo Instance()
-        {
-            return instance;
-        }
+        private static ISearchService _searchService;
 
-        private ViewModelNameResult viewModelNameResult = new ViewModelNameResult();
+        private ViewModelNameResult viewModelNameResult = new ViewModelNameResult(_searchService);
         private ViewModelHabitat viewModelHabitat = new ViewModelHabitat();
         private ViewModelBloom viewModelBloom = new ViewModelBloom();
         private ViewModelGrow viewModelGrow = new ViewModelGrow();
         private ViewModelAppearance viewModelAppearance = new ViewModelAppearance();
         private ViewModelGrooming viewModelGrooming = new ViewModelGrooming();
 
-        private ViewModelRepo()
+        public ViewModelRepo(ISearchService searchService)
         {
+            _searchService = searchService;
+
             //hier een extra lijn code per user control
             _viewModels.Add("VIEWNAME", viewModelNameResult);
             _viewModels.Add("VIEWHABITAT", viewModelHabitat);

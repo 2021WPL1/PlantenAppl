@@ -5,14 +5,20 @@ using PlantenApplicatie.Viewmodel;
 using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Services.HelpClasses
-{    
+{
     /// <summary>
     /// Provider van viewmodels
     /// De views worden in de SimpleIoc IoC (Inversion of Control) container geregistreerd
     /// </summary>
     public class ViewModelProvider
     {
-        public ViewModelProvider()
+        private static readonly ViewModelProvider instance = new ViewModelProvider();
+        
+        public static ViewModelProvider Instance()
+        {
+            return instance;
+        }
+        private ViewModelProvider()
         {
             this.RegisterViewModels();
         }
@@ -44,15 +50,35 @@ namespace PlantenApplicatie.Services.HelpClasses
             // factory pattern om een instantie te maken van de viewmodels
             // Dependency Injection: constructor injection: injecteer  de services in the constructors van de viewmodels;
 
-            //SimpleIoc.Default.Unregister<ViewModelLogin>();
+            SimpleIoc.Default.Unregister<ViewModelLogin>();
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
+
+            SimpleIoc.Default.Unregister<ViewModelNameResult>();
             iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService));
 
-            //SimpleIoc.Default.Unregister<ViewModelMain>();
-            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService,searchService));
-            
+            SimpleIoc.Default.Unregister<ViewModelRepo>();
+            iocc.Register<ViewModelRepo>(() => new ViewModelRepo(searchService));
 
+            SimpleIoc.Default.Unregister<ViewModelMain>();
+            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService));
 
+            SimpleIoc.Default.Unregister<ViewModelProvider>();
+            iocc.Register<ViewModelProvider>(() => new ViewModelProvider());
+
+        }
+        public ViewModelRepo ReturnViewModelRepo()
+        {
+            var iocc = SimpleIoc.Default;
+            var result = iocc.GetInstance<ViewModelRepo>();
+
+            return result;
+        }
+        public ViewModelProvider ReturnViewModelProvider()
+        {
+            var iocc = SimpleIoc.Default;
+            var result = iocc.GetInstance<ViewModelProvider>();
+
+            return result;
         }
     }
 }
