@@ -6,9 +6,12 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
+using PlantenApplicatie.Services;
+using PlantenApplicatie.Services.HelpClasses;
 using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 using Prism.Commands;
@@ -18,16 +21,15 @@ namespace PlantenApplicatie.Viewmodel
 {
     public class ViewModelNameResult : ViewModelBase
     {
-        private DAO _dao;
-        //private ViewModelData _viewModelData;
+        //private ServiceProvider _serviceProvider;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private ISearchService _searchService = iocc.GetInstance<ISearchService>();
 
         public ViewModelNameResult(ISearchService searchService)
         {
+
             this._searchService = searchService;
-            this._dao = DAO.Instance();
-            //this._viewModelData = ViewModelData.Instance();
+            //_searchService = new SearchService();
 
             //Observable Collections 
             ////Obserbable collections to fill with the necessary objects to show in the comboboxes
@@ -79,18 +81,7 @@ namespace PlantenApplicatie.Viewmodel
         }
         #endregion
 
-
         #region Fill result test
-
-        public void FillPlantResult()
-        {
-            var list = _dao.getAllPlants();
-
-            foreach (var item in list)
-            {
-                filteredPlantResults.Add(item);
-            }
-        }
 
         #endregion
 
@@ -109,12 +100,11 @@ namespace PlantenApplicatie.Viewmodel
         public ObservableCollection<String> detailsSelectedPlant { get; set; }
         ////
 
-
         #region icommands
 
         //ICommands
-        public ICommand SearchCommand { get; set; }
-        public ICommand ResetCommand { get; set; }
+        public RelayCommand SearchCommand { get; set; }
+        public RelayCommand ResetCommand { get; set; }
 
         #endregion
         //Robin, Owen
