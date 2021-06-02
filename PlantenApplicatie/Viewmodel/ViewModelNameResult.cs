@@ -44,7 +44,7 @@ namespace PlantenApplicatie.Viewmodel
 
             //ICommands
             ////These will be used to bind our buttons in the xaml and to give them functionality
-            SearchCommand = new DelegateCommand(ApplyFilter);
+            SearchCommand = new DelegateCommand(ApplyFilterClick);
             ResetCommand = new DelegateCommand(ResetClick);
 
             //These comboboxes will already be filled with data on startup
@@ -60,12 +60,22 @@ namespace PlantenApplicatie.Viewmodel
 
         public void ResetClick()
         {
-            this._searchService.Reset(SelectedType, SelectedFamilie,SelectedGeslacht,SelectedSoort,SelectedVariant,SelectedNederlandseNaam,SelectedRatioBloeiBlad);
+            filteredPlantResults.Clear();
+            var listPlants = this._searchService.Reset(SelectedType, SelectedFamilie,SelectedGeslacht,SelectedSoort,SelectedVariant,SelectedNederlandseNaam,SelectedRatioBloeiBlad);
+            foreach (var item in listPlants)
+            {
+                filteredPlantResults.Add(item);
+            }
         }
 
         public void ApplyFilterClick()
         {
-            this._searchService.
+            filteredPlantResults.Clear();
+            var listPlants = this._searchService.ApplyFilter(SelectedType,SelectedFamilie,SelectedGeslacht,SelectedSoort,SelectedVariant,SelectedNederlandseNaam,SelectedRatioBloeiBlad);
+            foreach (var item in listPlants)
+            {
+                filteredPlantResults.Add(item);
+            }
         }
         #endregion
 
@@ -241,7 +251,12 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
+
+
+
         #endregion
+
+
     }
 }
 
