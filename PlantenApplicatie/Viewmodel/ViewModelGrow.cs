@@ -410,7 +410,90 @@ namespace PlantenApplicatie.Viewmodel
 
         #region CheckboxVoedingsbehoefte
 
-        
+        private bool _selectedCheckBoxVoedingsbehoefteArm;
+        public bool SelectedCheckBoxVoedingsbehoefteArm
+        {
+            get { return _selectedCheckBoxVoedingsbehoefteArm; }
+
+            set
+            {
+                _selectedCheckBoxVoedingsbehoefteArm = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVoedingsbehoefteArmMatig;
+        public bool SelectedCheckBoxVoedingsbehoefteArmMatig
+        {
+            get { return _selectedCheckBoxVoedingsbehoefteArmMatig; }
+
+            set
+            {
+                _selectedCheckBoxVoedingsbehoefteArmMatig = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVoedingsbehoefteMatig;
+        public bool SelectedCheckBoxVoedingsbehoefteMatig
+        {
+            get { return _selectedCheckBoxVoedingsbehoefteMatig; }
+
+            set
+            {
+                _selectedCheckBoxVoedingsbehoefteMatig = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVoedingsbehoefteMatigVoedselrijk;
+        public bool SelectedCheckBoxVoedingsbehoefteMatigVoedselrijk
+        {
+            get { return _selectedCheckBoxVoedingsbehoefteMatigVoedselrijk; }
+
+            set
+            {
+                _selectedCheckBoxVoedingsbehoefteMatigVoedselrijk = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVoedingsbehoefteVoedselrijk;
+        public bool SelectedCheckBoxVoedingsbehoefteVoedselrijk
+        {
+            get { return _selectedCheckBoxVoedingsbehoefteVoedselrijk; }
+
+            set
+            {
+                _selectedCheckBoxVoedingsbehoefteVoedselrijk = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent;
+        public bool SelectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent
+        {
+            get { return _selectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent; }
+            
+            set
+            {
+                _selectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVoedingsbehoefteIndifferent;
+        public bool SelectedCheckBoxVoedingsbehoefteIndifferent
+        {
+            get { return _selectedCheckBoxVoedingsbehoefteIndifferent; }
+
+            set
+            {
+                _selectedCheckBoxVoedingsbehoefteIndifferent = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         #endregion
 
