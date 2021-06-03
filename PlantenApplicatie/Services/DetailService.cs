@@ -17,7 +17,7 @@ namespace PlantenApplicatie.Services
         private static SimpleIoc iocc = SimpleIoc.Default;
         private ISearchService _searchService = iocc.GetInstance<ISearchService>();
 
-        public Plant selectedPlantInResult;
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
         public DetailService(ISearchService searchService)
@@ -26,11 +26,7 @@ namespace PlantenApplicatie.Services
             _searchService = searchService;
             
         }
-        public void test()
-        {
-            selectedPlantInResult = _searchService.ReturnSelectedPlantInSearchResult();
-            MessageBox.Show(selectedPlantInResult.Fgsv.ToString());
-        }
+        
         
     }
 }

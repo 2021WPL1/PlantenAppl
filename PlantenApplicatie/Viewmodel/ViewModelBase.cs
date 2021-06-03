@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace PlantenApplicatie.ViewModel
 {
@@ -23,5 +24,15 @@ namespace PlantenApplicatie.ViewModel
             member = val;
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        protected virtual void RaisePropertyChanged(string propName)
+        {
+            if (PropertyChanged != null)
+            {
+                Task.Run(() => PropertyChanged(this, new PropertyChangedEventArgs(propName)));
+            }
+        }
+
+        
     }
 }

@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
+using Planten2021.Domain.Models;
 using PlantenApplicatie.Services.Interfaces;
 
 namespace PlantenApplicatie.Viewmodel
@@ -15,6 +17,9 @@ namespace PlantenApplicatie.Viewmodel
         //IsCheckBoxChecked.  This enables animation, styling, binding, etc...
        
         private DAO _dao;
+        private static SimpleIoc iocc = SimpleIoc.Default;
+        private IDetailService _detailService = iocc.GetInstance<IDetailService>();
+        private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
         public ViewModelBloom(IDetailService detailservice)
         {
@@ -22,7 +27,7 @@ namespace PlantenApplicatie.Viewmodel
             
         }
 
-       private string _selectedBloeiHoogte;
+        private string _selectedBloeiHoogte;
 
         public string SelectedBloeiHoogte
         {
@@ -32,9 +37,11 @@ namespace PlantenApplicatie.Viewmodel
                 _selectedBloeiHoogte = value;
                 OnPropertyChanged();
 
+
             }
         }
 
+        // We cant bind these ones because there not in the database
         #region Binding Checkbox BloeiHoogte
 
         private bool _selectedCheckBoxBloeiHoogteJan;
@@ -109,7 +116,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
         private bool _selectedCheckBoxBloeiHoogteJul;
-        public bool SelectedCheckBoxJul
+        public bool SelectedCheckBoxBloeiHoogteJul
         {
             get { return _selectedCheckBoxBloeiHoogteJul; }
 

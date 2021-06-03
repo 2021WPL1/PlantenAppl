@@ -18,7 +18,7 @@ namespace PlantenApplicatie.Services
         private DAO _dao;
         private static SearchService _searchService;
 
-        public Plant selectedPlantInResult;
+        public static Plant selectedPlantInResult = new Plant();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -778,24 +778,32 @@ namespace PlantenApplicatie.Services
 
             if (location != null)
             {
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(location, UriKind.Absolute);
-                bitmap.EndInit();
+                if (location != "")
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(location, UriKind.Absolute);
+                    bitmap.EndInit();
 
-                return bitmap;
+                    return bitmap;
+                }
             }
 
             return null;
         }
 
-        public void GetSelectedPlantInSearchResult(Plant selectedPlant)
-        {
-            selectedPlantInResult = selectedPlant;
-        }
-        public Plant ReturnSelectedPlantInSearchResult()
-        {
-            return selectedPlantInResult;
-        }
+        //This was the beginning of binding of plant details in all our views.
+        //
+        //public void GetSelectedPlantInSearchResult(Plant selectedPlant)
+        //{
+        //    selectedPlantInResult = selectedPlant;
+        //}
+        //public Plant ReturnSelectedPlantInSearchResult()
+        //{
+        //    return selectedPlantInResult;
+        //}
+
+
+
     }
 }

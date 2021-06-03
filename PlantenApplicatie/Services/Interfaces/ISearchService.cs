@@ -27,7 +27,7 @@ namespace PlantenApplicatie.Services.Interfaces
         List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht,
             TfgsvSoort SelectedSoort,
             TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad);
-        void GetSelectedPlantInSearchResult(Plant selectedPlant);
-        Plant ReturnSelectedPlantInSearchResult();
+
+
     }
 }
