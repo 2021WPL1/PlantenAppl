@@ -40,16 +40,21 @@
 
     </Window.Resources>
 
+
     <Grid Opacity="0.9">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="91"></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="884.04"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.Background>
             <!--add background image-->
             <ImageBrush  Stretch="Fill" ImageSource="../../Image/waterval.jpeg"/>
         </Grid.Background>
+
+
 
         <Button x:Name="btnBloei" Content="Bloei" HorizontalAlignment="Left" Margin="172,14,0,0" VerticalAlignment="Top" Height="32" Width="122" BorderBrush="#FF2AE633" Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B"
                 Command="{Binding mainNavigationCommand}"
@@ -186,17 +191,19 @@
         </Button>
 
 
-        <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,85,47,700" Background="#99FFFFFF" Grid.Row="1"/>
+        <ListBox x:Name="lstDetails" Visibility="Hidden" Margin="560,176,47,700" Background="#99FFFFFF"/>
 
 
-        <ListBox x:Name="LstOpgeslagenFilters"  HorizontalAlignment="Left" Margin="42,51,0,0" VerticalAlignment="Top" Height="32" Width="771" Background="#99F5F5F5" FontWeight="Bold"/>
 
 
         <!--<Frame x:Name="MainFrame" Margin="0,190,0,0"  Content=""/>-->
 
         <!-- hier doe je de binding van het currentViewModel !Clue van et stysteem -->
-        <Grid x:Name="MainContent" Grid.Row="1" HorizontalAlignment="Center" Width="1230" Margin="0,10,0,10">
-            <ContentControl Content="{Binding currentViewModel}" HorizontalAlignment="Center" Width="1210" Height="754" VerticalAlignment="Center"/>
+        <Grid x:Name="MainContent" HorizontalAlignment="Center" Width="1230" Margin="0,101,0,0" Height="773" VerticalAlignment="Top">
+            <ContentControl Content="{Binding currentViewModel}" HorizontalAlignment="Left" Width="1210" Height="754" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </Grid>
+        <Canvas Margin="42,51,437,796" Background="#99FFFFFF">
+            <Label x:Name="lblLogin" Content="{Binding loggedInMessage}" Foreground="#FF474029" FontWeight="Bold" FontSize="20" Height="38" Canvas.Top="-1" Width="724"/>
+        </Canvas>
     </Grid>
 </Window>

@@ -19,8 +19,7 @@ namespace PlantenApplicatie.ViewModel
 {
     public class ViewModelMain :ViewModelBase
     {
-        private SimpleIoc iocc =
-            SimpleIoc.Default;
+        private SimpleIoc iocc = SimpleIoc.Default;
         private ViewModelRepo _viewModelRepo;
 
         private ViewModelBase _currentViewModel;
@@ -32,17 +31,32 @@ namespace PlantenApplicatie.ViewModel
             set { SetProperty(ref _currentViewModel, value); }
         }
 
-        private IloginUserService _loginUserService;
+        public IloginUserService loginUserService;
         private ISearchService _searchService;
         public ViewModelMain(IloginUserService loginUserService, ISearchService searchService)
         {
-
+            loggedInMessage = loginUserService.LoggedInMessage();
             this._viewModelRepo = iocc.GetInstance<ViewModelRepo>();
             this._searchService = searchService;
-            this._loginUserService = loginUserService;
+            this.loginUserService = loginUserService;
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
+        }
+
+        private string _loggedInMessage { get; set; }
+        public string loggedInMessage
+        {
+            get
+            {
+                return _loggedInMessage;
+            }
+            set
+            {
+                _loggedInMessage = value;
+
+                RaisePropertyChanged("loggedInMessage");
+            }
         }
 
         private void _onNavigationChanged(string userControlName)

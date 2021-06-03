@@ -17,17 +17,24 @@ namespace PlantenApplicatie.Viewmodel
         private IloginUserService _loginService { get; }
 
         public RelayCommand registerCommand { get; set; }
+        public RelayCommand backCommand { get; set; }
         public ViewModelRegister(IloginUserService loginUserService)
         {
             this._loginService = loginUserService;
             registerCommand = new RelayCommand(RegisterButtonClick);
+            backCommand = new RelayCommand(BackButtonClick);
         }
 
+        public void BackButtonClick()
+        {
+            _loginService.BackButtonRegister();
+        }
         public void RegisterButtonClick()
         {
-            _loginService.RegisterButton(vivesNrInput, lastNameInput,
+            errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                  firstNameInput, emailAdresInput,
                  passwordInput, passwordRepeatInput, rolInput);
+            
         }
         #region MVVM TextFieldsBinding
         private string _vivesNrInput;
@@ -37,7 +44,21 @@ namespace PlantenApplicatie.Viewmodel
         private string _passwordInput;
         private string _passwordRepeatInput;
         private string _rolInput;
+        private string _errorMessage;
 
+        public string errorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+            set
+            {
+                _errorMessage = value;
+
+                RaisePropertyChanged("errorMessage");
+            }
+        }
         public string vivesNrInput
         {
             get
