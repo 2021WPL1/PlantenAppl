@@ -1,32 +1,35 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Viewmodel
 {
 
     public class ViewModelRepo
-    {
-        //singleton pattern
-        private static readonly ViewModelRepo instance = new ViewModelRepo();
+    {   //singleton pattern
+        private static SimpleIoc iocc = SimpleIoc.Default;
+        //private static ViewModelRepo instance;
 
         private Dictionary<string, ViewModelBase> _viewModels = new Dictionary<string, ViewModelBase>();
+       
+        //private static IServiceProvider _serviceProvider;
+        //private static ISearchService _searchService = iocc.GetInstance<ISearchService>();
+        //private static IloginUserService _loginService = iocc.GetInstance<IloginUserService>();
 
-        public static ViewModelRepo Instance()
-        {
-            return instance;
-        }
 
-        private ViewModelNameResult viewModelNameResult = new ViewModelNameResult();
-        private ViewModelHabitat viewModelHabitat = new ViewModelHabitat();
-        private ViewModelBloom viewModelBloom = new ViewModelBloom();
-        private ViewModelGrow viewModelGrow = new ViewModelGrow();
-        private ViewModelAppearance viewModelAppearance = new ViewModelAppearance();
-        private ViewModelGrooming viewModelGrooming = new ViewModelGrooming();
+        private ViewModelNameResult viewModelNameResult = iocc.GetInstance<ViewModelNameResult>();
+        private ViewModelRegister viewModelRegister = iocc.GetInstance<ViewModelRegister>();
+        private ViewModelHabitat viewModelHabitat = iocc.GetInstance<ViewModelHabitat>();
+        private ViewModelBloom viewModelBloom = iocc.GetInstance<ViewModelBloom>();
+        private ViewModelGrow viewModelGrow = iocc.GetInstance<ViewModelGrow>();
+        private ViewModelAppearance viewModelAppearance = iocc.GetInstance<ViewModelAppearance>();
+        private ViewModelGrooming viewModelGrooming = iocc.GetInstance<ViewModelGrooming>();
 
-        private ViewModelRepo()
+        public ViewModelRepo()
         {
             //hier een extra lijn code per user control
             _viewModels.Add("VIEWNAME", viewModelNameResult);
@@ -35,6 +38,7 @@ namespace PlantenApplicatie.Viewmodel
             _viewModels.Add("VIEWGROW", viewModelGrow);
             _viewModels.Add("VIEWAPPEARANCE", viewModelAppearance);
             _viewModels.Add("VIEWGROOMING",viewModelGrooming);
+            _viewModels.Add("VIEWREGISTER", viewModelRegister);
         }
         //
         public ViewModelBase GetViewModel(string modelName)

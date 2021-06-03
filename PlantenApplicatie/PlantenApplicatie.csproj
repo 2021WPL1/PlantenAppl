@@ -44,7 +44,6 @@
 
   <ItemGroup>
     <Folder Include="Services\HelpClasses\" />
-    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
 
 </Project>

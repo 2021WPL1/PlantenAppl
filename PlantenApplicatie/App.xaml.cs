@@ -5,7 +5,10 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using GalaSoft.MvvmLight.Ioc;
+using PlantenApplicatie.Services;
 using PlantenApplicatie.Services.HelpClasses;
+using PlantenApplicatie.Viewmodel;
 
 namespace PlantenApplicatie
 {
@@ -16,10 +19,9 @@ namespace PlantenApplicatie
     {
         public App()
         {
-
+            //SearchService.CreateInstance();
             // services registeren
             ServiceProvider.RegisterServices();
-
             // VMprovider toevoegen als "static resource" in MvvM zodat die kan worden gebruikt in de Views om
             // de ViewModels te koppelen aan de DataContext
             // instantie die over de hele applicatie kan worden gebruikt in de Views met onderstaande binding
@@ -27,6 +29,11 @@ namespace PlantenApplicatie
             // DataContext="{Binding Source={ StaticResource VMProvider }, Path=MainWindowViewModel }" 
             // ... 
             // >
+
+            //var iocc = SimpleIoc.Default;
+
+            //ViewModelRepo.CreateInstance();
+            
             this.Resources.Add("VMProvider", new ViewModelProvider());
 
             // de viewmodellen kunnen ook worden toegekend aan de 
