@@ -366,6 +366,7 @@ namespace PlantenApplicatie.Services
             detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
             detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
         }
+
         public void FillDetailsPlantAbiotiek(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult)
         {
             ////The following property consist of multiple values in a different table
