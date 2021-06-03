@@ -6,6 +6,8 @@ using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
@@ -63,7 +65,8 @@ namespace PlantenApplicatie.Viewmodel
         public void ResetClick()
         {
             filteredPlantResults.Clear();
-            var listPlants = this._searchService.Reset(SelectedType, SelectedFamilie,SelectedGeslacht,SelectedSoort,SelectedVariant,SelectedNederlandseNaam,SelectedRatioBloeiBlad);
+            var listPlants = this._searchService.Reset(SelectedType, SelectedFamilie, SelectedGeslacht, SelectedSoort,
+                SelectedVariant, SelectedNederlandseNaam, SelectedRatioBloeiBlad);
             foreach (var item in listPlants)
             {
                 filteredPlantResults.Add(item);
@@ -73,12 +76,14 @@ namespace PlantenApplicatie.Viewmodel
         public void ApplyFilterClick()
         {
             filteredPlantResults.Clear();
-            var listPlants = this._searchService.ApplyFilter(SelectedType,SelectedFamilie,SelectedGeslacht,SelectedSoort,SelectedVariant,SelectedNederlandseNaam,SelectedRatioBloeiBlad);
+            var listPlants = this._searchService.ApplyFilter(SelectedType, SelectedFamilie, SelectedGeslacht,
+                SelectedSoort, SelectedVariant, SelectedNederlandseNaam, SelectedRatioBloeiBlad);
             foreach (var item in listPlants)
             {
                 filteredPlantResults.Add(item);
             }
         }
+
         #endregion
 
         #region Fill result test
@@ -107,7 +112,9 @@ namespace PlantenApplicatie.Viewmodel
         public RelayCommand ResetCommand { get; set; }
 
         #endregion
+
         //Robin, Owen
+
         #region Selected Item variables for each combobox
 
         private TfgsvType _selectedType;
@@ -162,7 +169,7 @@ namespace PlantenApplicatie.Viewmodel
                 cmbSoort.Clear();
                 cmbVariant.Clear();
 
-                _searchService.fillComboBoxSoort(SelectedGeslacht,cmbSoort);
+                _searchService.fillComboBoxSoort(SelectedGeslacht, cmbSoort);
                 OnPropertyChanged();
             }
         }
@@ -236,177 +243,92 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedPlantInResult = value;
-                FillAllImages();
+                //FillAllImages();
                 OnPropertyChanged();
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
             }
         }
-                FillDetailPlantResult();
-            }
-        }
-
-        #endregion
-
-        #region FillImages
-
-        public void FillAllImages()
-        {
-            ImageBlad = GetImageLocation("blad");
-            ImageBloei = GetImageLocation("bloei");
-            ImageHabitus = GetImageLocation("habitus");
-        }
-
-        public ImageSource GetImageLocation(string ImageCatogrie)
-        {
-            string location = "";
-            if (SelectedPlantInResult != null)
-            {
-                location = _dao.GetImages(SelectedPlantInResult.PlantId, ImageCatogrie);
-            }
-
-            //  var fullFilePath = @"https://images0.persgroep.net/rcs/XUun1kAJgb9KiAVBcZnA9YeZMKM/diocontent/123887379/_fitwidth/763?appId=93a17a8fd81db0de025c8abd1cca1279&quality=0.8";
-
-            if (location != null)
-              {
-                      BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(location, UriKind.Absolute);
-                bitmap.EndInit();
-
-                return bitmap;
-              }
-
-              return null;
-
-        }
-
-        private ImageSource _imageBloei;
-
-        public ImageSource ImageBloei
-        {
-            get { return _imageBloei; }
-            set
-            {
-                _imageBloei = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-
-        private ImageSource _imageHabitus;
-
-        public ImageSource ImageHabitus
-        {
-            get { return _imageHabitus; }
-            set
-            {
-                _imageHabitus = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private ImageSource _imageBlad;
-
-        public ImageSource ImageBlad
-        {
-            get { return _imageBlad; }
-            set
-            {
-                _imageBlad = value;
-                OnPropertyChanged();
-            }
-        }
-
-
-        #endregion
-        //#region Fill combobox methods
-
-
-        #region Fill combobox methods
-
-        //Smplifiy method so that the words are more presentable
-        //A function that takes a string, puts it to lowercase, 
-        //changes all the ' and " chars and replaces them by a space
-        //next it deletes al the spaces and returns the string.
-        public string Simplify(string stringToSimplify)
-        {
-            // Door dictionary moeten we een string simplifyen zo dat we deze kunnen gebruiken
-            string answer = stringToSimplify.Replace(",", "").Replace("'", "").Replace("__", "");
-            answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
-            return answer;
-        }
-
-        public void fillComboBoxType()
-        {
-            var list = _dao.fillTfgsvType();
-
-            foreach (var item in list)
-            {
-                cmbTypes.Add(item);
-            }
-        }
-
-        public void fillComboBoxFamilie()
-        {
-
-            var list = new List<TfgsvFamilie>(); /*Enumerable.Empty<TfgsvFamilie>().AsQueryable();*/
-
-            //use the typeId, selected in the combobox to filter the list and load the remaining plant families in the family combobox
-            // checking if selected type is selected to prevent null exception
-            if (SelectedType != null)
-            {
-                // Requesting te list of families 
-                list = _dao.fillTfgsvFamilie(Convert.ToInt32(SelectedType.Planttypeid)).ToList();
-
-            }
-            else
-            {
-                // Requesting te list of families  with 0 because there is noting selected in the combobox of type.
-                list = _dao.fillTfgsvFamilie(0).ToList();
-            }
-
-
-            // clearing te content of te combobox of familie
-            cmbFamilies.Clear();
-            // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
-            var ControleList = new List<string>();
-            //adding or list to the combobox
-            foreach (var item in list)
-            {
-                if (!ControleList.Contains(item.Familienaam))
-                {
-                    cmbFamilies.Add(item);
-                    ControleList.Add(item.Familienaam);
-                }
-            }
-        }
-
-
-        public void fillComboBoxGeslacht()
-        {
-
-            var list = Enumerable.Empty<TfgsvGeslacht>().AsQueryable();
-
-            //use the FamilieId, selected in the combobox to filter the list and load the remaining plant geslacht in the geslacht combobox
-            // checking if selected geslacht is selected to prevent null exception
-            if (SelectedFamilie != null)
-            {
-                // Requesting te list of geslacht 
-                list = _dao.fillTfgsvGeslacht(Convert.ToInt32(SelectedFamilie.FamileId));
-            }
-            else
-            {
-                // Requesting te list of Geslacht  with 0 because there is noting selected in the combobox of type.
-                list = _dao.fillTfgsvGeslacht(0);
-            }
 
 
 
 
         #endregion
 
+        //#region FillImages
 
+        //public void FillAllImages()
+        //{
+        //    ImageBlad = GetImageLocation("blad");
+        //    ImageBloei = GetImageLocation("bloei");
+        //    ImageHabitus = GetImageLocation("habitus");
+        //}
+
+        //public ImageSource GetImageLocation(string ImageCatogrie)
+        //{
+        //    string location = "";
+        //    if (SelectedPlantInResult != null)
+        //    {
+        //        location = _dao.GetImages(SelectedPlantInResult.PlantId, ImageCatogrie);
+        //    }
+
+        //    var fullFilePath = @"https://images0.persgroep.net/rcs/XUun1kAJgb9KiAVBcZnA9YeZMKM/diocontent/123887379/_fitwidth/763?appId=93a17a8fd81db0de025c8abd1cca1279&quality=0.8";
+
+        //    if (location != null)
+        //    {
+        //        BitmapImage bitmap = new BitmapImage();
+        //        bitmap.BeginInit();
+        //        bitmap.UriSource = new Uri(location, UriKind.Absolute);
+        //        bitmap.EndInit();
+
+        //        return bitmap;
+        //    }
+
+        //    return null;
+
+        //}
+
+        //private ImageSource _imageBloei;
+
+        //public ImageSource ImageBloei
+        //{
+        //    get { return _imageBloei; }
+        //    set
+        //    {
+        //        _imageBloei = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+
+
+
+        //private ImageSource _imageHabitus;
+
+        //public ImageSource ImageHabitus
+        //{
+        //    get { return _imageHabitus; }
+        //    set
+        //    {
+        //        _imageHabitus = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
+
+        //private ImageSource _imageBlad;
+
+        //public ImageSource ImageBlad
+        //{
+        //    get { return _imageBlad; }
+        //    set
+        //    {
+        //        _imageBlad = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
     }
 }
+            
+
+
+
+
 
