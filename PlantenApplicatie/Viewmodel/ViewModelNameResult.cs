@@ -69,12 +69,22 @@ namespace PlantenApplicatie.Viewmodel
 
         public void ResetClick()
         {
+
             filteredPlantResults.Clear();
-           this._searchService.Reset(filteredPlantResults, cmbTypes, cmbFamilies, cmbGeslacht,
-               cmbSoort, cmbVariant, cmbRatioBladBloei, SelectedNederlandseNaam, SelectedType,
-               SelectedFamilie, SelectedGeslacht);
+
+            cmbTypes.Clear();
+            cmbFamilies.Clear();
+            cmbGeslacht.Clear();
+            cmbSoort.Clear();
+            cmbVariant.Clear();
+            cmbRatioBladBloei.Clear();
+            SelectedNederlandseNaam = null;
+
+            fillComboboxes();
 
         }
+
+        
 
         public void ApplyFilterClick()
         {
@@ -248,7 +258,7 @@ namespace PlantenApplicatie.Viewmodel
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
                
                 //Make the currently selected plant in the Result list available in the SearchService
-                _searchService.GetSelectedPlantInSearchResult(SelectedPlantInResult);
+             
             }
         }
 

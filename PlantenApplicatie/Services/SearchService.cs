@@ -26,34 +26,34 @@ namespace PlantenApplicatie.Services
         }
 
         #region RelayCommandMethods
-        public void Reset(ObservableCollection<Plant> filteredPlantResults, ObservableCollection<TfgsvType> cmbTypes,
-                                ObservableCollection<TfgsvFamilie> cmbFamilies, ObservableCollection<TfgsvGeslacht> cmbGeslacht,
-                                ObservableCollection<TfgsvSoort> cmbSoort, ObservableCollection<TfgsvVariant> cmbVariant,
-                                ObservableCollection<Fenotype> cmbRatioBladBloei, string SelectedNederlandseNaam, TfgsvType selectedType,
-                                TfgsvFamilie selectedFamilie, TfgsvGeslacht selectedGeslacht
-                                )
-        {
+        //public void Reset(ObservableCollection<Plant> filteredPlantResults, ObservableCollection<TfgsvType> cmbTypes,
+        //                        ObservableCollection<TfgsvFamilie> cmbFamilies, ObservableCollection<TfgsvGeslacht> cmbGeslacht,
+        //                        ObservableCollection<TfgsvSoort> cmbSoort, ObservableCollection<TfgsvVariant> cmbVariant,
+        //                        ObservableCollection<Fenotype> cmbRatioBladBloei, string SelectedNederlandseNaam, TfgsvType selectedType,
+        //                        TfgsvFamilie selectedFamilie, TfgsvGeslacht selectedGeslacht
+        //                        )
+        //{
 
-            filteredPlantResults.Clear();
+        //    filteredPlantResults.Clear();
 
-            cmbTypes.Clear();
-            cmbFamilies.Clear();
-            cmbGeslacht.Clear();
-            cmbSoort.Clear();
-            cmbVariant.Clear();
-            cmbRatioBladBloei.Clear();
-            SelectedNederlandseNaam = "";
+        //    cmbTypes.Clear();
+        //    cmbFamilies.Clear();
+        //    cmbGeslacht.Clear();
+        //    cmbSoort.Clear();
+        //    cmbVariant.Clear();
+        //    cmbRatioBladBloei.Clear();
+        //    SelectedNederlandseNaam = "";
 
 
-            fillComboBoxType(cmbTypes);
-            fillComboBoxFamilie(selectedType, cmbFamilies);
-            fillComboBoxGeslacht(selectedFamilie, cmbGeslacht);
-            fillComboBoxSoort(selectedGeslacht, cmbSoort);
-            fillComboBoxVariant(cmbVariant);
-            fillComboBoxRatioBloeiBlad(cmbRatioBladBloei);
+        //    fillComboBoxType(cmbTypes);
+        //    fillComboBoxFamilie(selectedType, cmbFamilies);
+        //    fillComboBoxGeslacht(selectedFamilie, cmbGeslacht);
+        //    fillComboBoxSoort(selectedGeslacht, cmbSoort);
+        //    fillComboBoxVariant(cmbVariant);
+        //    fillComboBoxRatioBloeiBlad(cmbRatioBladBloei);
 
             
-        }
+        //}
 
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
@@ -632,136 +632,6 @@ namespace PlantenApplicatie.Services
                 }
             }
         }
-
-        ////////public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
-        ////////{
-        ////////    var listPlants = _dao.getAllPlants();
-
-        ////////    if (SelectedtType != null)
-        ////////    {
-
-        ////////        foreach (var item in listPlants.ToList())
-        ////////        {
-
-        ////////            if (item.TypeId != SelectedtType.Planttypeid)
-        ////////            {
-        ////////                listPlants.Remove(item);
-        ////////            }
-        ////////        }
-        ////////    }
-        ////////    if (SelectedFamilie != null)
-        ////////    {
-
-        ////////        foreach (var item in listPlants.ToList())
-        ////////        {
-
-        ////////            if (item.FamilieId != SelectedFamilie.FamileId)
-        ////////            {
-        ////////                listPlants.Remove(item);
-        ////////            }
-        ////////        }
-        ////////    }
-        ////////    if (SelectedGeslacht != null)
-        ////////    {
-
-        ////////        foreach (var item in listPlants.ToList())
-        ////////        {
-
-        ////////            if (item.GeslachtId != SelectedGeslacht.GeslachtId)
-        ////////            {
-        ////////                listPlants.Remove(item);
-        ////////            }
-        ////////        }
-        ////////    }
-        ////////    if (SelectedSoort != null)
-        ////////    {
-
-        ////////        foreach (var item in listPlants.ToList())
-        ////////        {
-
-        ////////            if (item.SoortId != SelectedSoort.Soortid)
-        ////////            {
-        ////////                listPlants.Remove(item);
-        ////////            }
-        ////////        }
-        ////////    }
-        ////////    if (SelectedVariant != null)
-        ////////    {
-
-        ////////        foreach (var item in listPlants.ToList())
-        ////////        {
-
-        ////////            if (item.VariantId != null)
-        ////////            {
-
-        ////////                if (item.VariantId != SelectedVariant.VariantId)
-        ////////                {
-
-        ////////                    listPlants.Remove(item);
-        ////////                }
-        ////////            }
-        ////////            else if (item.VariantId == null)
-        ////////            {
-        ////////                listPlants.Remove(item);
-        ////////            }
-
-        ////////        }
-        ////////    }
-
-        ////////    if (SelectedNederlandseNaam != null)
-        ////////    {
-        ////////        foreach (var item in listPlants.ToList())
-        ////////        {
-
-        ////////            if (item.NederlandsNaam != null)
-        ////////            {
-        ////////                if (!item.NederlandsNaam.Contains(SelectedNederlandseNaam))
-        ////////                {
-        ////////                    listPlants.Remove(item);
-        ////////                }
-
-        ////////            }
-        ////////            else if (item.NederlandsNaam == null)
-        ////////            {
-        ////////                listPlants.Remove(item);
-        ////////            }
-
-        ////////        }
-        ////////    }
-
-        ////////    if (SelectedRatioBloeiBlad != null)
-        ////////    {
-
-        ////////        foreach (var item in listPlants.ToList())
-        ////////        {
-        ////////            if (item.Fenotype.Count != 0)
-        ////////            {
-        ////////                foreach (var itemFenotype in item.Fenotype)
-        ////////                {
-
-        ////////                    if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
-        ////////                    {
-
-        ////////                        if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
-        ////////                        {
-        ////////                            listPlants.Remove(item);
-        ////////                        }
-        ////////                    }
-        ////////                    else
-        ////////                    {
-        ////////                        listPlants.Remove(item);
-        ////////                    }
-        ////////                }
-        ////////            }
-        ////////            else
-        ////////            {
-        ////////                listPlants.Remove(item);
-        ////////            }
-
-        ////////        }
-        ////////    }
-        ////////    return listPlants;
-        ////////}
 
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)
         {

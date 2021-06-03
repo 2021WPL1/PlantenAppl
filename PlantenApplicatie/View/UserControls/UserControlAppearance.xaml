@@ -461,6 +461,16 @@
                     <DropShadowEffect/>
                 </CheckBox.Effect>
          </CheckBox>
+            <Button x:Name="BtnOpslagZoekenAppearance" Content="Opslag Zoeken Appearance" Width="172" Height="50" Canvas.Left="916" Canvas.Top="600" BorderBrush="#FF2AE633"   Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
         </Canvas>
     </Grid>
 </UserControl>
