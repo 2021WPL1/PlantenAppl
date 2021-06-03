@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using GalaSoft.MvvmLight.Command;
 using Planten2021.Data;
@@ -28,6 +29,8 @@ namespace PlantenApplicatie.Viewmodel
 
         private string _userNameInput;
         private string _passwordInput;
+        private string _errorMessage;
+        private string _loggedInMessage;
 
         public ViewModelLogin(IloginUserService loginUserService)
         {
@@ -41,8 +44,42 @@ namespace PlantenApplicatie.Viewmodel
 
         private void LoginButtonClick()
         {
-            _loginService.LoginButton(userNameInput, passwordInput);
+            if (!string.IsNullOrWhiteSpace(userNameInput))
+            {
+                LoginResult loginResult = _loginService.CheckCredentials(userNameInput, passwordInput);
+
+                if (loginResult.loginStatus == LoginStatus.LoggedIn)
+                {
+                  //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    Application.Current.Windows[0]?.Close();
+                }
+                else
+                {
+                    errorMessage = loginResult.errorMessage;
+                }
+            }
+            else
+            {
+                errorMessage = "gebruikersnaam invullen";
+            }
+
         }
+        public string errorMessage
+        {
+            get
+            {
+                return _errorMessage;
+            }
+            set
+            {
+                _errorMessage = value;
+
+                RaisePropertyChanged("errorMessage");
+            }
+        }
+     
         public string userNameInput
         {
             get
@@ -68,7 +105,5 @@ namespace PlantenApplicatie.Viewmodel
                 OnPropertyChanged();
             }
         }
-
-
     }
 }

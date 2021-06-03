@@ -34,7 +34,7 @@ namespace PlantenApplicatie.Services.HelpClasses
         {// gebruik de default instantie (singleton van de SimpleIoc class)
             var iocc = SimpleIoc.Default;
 
-            // haal singletons (elke keer dezelfde instantie) van de services om de viewmodels te voorzien van de nodige services, 
+            // haal singletons (elke keer dezelfde instantie) van de services om de viewmodels te voorzien van de nodige services(service locator)
             var loginService = iocc.GetInstance<IloginUserService>();
             var searchService = iocc.GetInstance<ISearchService>();
             var detailService = iocc.GetInstance<IDetailService>();

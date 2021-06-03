@@ -21,7 +21,9 @@ namespace PlantenApplicatie
         {
             //SearchService.CreateInstance();
             // services registeren
+
             ServiceProvider.RegisterServices();
+
             // VMprovider toevoegen als "static resource" in MvvM zodat die kan worden gebruikt in de Views om
             // de ViewModels te koppelen aan de DataContext
             // instantie die over de hele applicatie kan worden gebruikt in de Views met onderstaande binding

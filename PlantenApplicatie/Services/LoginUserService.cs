@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
@@ -12,12 +13,18 @@ using PlantenApplicatie.HelpClasses.Login.enums;
 using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.View;
 using PlantenApplicatie.View.Home;
+using PlantenApplicatie.Viewmodel;
 
 
 namespace PlantenApplicatie.Services
 {
+
+
     public class LoginUserService : IloginUserService, INotifyPropertyChanged
     {
+        
+        private Gebruiker _gebruiker { get; set; }
+
         /*written by kenny from an example of Roy and some help of Killian*/
         private DAO _dao;
         public LoginUserService()
@@ -27,21 +34,34 @@ namespace PlantenApplicatie.Services
         #region Login Region
 
         public Gebruiker gebruiker = new Gebruiker();
-        private User user = new User();
+       // private LoginResult _loginResult = new LoginResult();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void LoginButton(string userNameInput, string passwordInput)
+
+
+        public void BackButtonRegister()
         {
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            Application.Current.Windows[0]?.Close();
+        }
+
+        public LoginResult CheckCredentials(string userNameInput, string passwordInput)
+        {
+            var loginResult = new LoginResult() {loginStatus = LoginStatus.NotLoggedIn};
+           
             //check if email is valid email
             if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
             {
                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
-                user.gebruiker = gebruiker;
+                loginResult.gebruiker = gebruiker;
+                loginResult.loginStatus = LoginStatus.LoggedIn;
             }
             else
             {
-                MessageBox.Show("This is not a valid Email-adress.");
+                loginResult.loginStatus = LoginStatus.NotLoggedIn;
+                loginResult.errorMessage = "Dit is geen geldig Vives emailadres.";
             }
 
             if (passwordInput is null)
@@ -55,29 +75,34 @@ namespace PlantenApplicatie.Services
 
             if (gebruiker != null)
             {
+                _gebruiker = gebruiker;
+                loginResult.gebruiker = gebruiker;
                 //check if entered password is correct and change LoginStatus
                 if (gebruiker.HashPaswoord != null && passwordHashed.SequenceEqual(gebruiker.HashPaswoord))
                 {
-                    user.loginStatus = LoginStatus.LoggedIn;
+                    loginResult.loginStatus = LoginStatus.LoggedIn;
                 }
                 else
                 {
-                    user.loginStatus = LoginStatus.NotLoggedIn;
-                    MessageBox.Show("Het ingegeven wachtwoord is niet juist, probeer opnieuw");
-                }
-
-                if (user.loginStatus == LoginStatus.LoggedIn)
-                {
-                    MainWindow mainWindow = new MainWindow();
-                    mainWindow.Show();
+                    loginResult.loginStatus = LoginStatus.NotLoggedIn;
+                    loginResult.errorMessage += "\r\n"+"Het ingegeven wachtwoord is niet juist, probeer opnieuw";
                 }
             }
             else
             {
-                MessageBox.Show($"Er is geen account gevonden voor {userNameInput}, gelieve eerst te registreren");
+                loginResult.errorMessage = $"Er is geen account gevonden voor {userNameInput} "+"\r\n"+" gelieve eerst te registreren";
             }
+            return loginResult;
+        }
 
-
+       
+        public string LoggedInMessage()
+        {
+            string message= String.Empty;
+          
+                message = $"ingelogd als: {_gebruiker.Voornaam} {_gebruiker.Achternaam}";
+                
+            return message;
         }
 
         public void CancelButton()
@@ -86,6 +111,7 @@ namespace PlantenApplicatie.Services
         }
         public void RegisterButtonView()
         {
+            
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
             Application.Current.Windows[0]?.Close();
@@ -96,10 +122,12 @@ namespace PlantenApplicatie.Services
 
         #region Register Region
 
-        public void RegisterButton(string vivesNrInput, string lastNameInput, 
+        public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
                                    string passwordInput, string passwordRepeatInput, string rolInput)
         {
+
+            string errorMessage = string.Empty;
             if (vivesNrInput != null &&
                 firstNameInput != null &&
                 lastNameInput != null &&
@@ -113,27 +141,31 @@ namespace PlantenApplicatie.Services
                     if (passwordInput == passwordRepeatInput)
                     {
                         _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
-                        MessageBox.Show($"{firstNameInput}, je bent succevol geregistreerd, uw gebruikersnaam is {emailAdresInput}.");
+                        errorMessage = $"{firstNameInput}, je bent succevol geregistreerd,"+"\r\n"+$" uw gebruikersnaam is {emailAdresInput}." + "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                         LoginWindow loginWindow = new LoginWindow();
                         loginWindow.Show();
                     }
                     else
                     {
-                        MessageBox.Show("zorg dat de wachtwoorden overeen komen.");
+                        errorMessage = "zorg dat de wachtwoorden overeen komen.";
                     }
                 }
                 else
                 {
-                    MessageBox.Show($"{emailAdresInput} is geen geldig emailadres, of het eamiladres is al in gebruik.");
+                    errorMessage = $"{emailAdresInput} is geen geldig emailadres, "+"\r\n"+" of het eamiladres is al in gebruik.";
                 }
             }
             else
             {
-                MessageBox.Show("zorg dat alle velden ingevuld zijn");
+                errorMessage = "zorg dat alle velden ingevuld zijn";
             }
+
+            return errorMessage;
         }
-        #endregion
+        
+        
 
-
+#endregion
     }
+    
 }
