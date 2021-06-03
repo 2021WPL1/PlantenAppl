@@ -366,6 +366,11 @@ namespace PlantenApplicatie.Services
             }
         #endregion
 
+        /// <summary>
+        /// obsolete? Robin
+        /// </summary>
+        /// <param name="detailsSelectedPlant"></param>
+        /// <param name="SelectedPlantInResult"></param>
         public void FillDetailPlantResult(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult)
         {
             detailsSelectedPlant.Clear();

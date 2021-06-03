@@ -9,25 +9,44 @@ using System.Reflection.Emit;
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
-
+/*comments kenny*/
 //using System.Windows.Controls;
 
 namespace Planten2021.Data
 {
     public class DAO
     {
+        //1.een statische private instantie instatieren die enkel kan gelezen worden.
+        //deze wordt altijd teruggegeven wanneer de Instance method wordt opgeroepen
         private static readonly DAO instance = new DAO();
+
+        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAO*/
         private readonly _Planten2021Context context;
 
+        //2. private contructor
+        private DAO()
+        {
+            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAO*/
+            this.context = new _Planten2021Context();
+        }
+        //3.publieke methode instance die altijd kan aangeroepen worden
+            //door zijn statische eigenschappen kan hij altijd aangeroepen worden 
+            //zonder er een instantie van te maken
         public static DAO Instance()
         {
             return instance;
         }
-        //private contructor
-        private DAO()
-        {
-            this.context = new _Planten2021Context();
-        }
+        /* 4.gebruik: var example = DAO.Instance();
+}
+
+
+
+
+
+
+
+         */
+
 
         //search functions
 

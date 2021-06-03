@@ -45,7 +45,6 @@ namespace PlantenApplicatie.Services.HelpClasses
             // factory pattern om een instantie te maken van de viewmodels
             // Dependency Injection: constructor injection: injecteer  de services in the constructors van de viewmodels;
 
-            //SimpleIoc.Default.Unregister<ViewModelLogin>();
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
             iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
 
@@ -60,7 +59,7 @@ namespace PlantenApplicatie.Services.HelpClasses
             //SimpleIoc.Default.Unregister<ViewModelMain>();
             iocc.Register<ViewModelBase>(() => new ViewModelBase());
             iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService));
-            iocc.Register<ViewModelRepo>(() => ViewModelRepo.Instance());
+            iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
         }
     }
 }

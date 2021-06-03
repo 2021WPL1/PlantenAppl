@@ -32,7 +32,7 @@ namespace PlantenApplicatie
 
             //var iocc = SimpleIoc.Default;
 
-            ViewModelRepo.CreateInstance();
+            //ViewModelRepo.CreateInstance();
             
             this.Resources.Add("VMProvider", new ViewModelProvider());
 
