@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.Design;
 using System.Text;
 using System.Linq;
 //using Planten2021.Data.Models;
@@ -8,25 +10,44 @@ using System.Reflection.Emit;
 using System.Security.Cryptography;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
-
+/*comments kenny*/
 //using System.Windows.Controls;
 
 namespace Planten2021.Data
 {
     public class DAO
     {
+        //1.een statische private instantie instatieren die enkel kan gelezen worden.
+        //deze wordt altijd teruggegeven wanneer de Instance method wordt opgeroepen
         private static readonly DAO instance = new DAO();
+
+        /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAO*/
         private readonly _Planten2021Context context;
 
+        //2. private contructor
+        private DAO()
+        {
+            /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAO*/
+            this.context = new _Planten2021Context();
+        }
+        //3.publieke methode instance die altijd kan aangeroepen worden
+            //door zijn statische eigenschappen kan hij altijd aangeroepen worden 
+            //zonder er een instantie van te maken
         public static DAO Instance()
         {
             return instance;
         }
-        //private contructor
-        private DAO()
-        {
-            this.context = new _Planten2021Context();
-        }
+        /* 4.gebruik: var example = DAO.Instance();
+}
+
+
+
+
+
+
+
+         */
+
 
         //search functions
 
@@ -182,6 +203,83 @@ namespace Planten2021.Data
             return plants;
         }
 
+        public string GetImages(long id , string ImageCategorie)
+        {
+            var foto = context.Foto.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
+            
+
+            if (foto != null)
+            {
+                var location = foto;
+                return location.UrlLocatie;
+            }
+
+            return null;
+        }
+
+        #region Lists of all the plant properties with multiple values, used to display plant details
+
+        //Get a list of all the Abiotiek types
+        public List<Abiotiek> GetAllAbiotieks()
+        {
+            var abiotiek = context.Abiotiek.ToList();
+            return abiotiek;
+        }
+
+        //Get a list of all the AbiotiekMulti types
+        public List<AbiotiekMulti> GetAllAbiotieksMulti()
+        {
+            //List is unfiltered, a plantId can be present multiple times
+            //The aditional filteren will take place in the ViewModel
+
+            var abioMultiList = context.AbiotiekMulti.ToList();
+
+            return abioMultiList;
+        }
+        //Get a list of all the Beheermaand types
+        public List<BeheerMaand> GetBeheerMaanden()
+        {
+            var beheerMaanden = context.BeheerMaand.ToList();
+            return beheerMaanden;
+        }
+
+        public List<Commensalisme> GetAllCommensalisme()
+        {
+            var commensalisme = context.Commensalisme.ToList();
+            return commensalisme;
+        }
+        public List<CommensalismeMulti> GetAllCommensalismeMulti()
+        {
+            //List is unfiltered, a plantId can be present multiple times
+            //The aditional filtering will take place in the ViewModel
+
+            var commensalismeMulti = context.CommensalismeMulti.ToList();
+            return commensalismeMulti;
+        }
+        public List<ExtraEigenschap> GetAllExtraEigenschap()
+        {
+            var extraEigenschap = context.ExtraEigenschap.ToList();
+            return extraEigenschap;
+        }
+
+        public List<Fenotype> GetAllFenoTypes()
+        {
+            var fenoTypes = context.Fenotype
+                .ToList();
+            return fenoTypes;
+        }
+        public List<Foto> GetAllFoto()
+        {
+            var foto = context.Foto.ToList();
+            return foto;
+        }
+        public List<UpdatePlant> GetAllUpdatePlant()
+        {
+            var updatePlant = context.UpdatePlant.ToList();
+            return updatePlant;
+        }
+        #endregion
+
         ////////////A function that takes a string, puts it to lowercase, 
         ////////////changes all the ' and " chars and replaces them by a space
         ////////////next it deletes al the spaces and returns the string.
@@ -237,7 +335,7 @@ namespace Planten2021.Data
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
-               return selection;
+                return selection;
 
             }
             else
@@ -289,7 +387,7 @@ namespace Planten2021.Data
             // distinct to prevrent more than one of each type
             // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
 
-            var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam); 
+            var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam);
             return selection;
 
         }
@@ -387,6 +485,31 @@ namespace Planten2021.Data
 
         #endregion
 
+        #region Fill Combobox Pollenwaarde en Nectarwaarde
+        
+        public List<ExtraPollenwaarde> FillExtraPollenwaardes()
+        {
+            var selection = context.ExtraPollenwaarde.ToList();
+            return selection;
+        }
+
+        public List<ExtraNectarwaarde> FillExtraNectarwaardes()
+        {
+            var selection = context.ExtraNectarwaarde.ToList();
+            return selection;
+        }
+
+        #endregion
+
+        public List<BeheerMaand> FillBeheerdaad()
+        {
+            var selection = context.BeheerMaand.ToList();
+            return selection;
+        }
+
+       
+
+
         public List<Plant> detailsAanvullen(long ID)
         {
             var plants = context.Plant
@@ -405,14 +528,15 @@ namespace Planten2021.Data
             return plants;
         }
 
+        //written by kenny
         public Gebruiker GetGebruikerWithEmail(string userEmail)
         {
-            Gebruiker gebruiker;
-            gebruiker = context.Gebruiker.SingleOrDefault(g => g.Emailadres == userEmail);
+            var gebruiker = context.Gebruiker.SingleOrDefault(g => g.Emailadres == userEmail);
             return gebruiker;
 
         }
 
+        //written by kenny
         public void RegisterUser(string vivesNr, string firstName, string lastName, string rol, string emailadres, string password)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);
@@ -431,6 +555,25 @@ namespace Planten2021.Data
             context.Gebruiker.Add(gebruiker);
             context.SaveChanges();
         }
+        //written by kenny
+        public List<Gebruiker> getAllGebruikers()
+        {
+            var gebruiker = context.Gebruiker.ToList();
+            return gebruiker;
+        }
+        //written by kenny
+        public bool CheckIfEmailAlreadyExists(string email)
+        {
+            bool result = false;
+            if (GetGebruikerWithEmail(email) == null)
+            {
+                result = true;
+            }
+
+            return result;
+        }
 
     }
+
+
 }

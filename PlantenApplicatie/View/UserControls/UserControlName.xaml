@@ -6,15 +6,18 @@
              xmlns:local="clr-namespace:PlantenApplicatie.View.UserControls"
              xmlns:viewModel="clr-namespace:PlantenApplicatie.ViewModel"
              mc:Ignorable="d" 
-             d:DesignHeight="900" d:DesignWidth="1250">
-    <Grid>
-        <Canvas x:Name="CvsZoeken" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Center" Width="1034" Height="154" VerticalAlignment="Top" >
-            <Label Content="Type" Canvas.Top="7" Width="200" Height="32" Canvas.Left="6" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
+             d:DesignHeight="720"
+             d:DesignWidth="1200">
+    <Grid Margin="10,10,10,0" Height="700" VerticalAlignment="Top">
+
+
+        <Canvas x:Name="CvsZoeken" Visibility="Visible" Background="#99FFFFFF" HorizontalAlignment="Left" Width="214" Margin="10,0,0,10" Height="663" VerticalAlignment="Bottom" >
+            <Label Content="Type" Canvas.Top="12" Width="200" Height="28" Canvas.Left="8" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <ComboBox x:Name="cmbType" Canvas.Left="6" Canvas.Top="41" Width="200" Height="31"
+            <ComboBox x:Name="cmbType" Canvas.Left="7" Canvas.Top="45" Width="200" Height="28"
                       ItemsSource="{Binding cmbTypes}" 
                       DisplayMemberPath="Planttypenaam"
                       SelectedValuePath="Planttypeid"
@@ -24,53 +27,52 @@
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="33" Canvas.Left="312" Canvas.Top="79" Width="200">
+            <Label Content="Ratio blad/bloei" BorderThickness="1"  BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="28" Canvas.Left="4" Canvas.Top="278" Width="200">
 
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <Label Content="Variant" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="32" Canvas.Left="826" Canvas.Top="8" Width="200">
+            <Label Content="Variant" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="28" Canvas.Left="6" Canvas.Top="344" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="31" Canvas.Left="211" Canvas.Top="8" Width="200">
+            <Label Content="Familie" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2" Height="28" Canvas.Left="7" Canvas.Top="78" Width="200">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <Label Content="Naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32" Canvas.Left="516" Canvas.Top="80" Width="200" RenderTransformOrigin="0.487,0.673">
+            <Label Content="Naam" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="28" Canvas.Left="7" Canvas.Top="410" Width="200" RenderTransformOrigin="0.487,0.673">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <TextBox x:Name="txtNaam" TextWrapping="Wrap" Height="32" Canvas.Left="516" Canvas.Top="117" Width="200">
+            <TextBox x:Name="txtNaam" Text="{Binding Path=SelectedNederlandseNaam}"  TextWrapping="Wrap" Height="28" Canvas.Left="7" Canvas.Top="443" Width="200">
                 <TextBox.Effect>
                     <DropShadowEffect/>
                 </TextBox.Effect>
             </TextBox>
-            <ComboBox x:Name="cmbFamilie" Canvas.Left="211" Canvas.Top="42" Width="200" Height="30" 
+            <ComboBox x:Name="cmbFamilie" Canvas.Left="7" Canvas.Top="111" Width="200" Height="28" 
                       ItemsSource="{Binding cmbFamilies}"   
                       SelectedItem="{Binding Path=SelectedFamilie}"
                       DisplayMemberPath="Familienaam"
                       SelectedValuePath="FamileId" IsEditable="True">
-
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <Label Content="Geslacht" Canvas.Left="417" Canvas.Top="7" Width="200"  BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+            <Label Content="Geslacht" Canvas.Left="7" Canvas.Top="144" Width="200"  BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="28">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <Label Content="Soort" Canvas.Left="623" Canvas.Top="8" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="32">
+            <Label Content="Soort" Canvas.Left="6" Canvas.Top="212" Width="198" BorderThickness="1" BorderBrush="#FF20331C" Background="#FFA2C8A2"  Height="28">
                 <Label.Effect>
                     <DropShadowEffect/>
                 </Label.Effect>
             </Label>
-            <ComboBox x:Name="cmbGeslacht" Canvas.Left="417" Canvas.Top="42" Width="199" Height="30"
+            <ComboBox x:Name="cmbGeslacht" Canvas.Left="6" Canvas.Top="177" Width="200" Height="30"
                       ItemsSource="{Binding cmbGeslacht}" 
                       DisplayMemberPath="Geslachtnaam"
                       SelectedValuePath="GeslachtId"
@@ -80,7 +82,7 @@
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ComboBox x:Name="cmbSoort" Canvas.Left="623" Canvas.Top="42" Width="198" Height="30"
+            <ComboBox x:Name="cmbSoort" Canvas.Left="6" Canvas.Top="245" Width="198" Height="28"
                       ItemsSource="{Binding cmbSoort}"
                       DisplayMemberPath="Soortnaam"
                       SelectedValuePath="Soortid"
@@ -90,7 +92,7 @@
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ComboBox x:Name="cmbVariant" Canvas.Left="826" Canvas.Top="43" Width="198" Height="29"
+            <ComboBox x:Name="cmbVariant" Canvas.Left="6" Canvas.Top="377" Width="198" Height="28"
                       ItemsSource="{Binding cmbVariant}"
                       DisplayMemberPath="Variantnaam"
                       SelectedValuePath="VariantId"
@@ -100,7 +102,7 @@
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ComboBox  Canvas.Left="312" Canvas.Top="117" Width="200" Height="30" 
+            <ComboBox  Canvas.Left="5" Canvas.Top="311" Width="200" Height="28" 
                       ItemsSource="{Binding cmbRatioBladBloei}"
                       DisplayMemberPath="RatioBloeiBlad" IsEditable="True" 
                       >
@@ -108,16 +110,12 @@
                     <DropShadowEffect/>
                 </ComboBox.Effect>
             </ComboBox>
-            <ListBox x:Name="lstResultSearch" 
-                     ItemsSource="{Binding filteredPlantResults}"
-                     DisplayMemberPath="Fgsv"
-                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Canvas.Top="281" Height="419"/>
-            <ListBox x:Name="lstDetails" Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="512" Height="419" Canvas.Left="517" Canvas.Top="281"/>
-            <Button x:Name="btnZoeken" Content="Zoeken" FontSize="48" BorderBrush="#FF2AE633" Margin="818,88,0,0" Height="91" Width="385"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
-                    Command="{Binding Path=SearchCommand}" Canvas.Left="-492" Canvas.Top="80"
+            <Button x:Name="btnZoeken" Content="Zoeken" FontSize="24" BorderBrush="#FF2AE633"  Background="#FF474029" FontWeight="Bold" FontFamily="Wide Latin" Foreground="#FFA2BC5B" 
+                    Command="{Binding SearchCommand}"
+            Height="56" Canvas.Left="5" Canvas.Top="538" Width="196"
             >
                 <Button.Resources>
-                    <Style TargetType="Border">
+                    <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="10"/>
                     </Style>
                 </Button.Resources>
@@ -125,7 +123,85 @@
                     <DropShadowEffect/>
                 </Button.Effect>
             </Button>
-
+            <Button x:Name="btnNameReset"
+                    Content="Reset" Background="#FF474029" BorderBrush="#FF40E948" Foreground="#FFABC36C" FontWeight="Bold" FontSize="36"
+                    Command="{Binding ResetCommand}" Height="54" Canvas.Left="5" Canvas.Top="599" Width="198">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
         </Canvas>
+
+        <ListBox x:Name="lstResultSearch" 
+                     ItemsSource="{Binding filteredPlantResults}"
+                     SelectedItem="{Binding Path= SelectedPlantInResult, Mode=TwoWay}"
+                     Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Width="430" Margin="237,0,0,8" HorizontalAlignment="Left" Height="559" VerticalAlignment="Bottom">
+            <ListBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.443"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-1.326"/>
+                </TransformGroup>
+            </ListBox.RenderTransform>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel  Margin="10">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Nederlandse naam: " TextDecorations="Underline" />
+                            <TextBlock Text="{Binding NederlandsNaam}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Naam: " TextDecorations="Underline" />
+                            <TextBlock Text="{Binding Fgsv}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Type: " TextDecorations="Underline" />
+                            <TextBlock Text="{Binding Type}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Familie: " TextDecorations="Underline" />
+                            <TextBlock Text="{Binding Familie}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Geslacht: " TextDecorations="Underline" />
+                            <TextBlock Text="{Binding Geslacht}" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Soort: " TextDecorations="Underline"/>
+                            <TextBlock Text="{Binding Soort}"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                            <TextBlock Text="Variant: " TextDecorations="Underline" />
+                            <TextBlock Text="{Binding Variant}"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="lstDetails"
+                 ItemsSource="{Binding detailsSelectedPlant}"
+
+                 Visibility="Visible" Background="#99FFFFFF" FontWeight="Bold" FontSize="14" Margin="0,0,10,10" HorizontalAlignment="Right" Width="470" Height="565" VerticalAlignment="Bottom"/>
+        <Label Content="Resultaat planten" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C"  FontSize="24" Height="44" Margin="237,0,747,580" VerticalAlignment="Bottom">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <Label Content="Details planten" BorderThickness="1" Background="#FFA2C8A2"  BorderBrush="#FF20331C" FontSize="24" Height="44" Margin="942,76,10,0" VerticalAlignment="Top" Grid.RowSpan="2" >
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <Image Source="{Binding ImageHabitus}" Margin="479,0,575,575" Height="122" VerticalAlignment="Bottom" />
+        <Image Source="{Binding ImageBlad}" Margin="638,0,418,581" Height="113" VerticalAlignment="Bottom" />
+        <Image Source="{Binding ImageBloei}" Margin="809,0,242,582" Height="112" VerticalAlignment="Bottom"/>
+
+
     </Grid>
 </UserControl>

@@ -9,6 +9,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PlantenApplicatie.Viewmodel;
+using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.View.Home
 {
@@ -19,6 +21,7 @@ namespace PlantenApplicatie.View.Home
     {
         public RegisterWindow()
         {
+            DataContext = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<ViewModelRegister>();
             InitializeComponent();
         }
     }

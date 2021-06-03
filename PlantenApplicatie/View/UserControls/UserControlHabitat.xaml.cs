@@ -22,5 +22,10 @@ namespace PlantenApplicatie.View.UserControls
         {
             InitializeComponent();
         }
+
+        private void cmbOntwikkelsnelheid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

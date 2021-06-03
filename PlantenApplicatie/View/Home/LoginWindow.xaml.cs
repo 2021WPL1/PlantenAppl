@@ -9,9 +9,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using PlantenApplicatie.Viewmodel;
 
 namespace PlantenApplicatie.View.Home
-{
+{/*written by kenny*/
     /// <summary>
     /// Interaction logic for LoginWindow.xaml
     /// </summary>
@@ -19,6 +20,7 @@ namespace PlantenApplicatie.View.Home
     {
         public LoginWindow()
         {
+            DataContext = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<ViewModelLogin>();
             InitializeComponent();
         }
     }
