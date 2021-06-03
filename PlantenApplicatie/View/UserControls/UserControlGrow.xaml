@@ -275,7 +275,7 @@
             </CheckBox>
             <CheckBox x:Name="CbxVoedingsbehoefteArmMatig" 
                       IsChecked="{Binding Path=SelectedCheckBoxVoedingsbehoefteArmMatig, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="184" Canvas.Top="349" Height="15" Width="15" BorderBrush="Gray">
+                      Content="CheckBox" Canvas.Left="184" Canvas.Top="351" Height="15" Width="15" BorderBrush="Gray">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>

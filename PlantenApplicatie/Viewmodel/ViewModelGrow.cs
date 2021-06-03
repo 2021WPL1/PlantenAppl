@@ -18,9 +18,6 @@ namespace PlantenApplicatie.Viewmodel
         {
             _detailService = detailservice;
             this._dao = DAO.Instance();
-
-            //_detailService.test();
-            
         }
 
         #region CheckboxGrondsoort
@@ -85,7 +82,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        
+
         private bool _selectedCheckBoxGrondsoortOP2;
         public bool SelectedCheckBoxGrondsoortOP2
         {
@@ -480,7 +477,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent
         {
             get { return _selectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent; }
-            
+
             set
             {
                 _selectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent = value;
@@ -503,5 +500,92 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
+        #region CheckboxVochtBehoefte
+
+        private bool _selectedCheckBoxVochtbehoefteDroog;
+        public bool SelectedCheckBoxVochtbehoefteDroog
+        {
+            get { return _selectedCheckBoxVochtbehoefteDroog; }
+
+            set
+            {
+                _selectedCheckBoxVochtbehoefteDroog = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVochtbehoefteDroogFris;
+        public bool SelectedCheckBoxVochtbehoefteDroogFris
+        {
+            get { return _selectedCheckBoxVochtbehoefteDroogFris; }
+
+            set
+            {
+                _selectedCheckBoxVochtbehoefteDroogFris = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVochtbehoefteFris;
+        public bool SelectedCheckBoxVochtbehoefteFris
+        {
+            get { return _selectedCheckBoxVochtbehoefteFris; }
+
+            set
+            {
+                _selectedCheckBoxVochtbehoefteFris = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVochtbehoefteFrisVochtig;
+        public bool SelectedCheckBoxVochtbehoefteFrisVochtig
+        {
+            get { return _selectedCheckBoxVochtbehoefteFrisVochtig; }
+
+            set
+            {
+                _selectedCheckBoxVochtbehoefteFrisVochtig = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVochtbehoefteVochtig;
+        public bool SelectedCheckBoxVochtbehoefteVochtig
+        {
+            get { return _selectedCheckBoxVochtbehoefteVochtig; }
+
+            set
+            {
+                _selectedCheckBoxVochtbehoefteVochtig = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVochtbehoefteVochtigNat;
+        public bool SelectedCheckBoxVochtbehoefteVochtigNat
+        {
+            get { return _selectedCheckBoxVochtbehoefteVochtigNat; }
+
+            set
+            {
+                _selectedCheckBoxVochtbehoefteVochtigNat = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxVochtbehoefteNat;
+        public bool SelectedCheckBoxVochtbehoefteNat
+        {
+            get { return _selectedCheckBoxVochtbehoefteNat; }
+
+            set
+            {
+                _selectedCheckBoxVochtbehoefteNat = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
     }
 }
