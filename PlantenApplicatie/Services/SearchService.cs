@@ -26,34 +26,7 @@ namespace PlantenApplicatie.Services
         }
 
         #region RelayCommandMethods
-        //public void Reset(ObservableCollection<Plant> filteredPlantResults, ObservableCollection<TfgsvType> cmbTypes,
-        //                        ObservableCollection<TfgsvFamilie> cmbFamilies, ObservableCollection<TfgsvGeslacht> cmbGeslacht,
-        //                        ObservableCollection<TfgsvSoort> cmbSoort, ObservableCollection<TfgsvVariant> cmbVariant,
-        //                        ObservableCollection<Fenotype> cmbRatioBladBloei, string SelectedNederlandseNaam, TfgsvType selectedType,
-        //                        TfgsvFamilie selectedFamilie, TfgsvGeslacht selectedGeslacht
-        //                        )
-        //{
-
-        //    filteredPlantResults.Clear();
-
-        //    cmbTypes.Clear();
-        //    cmbFamilies.Clear();
-        //    cmbGeslacht.Clear();
-        //    cmbSoort.Clear();
-        //    cmbVariant.Clear();
-        //    cmbRatioBladBloei.Clear();
-        //    SelectedNederlandseNaam = "";
-
-
-        //    fillComboBoxType(cmbTypes);
-        //    fillComboBoxFamilie(selectedType, cmbFamilies);
-        //    fillComboBoxGeslacht(selectedFamilie, cmbGeslacht);
-        //    fillComboBoxSoort(selectedGeslacht, cmbSoort);
-        //    fillComboBoxVariant(cmbVariant);
-        //    fillComboBoxRatioBloeiBlad(cmbRatioBladBloei);
-
-            
-        //}
+       
 
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
@@ -392,7 +365,6 @@ namespace PlantenApplicatie.Services
             detailsSelectedPlant.Add("Minimale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMin);
             detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
             detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
-            detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
         }
         public void FillDetailsPlantAbiotiek(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult)
         {
