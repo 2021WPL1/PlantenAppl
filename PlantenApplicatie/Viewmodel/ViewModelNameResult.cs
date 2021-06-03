@@ -18,7 +18,6 @@ using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 using Prism.Commands;
 
-
 namespace PlantenApplicatie.Viewmodel
 {
     public class ViewModelNameResult : ViewModelBase
@@ -244,6 +243,8 @@ namespace PlantenApplicatie.Viewmodel
                 FillAllImages();
                 OnPropertyChanged();
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
+               
+                //Make the currently selected plant in the Result list available in the SearchService
                 _searchService.GetSelectedPlantInSearchResult(SelectedPlantInResult);
             }
         }

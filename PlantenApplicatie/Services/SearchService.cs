@@ -791,7 +791,8 @@ namespace PlantenApplicatie.Services
 
         public void GetSelectedPlantInSearchResult(Plant selectedPlant)
         {
-            selectedPlantInResult = selectedPlant;
+                selectedPlantInResult = selectedPlant;
+            
         }
         public Plant ReturnSelectedPlantInSearchResult()
         {

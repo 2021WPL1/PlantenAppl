@@ -22,15 +22,17 @@ namespace PlantenApplicatie.Services
         public event PropertyChangedEventHandler PropertyChanged;
         public DetailService(ISearchService searchService)
         {
-            this._dao = DAO.Instance(); 
+            this._dao = DAO.Instance();
             _searchService = searchService;
-            
         }
         public void test()
         {
             selectedPlantInResult = _searchService.ReturnSelectedPlantInSearchResult();
-            MessageBox.Show(selectedPlantInResult.Fgsv.ToString());
+            if(selectedPlantInResult != null)
+            {
+                MessageBox.Show(selectedPlantInResult.Fgsv.ToString());
+            }
         }
-        
+
     }
 }

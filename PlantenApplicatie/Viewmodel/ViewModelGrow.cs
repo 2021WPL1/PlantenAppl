@@ -18,9 +18,6 @@ namespace PlantenApplicatie.Viewmodel
         {
             _detailService = detailservice;
             this._dao = DAO.Instance();
-
-            //_detailService.test();
-            
         }
 
         #region CheckboxGrondsoort
@@ -85,7 +82,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        
+
         private bool _selectedCheckBoxGrondsoortOP2;
         public bool SelectedCheckBoxGrondsoortOP2
         {
@@ -480,7 +477,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent
         {
             get { return _selectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent; }
-            
+
             set
             {
                 _selectedCheckBoxVoedingsbehoefteVoedselrijkIndifferent = value;
