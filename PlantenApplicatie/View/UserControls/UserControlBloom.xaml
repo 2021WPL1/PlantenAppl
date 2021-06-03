@@ -26,31 +26,57 @@
             <Label Content=" Paars" Foreground="Purple" Canvas.Left="890" Canvas.Top="28" Height="28" Width="50" BorderBrush="Purple" BorderThickness="1"/>
             <Label Content=" Bruin" Foreground="Brown" Canvas.Left="958" Canvas.Top="28" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
             <TextBox Canvas.Left="158" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="35" Background="Black"/>
-            <CheckBox x:Name="CbxBloeikleurZwart" Content="CheckBox" Canvas.Left="168" Canvas.Top="78" Height="15" Width="15"/>
+            <CheckBox x:Name="CbxBloeikleurZwart" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurZwart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="168" Canvas.Top="78" Height="15" Width="15"/>
             <TextBox Canvas.Left="222" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="35" Background="White"/>
-            <CheckBox x:Name="CbxBloeikleurWit" Content="CheckBox" Canvas.Left="232" Canvas.Top="78" Height="15" Width="15"/>
+            <CheckBox x:Name="CbxBloeikleurWit" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurWit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="232" Canvas.Top="78" Height="15" Width="15"/>
             <TextBox Canvas.Left="290" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
-            <CheckBox x:Name="CbxBloeikleurRosé" Content="CheckBox" Canvas.Left="300" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurRosé" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurRosé, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="300" Canvas.Top="78" Height="15" Width="14"/>
             <TextBox Canvas.Left="354" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="35" Background="Red"/>
-            <CheckBox x:Name="CbxBloeikleurRood" Content="CheckBox" Canvas.Left="364" Canvas.Top="78" Height="15" Width="15"/>
+            <CheckBox x:Name="CbxBloeikleurRood" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurRood, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="364" Canvas.Top="78" Height="15" Width="15"/>
             <TextBox Canvas.Left="424" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
-            <CheckBox x:Name="CbxBloeikleurOranje" Content="CheckBox" Canvas.Left="434" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurOranje"
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurOranje, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="434" Canvas.Top="78" Height="15" Width="14"/>
             <TextBox Canvas.Left="492" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
-            <CheckBox x:Name="CbxBloeikleurLila" Content="CheckBox" Canvas.Left="502" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurLila" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurLila, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="502" Canvas.Top="78" Height="15" Width="14"/>
             <TextBox Canvas.Left="560" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Gray"/>
-            <CheckBox x:Name="CbxBloeikleurGrijs" Content="CheckBox" Canvas.Left="570" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurGrijs" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurGrijs, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="570" Canvas.Top="78" Height="15" Width="14"/>
             <TextBox Canvas.Left="626" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Green"/>
-            <CheckBox x:Name="CbxBloeikleurGroen" Content="CheckBox" Canvas.Left="636" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurGroen" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurGroen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="636" Canvas.Top="78" Height="15" Width="14"/>
             <TextBox Canvas.Left="696" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Yellow"/>
-            <CheckBox x:Name="CbxBloeikleurGeel" Content="CheckBox" Canvas.Left="706" Canvas.Top="78" Height="15" Width="15"/>
+            <CheckBox x:Name="CbxBloeikleurGeel" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurGeel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="706" Canvas.Top="78" Height="15" Width="15"/>
             <TextBox Canvas.Left="764" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Blue"/>
-            <CheckBox x:Name="CbxBloeikleurBlauw" Content="CheckBox" Canvas.Left="774" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurBlauw" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurBlauw, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="774" Canvas.Top="78" Height="15" Width="14"/>
             <TextBox Canvas.Left="830" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Violet"/>
-            <CheckBox x:Name="CbxBloeikleurViolet" Content="CheckBox" Canvas.Left="840" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurViolet" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurViolet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="840" Canvas.Top="78" Height="15" Width="14"/>
             <TextBox Canvas.Left="898" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Purple"/>
-            <CheckBox x:Name="CbxBloeikleurPaars" Content="CheckBox" Canvas.Left="908" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurPaars" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurPaars, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="908" Canvas.Top="78" Height="15" Width="14"/>
             <TextBox Canvas.Left="966" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Brown"/>
-            <CheckBox x:Name="CbxBloeikleurBruin" Content="CheckBox" Canvas.Left="976" Canvas.Top="78" Height="15" Width="14"/>
+            <CheckBox x:Name="CbxBloeikleurBruin" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurBruin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="976" Canvas.Top="78" Height="15" Width="14"/>
             <Label Content="Bloeikleur" Canvas.Left="28" Canvas.Top="73" Height="28" Width="100" BorderBrush="Orange"  FontWeight="Bold" FontSize="14"/>
             <Label Content="Maanden"  Canvas.Left="28" Canvas.Top="158" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
@@ -81,13 +107,7 @@
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
-                <CheckBox x:Name="CbxBloeihoogteFeb_Copy" 
-                    IsChecked="{Binding SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                    Content="CheckBox"  Height="15" Width="16">
-                    <CheckBox.Effect>
-                        <DropShadowEffect/>
-                    </CheckBox.Effect>
-                </CheckBox>
+
             </CheckBox>
             <CheckBox x:Name="CbxBloeihoogteMar" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
@@ -236,7 +256,7 @@
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInFeb" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="232" Canvas.Top="270"  Height="14" Width="16">
+                      Content="CheckBox" Canvas.Left="168" Canvas.Top="270" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
