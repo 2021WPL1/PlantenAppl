@@ -18,11 +18,14 @@ namespace PlantenApplicatie.Services
         private DAO _dao;
         private static SearchService _searchService;
 
+        public Plant selectedPlantInResult;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public SearchService()
         {
             this._dao = DAO.Instance();
+
         }
 
         #region RelayCommandMethods
@@ -225,31 +228,6 @@ namespace PlantenApplicatie.Services
                 // Requesting te list of families  with 0 because there is noting selected in the combobox of type.
                 list = _dao.fillTfgsvFamilie(0).ToList();
             }
-
-        //        }
-        //        public void FillSingleValuePlantDetails()
-        //        {
-        //            //These are single value properties and can be added to the details screen immediatly
-        //            detailsSelectedPlant.Add("Plant Id: " + SelectedPlantInResult.PlantId);
-        //            detailsSelectedPlant.Add("Nederlandse naam: " + SelectedPlantInResult.NederlandsNaam);
-        //            detailsSelectedPlant.Add("Wetenschappelijke naam: " + SelectedPlantInResult.Fgsv);
-        //            detailsSelectedPlant.Add("Type: " + SelectedPlantInResult.Type);
-        //            detailsSelectedPlant.Add("Familie: " + SelectedPlantInResult.Familie);
-        //            detailsSelectedPlant.Add("Geslacht: " + SelectedPlantInResult.Geslacht);
-        //            detailsSelectedPlant.Add("Soort: " + SelectedPlantInResult.Soort);
-        //            detailsSelectedPlant.Add("Variant: " + SelectedPlantInResult.Variant);
-        //            detailsSelectedPlant.Add("Minimale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMin);
-        //            detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
-        //            detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
-        //            detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
-        //        }
-        //        public void FillDetailsPlantAbiotiek()
-        //        {
-        //            ////The following property consist of multiple values in a different table
-        //            ////First we need an Abiotiek list, then we'll need to filter that list
-        //            ////by checking if the Abiotiek.PlantId is the same als the SelectedPlantResult.PlantId.
-        //            ////Once filtered: put the remaining Abiotiek types in the detailSelectedPlant Observable Collection
-        //            var abioList = _dao.GetAllAbiotieks();
 
             // clearing te content of te combobox of familie
             cmbFamilieCollection.Clear();
@@ -809,7 +787,15 @@ namespace PlantenApplicatie.Services
             }
 
             return null;
+        }
 
+        public void GetSelectedPlantInSearchResult(Plant selectedPlant)
+        {
+            selectedPlantInResult = selectedPlant;
+        }
+        public Plant ReturnSelectedPlantInSearchResult()
+        {
+            return selectedPlantInResult;
         }
     }
 }

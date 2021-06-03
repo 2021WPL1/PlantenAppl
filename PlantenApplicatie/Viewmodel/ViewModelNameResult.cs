@@ -244,10 +244,9 @@ namespace PlantenApplicatie.Viewmodel
                 FillAllImages();
                 OnPropertyChanged();
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
+                _searchService.GetSelectedPlantInSearchResult(SelectedPlantInResult);
             }
         }
-
-
 
 
         #endregion

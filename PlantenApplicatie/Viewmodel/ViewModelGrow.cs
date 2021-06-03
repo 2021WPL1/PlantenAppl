@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
@@ -11,11 +12,15 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelGrow : ViewModelBase
     {
         private DAO _dao;
-
+        private static SimpleIoc iocc = SimpleIoc.Default;
+        private IDetailService _detailService = iocc.GetInstance<IDetailService>();
         public ViewModelGrow(IDetailService detailservice)
         {
+            _detailService = detailservice;
             this._dao = DAO.Instance();
 
+            //_detailService.test();
+            
         }
 
         #region CheckboxGrondsoort
