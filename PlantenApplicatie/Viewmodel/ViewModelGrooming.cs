@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Viewmodel
@@ -13,7 +14,7 @@ namespace PlantenApplicatie.Viewmodel
     {
         private DAO _dao;
 
-        public ViewModelGrooming()
+        public ViewModelGrooming(IDetailService detailservice)
         {
             this._dao = DAO.Instance();
 

@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.View.UserControls;
 using ViewModelBase = PlantenApplicatie.ViewModel.ViewModelBase;
 
@@ -17,32 +18,32 @@ namespace PlantenApplicatie.Viewmodel
     {
         private DAO _dao;
 
-        public ViewModelHabitat()
+        public ViewModelHabitat(IDetailService detailservice)
         {
             this._dao = DAO.Instance();
 
-        
 
-        cmbPollenWaarde = new ObservableCollection<ExtraPollenwaarde>();
-        cmbNectarWaarde = new ObservableCollection<ExtraNectarwaarde>();
-        
+
+            cmbPollenWaarde = new ObservableCollection<ExtraPollenwaarde>();
+            cmbNectarWaarde = new ObservableCollection<ExtraNectarwaarde>();
+
 
             fillComboBoxPollenwaarde();
             fillComboBoxNectarwaarde();
-            
+
         }
 
         public ObservableCollection<ExtraPollenwaarde> cmbPollenWaarde { get; set; }
         public ObservableCollection<ExtraNectarwaarde> cmbNectarWaarde { get; set; }
 
-       
+
         public void fillComboBoxPollenwaarde()
         {
             var list = _dao.FillExtraPollenwaardes();
-            
+
             foreach (var item in list)
             {
-                
+
                 cmbPollenWaarde.Add(item);
 
             }

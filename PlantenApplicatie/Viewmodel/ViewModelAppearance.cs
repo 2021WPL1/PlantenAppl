@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Planten2021.Data;
+using PlantenApplicatie.Services.Interfaces;
 
 namespace PlantenApplicatie.Viewmodel
 {
@@ -10,7 +11,7 @@ namespace PlantenApplicatie.Viewmodel
     {
         private DAO _dao;
 
-        public ViewModelAppearance()
+        public ViewModelAppearance(IDetailService detailservice)
         {
             this._dao = DAO.Instance();
         }
