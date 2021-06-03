@@ -52,6 +52,14 @@ namespace PlantenApplicatie.Viewmodel
             ResetCommand = new RelayCommand(ResetClick);
 
             //These comboboxes will already be filled with data on startup
+            fillComboboxes();
+        }
+
+        //written by kenny (region)
+        #region tussenFunctie voor knoppen met parameters
+
+        public void fillComboboxes()
+        {
             _searchService.fillComboBoxType(cmbTypes);
             _searchService.fillComboBoxFamilie(SelectedType, cmbFamilies);
             _searchService.fillComboBoxGeslacht(SelectedFamilie, cmbGeslacht);
@@ -60,18 +68,13 @@ namespace PlantenApplicatie.Viewmodel
             _searchService.fillComboBoxRatioBloeiBlad(cmbRatioBladBloei);
         }
 
-        //written by kenny (region)
-        #region tussenFunctie voor knoppen met parameters
-
         public void ResetClick()
         {
             filteredPlantResults.Clear();
-            var listPlants = this._searchService.Reset(SelectedType, SelectedFamilie, SelectedGeslacht, SelectedSoort,
-                SelectedVariant, SelectedNederlandseNaam, SelectedRatioBloeiBlad);
-            foreach (var item in listPlants)
-            {
-                filteredPlantResults.Add(item);
-            }
+           this._searchService.Reset(filteredPlantResults, cmbTypes, cmbFamilies, cmbGeslacht,
+               cmbSoort, cmbVariant, cmbRatioBladBloei, SelectedNederlandseNaam, SelectedType,
+               SelectedFamilie, SelectedGeslacht);
+
         }
 
         public void ApplyFilterClick()
