@@ -28,7 +28,6 @@ namespace PlantenApplicatie.Services.HelpClasses
         // >
         public ViewModelMain ViewModelMain { get { return SimpleIoc.Default.GetInstance<ViewModelMain>(); } }
         public ViewModelLogin ViewModelLogin { get { return SimpleIoc.Default.GetInstance<ViewModelLogin>(); } }
-        public ViewModelNameResult ViewModelNameResult { get { return SimpleIoc.Default.GetInstance<ViewModelNameResult>(); } }
         #endregion
 
         private void RegisterViewModels()
@@ -38,28 +37,20 @@ namespace PlantenApplicatie.Services.HelpClasses
 
             // haal singletons (elke keer dezelfde instantie) van de services om de viewmodels te voorzien van de nodige services, 
             var loginService = iocc.GetInstance<IloginUserService>();
-            var searchService = iocc.GetInstance<ISearchService>();
 
 
             // registreer de viewmodels in de IoC Container
             // factory pattern om een instantie te maken van de viewmodels
             // Dependency Injection: constructor injection: injecteer  de services in the constructors van de viewmodels;
 
+            //SimpleIoc.Default.Unregister<ViewModelLogin>();
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
+
             iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
 
-            iocc.Register<ViewModelBloom>(() => new ViewModelBloom());
-            iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming());
-            iocc.Register<ViewModelGrow>(() => new ViewModelGrow());
-            iocc.Register<ViewModelHabitat>(() => new ViewModelHabitat());
-
-            iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance());
-            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService));
-
             //SimpleIoc.Default.Unregister<ViewModelMain>();
-            iocc.Register<ViewModelBase>(() => new ViewModelBase());
-            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService));
-            iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
+            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService));
+
         }
     }
 }

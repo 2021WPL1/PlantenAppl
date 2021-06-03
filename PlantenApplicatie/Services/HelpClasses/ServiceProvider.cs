@@ -15,6 +15,7 @@ namespace PlantenApplicatie.Services.HelpClasses
             // registreren van utility services
             iocc.Register<IloginUserService, LoginUserService>();
             iocc.Register<ISearchService, SearchService>();
+            iocc.Register<IDetailService, DetailService>();
         }
     }
 }
