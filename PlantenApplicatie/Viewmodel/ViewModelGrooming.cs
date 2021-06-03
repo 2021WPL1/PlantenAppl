@@ -201,17 +201,6 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-
-
-
-
-
-
-
-
-
-
-
         #endregion
     }
 }

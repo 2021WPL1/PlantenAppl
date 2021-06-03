@@ -257,7 +257,6 @@
             <CheckBox x:Name="CbxBloeitInFeb" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
                       Content="CheckBox" Canvas.Left="232" Canvas.Top="270"  Height="14" Width="16">
-
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>

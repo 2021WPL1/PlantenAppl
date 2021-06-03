@@ -24,23 +24,23 @@
             <Label Content=" Bruin" Foreground="Brown" Canvas.Left="928" Canvas.Top="30" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
 
             <TextBox Canvas.Left="155" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="36" Background="Black"/>
-            <CheckBox x:Name="CbxBloeikleurZwart" 
+            <CheckBox x:Name="CbxBladkleurZwart" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurZwart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="166" Canvas.Top="83" Height="15" Width="16"/>
             <TextBox Canvas.Left="215" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="White"/>
-            <CheckBox x:Name="CbxBloeikleurWit" 
+            <CheckBox x:Name="CbxBladkleurWit" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurWit, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="226" Canvas.Top="83" Height="15" Width="14"/>
             <TextBox Canvas.Left="288" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="RosyBrown"/>
-            <CheckBox x:Name="CbxBloeikleurRosé" 
+            <CheckBox x:Name="CbxBladkleurRosé" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurRosé, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="298" Canvas.Top="80" Height="15" Width="14"/>
             <TextBox Canvas.Left="360" Canvas.Top="71" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Red"/>
-            <CheckBox x:Name="CbxBloeikleurRood"
+            <CheckBox x:Name="CbxBladkleurRood"
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurRood, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="370" Canvas.Top="80" Height="15" Width="14"/>
             <TextBox Canvas.Left="424" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="Orange"/>
-            <CheckBox x:Name="CbxBloeikleurOranje" 
+            <CheckBox x:Name="CbxBladkleurOranje" 
                       IsChecked="{Binding Path=SelectedCheckBoxBladkleurOranje, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="434" Canvas.Top="80" Height="15" Width="14"/>
             <TextBox Canvas.Left="492" Canvas.Top="70" Text="" TextWrapping="Wrap" Height="35" Width="34" Background="#c8a2c8"/>
