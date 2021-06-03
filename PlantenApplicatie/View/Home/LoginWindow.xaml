@@ -30,8 +30,8 @@
             <ImageBrush  Stretch="Fill" ImageSource="../../Image/waterval.jpeg"/>
         </Grid.Background>
 
-        <Label x:Name="lblUserName" Content="gebruikersnaam:" HorizontalAlignment="Left" Margin="16,36,0,0" VerticalAlignment="Top" Foreground="#FF99B157"/>
-        <Label x:Name="lblPasword" Content="wachtwoord:" HorizontalAlignment="Left" Margin="36,67,0,0" VerticalAlignment="Top" Foreground="#FF99B056"/>
+        <Label x:Name="lblUserName" Content="gebruikersnaam:" HorizontalAlignment="Left" Margin="16,36,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <Label x:Name="lblPasword" Content="wachtwoord:" HorizontalAlignment="Left" Margin="36,67,0,0" VerticalAlignment="Top" Foreground="White"/>
 
         <TextBox Name="txtGebruikersnaam"
                  Text="{Binding Path=userNameInput, UpdateSourceTrigger=PropertyChanged}" Margin="130,36,98,0"  TextWrapping="Wrap" VerticalAlignment="Top" Height="26"/>
@@ -74,6 +74,8 @@
                 <DropShadowEffect/>
             </Button.Effect>
         </Button>
+        <Label/>
+        <Label x:Name="lblError" Content="" HorizontalAlignment="Left" Margin="36,179,0,0" VerticalAlignment="Top" Foreground="Red" Height="95" Width="396"/>
 
 
     </Grid>

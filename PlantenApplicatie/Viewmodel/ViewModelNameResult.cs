@@ -60,6 +60,7 @@ namespace PlantenApplicatie.Viewmodel
             _searchService.fillComboBoxRatioBloeiBlad(cmbRatioBladBloei);
         }
 
+        //written by kenny (region)
         #region tussenFunctie voor knoppen met parameters
 
         public void ResetClick()
@@ -86,9 +87,6 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
-        #region Fill result test
-
-        #endregion
 
         //Observable collections
         ////Bind to comboboxes
@@ -243,7 +241,7 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedPlantInResult = value;
-                //FillAllImages();
+                FillAllImages();
                 OnPropertyChanged();
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
             }
@@ -254,76 +252,56 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
-        //#region FillImages
 
-        //public void FillAllImages()
-        //{
-        //    ImageBlad = GetImageLocation("blad");
-        //    ImageBloei = GetImageLocation("bloei");
-        //    ImageHabitus = GetImageLocation("habitus");
-        //}
+        public void FillAllImages()
+        {
+            ImageBlad = _searchService.GetImageLocation("blad",SelectedPlantInResult);
+            ImageBloei = _searchService.GetImageLocation("bloei", SelectedPlantInResult);
+            ImageHabitus = _searchService.GetImageLocation("habitus",SelectedPlantInResult);
+        }
 
-        //public ImageSource GetImageLocation(string ImageCatogrie)
-        //{
-        //    string location = "";
-        //    if (SelectedPlantInResult != null)
-        //    {
-        //        location = _dao.GetImages(SelectedPlantInResult.PlantId, ImageCatogrie);
-        //    }
+      
 
-        //    var fullFilePath = @"https://images0.persgroep.net/rcs/XUun1kAJgb9KiAVBcZnA9YeZMKM/diocontent/123887379/_fitwidth/763?appId=93a17a8fd81db0de025c8abd1cca1279&quality=0.8";
+        #region binding images
 
-        //    if (location != null)
-        //    {
-        //        BitmapImage bitmap = new BitmapImage();
-        //        bitmap.BeginInit();
-        //        bitmap.UriSource = new Uri(location, UriKind.Absolute);
-        //        bitmap.EndInit();
+        private ImageSource _imageBloei;
 
-        //        return bitmap;
-        //    }
+        public ImageSource ImageBloei
+        {
+            get { return _imageBloei; }
+            set
+            {
+                _imageBloei = value;
+                OnPropertyChanged();
+            }
+        }
 
-        //    return null;
+        private ImageSource _imageHabitus;
 
-        //}
+        public ImageSource ImageHabitus
+        {
+            get { return _imageHabitus; }
+            set
+            {
+                _imageHabitus = value;
+                OnPropertyChanged();
+            }
+        }
 
-        //private ImageSource _imageBloei;
+        private ImageSource _imageBlad;
 
-        //public ImageSource ImageBloei
-        //{
-        //    get { return _imageBloei; }
-        //    set
-        //    {
-        //        _imageBloei = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public ImageSource ImageBlad
+        {
+            get { return _imageBlad; }
+            set
+            {
+                _imageBlad = value;
+                OnPropertyChanged();
+            }
+        }
 
+        #endregion
 
-
-        //private ImageSource _imageHabitus;
-
-        //public ImageSource ImageHabitus
-        //{
-        //    get { return _imageHabitus; }
-        //    set
-        //    {
-        //        _imageHabitus = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
-
-        //private ImageSource _imageBlad;
-
-        //public ImageSource ImageBlad
-        //{
-        //    get { return _imageBlad; }
-        //    set
-        //    {
-        //        _imageBlad = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
     }
 }
             

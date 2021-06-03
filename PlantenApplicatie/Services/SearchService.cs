@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.Services.Interfaces;
@@ -786,6 +788,28 @@ namespace PlantenApplicatie.Services
                 }
             }
             return listPlants;
+        }
+
+        public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)
+        {
+            string location = "";
+            if (SelectedPlantInResult != null)
+            {
+                location = _dao.GetImages(SelectedPlantInResult.PlantId, ImageCatogrie);
+            }
+
+            if (location != null)
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(location, UriKind.Absolute);
+                bitmap.EndInit();
+
+                return bitmap;
+            }
+
+            return null;
+
         }
     }
 }

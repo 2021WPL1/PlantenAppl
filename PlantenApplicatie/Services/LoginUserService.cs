@@ -53,22 +53,30 @@ namespace PlantenApplicatie.Services
             var md5Hasher = new MD5CryptoServiceProvider();
             var passwordHashed = md5Hasher.ComputeHash(passwordBytes);
 
-            //check if entered password is correct and change LoginStatus
-            if (gebruiker.HashPaswoord != null && passwordHashed.SequenceEqual(gebruiker.HashPaswoord))
+            if (gebruiker != null)
             {
-                user.loginStatus = LoginStatus.LoggedIn;
+                //check if entered password is correct and change LoginStatus
+                if (gebruiker.HashPaswoord != null && passwordHashed.SequenceEqual(gebruiker.HashPaswoord))
+                {
+                    user.loginStatus = LoginStatus.LoggedIn;
+                }
+                else
+                {
+                    user.loginStatus = LoginStatus.NotLoggedIn;
+                    MessageBox.Show("Het ingegeven wachtwoord is niet juist, probeer opnieuw");
+                }
+
+                if (user.loginStatus == LoginStatus.LoggedIn)
+                {
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                }
             }
             else
             {
-                user.loginStatus = LoginStatus.NotLoggedIn;
-                MessageBox.Show("Het ingegeven wachtwoord is niet juist, probeer opnieuw");
+                MessageBox.Show($"Er is geen account gevonden voor {userNameInput}, gelieve eerst te registreren");
             }
 
-            if (user.loginStatus == LoginStatus.LoggedIn)
-            {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-            }
 
         }
 
