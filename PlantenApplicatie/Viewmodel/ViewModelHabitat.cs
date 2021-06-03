@@ -159,9 +159,6 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        #endregion
-
-        #region Binding checkboxen Bezonning
 
         private string _selectedCheckBoxBezonningZ;
 
@@ -222,9 +219,7 @@ namespace PlantenApplicatie.Viewmodel
                 OnPropertyChanged();
             }
         }
-        #endregion
-
-        #region Binding checkboxen Sociabiliteit
+        
 
         private string _selectedCheckBoxSociabiliteitI;
 
@@ -342,7 +337,105 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        #endregion
+        private string _selectedCheckBox1;
+        public string SelectedCheckBox1
+        {
+            get { return _selectedCheckBox1; }
+            set
+            {
+                _selectedCheckBox1 = value;
+                OnPropertyChanged();
+            }
+        }
 
+        private string _selectedCheckBox2;
+        public string SelectedCheckBox2
+        {
+            get { return _selectedCheckBox2; }
+            set
+            {
+                _selectedCheckBox2 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _selectedCheckBox3;
+        public string SelectedCheckBox3
+        {
+            get { return _selectedCheckBox3; }
+            set
+            {
+                _selectedCheckBox3 = value;
+                OnPropertyChanged();
+            }
+        }
+        private string _selectedCheckBox4;
+        public string SelectedCheckBox4
+        {
+            get { return _selectedCheckBox4; }
+            set
+            {
+                _selectedCheckBox4 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _selectedCheckBox5;
+        public string SelectedCheckBox5
+        {
+            get { return _selectedCheckBox5; }
+            set
+            {
+                _selectedCheckBox5 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _selectedCheckBox6;
+        public string SelectedCheckBox6
+        {
+            get { return _selectedCheckBox6; }
+            set
+            {
+                _selectedCheckBox6 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _selectedCheckBox7;
+        public string SelectedCheckBox7
+        {
+            get { return _selectedCheckBox7; }
+            set
+            {
+                _selectedCheckBox7 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _selectedCheckBox8;
+        public string SelectedCheckBox8
+        {
+            get { return _selectedCheckBox8; }
+            set
+            {
+                _selectedCheckBox8 = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private string _selectedCheckBox9;
+        public string SelectedCheckBox9
+        {
+            get { return _selectedCheckBox9; }
+            set
+            {
+                _selectedCheckBox9 = value;
+                MessageBox.Show(SelectedCheckBox9.ToString());
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
     }
 }
