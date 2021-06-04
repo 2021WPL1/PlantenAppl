@@ -115,16 +115,15 @@ namespace PlantenApplicatie.Viewmodel
         public ObservableCollection<String> detailsSelectedPlant { get; set; }
         ////
 
-        #region icommands
+        #region RelayCommands
 
-        //ICommands
+        //RelayCommands
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetCommand { get; set; }
 
         #endregion
 
-        //Robin, Owen
-
+        //geschreven door owen en robin
         #region Selected Item variables for each combobox
 
         private TfgsvType _selectedType;
@@ -265,7 +264,7 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
-
+        //geschreven door owen
         public void FillAllImages()
         {
             ImageBlad = _searchService.GetImageLocation("blad",SelectedPlantInResult);
@@ -274,7 +273,7 @@ namespace PlantenApplicatie.Viewmodel
         }
 
       
-
+        //geschreven door owen
         #region binding images
 
         private ImageSource _imageBloei;

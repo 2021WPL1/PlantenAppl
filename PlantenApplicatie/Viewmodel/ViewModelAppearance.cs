@@ -30,6 +30,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
+        //geschreven door christophe op basis van owens code
         #region Binding checkboxen Bladkleur
 
         private bool _selectedCheckBoxBladkleurZwart;

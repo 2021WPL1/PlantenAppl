@@ -19,7 +19,7 @@ namespace PlantenApplicatie.Viewmodel
             _detailService = detailservice;
             this._dao = DAO.Instance();
         }
-
+        //geschreven door christophe, op basis van een voorbeeld van owen
         #region CheckboxGrondsoort
 
 

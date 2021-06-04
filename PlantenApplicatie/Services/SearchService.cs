@@ -12,7 +12,7 @@ using PlantenApplicatie.Services.Interfaces;
 namespace PlantenApplicatie.Services
 {
 
-    /*written by kenny from an example of Roy and some help of Killian*/
+    /*written by kenny and robin from an example of Roy and some help of Killian*/
     public class SearchService : ISearchService, INotifyPropertyChanged
     {
         private DAO _dao;
@@ -27,7 +27,9 @@ namespace PlantenApplicatie.Services
 
         #region RelayCommandMethods
        
-
+        //Geschreven door Owen op basis van de eerste Search van Kenny.
+        //Christophe & Owen: gedeeltelijke omzetting naar mvvm
+        //Omgezet naar service door kenny
         public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
             var listPlants = _dao.getAllPlants();
@@ -159,16 +161,20 @@ namespace PlantenApplicatie.Services
         }
         #endregion
         #region Fill methods
+
         //Simplifiy method so that the words are more presentable
         //A function that takes a string, puts it to lowercase, 
         //changes all the ' and " chars and replaces them by a space
         //next it deletes al the spaces and returns the string.
+
+        //geschreven door kenny
         public string Simplify(string stringToSimplify)
         {
             string answer = stringToSimplify.Replace(",", "").Replace("'", "").Replace("__", "");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
+        //geschreven door owen, aangepast door robin voor mvvm en later services
         public void fillComboBoxType(ObservableCollection<TfgsvType> cmbTypeCollection)
         {
             var list = _dao.fillTfgsvType();
@@ -178,6 +184,7 @@ namespace PlantenApplicatie.Services
                 cmbTypeCollection.Add(item);
             }
         }
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxFamilie(TfgsvType selectedType, ObservableCollection<TfgsvFamilie> cmbFamilieCollection)
         {
 
@@ -211,6 +218,7 @@ namespace PlantenApplicatie.Services
                 }
             }
         }
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxGeslacht(TfgsvFamilie selectedFamilie, ObservableCollection<TfgsvGeslacht> cmbGeslachtCollection)
         {
             var list = Enumerable.Empty<TfgsvGeslacht>().AsQueryable();
@@ -244,6 +252,7 @@ namespace PlantenApplicatie.Services
             }
 
         }
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection)
         {
             var list = Enumerable.Empty<TfgsvSoort>().AsQueryable();
@@ -275,6 +284,7 @@ namespace PlantenApplicatie.Services
                 }
             }
         }
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
 
@@ -295,7 +305,8 @@ namespace PlantenApplicatie.Services
                     }
                 }
             }
-            public void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection)
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
+        public void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection)
             {
                 //not currently used in the cascade search
                 //will be adjusted later (dao)
@@ -313,9 +324,9 @@ namespace PlantenApplicatie.Services
                 }
             }
         #endregion
-
+        #region Fill plant details in detain screen
         /// <summary>
-        /// obsolete? Robin
+        /// Plant detail listbox methods, geschreven door Robin, omgezet voor de service door kenny
         /// </summary>
         /// <param name="detailsSelectedPlant"></param>
         /// <param name="SelectedPlantInResult"></param>
@@ -605,7 +616,10 @@ namespace PlantenApplicatie.Services
                 }
             }
         }
+        #endregion
 
+        //geschreven door owen
+        //omgezet voor de service door kenny
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)
         {
             string location = "";
@@ -629,19 +643,6 @@ namespace PlantenApplicatie.Services
 
             return null;
         }
-
-        //This was the beginning of binding of plant details in all our views.
-        //
-        //public void GetSelectedPlantInSearchResult(Plant selectedPlant)
-        //{
-        //    selectedPlantInResult = selectedPlant;
-        //}
-        //public Plant ReturnSelectedPlantInSearchResult()
-        //{
-        //    return selectedPlantInResult;
-        //}
-
-
 
     }
 }

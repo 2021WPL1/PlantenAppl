@@ -36,7 +36,7 @@ namespace PlantenApplicatie.Viewmodel
         public ObservableCollection<ExtraPollenwaarde> cmbPollenWaarde { get; set; }
         public ObservableCollection<ExtraNectarwaarde> cmbNectarWaarde { get; set; }
 
-
+        //geschreven door christophe, op basis van een voorbeeld van owen
         public void fillComboBoxPollenwaarde()
         {
             var list = _dao.FillExtraPollenwaardes();

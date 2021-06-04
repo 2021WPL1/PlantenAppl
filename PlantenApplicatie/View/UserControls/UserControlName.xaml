@@ -150,6 +150,7 @@
                 </TransformGroup>
             </ListBox.RenderTransform>
             <ListBox.ItemTemplate>
+                 <!--Robin: Met deze template wordt het mogelijk om veschillende properties van een plant te binden aan de listbox--> 
                 <DataTemplate>
                     <StackPanel  Margin="10">
                         <StackPanel Orientation="Horizontal">
@@ -198,10 +199,10 @@
                 <DropShadowEffect/>
             </Label.Effect>
         </Label>
+        
         <Image Source="{Binding ImageHabitus}" Margin="479,0,575,575" Height="122" VerticalAlignment="Bottom" />
         <Image Source="{Binding ImageBlad}" Margin="638,0,418,581" Height="113" VerticalAlignment="Bottom" />
         <Image Source="{Binding ImageBloei}" Margin="809,0,242,582" Height="112" VerticalAlignment="Bottom"/>
-
 
     </Grid>
 </UserControl>

@@ -33,7 +33,6 @@ namespace PlantenApplicatie.ViewModel
                 Task.Run(() => PropertyChanged(this, new PropertyChangedEventArgs(propName)));
             }
         }
-
         
     }
 }

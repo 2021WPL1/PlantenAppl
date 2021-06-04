@@ -19,6 +19,8 @@ namespace PlantenApplicatie.ViewModel
 {
     public class ViewModelMain :ViewModelBase
     {
+        //geschreven door kenny, adhv een voorbeeld van roy
+
         private SimpleIoc iocc = SimpleIoc.Default;
         private ViewModelRepo _viewModelRepo;
 

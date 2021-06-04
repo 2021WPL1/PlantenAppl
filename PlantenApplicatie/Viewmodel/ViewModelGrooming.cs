@@ -22,7 +22,7 @@ namespace PlantenApplicatie.Viewmodel
 
             fillComboBoxBeheerdaad();
         }
-
+        //geschreven door christophe, op basis van een voorbeeld van owen
         public ObservableCollection<string> cmbBeheerdaad { get; set; }
 
         public void fillComboBoxBeheerdaad()

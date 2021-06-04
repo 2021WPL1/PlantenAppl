@@ -4,7 +4,8 @@ using System.Text;
 using System.Windows.Input;
 
 namespace PlantenApplicatie.HelpClasses
-{/*kenny copied from code roy*/
+{
+    /*kenny copied from code roy*/
     public class MyICommand<T> : ICommand
     {
         Action<T> _TargetExecuteMethod;

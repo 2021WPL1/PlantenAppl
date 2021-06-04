@@ -26,9 +26,9 @@ namespace PlantenApplicatie.Viewmodel
             this._dao = DAO.Instance();
             
         }
-
+        //geschreven door christophe, op basis van een voorbeeld van owen
         private string _selectedBloeiHoogte;
-
+       
         public string SelectedBloeiHoogte
         {
             get { return _selectedBloeiHoogte; }
