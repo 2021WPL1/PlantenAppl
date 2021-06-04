@@ -27,7 +27,9 @@ namespace PlantenApplicatie.Viewmodel
 
         public void BackButtonClick()
         {
-            _loginService.BackButtonRegister();
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
+            Application.Current.Windows[0]?.Close();
         }
         public void RegisterButtonClick()
         {

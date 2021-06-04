@@ -37,9 +37,18 @@ namespace PlantenApplicatie.Viewmodel
 
             this._loginService = loginUserService;
             loginCommand = new RelayCommand(LoginButtonClick);
-            cancelCommand = new RelayCommand(loginUserService.CancelButton);
-            registerCommand = new RelayCommand(loginUserService.RegisterButtonView);
-
+            cancelCommand = new RelayCommand(CancelButton);
+            registerCommand = new RelayCommand(RegisterButtonView);
+        }
+        public void RegisterButtonView()
+        {
+            RegisterWindow registerWindow = new RegisterWindow();
+            registerWindow.Show();
+            Application.Current.Windows[0]?.Close();
+        }
+        public void CancelButton()
+        {
+            Application.Current.Shutdown();
         }
 
         private void LoginButtonClick()

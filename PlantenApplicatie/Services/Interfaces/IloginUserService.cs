@@ -7,12 +7,9 @@ namespace PlantenApplicatie.Services.Interfaces
     public interface IloginUserService
     {
         LoginResult CheckCredentials(string userNameInput, string passwordInput);
-        void CancelButton();
-        void RegisterButtonView();
         string RegisterButton(string vivesNrInput, string lastNameInput,
             string firstNameInput, string emailAdresInput,
             string passwordInput, string passwordRepeatInput, string rolInput);
-        void BackButtonRegister();
         string LoggedInMessage();
 
     }
