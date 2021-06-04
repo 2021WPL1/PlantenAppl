@@ -18,7 +18,6 @@ using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 using Prism.Commands;
 
-
 namespace PlantenApplicatie.Viewmodel
 {
     public class ViewModelNameResult : ViewModelBase
@@ -52,6 +51,14 @@ namespace PlantenApplicatie.Viewmodel
             ResetCommand = new RelayCommand(ResetClick);
 
             //These comboboxes will already be filled with data on startup
+            fillComboboxes();
+        }
+
+        //written by kenny (region)
+        #region tussenFunctie voor knoppen met parameters
+
+        public void fillComboboxes()
+        {
             _searchService.fillComboBoxType(cmbTypes);
             _searchService.fillComboBoxFamilie(SelectedType, cmbFamilies);
             _searchService.fillComboBoxGeslacht(SelectedFamilie, cmbGeslacht);
@@ -60,19 +67,24 @@ namespace PlantenApplicatie.Viewmodel
             _searchService.fillComboBoxRatioBloeiBlad(cmbRatioBladBloei);
         }
 
-        //written by kenny (region)
-        #region tussenFunctie voor knoppen met parameters
-
         public void ResetClick()
         {
+
             filteredPlantResults.Clear();
-            var listPlants = this._searchService.Reset(SelectedType, SelectedFamilie, SelectedGeslacht, SelectedSoort,
-                SelectedVariant, SelectedNederlandseNaam, SelectedRatioBloeiBlad);
-            foreach (var item in listPlants)
-            {
-                filteredPlantResults.Add(item);
-            }
+
+            cmbTypes.Clear();
+            cmbFamilies.Clear();
+            cmbGeslacht.Clear();
+            cmbSoort.Clear();
+            cmbVariant.Clear();
+            cmbRatioBladBloei.Clear();
+            SelectedNederlandseNaam = null;
+
+            fillComboboxes();
+
         }
+
+        
 
         public void ApplyFilterClick()
         {
@@ -103,16 +115,15 @@ namespace PlantenApplicatie.Viewmodel
         public ObservableCollection<String> detailsSelectedPlant { get; set; }
         ////
 
-        #region icommands
+        #region RelayCommands
 
-        //ICommands
+        //RelayCommands
         public RelayCommand SearchCommand { get; set; }
         public RelayCommand ResetCommand { get; set; }
 
         #endregion
 
-        //Robin, Owen
-
+        //geschreven door owen en robin
         #region Selected Item variables for each combobox
 
         private TfgsvType _selectedType;
@@ -244,15 +255,16 @@ namespace PlantenApplicatie.Viewmodel
                 FillAllImages();
                 OnPropertyChanged();
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
+               
+                //Make the currently selected plant in the Result list available in the SearchService
+             
             }
         }
 
 
-
-
         #endregion
 
-
+        //geschreven door owen
         public void FillAllImages()
         {
             ImageBlad = _searchService.GetImageLocation("blad",SelectedPlantInResult);
@@ -261,7 +273,7 @@ namespace PlantenApplicatie.Viewmodel
         }
 
       
-
+        //geschreven door owen
         #region binding images
 
         private ImageSource _imageBloei;

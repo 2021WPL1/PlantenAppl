@@ -17,28 +17,16 @@ namespace PlantenApplicatie.Services.HelpClasses
             this.RegisterViewModels();
         }
 
-        #region exposed viewmodels 
-        // viewmodels public exposure om te gebruiken in de views met onderstaande code
-        // de ViewModelProvider wordt geinstancieerd tijdens de constructie van de App class. => App.xaml.cs
-        // de ViewModels worden uit de IoC Container gehaald (GetInstance) en public beschikbaar gemaakt
-        // gebruik in de View: 
-        //// <Window: ...
-        // DataContext="{Binding Source={ StaticResource VMProvider }, Path=MainWindowViewModel }" 
-        // ... 
-        // >
-        public ViewModelMain ViewModelMain { get { return SimpleIoc.Default.GetInstance<ViewModelMain>(); } }
-        public ViewModelLogin ViewModelLogin { get { return SimpleIoc.Default.GetInstance<ViewModelLogin>(); } }
-        public ViewModelNameResult ViewModelNameResult { get { return SimpleIoc.Default.GetInstance<ViewModelNameResult>(); } }
-        #endregion
-
         private void RegisterViewModels()
         {
+            //basisstructuur kenny, mede gebruikt door Robin
             // gebruik de default instantie (singleton van de SimpleIoc class)
             var iocc = SimpleIoc.Default;
 
             // haal singletons (elke keer dezelfde instantie) van de services om de viewmodels te voorzien van de nodige services(service locator)
             var loginService = iocc.GetInstance<IloginUserService>();
             var searchService = iocc.GetInstance<ISearchService>();
+            var detailService = iocc.GetInstance<IDetailService>();
 
 
             // registreer de viewmodels in de IoC Container
@@ -48,12 +36,12 @@ namespace PlantenApplicatie.Services.HelpClasses
             iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
             iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
 
-            iocc.Register<ViewModelBloom>(() => new ViewModelBloom());
-            iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming());
-            iocc.Register<ViewModelGrow>(() => new ViewModelGrow());
-            iocc.Register<ViewModelHabitat>(() => new ViewModelHabitat());
+            iocc.Register<ViewModelBloom>(() => new ViewModelBloom(detailService));
+            iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming(detailService));
+            iocc.Register<ViewModelGrow>(() => new ViewModelGrow(detailService));
+            iocc.Register<ViewModelHabitat>(() => new ViewModelHabitat(detailService));
 
-            iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance());
+            iocc.Register<ViewModelAppearance>(() => new ViewModelAppearance(detailService));
             iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService));
 
             //SimpleIoc.Default.Unregister<ViewModelMain>();

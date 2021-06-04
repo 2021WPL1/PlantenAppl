@@ -17,6 +17,8 @@ namespace Planten2021.Data
 {
     public class DAO
     {
+        //Robin: opzetten DAO, singleton pattern
+
         //1.een statische private instantie instatieren die enkel kan gelezen worden.
         //deze wordt altijd teruggegeven wanneer de Instance method wordt opgeroepen
         private static readonly DAO instance = new DAO();
@@ -195,6 +197,7 @@ namespace Planten2021.Data
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
+        ///Kenny
         public List<Plant> getAllPlants()
         {
             // kijken hoeveel er zijn geselecteerd
@@ -202,7 +205,7 @@ namespace Planten2021.Data
             var plants = context.Plant.ToList();
             return plants;
         }
-
+        ///Owen
         public string GetImages(long id , string ImageCategorie)
         {
             var foto = context.Foto.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
@@ -216,7 +219,7 @@ namespace Planten2021.Data
 
             return null;
         }
-
+        ///Robin
         #region Lists of all the plant properties with multiple values, used to display plant details
 
         //Get a list of all the Abiotiek types
@@ -280,41 +283,8 @@ namespace Planten2021.Data
         }
         #endregion
 
-        ////////////A function that takes a string, puts it to lowercase, 
-        ////////////changes all the ' and " chars and replaces them by a space
-        ////////////next it deletes al the spaces and returns the string.
-        //////////public string Simplify(string stringToSimplify)
-        //////////{
-        //////////    string answer = stringToSimplify.Replace("\'", " ").Replace("\"", " ");
-        //////////    answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
-        //////////    return answer;
-        //////////}
-
-        //////////public IQueryable<T> DuplicationCheck<T>(IQueryable<T> selection)
-        //////////{
-        //////////    //This is to check for duplication that got through the distinct
-        //////////    //Initialize IQueryable
-        //////////    IQueryable<T> duplicationcheck = Enumerable.Empty<T>().AsQueryable();
-
-        //////////    foreach (var item in selection)
-        //////////    {
-        //////////        if (!duplicationcheck.Contains(item))
-        //////////        {
-        //////////            duplicationcheck.Append(item);
-        //////////        }
-        //////////    }
-        //////////    return duplicationcheck;
-        //////////}
-
-
-
-        /// <summary>
-        ///                            FILL COMBOBOX
-        ///            Deze functies zijn voor het cascade systeem.
-        /// </summary>
-        /// <returns></returns>
-
-        #region Fill
+        ///Owen, Robin, Christophe
+        #region Fill Tfgsv
         public IQueryable<TfgsvType> fillTfgsvType()
         {
             // request List of wanted type
@@ -331,6 +301,9 @@ namespace Planten2021.Data
             // request List of wanted type
             // distinct to prevrent more than one of each type
             // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+            // Good way to interact with our datacontext
 
             if (selectedItem > 0)
             {
@@ -350,6 +323,9 @@ namespace Planten2021.Data
             // request List of wanted type
             // distinct to prevrent more than one of each type
             // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+            // Good way to interact with our datacontext
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvGeslacht.Distinct().OrderBy(s => s.Geslachtnaam)
@@ -368,6 +344,9 @@ namespace Planten2021.Data
             // request List of wanted type
             // distinct to prevrent more than one of each type
             // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+            // Good way to interact with our datacontext
             if (selectedItem > 0)
             {
                 var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct();
@@ -386,6 +365,9 @@ namespace Planten2021.Data
             // request List of wanted type
             // distinct to prevrent more than one of each type
             // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter
+            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+            // Good way to interact with our datacontext
 
             var selection = context.TfgsvVariant.Distinct().OrderBy(s => s.Variantnaam);
             return selection;
@@ -397,6 +379,9 @@ namespace Planten2021.Data
             // request List of wanted type
             // distinct to prevrent more than one of each type
             // The if else is to check if something is selected in the previous combobox. if its not he doesn't filter.
+            // Here we use IQueryable<T>, it makes it easier for us to use our search queries and find the objects that we need.
+            // This will also make it possible for us to use all the properties instead of only a selection of an object in our ViewModels.
+            // Good way to interact with our datacontext
 
             var selection = context.Fenotype.Distinct().OrderBy(s => s.RatioBloeiBlad);
             return selection;
@@ -407,7 +392,7 @@ namespace Planten2021.Data
         #endregion
 
         #region FilterFromPlant
-
+        ///Owen: op basis van basiscode Kenny, Christophe
         #region FilterFenoTypeFromPlant 
 
         public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
@@ -484,7 +469,7 @@ namespace Planten2021.Data
         #endregion
 
         #endregion
-
+        //Christophe: Op basis van basiscode Owen
         #region Fill Combobox Pollenwaarde en Nectarwaarde
         
         public List<ExtraPollenwaarde> FillExtraPollenwaardes()
@@ -507,26 +492,6 @@ namespace Planten2021.Data
             return selection;
         }
 
-       
-
-
-        public List<Plant> detailsAanvullen(long ID)
-        {
-            var plants = context.Plant
-                .Include(s => s.Abiotiek)
-                .Include(s => s.AbiotiekMulti)
-                .Include(s => s.BeheerMaand)
-                .Include(s => s.Commensalisme)
-                .Include(s => s.CommensalismeMulti)
-                .Include(s => s.ExtraEigenschap)
-                .Include(s => s.Fenotype)
-                .Include(s => s.UpdatePlant)
-                .Include(s => s.Foto)
-
-                .Where(s => s.PlantId == ID)
-                .ToList();
-            return plants;
-        }
 
         //written by kenny
         public Gebruiker GetGebruikerWithEmail(string userEmail)

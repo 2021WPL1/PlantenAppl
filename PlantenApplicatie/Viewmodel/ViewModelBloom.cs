@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
-
+using Planten2021.Domain.Models;
+using PlantenApplicatie.Services.Interfaces;
 
 namespace PlantenApplicatie.Viewmodel
 {
@@ -15,15 +17,18 @@ namespace PlantenApplicatie.Viewmodel
         //IsCheckBoxChecked.  This enables animation, styling, binding, etc...
        
         private DAO _dao;
+        private static SimpleIoc iocc = SimpleIoc.Default;
+        private IDetailService _detailService = iocc.GetInstance<IDetailService>();
+        private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
-        public ViewModelBloom()
+        public ViewModelBloom(IDetailService detailservice)
         {
             this._dao = DAO.Instance();
             
         }
-
-       private string _selectedBloeiHoogte;
-
+        //geschreven door christophe, op basis van een voorbeeld van owen
+        private string _selectedBloeiHoogte;
+       
         public string SelectedBloeiHoogte
         {
             get { return _selectedBloeiHoogte; }
@@ -32,8 +37,170 @@ namespace PlantenApplicatie.Viewmodel
                 _selectedBloeiHoogte = value;
                 OnPropertyChanged();
 
+
             }
         }
+
+        #region Checkbox Bloeikleur
+
+        private bool _selectedCheckBoxBloeikleurZwart;
+        public bool SelectedCheckBoxBloeikleurZwart
+        {
+            get { return _selectedCheckBoxBloeikleurZwart; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurZwart = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurWit;
+        public bool SelectedCheckBoxBloeikleurWit
+        {
+            get { return _selectedCheckBoxBloeikleurWit; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurWit = value;
+                MessageBox.Show(SelectedCheckBoxBloeikleurZwart.ToString());
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurRosé;
+        public bool SelectedCheckBoxBloeikleurRosé
+        {
+            get { return _selectedCheckBoxBloeikleurRosé; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurRosé = value;
+               OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurRood;
+        public bool SelectedCheckBoxBloeikleurRood
+        {
+            get { return _selectedCheckBoxBloeikleurRood; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurRood = value;
+               OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurOranje;
+        public bool SelectedCheckBoxBloeikleurOranje
+        {
+            get { return _selectedCheckBoxBloeikleurOranje; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurOranje = value;
+               OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurLila;
+        public bool SelectedCheckBoxBloeikleurLila
+        {
+            get { return _selectedCheckBoxBloeikleurLila; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurLila = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurGrijs;
+        public bool SelectedCheckBoxBloeikleurGrijs
+        {
+            get { return _selectedCheckBoxBloeikleurGrijs; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurGrijs = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurGroen;
+        public bool SelectedCheckBoxBloeikleurGroen
+        {
+            get { return _selectedCheckBoxBloeikleurGroen; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurGroen = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurGeel;
+        public bool SelectedCheckBoxBloeikleurGeel
+        {
+            get { return _selectedCheckBoxBloeikleurGeel; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurGeel= value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurBlauw;
+        public bool SelectedCheckBoxBloeikleurBlauw
+        {
+            get { return _selectedCheckBoxBloeikleurBlauw; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurBlauw = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurViolet;
+        public bool SelectedCheckBoxBloeikleurViolet
+        {
+            get { return _selectedCheckBoxBloeikleurViolet; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurViolet = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurPaars;
+        public bool SelectedCheckBoxBloeikleurPaars
+        {
+            get { return _selectedCheckBoxBloeikleurPaars; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurPaars = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurBruin;
+        public bool SelectedCheckBoxBloeikleurBruin
+        {
+            get { return _selectedCheckBoxBloeikleurBruin; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurBruin = value;
+                OnPropertyChanged();
+            }
+        }
+
+        #endregion
 
         #region Binding Checkbox BloeiHoogte
 
@@ -109,7 +276,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
         private bool _selectedCheckBoxBloeiHoogteJul;
-        public bool SelectedCheckBoxJul
+        public bool SelectedCheckBoxBloeiHoogteJul
         {
             get { return _selectedCheckBoxBloeiHoogteJul; }
 

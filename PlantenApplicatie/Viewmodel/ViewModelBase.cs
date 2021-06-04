@@ -25,6 +25,7 @@ namespace PlantenApplicatie.ViewModel
             member = val;
             PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
         protected virtual void RaisePropertyChanged(string propName)
         {
             if (PropertyChanged != null)
@@ -32,6 +33,6 @@ namespace PlantenApplicatie.ViewModel
                 Task.Run(() => PropertyChanged(this, new PropertyChangedEventArgs(propName)));
             }
         }
-
+        
     }
 }

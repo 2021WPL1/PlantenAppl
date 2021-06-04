@@ -12,102 +12,77 @@ using PlantenApplicatie.Services.Interfaces;
 namespace PlantenApplicatie.Services
 {
 
-    /*written by kenny from an example of Roy and some help of Killian*/
+    /*written by kenny and robin from an example of Roy and some help of Killian*/
     public class SearchService : ISearchService, INotifyPropertyChanged
     {
         private DAO _dao;
-        private static SearchService _searchService;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public SearchService()
         {
             this._dao = DAO.Instance();
+
         }
 
         #region RelayCommandMethods
-        public void ApplyFilters(ObservableCollection<Plant> filteredPlantResults, ObservableCollection<TfgsvType> cmbTypes,
-                                ObservableCollection<TfgsvFamilie> cmbFamilies, ObservableCollection<TfgsvGeslacht> cmbGeslacht,
-                                ObservableCollection<TfgsvSoort> cmbSoort, ObservableCollection<TfgsvVariant> cmbVariant,
-                                ObservableCollection<Fenotype> cmbRatioBladBloei, string selectedNederlandseNaam, TfgsvType selectedType,
-                                TfgsvFamilie selectedFamilie, TfgsvGeslacht selectedGeslacht
-                                )
-        {
-
-            filteredPlantResults.Clear();
-
-            cmbTypes.Clear();
-            cmbFamilies.Clear();
-            cmbGeslacht.Clear();
-            cmbSoort.Clear();
-            cmbVariant.Clear();
-            cmbRatioBladBloei.Clear();
-            selectedNederlandseNaam = null;
-
-
-            fillComboBoxType(cmbTypes);
-            fillComboBoxFamilie(selectedType, cmbFamilies);
-            fillComboBoxGeslacht(selectedFamilie, cmbGeslacht);
-            fillComboBoxSoort(selectedGeslacht, cmbSoort);
-            fillComboBoxVariant(cmbVariant);
-            fillComboBoxRatioBloeiBlad(cmbRatioBladBloei);
-        }
-
-        public List<Plant> Reset(TfgsvType selectedType, TfgsvFamilie selectedFamilie, TfgsvGeslacht selectedGeslacht, TfgsvSoort selectedSoort,
-                          TfgsvVariant selectedVariant, string selectedNederlandseNaam, string selectedRatioBloeiBlad)
+       
+        //Geschreven door Owen op basis van de eerste Search van Kenny.
+        //Christophe & Owen: gedeeltelijke omzetting naar mvvm
+        //Omgezet naar service door kenny
+        public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
         {
             var listPlants = _dao.getAllPlants();
 
-            if (selectedType != null)
+            if (SelectedtType != null)
             {
 
                 foreach (var item in listPlants.ToList())
                 {
 
-                    if (item.TypeId != selectedType.Planttypeid)
+                    if (item.TypeId != SelectedtType.Planttypeid)
                     {
                         listPlants.Remove(item);
                     }
                 }
             }
-            if (selectedFamilie != null)
-            {
-
-                foreach (var item in listPlants.ToList())
-        {
-            var list = _dao.fillTfgsvType();
-
-                    if (item.FamilieId != selectedFamilie.FamileId)
-            {
-                        listPlants.Remove(item);
-            }
-        }
-            }
-            if (selectedGeslacht != null)
+            if (SelectedFamilie != null)
             {
 
                 foreach (var item in listPlants.ToList())
                 {
 
-                    if (item.GeslachtId != selectedGeslacht.GeslachtId)
+                    if (item.FamilieId != SelectedFamilie.FamileId)
                     {
                         listPlants.Remove(item);
                     }
                 }
             }
-            if (selectedSoort != null)
+            if (SelectedGeslacht != null)
             {
 
                 foreach (var item in listPlants.ToList())
                 {
 
-                    if (item.SoortId != selectedSoort.Soortid)
+                    if (item.GeslachtId != SelectedGeslacht.GeslachtId)
                     {
                         listPlants.Remove(item);
                     }
                 }
             }
-            if (selectedVariant != null)
+            if (SelectedSoort != null)
+            {
+
+                foreach (var item in listPlants.ToList())
+                {
+
+                    if (item.SoortId != SelectedSoort.Soortid)
+                    {
+                        listPlants.Remove(item);
+                    }
+                }
+            }
+            if (SelectedVariant != null)
             {
 
                 foreach (var item in listPlants.ToList())
@@ -116,7 +91,7 @@ namespace PlantenApplicatie.Services
                     if (item.VariantId != null)
                     {
 
-                        if (item.VariantId != selectedVariant.VariantId)
+                        if (item.VariantId != SelectedVariant.VariantId)
                         {
 
                             listPlants.Remove(item);
@@ -130,14 +105,14 @@ namespace PlantenApplicatie.Services
                 }
             }
 
-            if (selectedNederlandseNaam != null)
+            if (SelectedNederlandseNaam != null)
             {
                 foreach (var item in listPlants.ToList())
                 {
 
                     if (item.NederlandsNaam != null)
                     {
-                        if (!item.NederlandsNaam.Contains(selectedNederlandseNaam))
+                        if (!item.NederlandsNaam.Contains(SelectedNederlandseNaam))
                         {
                             listPlants.Remove(item);
                         }
@@ -151,7 +126,7 @@ namespace PlantenApplicatie.Services
                 }
             }
 
-            if (selectedRatioBloeiBlad != null)
+            if (SelectedRatioBloeiBlad != null)
             {
 
                 foreach (var item in listPlants.ToList())
@@ -164,10 +139,8 @@ namespace PlantenApplicatie.Services
                             if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
                             {
 
-                                if (itemFenotype.RatioBloeiBlad != selectedRatioBloeiBlad)
+                                if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
                                 {
-
-                                    listPlants.Remove(item);
                                     listPlants.Remove(item);
                                 }
                             }
@@ -181,23 +154,27 @@ namespace PlantenApplicatie.Services
                     {
                         listPlants.Remove(item);
                     }
+
                 }
             }
             return listPlants;
-
         }
         #endregion
         #region Fill methods
+
         //Simplifiy method so that the words are more presentable
         //A function that takes a string, puts it to lowercase, 
         //changes all the ' and " chars and replaces them by a space
         //next it deletes al the spaces and returns the string.
+
+        //geschreven door kenny
         public string Simplify(string stringToSimplify)
         {
             string answer = stringToSimplify.Replace(",", "").Replace("'", "").Replace("__", "");
             answer = String.Concat(answer.Where(c => !Char.IsWhiteSpace(c)));
             return answer;
         }
+        //geschreven door owen, aangepast door robin voor mvvm en later services
         public void fillComboBoxType(ObservableCollection<TfgsvType> cmbTypeCollection)
         {
             var list = _dao.fillTfgsvType();
@@ -207,6 +184,7 @@ namespace PlantenApplicatie.Services
                 cmbTypeCollection.Add(item);
             }
         }
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxFamilie(TfgsvType selectedType, ObservableCollection<TfgsvFamilie> cmbFamilieCollection)
         {
 
@@ -226,31 +204,6 @@ namespace PlantenApplicatie.Services
                 list = _dao.fillTfgsvFamilie(0).ToList();
             }
 
-        //        }
-        //        public void FillSingleValuePlantDetails()
-        //        {
-        //            //These are single value properties and can be added to the details screen immediatly
-        //            detailsSelectedPlant.Add("Plant Id: " + SelectedPlantInResult.PlantId);
-        //            detailsSelectedPlant.Add("Nederlandse naam: " + SelectedPlantInResult.NederlandsNaam);
-        //            detailsSelectedPlant.Add("Wetenschappelijke naam: " + SelectedPlantInResult.Fgsv);
-        //            detailsSelectedPlant.Add("Type: " + SelectedPlantInResult.Type);
-        //            detailsSelectedPlant.Add("Familie: " + SelectedPlantInResult.Familie);
-        //            detailsSelectedPlant.Add("Geslacht: " + SelectedPlantInResult.Geslacht);
-        //            detailsSelectedPlant.Add("Soort: " + SelectedPlantInResult.Soort);
-        //            detailsSelectedPlant.Add("Variant: " + SelectedPlantInResult.Variant);
-        //            detailsSelectedPlant.Add("Minimale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMin);
-        //            detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
-        //            detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
-        //            detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
-        //        }
-        //        public void FillDetailsPlantAbiotiek()
-        //        {
-        //            ////The following property consist of multiple values in a different table
-        //            ////First we need an Abiotiek list, then we'll need to filter that list
-        //            ////by checking if the Abiotiek.PlantId is the same als the SelectedPlantResult.PlantId.
-        //            ////Once filtered: put the remaining Abiotiek types in the detailSelectedPlant Observable Collection
-        //            var abioList = _dao.GetAllAbiotieks();
-
             // clearing te content of te combobox of familie
             cmbFamilieCollection.Clear();
             // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
@@ -265,6 +218,7 @@ namespace PlantenApplicatie.Services
                 }
             }
         }
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxGeslacht(TfgsvFamilie selectedFamilie, ObservableCollection<TfgsvGeslacht> cmbGeslachtCollection)
         {
             var list = Enumerable.Empty<TfgsvGeslacht>().AsQueryable();
@@ -298,6 +252,7 @@ namespace PlantenApplicatie.Services
             }
 
         }
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection)
         {
             var list = Enumerable.Empty<TfgsvSoort>().AsQueryable();
@@ -329,6 +284,7 @@ namespace PlantenApplicatie.Services
                 }
             }
         }
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
 
@@ -349,7 +305,8 @@ namespace PlantenApplicatie.Services
                     }
                 }
             }
-            public void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection)
+        //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
+        public void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection)
             {
                 //not currently used in the cascade search
                 //will be adjusted later (dao)
@@ -367,9 +324,9 @@ namespace PlantenApplicatie.Services
                 }
             }
         #endregion
-
+        #region Fill plant details in detain screen
         /// <summary>
-        /// obsolete? Robin
+        /// Plant detail listbox methods, geschreven door Robin, omgezet voor de service door kenny
         /// </summary>
         /// <param name="detailsSelectedPlant"></param>
         /// <param name="SelectedPlantInResult"></param>
@@ -419,8 +376,8 @@ namespace PlantenApplicatie.Services
             detailsSelectedPlant.Add("Minimale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMin);
             detailsSelectedPlant.Add("Maximale plantdichtheid: " + SelectedPlantInResult.PlantdichtheidMax);
             detailsSelectedPlant.Add("status: " + SelectedPlantInResult.Status);
-            detailsSelectedPlant.Add("Id Access: " + SelectedPlantInResult.IdAccess);
         }
+
         public void FillDetailsPlantAbiotiek(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult)
         {
             ////The following property consist of multiple values in a different table
@@ -659,137 +616,10 @@ namespace PlantenApplicatie.Services
                 }
             }
         }
+        #endregion
 
-        public List<Plant> ApplyFilter(TfgsvType SelectedtType, TfgsvFamilie SelectedFamilie, TfgsvGeslacht SelectedGeslacht, TfgsvSoort SelectedSoort, TfgsvVariant SelectedVariant, string SelectedNederlandseNaam, string SelectedRatioBloeiBlad)
-        {
-            var listPlants = _dao.getAllPlants();
-
-            if (SelectedtType != null)
-            {
-
-                foreach (var item in listPlants.ToList())
-                {
-
-                    if (item.TypeId != SelectedtType.Planttypeid)
-                    {
-                        listPlants.Remove(item);
-                    }
-                }
-            }
-            if (SelectedFamilie != null)
-            {
-
-                foreach (var item in listPlants.ToList())
-                {
-
-                    if (item.FamilieId != SelectedFamilie.FamileId)
-                    {
-                        listPlants.Remove(item);
-                    }
-                }
-            }
-            if (SelectedGeslacht != null)
-            {
-
-                foreach (var item in listPlants.ToList())
-                {
-
-                    if (item.GeslachtId != SelectedGeslacht.GeslachtId)
-                    {
-                        listPlants.Remove(item);
-                    }
-                }
-            }
-            if (SelectedSoort != null)
-            {
-
-                foreach (var item in listPlants.ToList())
-                {
-
-                    if (item.SoortId != SelectedSoort.Soortid)
-                    {
-                        listPlants.Remove(item);
-                    }
-                }
-            }
-            if (SelectedVariant != null)
-            {
-
-                foreach (var item in listPlants.ToList())
-                {
-
-                    if (item.VariantId != null)
-                    {
-
-                        if (item.VariantId != SelectedVariant.VariantId)
-                        {
-
-                            listPlants.Remove(item);
-                        }
-                    }
-                    else if (item.VariantId == null)
-                    {
-                        listPlants.Remove(item);
-                    }
-
-                }
-            }
-
-            if (SelectedNederlandseNaam != null)
-            {
-                foreach (var item in listPlants.ToList())
-                {
-
-                    if (item.NederlandsNaam != null)
-                    {
-                        if (!item.NederlandsNaam.Contains(SelectedNederlandseNaam))
-                        {
-                            listPlants.Remove(item);
-                        }
-
-                    }
-                    else if (item.NederlandsNaam == null)
-                    {
-                        listPlants.Remove(item);
-                    }
-
-                }
-            }
-
-            if (SelectedRatioBloeiBlad != null)
-            {
-
-                foreach (var item in listPlants.ToList())
-                {
-                    if (item.Fenotype.Count != 0)
-                    {
-                        foreach (var itemFenotype in item.Fenotype)
-                        {
-
-                            if (itemFenotype.RatioBloeiBlad != null || itemFenotype.RatioBloeiBlad != String.Empty)
-                            {
-
-                                if (itemFenotype.RatioBloeiBlad != SelectedRatioBloeiBlad)
-                                {
-                                    listPlants.Remove(item);
-                                }
-                            }
-                            else
-                            {
-                                listPlants.Remove(item);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        listPlants.Remove(item);
-                    }
-
-                }
-            }
-            return listPlants;
-        }
-
+        //geschreven door owen
+        //omgezet voor de service door kenny
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)
         {
             string location = "";
@@ -800,16 +630,19 @@ namespace PlantenApplicatie.Services
 
             if (location != null)
             {
-                BitmapImage bitmap = new BitmapImage();
-                bitmap.BeginInit();
-                bitmap.UriSource = new Uri(location, UriKind.Absolute);
-                bitmap.EndInit();
+                if (location != "")
+                {
+                    BitmapImage bitmap = new BitmapImage();
+                    bitmap.BeginInit();
+                    bitmap.UriSource = new Uri(location, UriKind.Absolute);
+                    bitmap.EndInit();
 
-                return bitmap;
+                    return bitmap;
+                }
             }
 
             return null;
-
         }
+
     }
 }

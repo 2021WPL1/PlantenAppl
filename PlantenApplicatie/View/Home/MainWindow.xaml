@@ -12,7 +12,7 @@
         Title="MainWindow" Height="900" Width="1250">
 
     <Window.Resources>
-
+        <!--deze zijn nodig voor de navigatie van de app-->
         <DataTemplate DataType = "{x:Type viewModels:ViewModelNameResult}">
             <pages:UserControlName/>
         </DataTemplate>
@@ -198,7 +198,7 @@
 
         <!--<Frame x:Name="MainFrame" Margin="0,190,0,0"  Content=""/>-->
 
-        <!-- hier doe je de binding van het currentViewModel !Clue van et stysteem -->
+        <!-- hier doe je de binding van het currentViewModel !Clue van het systeem -->
         <Grid x:Name="MainContent" HorizontalAlignment="Center" Width="1230" Margin="0,101,0,0" Height="773" VerticalAlignment="Top">
             <ContentControl Content="{Binding currentViewModel}" HorizontalAlignment="Left" Width="1210" Height="754" VerticalAlignment="Center" Margin="10,0,0,0"/>
         </Grid>

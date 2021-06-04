@@ -8,7 +8,8 @@ using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.Viewmodel
 {
-
+    //geschreven door kenny adhv een voorbeeld van roy
+    //herschreven door kenny voor gebruik met ioc
     public class ViewModelRepo
     {   //singleton pattern
         private static SimpleIoc iocc = SimpleIoc.Default;
@@ -16,11 +17,6 @@ namespace PlantenApplicatie.Viewmodel
 
         private Dictionary<string, ViewModelBase> _viewModels = new Dictionary<string, ViewModelBase>();
        
-        //private static IServiceProvider _serviceProvider;
-        //private static ISearchService _searchService = iocc.GetInstance<ISearchService>();
-        //private static IloginUserService _loginService = iocc.GetInstance<IloginUserService>();
-
-
         private ViewModelNameResult viewModelNameResult = iocc.GetInstance<ViewModelNameResult>();
         private ViewModelRegister viewModelRegister = iocc.GetInstance<ViewModelRegister>();
         private ViewModelHabitat viewModelHabitat = iocc.GetInstance<ViewModelHabitat>();

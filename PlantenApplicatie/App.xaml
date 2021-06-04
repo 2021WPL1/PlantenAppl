@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:PlantenApplicatie"
              StartupUri="View/Home/LoginWindow.xaml">
 
-    <!--StartupUri="View/Home/LoginWindow.xaml">-->
     <Application.Resources>
         
     </Application.Resources>
