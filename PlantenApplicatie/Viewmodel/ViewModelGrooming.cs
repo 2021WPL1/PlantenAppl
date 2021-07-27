@@ -44,7 +44,7 @@ namespace PlantenApplicatie.Viewmodel
 
         private string _selectedBeheerdaad;
 
-        public string SelectedBeheer_Maand
+        public string SelectedBeheerdaad
         {
             get { return _selectedBeheerdaad; }
             set
