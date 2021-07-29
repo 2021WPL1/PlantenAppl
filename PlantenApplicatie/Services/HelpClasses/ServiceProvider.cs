@@ -19,6 +19,7 @@ namespace PlantenApplicatie.Services.HelpClasses
             iocc.Register<IloginUserService, LoginUserService>();
             iocc.Register<ISearchService, SearchService>();
             iocc.Register<IDetailService, DetailService>();
+            iocc.Register<IWindowManagerService, WindowManagerService>();
         }
     }
 }

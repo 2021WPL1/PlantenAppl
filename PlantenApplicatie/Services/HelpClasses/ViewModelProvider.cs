@@ -27,14 +27,14 @@ namespace PlantenApplicatie.Services.HelpClasses
             var loginService = iocc.GetInstance<IloginUserService>();
             var searchService = iocc.GetInstance<ISearchService>();
             var detailService = iocc.GetInstance<IDetailService>();
-
+            var windowManagerService = iocc.GetInstance<IWindowManagerService>();
 
             // registreer de viewmodels in de IoC Container
             // factory pattern om een instantie te maken van de viewmodels
             // Dependency Injection: constructor injection: injecteer  de services in the constructors van de viewmodels;
 
-            iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService));
-            iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService));
+            iocc.Register<ViewModelLogin>(() => new ViewModelLogin(loginService, windowManagerService));
+            iocc.Register<ViewModelRegister>(() => new ViewModelRegister(loginService, windowManagerService));
 
             iocc.Register<ViewModelBloom>(() => new ViewModelBloom(detailService));
             iocc.Register<ViewModelGrooming>(() => new ViewModelGrooming(detailService));
@@ -46,7 +46,7 @@ namespace PlantenApplicatie.Services.HelpClasses
 
             //SimpleIoc.Default.Unregister<ViewModelMain>();
             iocc.Register<ViewModelBase>(() => new ViewModelBase());
-            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService));
+            iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService, windowManagerService));
             iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
         }
     }

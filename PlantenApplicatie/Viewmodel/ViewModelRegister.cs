@@ -15,11 +15,12 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelRegister : ViewModelBase
     {
         private IloginUserService _loginService { get; }
-
+        private IWindowManagerService _windowManagerService { get; }
         public RelayCommand registerCommand { get; set; }
         public RelayCommand backCommand { get; set; }
-        public ViewModelRegister(IloginUserService loginUserService)
+        public ViewModelRegister(IloginUserService loginUserService, IWindowManagerService windowManagerService)
         {
+            this._windowManagerService = windowManagerService;
             this._loginService = loginUserService;
             registerCommand = new RelayCommand(RegisterButtonClick);
             backCommand = new RelayCommand(BackButtonClick);

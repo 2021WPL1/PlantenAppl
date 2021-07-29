@@ -21,7 +21,8 @@ using PlantenApplicatie.ViewModel;
 namespace PlantenApplicatie.Viewmodel
 {
     public class ViewModelLogin : ViewModelBase
-    {
+    {   
+        private IWindowManagerService _windowManagerService { get; }
         private IloginUserService _loginService { get; }
         public RelayCommand loginCommand { get; set; }
         public RelayCommand cancelCommand { get; set; }
@@ -32,9 +33,9 @@ namespace PlantenApplicatie.Viewmodel
         private string _errorMessage;
         private string _loggedInMessage;
 
-        public ViewModelLogin(IloginUserService loginUserService)
+        public ViewModelLogin(IloginUserService loginUserService, IWindowManagerService windowManagerService)
         {
-
+            this._windowManagerService = windowManagerService;
             this._loginService = loginUserService;
             loginCommand = new RelayCommand(LoginButtonClick);
             cancelCommand = new RelayCommand(CancelButton);

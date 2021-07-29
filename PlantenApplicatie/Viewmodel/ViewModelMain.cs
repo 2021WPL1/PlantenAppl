@@ -34,13 +34,16 @@ namespace PlantenApplicatie.ViewModel
         }
 
         public IloginUserService loginUserService;
-        private ISearchService _searchService;
-        public ViewModelMain(IloginUserService loginUserService, ISearchService searchService)
+        public ISearchService _searchService;
+        public IWindowManagerService _windowManagerService;
+         
+        public ViewModelMain(IloginUserService loginUserService, ISearchService searchService, IWindowManagerService windowManagerService)
         {
             loggedInMessage = loginUserService.LoggedInMessage();
             this._viewModelRepo = iocc.GetInstance<ViewModelRepo>();
             this._searchService = searchService;
             this.loginUserService = loginUserService;
+            this._windowManagerService = windowManagerService;
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
