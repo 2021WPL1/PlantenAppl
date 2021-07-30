@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows;
 using System.Windows.Documents;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.HelpClasses.Login.classes;
@@ -21,10 +22,17 @@ using PlantenApplicatie.Viewmodel;
 namespace PlantenApplicatie.Services
 {
     public class LoginUserService : IloginUserService, INotifyPropertyChanged
-    {   //gebruiker verklaren  om te gebruiken in de logica
+    {  
+        //gebruiker verklaren  om te gebruiken in de logica
         private Gebruiker _gebruiker { get; set; }
+
         //dao verklaren om data op te vragen en te setten in de databank
         private DAO _dao;
+
+        //iocc container om de mainwindow te verkrijgen
+        private SimpleIoc iocc = SimpleIoc.Default;
+
+
         public LoginUserService()
         {
             this._dao = DAO.Instance();
@@ -39,6 +47,8 @@ namespace PlantenApplicatie.Services
 
         public void ConfigureRoll(Gebruiker gebruiker)
         {
+            var iocc = SimpleIoc.Default;
+            var mainWindow = iocc.GetInstance<MainWindow>();
             switch (gebruiker.Rol)
             {
                 case "student":
@@ -51,6 +61,18 @@ namespace PlantenApplicatie.Services
                     break;
 
                 case "oud-student":
+                    mainWindow.btnBloei.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteeralle.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Hidden;
+                    mainWindow.btnHabitat.Visibility = Visibility.Hidden;
+                    mainWindow.btnGroei.Visibility = Visibility.Hidden;
+                    mainWindow.btnLijst.Visibility = Visibility.Hidden;
+                    mainWindow.btnLopendVerzoek.Visibility = Visibility.Hidden;
+                    mainWindow.btnSorteer.Visibility = Visibility.Hidden;
+                    mainWindow.btnUiterlijk.Visibility = Visibility.Hidden;
+                    mainWindow.btnVerzorging.Visibility = Visibility.Hidden;
+
                     break;
 
             }

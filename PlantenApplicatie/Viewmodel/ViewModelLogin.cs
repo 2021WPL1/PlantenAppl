@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.HelpClasses.Login.classes;
@@ -59,9 +60,9 @@ namespace PlantenApplicatie.Viewmodel
 
                 if (loginResult.loginStatus == LoginStatus.LoggedIn)
                 {
-                    
+                    var iocc = SimpleIoc.Default;
                   //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
-                    MainWindow mainWindow = new MainWindow();
+                  MainWindow mainWindow = iocc.GetInstance<MainWindow>();
                     _loginService.ConfigureRoll(loginResult.gebruiker);
                     mainWindow.Show();
                     Application.Current.Windows[0]?.Close();
