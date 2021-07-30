@@ -141,7 +141,7 @@ namespace PlantenApplicatie.Services
                 }
                 else
                 {
-                    MessageBox.Show("jij bent geen oudstudent");
+                    MessageBox.Show($"{emailAdresInput} is nog niet geregistreerd in de database als oudstudent");
                 }
             }
 
