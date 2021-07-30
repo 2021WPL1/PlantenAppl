@@ -62,7 +62,7 @@ namespace PlantenApplicatie.Services
             var loginResult = new LoginResult() {loginStatus = LoginStatus.NotLoggedIn};
            
             //check if email is valid email
-            if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
+            if (userNameInput != null)
             {   //gebruiker zoeken in de databank
                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
                 loginResult.gebruiker = gebruiker;
@@ -135,7 +135,7 @@ namespace PlantenApplicatie.Services
             }
             else
             {
-                if (checkIfInlist())
+                if (checkIfInlist(emailAdresInput))
                 {
                     rolInput = "oud-student";
                 }
@@ -161,6 +161,7 @@ namespace PlantenApplicatie.Services
                 if (email == emailcheck )
                 {
                     boolean = true;
+                    break;
                 }
                 else
                 {
