@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -23,6 +25,10 @@ namespace PlantenApplicatie.Services
         private Gebruiker _gebruiker { get; set; }
         //dao verklaren om data op te vragen en te setten in de databank
         private DAO _dao;
+
+        //checken of emailadres en rol aanwezig zijn in de tabel gebruiker aanwezig is
+        private List<string> emailAdresOudStudenten = new List<string>();
+        
         public LoginUserService()
         {
             this._dao = DAO.Instance();
@@ -37,12 +43,29 @@ namespace PlantenApplicatie.Services
         public LoginResult CheckCredentials(string userNameInput, string passwordInput)
         {   //Nieuw loginResult om te gebruiken, status op NotLoggedIn zetten
             var loginResult = new LoginResult() {loginStatus = LoginStatus.NotLoggedIn};
-           
+           //string message = string.Empty
             //check if email is valid email
             if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
             {   //gebruiker zoeken in de databank
+
                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
                 loginResult.gebruiker = gebruiker;
+                //Message = $"{gebruiker} is student";
+            }
+
+            else if (userNameInput != null && userNameInput.Contains("@vives.be"))
+            {
+                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
+                loginResult.gebruiker = gebruiker;
+                //Message = $"{gebruiker} is docent";
+
+            }
+
+            else if (userNameInput != null && emailAdresOudStudenten.Contains(userNameInput))
+            {
+                gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
+                loginResult.gebruiker = gebruiker;
+                //Message = $"{gebruiker} is oud-student";
             }
             else
             {//indien geen geldig emailadress, errorMessage opvullen
@@ -85,6 +108,55 @@ namespace PlantenApplicatie.Services
                 return message;
             }
             return message;
+
+            
+        }
+
+        public bool CheckListOudstudenten(string emailAdres)
+        {
+            bool xBool = false;
+            foreach (string emailOudStudent in emailAdresOudStudenten)
+            {
+                if (emailOudStudent ==emailAdres)
+                {
+                    xBool = true;
+                }
+                else
+                {
+                    xBool = false;
+                }
+            }
+
+            return xBool;
+        }
+
+        public string CheckRol(Gebruiker gebruiker, string emailAdres)
+        {
+          
+            string Message = string.Empty;
+
+            if (emailAdres.Contains("@student.vives.be"))
+            {
+                Message = $"{gebruiker} is student";
+            }
+
+            else if (emailAdres.Contains("@vives.be"))
+            {
+                Message = $"{gebruiker} is docent";
+            }
+
+            else if (CheckListOudstudenten(emailAdres) == true)
+            {   
+
+                Message = $"{gebruiker} is oud-student";
+            }
+
+            else
+            {
+                Message = "U bent niet gerechtigd om in te loggen";
+            }
+
+            return Message;
         }
 
         #endregion
@@ -106,7 +178,7 @@ namespace PlantenApplicatie.Services
                 passwordRepeatInput != null &&
                 rolInput != null)
             {   //checken als het emailadres een geldig vives email is.
-                if (emailAdresInput != null && emailAdresInput.Contains(".vives.be") && emailAdresInput.Contains("@")
+                if (emailAdresInput != null && emailAdresInput.Contains("vives.be") && emailAdresInput.Contains("@")
                     //checken als het email adres al bestaat of niet.
                     && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
                 {   //checken als het herhaalde wachtwoord klopt of niet.
@@ -135,7 +207,10 @@ namespace PlantenApplicatie.Services
             return Message;
         }
 
+        
+
         #endregion
+
     }
     
 }

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using GalaSoft.MvvmLight.Command;
 using Planten2021.Data;
+using PlantenApplicatie.Services;
 using PlantenApplicatie.Services.Interfaces;
+using PlantenApplicatie.View;
 using PlantenApplicatie.View.Home;
 using PlantenApplicatie.ViewModel;
 
@@ -14,16 +17,20 @@ namespace PlantenApplicatie.Viewmodel
     //written by kenny
     public class ViewModelRegister : ViewModelBase
     {
+        private WindowManagerService windowManagerService;
         private IloginUserService _loginService { get; }
         private IWindowManagerService _windowManagerService { get; }
         public RelayCommand registerCommand { get; set; }
         public RelayCommand backCommand { get; set; }
+
+        private ObservableCollection<Window> _windows;
         public ViewModelRegister(IloginUserService loginUserService, IWindowManagerService windowManagerService)
         {
             this._windowManagerService = windowManagerService;
             this._loginService = loginUserService;
             registerCommand = new RelayCommand(RegisterButtonClick);
             backCommand = new RelayCommand(BackButtonClick);
+            _windows = new ObservableCollection<Window> { new LoginWindow(), new MainWindow(), new RegisterWindow() };
         }
 
         public void BackButtonClick()
@@ -37,7 +44,11 @@ namespace PlantenApplicatie.Viewmodel
             errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                  firstNameInput, emailAdresInput,
                  passwordInput, passwordRepeatInput, rolInput);
-            
+           /*Close*/
+
+           _windows.Remove()
+
+
         }
         #region MVVM TextFieldsBinding
         private string _vivesNrInput;

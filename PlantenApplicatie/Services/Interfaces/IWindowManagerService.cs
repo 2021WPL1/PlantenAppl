@@ -6,6 +6,6 @@ namespace PlantenApplicatie.Services.Interfaces
 {
     public interface IWindowManagerService
     {
-
+       
     }
 }

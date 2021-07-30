@@ -526,6 +526,12 @@ namespace Planten2021.Data
             var gebruiker = context.Gebruiker.ToList();
             return gebruiker;
         }
+
+        //public List<Gebruiker> getAllOudstudenten()
+        //{
+        //    var oudstudent = context.Gebruiker.ToList();
+        //    return oudstudent;
+        //}
         //written by kenny
         public bool CheckIfEmailAlreadyExists(string email)
         {

@@ -33,6 +33,8 @@ namespace PlantenApplicatie.Viewmodel
         private string _errorMessage;
         private string _loggedInMessage;
 
+       
+
         public ViewModelLogin(IloginUserService loginUserService, IWindowManagerService windowManagerService)
         {
             this._windowManagerService = windowManagerService;
@@ -46,6 +48,8 @@ namespace PlantenApplicatie.Viewmodel
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
             Application.Current.Windows[0]?.Close();
+           
+
         }
         public void CancelButton()
         {
@@ -74,6 +78,8 @@ namespace PlantenApplicatie.Viewmodel
             {
                 errorMessage = "gebruikersnaam invullen";
             }
+
+           
 
         }
         public string errorMessage
