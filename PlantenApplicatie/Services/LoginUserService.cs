@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
+using System.Windows.Documents;
 using GalaSoft.MvvmLight.Command;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
@@ -32,6 +34,27 @@ namespace PlantenApplicatie.Services
         public Gebruiker gebruiker = new Gebruiker();
         //zorgen dat de INotifyPropertyChanged geimplementeerd wordt
         public event PropertyChangedEventHandler PropertyChanged;
+
+        //visibility check
+
+        public void ConfigureRoll(Gebruiker gebruiker)
+        {
+            switch (gebruiker.Rol)
+            {
+                case "student":
+
+                    MessageBox.Show("dit is een student en mag de naamknop bv niet zien.");
+                    
+                    break;
+
+                case "docent":
+                    break;
+
+                case "oud-student":
+                    break;
+
+            }
+        }
         
         //het eigenlijke loginsysteem
         public LoginResult CheckCredentials(string userNameInput, string passwordInput)
@@ -81,7 +104,7 @@ namespace PlantenApplicatie.Services
             string message= String.Empty;
             if (_gebruiker != null)
             {
-                message = $"ingelogd als: {_gebruiker.Voornaam} {_gebruiker.Achternaam}";
+                message = $"ingelogd als: {_gebruiker.Voornaam} {_gebruiker.Achternaam} met als rol {gebruiker.Rol}";
                 return message;
             }
             return message;
@@ -90,6 +113,64 @@ namespace PlantenApplicatie.Services
         #endregion
 
         #region Register Region
+
+        public string CheckRol(string emailAdresInput)
+        {
+            var rolInput = "";
+            if (emailAdresInput != null && emailAdresInput.Contains(".vives.be") &&
+                emailAdresInput.Contains("@") & !emailAdresInput.Contains("student")
+                //checken als het email adres al bestaat of niet.
+                && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+
+            {
+                rolInput = "docent";
+            }
+            else if (emailAdresInput != null && emailAdresInput.Contains(".vives.be") &&
+                emailAdresInput.Contains("@") &&emailAdresInput.Contains("student")
+                //checken als het email adres al bestaat of niet.
+                && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+
+            {
+                rolInput = "student";
+            }
+            else
+            {
+                if (checkIfInlist())
+                {
+                    rolInput = "oud-student";
+                }
+                else
+                {
+                    MessageBox.Show("jij bent geen oudstudent");
+                }
+            }
+
+            return rolInput;
+        }
+
+        private List<string> adressList = new List<string>
+        {
+            "kdemits@hotmail.com",
+            "Christoph@hotmail.com"
+        };
+        public bool checkIfInlist(string email)
+        {
+            var boolean = false;
+            foreach (var emailcheck in adressList)
+            {
+                if (email == emailcheck )
+                {
+                    boolean = true;
+                }
+                else
+                {
+                    boolean = false;
+                }
+
+            }
+
+            return boolean;
+        }
 
         public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
@@ -103,13 +184,14 @@ namespace PlantenApplicatie.Services
                 lastNameInput != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
-                passwordRepeatInput != null &&
-                rolInput != null)
+                passwordRepeatInput != null)
+
             {   //checken als het emailadres een geldig vives email is.
-                if (emailAdresInput != null && emailAdresInput.Contains(".vives.be") && emailAdresInput.Contains("@")
-                    //checken als het email adres al bestaat of niet.
-                    && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
-                {   //checken als het herhaalde wachtwoord klopt of niet.
+                if (emailAdresInput != null && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+                {
+                    rolInput = CheckRol(emailAdresInput);
+
+                    //checken als het herhaalde wachtwoord klopt of niet.
                     if (passwordInput == passwordRepeatInput)
                     {   //gebruiker registreren.
                         _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);

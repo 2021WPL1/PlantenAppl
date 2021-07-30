@@ -11,6 +11,6 @@ namespace PlantenApplicatie.Services.Interfaces
             string firstNameInput, string emailAdresInput,
             string passwordInput, string passwordRepeatInput, string rolInput);
         string LoggedInMessage();
-
+        public void ConfigureRoll(Gebruiker gebruiker);
     }
 }

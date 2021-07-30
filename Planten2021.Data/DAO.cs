@@ -32,15 +32,17 @@ namespace Planten2021.Data
             /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAO*/
             this.context = new _Planten2021Context();
         }
+
         //3.publieke methode instance die altijd kan aangeroepen worden
-            //door zijn statische eigenschappen kan hij altijd aangeroepen worden 
-            //zonder er een instantie van te maken
+        //door zijn statische eigenschappen kan hij altijd aangeroepen worden 
+        //zonder er een instantie van te maken
         public static DAO Instance()
         {
             return instance;
-        }
-        /* 4.gebruik: var example = DAO.Instance();
-}
+        }                                                                                                                                                                                                           /*
+    }
+         4.gebruik: var example = DAO.Instance();
+ }
 
 
 
@@ -48,7 +50,7 @@ namespace Planten2021.Data
 
 
 
-         */
+          */
 
 
         //search functions

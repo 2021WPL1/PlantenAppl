@@ -59,8 +59,10 @@ namespace PlantenApplicatie.Viewmodel
 
                 if (loginResult.loginStatus == LoginStatus.LoggedIn)
                 {
+                    
                   //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
                     MainWindow mainWindow = new MainWindow();
+                    _loginService.ConfigureRoll(loginResult.gebruiker);
                     mainWindow.Show();
                     Application.Current.Windows[0]?.Close();
                 }
