@@ -40,7 +40,7 @@ namespace PlantenApplicatie.Viewmodel
                  firstNameInput, emailAdresInput,
                  passwordInput, passwordRepeatInput, rolInput);
             
-            Application.Current.Windows[0]?.Close();
+            //Application.Current.Windows[0]?.Close();
 
 
 

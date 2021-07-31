@@ -27,8 +27,6 @@ namespace PlantenApplicatie.Services
         //dao verklaren om data op te vragen en te setten in de databank
         private DAO _dao;
 
-        //checken of emailadres en rol aanwezig zijn in de tabel gebruiker aanwezig is
-        private List<string> emailAdresOudStudenten = new List<string>();
         
         public LoginUserService()
         {
@@ -102,30 +100,30 @@ namespace PlantenApplicatie.Services
             return loginResult;
         }
 
-        public string CheckRol(string emailAdres)
+        public string CheckRol(string emailAdresInput)
         {
             var rolInput = "";
 
-            if (emailAdres.Contains("@student.vives.be"))
+            if (emailAdresInput.Contains("@student.vives.be"))
             {
                 rolInput = "Student";
             }
 
-            else if (emailAdres.Contains("@vives.be"))
+            else if (emailAdresInput.Contains("@vives.be"))
             {
                 rolInput = "Docent";
             }
 
             else  
             {
-                if ((CheckListOudstudenten(emailAdres)))
+                if ((CheckListOudstudenten(emailAdresInput)))
                 {
                     rolInput = "Oud-Student";
                 }
 
                 else
                 {
-                    MessageBox.Show($"{emailAdres} is nog niet geregistreerd in de database als oudstudent");
+                    MessageBox.Show($"{emailAdresInput} is nog niet geregistreerd in de database als oudstudent");
                 }
 
             }
@@ -208,16 +206,17 @@ namespace PlantenApplicatie.Services
             
         }
 
-        private List<string> emailAdresOudstudenten = new List<string>()
+        private List<string> emailAdresOudStudenten = new List<string>()
         {
-            "Marc.vandeputte@gmail.com",
-            "Joris.Brys@hotmail.com",
-            "Martine.Thange@live.be"
+            "marc.vandeputte@gmail.com",
+            "joris.brys@hotmail.com",
+            "martine.tanghe@live.be"
         };
 
         public bool CheckListOudstudenten(string emailAdres)
         {
             bool xBool = false;
+
             foreach (string emailOudStudent in emailAdresOudStudenten)
             {
                 if (emailOudStudent == emailAdres)
@@ -257,6 +256,8 @@ namespace PlantenApplicatie.Services
                     //checken als het email adres al bestaat of niet.
                     && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
                 {   //checken als het herhaalde wachtwoord klopt of niet.
+
+                    rolInput = CheckRol(emailAdresInput);
                     if (passwordInput == passwordRepeatInput)
                     {   //gebruiker registreren.
                         _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
