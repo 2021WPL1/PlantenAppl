@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.HelpClasses.Login.classes;
@@ -63,12 +64,13 @@ namespace PlantenApplicatie.Viewmodel
             {
                 LoginResult loginResult = _loginService.CheckCredentials(userNameInput, passwordInput);
 
+                var iocc = SimpleIoc.Default;
                 if (loginResult.loginStatus == LoginStatus.LoggedIn)
                 {
                   //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
                     MainWindow mainWindow = new MainWindow();
                     
-                    mainWindow.Show();
+                    mainWindow.Show(); 
                     Application.Current.Windows[0]?.Close();
                 }
                 else

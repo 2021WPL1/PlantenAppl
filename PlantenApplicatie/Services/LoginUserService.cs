@@ -102,13 +102,38 @@ namespace PlantenApplicatie.Services
             return loginResult;
         }
 
-        public string CheckRol(string EmailInput)
-        {   
+        public string CheckRol(string emailAdres)
+        {
+            var rolInput = "";
 
-            return EmailInput;
+            if (emailAdres.Contains("@student.vives.be"))
+            {
+                rolInput = "Student";
+            }
+
+            else if (emailAdres.Contains("@vives.be"))
+            {
+                rolInput = "Docent";
+            }
+
+            else  
+            {
+                if ((CheckListOudstudenten(emailAdres)))
+                {
+                    rolInput = "Oud-Student";
+                }
+
+                else
+                {
+                    MessageBox.Show($"{emailAdres} is nog niet geregistreerd in de database als oudstudent");
+                }
+
+            }
+
+            return rolInput;
         }
 
-        public void determineRol(Gebruiker gebruiker)
+        public void RestrictionRol(Gebruiker gebruiker)
         {
             var iocc = SimpleIoc.Default;
             var mainWindow = iocc.GetInstance<MainWindow>();
@@ -203,35 +228,7 @@ namespace PlantenApplicatie.Services
             return xBool;
         }
 
-        //public string CheckRol(Gebruiker gebruiker, string emailAdres)
-        //{
-          
-        //    string Message = string.Empty;
-
-        //    if (emailAdres.Contains("@student.vives.be"))
-        //    {
-        //        Message = $"{gebruiker} is student";
-        //    }
-
-        //    else if (emailAdres.Contains("@vives.be"))
-        //    {
-        //        Message = $"{gebruiker} is docent";
-        //    }
-
-        //    else if (CheckListOudstudenten(emailAdres) == true)
-        //    {   
-
-        //        Message = $"{gebruiker} is oud-student";
-        //    }
-
-        //    else
-        //    {
-        //        Message = "U bent niet gerechtigd om in te loggen";
-        //    }
-
-        //    return Message;
-        //}
-
+        
         #endregion
 
         #region Register Region

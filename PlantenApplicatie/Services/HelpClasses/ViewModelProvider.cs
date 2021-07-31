@@ -48,6 +48,8 @@ namespace PlantenApplicatie.Services.HelpClasses
             iocc.Register<ViewModelBase>(() => new ViewModelBase());
             iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService, windowManagerService));
             iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
+
+
         }
     }
 }
