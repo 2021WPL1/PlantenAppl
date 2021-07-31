@@ -137,7 +137,7 @@ namespace PlantenApplicatie.Services
         {
             var iocc = SimpleIoc.Default;
             var mainWindow = iocc.GetInstance<MainWindow>();
-
+            var message = "";
             switch (gebruiker.Rol)
             {
                 case "Student":
@@ -154,7 +154,10 @@ namespace PlantenApplicatie.Services
                     mainWindow.btnLopendVerzoek.Visibility = Visibility.Visible;
                     mainWindow.btnSorteer.Visibility = Visibility.Visible;
 
+                    message = "Voor wijzigingen, eerst toestemming vragen aan Docent";
+
                     break;
+
 
                 case "Docent":
 
@@ -187,6 +190,8 @@ namespace PlantenApplicatie.Services
                     mainWindow.btnSorteer.Visibility = Visibility.Hidden;
                     break;
             }
+
+            
         }
 
         //functie om naam weer te geven in loginWindow
@@ -195,7 +200,7 @@ namespace PlantenApplicatie.Services
             string message= String.Empty;
             if (_gebruiker != null)
             {
-                message = $"ingelogd als: {_gebruiker.Voornaam} {_gebruiker.Achternaam} {gebruiker.Rol}";
+                message = $"ingelogd als: {_gebruiker.Voornaam} {_gebruiker.Achternaam} : {gebruiker.Rol}";
                 return message;
             }
             return message;
