@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using PlantenApplicatie.Services.Interfaces;
+using PlantenApplicatie.View;
+using PlantenApplicatie.View.Home;
 using PlantenApplicatie.Viewmodel;
 using PlantenApplicatie.ViewModel;
 
@@ -49,7 +51,9 @@ namespace PlantenApplicatie.Services.HelpClasses
             iocc.Register<ViewModelMain>(() => new ViewModelMain(loginService, searchService, windowManagerService));
             iocc.Register<ViewModelRepo>(() => new ViewModelRepo());
 
-
+            iocc.Register<MainWindow>(() => new MainWindow());
+            iocc.Register<LoginWindow>(() => new LoginWindow());
+            iocc.Register<RegisterWindow>(() => new RegisterWindow());
         }
     }
 }

@@ -69,7 +69,7 @@ namespace PlantenApplicatie.Viewmodel
                 {
                   //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
                     MainWindow mainWindow = new MainWindow();
-                    
+                    _loginService.RestrictionRol(loginResult.gebruiker);
                     mainWindow.Show(); 
                     Application.Current.Windows[0]?.Close();
                 }
