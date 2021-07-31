@@ -32,6 +32,7 @@ namespace PlantenApplicatie.Viewmodel
         private string _passwordInput;
         private string _errorMessage;
         private string _loggedInMessage;
+        
 
        
 
@@ -66,6 +67,7 @@ namespace PlantenApplicatie.Viewmodel
                 {
                   //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
                     MainWindow mainWindow = new MainWindow();
+                    
                     mainWindow.Show();
                     Application.Current.Windows[0]?.Close();
                 }

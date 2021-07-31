@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
@@ -38,9 +39,9 @@ namespace PlantenApplicatie.Viewmodel
             errorMessage = _loginService.RegisterButton(vivesNrInput, lastNameInput,
                  firstNameInput, emailAdresInput,
                  passwordInput, passwordRepeatInput, rolInput);
-           /*Close*/
+            /*Close*/
+            Application.Current.Windows[0]?.Close();
 
-           _windows.Remove()
 
 
         }

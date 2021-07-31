@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.HelpClasses.Login.classes;
@@ -43,21 +44,22 @@ namespace PlantenApplicatie.Services
         public LoginResult CheckCredentials(string userNameInput, string passwordInput)
         {   //Nieuw loginResult om te gebruiken, status op NotLoggedIn zetten
             var loginResult = new LoginResult() {loginStatus = LoginStatus.NotLoggedIn};
-           //string message = string.Empty
-            //check if email is valid email
+           //check if email is valid email
+            
+
             if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
             {   //gebruiker zoeken in de databank
 
                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
                 loginResult.gebruiker = gebruiker;
-                //Message = $"{gebruiker} is student";
+               
             }
 
             else if (userNameInput != null && userNameInput.Contains("@vives.be"))
             {
                  gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
                 loginResult.gebruiker = gebruiker;
-                //Message = $"{gebruiker} is docent";
+                
 
             }
 
@@ -65,12 +67,14 @@ namespace PlantenApplicatie.Services
             {
                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
                 loginResult.gebruiker = gebruiker;
-                //Message = $"{gebruiker} is oud-student";
+                
             }
             else
             {//indien geen geldig emailadress, errorMessage opvullen
-                loginResult.errorMessage = "Dit is geen geldig Vives emailadres.";
+                loginResult.errorMessage = "Dit is geen geldig emailadres.";
             }
+
+            
 
             //omzetten van het ingegeven passwoord naar een gehashed passwoord
             var passwordBytes = Encoding.ASCII.GetBytes(passwordInput);
@@ -98,13 +102,75 @@ namespace PlantenApplicatie.Services
             return loginResult;
         }
 
+        public string CheckRol(string EmailInput)
+        {   
+
+            return EmailInput;
+        }
+
+        public void determineRol(Gebruiker gebruiker)
+        {
+            var iocc = SimpleIoc.Default;
+            var mainWindow = iocc.GetInstance<MainWindow>();
+
+            switch (gebruiker.Rol)
+            {
+                case "Student":
+
+                    mainWindow.btnNaam.Visibility = Visibility.Visible;
+                    mainWindow.btnBloei.Visibility = Visibility.Visible;
+                    mainWindow.btnGroei.Visibility = Visibility.Visible;
+                    mainWindow.btnHabitat.Visibility = Visibility.Visible;
+                    mainWindow.btnUiterlijk.Visibility = Visibility.Visible;
+                    mainWindow.btnVerzorging.Visibility = Visibility.Visible;
+                    mainWindow.btnExporteeralle.Visibility = Visibility.Visible;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Visible;
+                    mainWindow.btnLijst.Visibility = Visibility.Visible;
+                    mainWindow.btnLopendVerzoek.Visibility = Visibility.Visible;
+                    mainWindow.btnSorteer.Visibility = Visibility.Visible;
+
+                    break;
+
+                case "Docent":
+
+                    mainWindow.btnNaam.Visibility = Visibility.Visible;
+                    mainWindow.btnBloei.Visibility = Visibility.Visible;
+                    mainWindow.btnGroei.Visibility = Visibility.Visible;
+                    mainWindow.btnHabitat.Visibility = Visibility.Visible;
+                    mainWindow.btnUiterlijk.Visibility = Visibility.Visible;
+                    mainWindow.btnVerzorging.Visibility = Visibility.Visible;
+                    mainWindow.btnExporteeralle.Visibility = Visibility.Visible;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Visible;
+                    mainWindow.btnLijst.Visibility = Visibility.Visible;
+                    mainWindow.btnLopendVerzoek.Visibility = Visibility.Visible;
+                    mainWindow.btnSorteer.Visibility = Visibility.Visible;
+
+                    break;
+
+                case "Oud-student":
+
+                    mainWindow.btnNaam.Visibility = Visibility.Visible;
+                    mainWindow.btnBloei.Visibility = Visibility.Hidden;
+                    mainWindow.btnGroei.Visibility = Visibility.Hidden;
+                    mainWindow.btnHabitat.Visibility = Visibility.Hidden;
+                    mainWindow.btnUiterlijk.Visibility = Visibility.Hidden;
+                    mainWindow.btnVerzorging.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteeralle.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Hidden;
+                    mainWindow.btnLijst.Visibility = Visibility.Hidden;
+                    mainWindow.btnLopendVerzoek.Visibility = Visibility.Hidden;
+                    mainWindow.btnSorteer.Visibility = Visibility.Hidden;
+                    break;
+            }
+        }
+
         //functie om naam weer te geven in loginWindow
         public string LoggedInMessage()
         {
             string message= String.Empty;
             if (_gebruiker != null)
             {
-                message = $"ingelogd als: {_gebruiker.Voornaam} {_gebruiker.Achternaam}";
+                message = $"ingelogd als: {_gebruiker.Voornaam} {_gebruiker.Achternaam} {gebruiker.Rol}";
                 return message;
             }
             return message;
@@ -112,12 +178,19 @@ namespace PlantenApplicatie.Services
             
         }
 
+        private List<string> emailAdresOudstudenten = new List<string>()
+        {
+            "Marc.vandeputte@gmail.com",
+            "Joris.Brys@hotmail.com",
+            "Martine.Thange@live.be"
+        };
+
         public bool CheckListOudstudenten(string emailAdres)
         {
             bool xBool = false;
             foreach (string emailOudStudent in emailAdresOudStudenten)
             {
-                if (emailOudStudent ==emailAdres)
+                if (emailOudStudent == emailAdres)
                 {
                     xBool = true;
                 }
@@ -130,34 +203,34 @@ namespace PlantenApplicatie.Services
             return xBool;
         }
 
-        public string CheckRol(Gebruiker gebruiker, string emailAdres)
-        {
+        //public string CheckRol(Gebruiker gebruiker, string emailAdres)
+        //{
           
-            string Message = string.Empty;
+        //    string Message = string.Empty;
 
-            if (emailAdres.Contains("@student.vives.be"))
-            {
-                Message = $"{gebruiker} is student";
-            }
+        //    if (emailAdres.Contains("@student.vives.be"))
+        //    {
+        //        Message = $"{gebruiker} is student";
+        //    }
 
-            else if (emailAdres.Contains("@vives.be"))
-            {
-                Message = $"{gebruiker} is docent";
-            }
+        //    else if (emailAdres.Contains("@vives.be"))
+        //    {
+        //        Message = $"{gebruiker} is docent";
+        //    }
 
-            else if (CheckListOudstudenten(emailAdres) == true)
-            {   
+        //    else if (CheckListOudstudenten(emailAdres) == true)
+        //    {   
 
-                Message = $"{gebruiker} is oud-student";
-            }
+        //        Message = $"{gebruiker} is oud-student";
+        //    }
 
-            else
-            {
-                Message = "U bent niet gerechtigd om in te loggen";
-            }
+        //    else
+        //    {
+        //        Message = "U bent niet gerechtigd om in te loggen";
+        //    }
 
-            return Message;
-        }
+        //    return Message;
+        //}
 
         #endregion
 
