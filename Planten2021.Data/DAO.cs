@@ -502,7 +502,7 @@ namespace Planten2021.Data
         }
 
         //written by kenny
-        public void RegisterUser(string vivesNr, string firstName, string lastName, string emailadres, string password)
+        public void RegisterUser(string vivesNr, string firstName, string lastName, string emailadres, string password,string rol)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);
             var md5Hasher = new MD5CryptoServiceProvider();
@@ -514,7 +514,7 @@ namespace Planten2021.Data
                 Voornaam = firstName,
                 Achternaam = lastName,
                 Emailadres = emailadres,
-                Rol = null,
+                Rol = rol,  
                 HashPaswoord = passwordHashed
             };
             context.Gebruiker.Add(gebruiker);

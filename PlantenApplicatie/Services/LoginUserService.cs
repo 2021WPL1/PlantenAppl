@@ -114,23 +114,23 @@ namespace PlantenApplicatie.Services
 
         public string CheckRol(string emailAdresInput)
         {
-            var rolInput = "";
+             var rolInput = "";
 
             if (emailAdresInput.Contains("@student.vives.be"))
             {
-                rolInput = "Student";
+                rolInput = "student";
             }
 
             else if (emailAdresInput.Contains("@vives.be"))
             {
-                rolInput = "Docent";
+                rolInput = "docent";
             }
 
             else  
             {
-                if ((CheckListOudstudenten(emailAdresInput)))
+                if (CheckListOudstudenten(emailAdresInput))
                 {
-                    rolInput = "Oud-Student";
+                    rolInput = "oudstudent";
                 }
 
                 else
@@ -160,7 +160,7 @@ namespace PlantenApplicatie.Services
 
                     break;
 
-                case "oud-student":
+                case "oudstudent":
 
                     //mainWindow.btnNaam.Visibility = Visibility.Visible;
                     mainWindow.btnBloei.Visibility = Visibility.Hidden;
@@ -206,14 +206,13 @@ namespace PlantenApplicatie.Services
 
             foreach (string emailOudStudent in emailAdresOudStudenten)
             {
-                if (emailOudStudent == emailAdres)
+                if (emailOudStudent.Contains(emailAdres))
                 {
                     xBool = true;
+                    break;
                 }
-                else
-                {
-                    xBool = false;
-                }
+                
+     
             }
 
             return xBool;
@@ -242,14 +241,12 @@ namespace PlantenApplicatie.Services
             {   //checken als het emailadres een geldig vives email is.
                 if (emailAdresInput != null && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
                 {
-                    CheckRol(emailAdresInput);
-
-
+                   string rol= CheckRol(emailAdresInput);
 
                     //checken als het herhaalde wachtwoord klopt of niet.
                     if (passwordInput == passwordRepeatInput)
                     {   //gebruiker registreren.
-                        _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, emailAdresInput, passwordInput);
+                        _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, emailAdresInput, passwordInput, rol);
                         Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
                                   "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                         LoginWindow loginWindow = new LoginWindow();
