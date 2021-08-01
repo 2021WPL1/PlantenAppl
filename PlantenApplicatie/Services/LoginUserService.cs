@@ -138,7 +138,7 @@ namespace PlantenApplicatie.Services
             var message = "";
             switch (gebruiker.Rol)
             {
-                case "Student":
+                case "student":
 
                     mainWindow.btnNaam.Visibility = Visibility.Visible;
                     mainWindow.btnBloei.Visibility = Visibility.Visible;
@@ -157,7 +157,7 @@ namespace PlantenApplicatie.Services
                     break;
 
 
-                case "Docent":
+                case "docent":
 
                     mainWindow.btnNaam.Visibility = Visibility.Visible;
                     mainWindow.btnBloei.Visibility = Visibility.Visible;
@@ -173,7 +173,7 @@ namespace PlantenApplicatie.Services
 
                     break;
 
-                case "Oud-student":
+                case "oud-student":
 
                     mainWindow.btnNaam.Visibility = Visibility.Visible;
                     mainWindow.btnBloei.Visibility = Visibility.Hidden;
