@@ -64,11 +64,12 @@ namespace PlantenApplicatie.Viewmodel
             {
                 LoginResult loginResult = _loginService.CheckCredentials(userNameInput, passwordInput);
 
-                var iocc = SimpleIoc.Default;
+                
                 if (loginResult.loginStatus == LoginStatus.LoggedIn)
                 {
-                  //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
-                    MainWindow mainWindow = new MainWindow();
+                    var iocc = SimpleIoc.Default;
+                    //  loggedInMessage = _loginService.LoggedInMessage(userNameInput);
+                    MainWindow mainWindow = iocc.GetInstance<MainWindow>();
                     _loginService.RestrictionRol(loginResult.gebruiker);
                     mainWindow.Show(); 
                     Application.Current.Windows[0]?.Close();

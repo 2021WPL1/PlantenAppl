@@ -9,7 +9,7 @@ namespace PlantenApplicatie.Services.Interfaces
         LoginResult CheckCredentials(string userNameInput, string passwordInput);
         string RegisterButton(string vivesNrInput, string lastNameInput,
             string firstNameInput, string emailAdresInput,
-            string passwordInput, string passwordRepeatInput, string rolInput);
+            string passwordInput, string passwordRepeatInput);
         string LoggedInMessage();
         public void RestrictionRol(Gebruiker gebruiker);
     }

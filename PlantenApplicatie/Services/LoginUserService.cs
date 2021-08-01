@@ -42,37 +42,47 @@ namespace PlantenApplicatie.Services
         public LoginResult CheckCredentials(string userNameInput, string passwordInput)
         {   //Nieuw loginResult om te gebruiken, status op NotLoggedIn zetten
             var loginResult = new LoginResult() {loginStatus = LoginStatus.NotLoggedIn};
-           //check if email is valid email
-            
+            //check if email is valid email
 
-            if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
+            //check if email is valid email
+            if (userNameInput != null)
             {   //gebruiker zoeken in de databank
-
                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
                 loginResult.gebruiker = gebruiker;
-               
-            }
-
-            else if (userNameInput != null && userNameInput.Contains("@vives.be"))
-            {
-                 gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
-                loginResult.gebruiker = gebruiker;
-                
-
-            }
-
-            else if (userNameInput != null && emailAdresOudStudenten.Contains(userNameInput))
-            {
-                gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
-                loginResult.gebruiker = gebruiker;
-                
             }
             else
             {//indien geen geldig emailadress, errorMessage opvullen
-                loginResult.errorMessage = "Dit is geen geldig emailadres.";
+                loginResult.errorMessage = "Dit is geen geldig Vives emailadres.";
             }
 
-            
+            //if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
+            //{   //gebruiker zoeken in de databank
+
+            //    gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
+            //    loginResult.gebruiker = gebruiker;
+
+            //}
+
+            //else if (userNameInput != null && userNameInput.Contains("@vives.be"))
+            //{
+            //     gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
+            //    loginResult.gebruiker = gebruiker;
+
+
+            //}
+
+            //else if (userNameInput != null && emailAdresOudStudenten.Contains(userNameInput))
+            //{
+            //    gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
+            //    loginResult.gebruiker = gebruiker;
+
+            //}
+            //else
+            //{//indien geen geldig emailadress, errorMessage opvullen
+            //    loginResult.errorMessage = "Dit is geen geldig emailadres.";
+            //}
+
+
 
             //omzetten van het ingegeven passwoord naar een gehashed passwoord
             var passwordBytes = Encoding.ASCII.GetBytes(passwordInput);
@@ -99,6 +109,8 @@ namespace PlantenApplicatie.Services
             }
             return loginResult;
         }
+
+       
 
         public string CheckRol(string emailAdresInput)
         {
@@ -135,47 +147,22 @@ namespace PlantenApplicatie.Services
         {
             var iocc = SimpleIoc.Default;
             var mainWindow = iocc.GetInstance<MainWindow>();
-            var message = "";
+            
             switch (gebruiker.Rol)
             {
                 case "student":
-
-                    mainWindow.btnNaam.Visibility = Visibility.Visible;
-                    mainWindow.btnBloei.Visibility = Visibility.Visible;
-                    mainWindow.btnGroei.Visibility = Visibility.Visible;
-                    mainWindow.btnHabitat.Visibility = Visibility.Visible;
-                    mainWindow.btnUiterlijk.Visibility = Visibility.Visible;
-                    mainWindow.btnVerzorging.Visibility = Visibility.Visible;
-                    mainWindow.btnExporteeralle.Visibility = Visibility.Visible;
-                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Visible;
-                    mainWindow.btnLijst.Visibility = Visibility.Visible;
-                    mainWindow.btnLopendVerzoek.Visibility = Visibility.Visible;
-                    mainWindow.btnSorteer.Visibility = Visibility.Visible;
-
-                    message = "Voor wijzigingen, eerst toestemming vragen aan Docent";
-
+                    
+                    MessageBox.Show("Voor wijzigingen, eerst toestemming vragen aan Docent"); 
                     break;
 
 
                 case "docent":
 
-                    mainWindow.btnNaam.Visibility = Visibility.Visible;
-                    mainWindow.btnBloei.Visibility = Visibility.Visible;
-                    mainWindow.btnGroei.Visibility = Visibility.Visible;
-                    mainWindow.btnHabitat.Visibility = Visibility.Visible;
-                    mainWindow.btnUiterlijk.Visibility = Visibility.Visible;
-                    mainWindow.btnVerzorging.Visibility = Visibility.Visible;
-                    mainWindow.btnExporteeralle.Visibility = Visibility.Visible;
-                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Visible;
-                    mainWindow.btnLijst.Visibility = Visibility.Visible;
-                    mainWindow.btnLopendVerzoek.Visibility = Visibility.Visible;
-                    mainWindow.btnSorteer.Visibility = Visibility.Visible;
-
                     break;
 
                 case "oud-student":
 
-                    mainWindow.btnNaam.Visibility = Visibility.Visible;
+                    //mainWindow.btnNaam.Visibility = Visibility.Visible;
                     mainWindow.btnBloei.Visibility = Visibility.Hidden;
                     mainWindow.btnGroei.Visibility = Visibility.Hidden;
                     mainWindow.btnHabitat.Visibility = Visibility.Hidden;
@@ -239,9 +226,8 @@ namespace PlantenApplicatie.Services
 
         public string RegisterButton(string vivesNrInput, string lastNameInput, 
                                    string firstNameInput, string emailAdresInput,
-                                   string passwordInput, string passwordRepeatInput, string rolInput)
-        {
-            //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
+                                   string passwordInput, string passwordRepeatInput)
+        { //errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
             string Message = string.Empty;
             //checken of alle velden ingevuld zijn
             if (vivesNrInput != null &&
@@ -249,20 +235,23 @@ namespace PlantenApplicatie.Services
                 lastNameInput != null &&
                 emailAdresInput != null &&
                 passwordInput != null &&
-                passwordRepeatInput != null &&
-                rolInput != null)
-            {   //checken als het emailadres een geldig vives email is.
-                if (emailAdresInput != null && emailAdresInput.Contains("vives.be") && emailAdresInput.Contains("@")
-                    //checken als het email adres al bestaat of niet.
-                    && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
-                {   //checken als het herhaalde wachtwoord klopt of niet.
+                passwordRepeatInput != null)
 
-                    rolInput = CheckRol(emailAdresInput);
+
+
+            {   //checken als het emailadres een geldig vives email is.
+                if (emailAdresInput != null && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+                {
+                    CheckRol(emailAdresInput);
+
+
+
+                    //checken als het herhaalde wachtwoord klopt of niet.
                     if (passwordInput == passwordRepeatInput)
                     {   //gebruiker registreren.
-                        _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, rolInput, emailAdresInput, passwordInput);
-                        Message = $"{firstNameInput}, je bent succevol geregistreerd,"+"\r\n"+$" uw gebruikersnaam is {emailAdresInput}." + 
-                                       "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
+                        _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, emailAdresInput, passwordInput);
+                        Message = $"{firstNameInput}, je bent succevol geregistreerd," + "\r\n" + $" uw gebruikersnaam is {emailAdresInput}." +
+                                  "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
                         LoginWindow loginWindow = new LoginWindow();
                         loginWindow.Show();
                     }//foutafhandeling
@@ -273,7 +262,7 @@ namespace PlantenApplicatie.Services
                 }
                 else
                 {
-                    Message = $"{emailAdresInput} is geen geldig emailadres, "+"\r\n"+" of het eamiladres is al in gebruik.";
+                    Message = $"{emailAdresInput} is geen geldig emailadres, " + "\r\n" + " of het eamiladres is al in gebruik.";
                 }
             }
             else
@@ -281,9 +270,49 @@ namespace PlantenApplicatie.Services
                 Message = "zorg dat alle velden ingevuld zijn";
             }//Message terugsturen om te binden aan een label in de viewModel.
             return Message;
+
+            ////errorMessage die gereturned wordt om de gebruiker te waarschuwen wat er aan de hand is
+            //string Message = string.Empty;
+            ////checken of alle velden ingevuld zijn
+            //if (vivesNrInput != null &&
+            //    firstNameInput != null &&
+            //    lastNameInput != null &&
+            //    emailAdresInput != null &&
+            //    passwordInput != null &&
+            //    passwordRepeatInput != null)
+            //{   //checken als het emailadres een geldig vives email is.
+            //    if (emailAdresInput != null && emailAdresInput.Contains("vives.be") && emailAdresInput.Contains("@")
+            //        //checken als het email adres al bestaat of niet.
+            //        && _dao.CheckIfEmailAlreadyExists(emailAdresInput))
+            //    {   //checken als het herhaalde wachtwoord klopt of niet.
+
+            //        CheckRol(emailAdresInput);
+            //        if (passwordInput == passwordRepeatInput)
+            //        {   //gebruiker registreren.
+            //            _dao.RegisterUser(vivesNrInput, firstNameInput, lastNameInput, emailAdresInput, passwordInput);
+            //            Message = $"{firstNameInput}, je bent succevol geregistreerd,"+"\r\n"+$" uw gebruikersnaam is {emailAdresInput}." + 
+            //                           "\r\n" + $" {firstNameInput}, je kan dit venster wegklikken en inloggen.";
+            //            LoginWindow loginWindow = new LoginWindow();
+            //            loginWindow.Show();
+            //        }//foutafhandeling
+            //        else
+            //        {
+            //            Message = "zorg dat de wachtwoorden overeen komen.";
+            //        }
+            //    }
+            //    else
+            //    {
+            //        Message = $"{emailAdresInput} is geen geldig emailadres, "+"\r\n"+" of het eamiladres is al in gebruik.";
+            //    }
+            //}
+            //else
+            //{
+            //    Message = "zorg dat alle velden ingevuld zijn";
+            //}//Message terugsturen om te binden aan een label in de viewModel.
+            //return Message;
         }
 
-        
+
 
         #endregion
 
