@@ -197,7 +197,8 @@ namespace PlantenApplicatie.Services
         {
             "marc.vandeputte@gmail.com",
             "joris.brys@hotmail.com",
-            "martine.tanghe@live.be"
+            "martine.tanghe@live.be",
+            "mieke.b@outlook.com"
         };
 
         public bool CheckListOudstudenten(string emailAdres)
