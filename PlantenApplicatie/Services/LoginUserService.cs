@@ -52,7 +52,17 @@ namespace PlantenApplicatie.Services
             switch (gebruiker.Rol)
             {
                 case "student":
-
+                    mainWindow.btnBloei.Visibility = Visibility.Visible;
+                    mainWindow.btnExporteeralle.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Hidden;
+                    mainWindow.btnHabitat.Visibility = Visibility.Hidden;
+                    mainWindow.btnGroei.Visibility = Visibility.Hidden;
+                    mainWindow.btnLijst.Visibility = Visibility.Hidden;
+                    mainWindow.btnLopendVerzoek.Visibility = Visibility.Hidden;
+                    mainWindow.btnSorteer.Visibility = Visibility.Hidden;
+                    mainWindow.btnUiterlijk.Visibility = Visibility.Hidden;
+                    mainWindow.btnVerzorging.Visibility = Visibility.Hidden;
                     MessageBox.Show("dit is een student en mag de naamknop bv niet zien.");
                     
                     break;
