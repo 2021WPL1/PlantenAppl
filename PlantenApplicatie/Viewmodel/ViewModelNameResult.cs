@@ -257,7 +257,8 @@ namespace PlantenApplicatie.Viewmodel
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
                
                 //Make the currently selected plant in the Result list available in the SearchService
-             
+                _searchService.SetSelectedPlant(_selectedPlantInResult);
+
             }
         }
 

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Windows.Media;
 
@@ -17,6 +18,8 @@ namespace PlantenApplicatie.Services.Interfaces
         void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection);
 
         void FillDetailPlantResult(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult);
+        IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult);
+        IQueryable<Plant> ReturnSelectedPlant();
 
         ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult);
 

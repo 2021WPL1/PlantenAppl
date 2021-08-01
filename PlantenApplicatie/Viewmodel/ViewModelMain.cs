@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -14,6 +16,7 @@ using MvvmHelpers;
 using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.Viewmodel;
 using GalaSoft.MvvmLight.Ioc;
+using Planten2021.Domain.Models;
 
 namespace PlantenApplicatie.ViewModel
 {
@@ -64,6 +67,12 @@ namespace PlantenApplicatie.ViewModel
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelRepo.GetViewModel(userControlName);
+            IQueryable<Plant> selectedPlant = _searchService.ReturnSelectedPlant();
+            if (selectedPlant != null)
+            {
+                MessageBox.Show(selectedPlant.ToString());
+            }
+           
         }
     }
 }

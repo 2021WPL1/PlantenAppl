@@ -198,6 +198,14 @@ namespace Planten2021.Data
         #endregion
         /* HELP FUNCTIONS */
 
+        //get a plant with ID
+
+        public IQueryable<Plant> GetPlantWithId(int id)
+        {
+            var plant = context.Plant.Where(p => p.PlantId == id);
+            return plant;
+        }
+
         //get a list of all the plants.
         ///Kenny
         public List<Plant> getAllPlants()

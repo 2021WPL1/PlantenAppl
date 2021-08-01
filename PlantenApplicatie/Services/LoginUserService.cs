@@ -49,6 +49,7 @@ namespace PlantenApplicatie.Services
         {
             var iocc = SimpleIoc.Default;
             var mainWindow = iocc.GetInstance<MainWindow>();
+
             switch (gebruiker.Rol)
             {
                 case "student":

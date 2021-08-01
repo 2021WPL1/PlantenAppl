@@ -25,8 +25,26 @@ namespace PlantenApplicatie.Services
 
         }
 
+        //provide the selected plant
+        public IQueryable<Plant> selectedPlant;
+        public IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult)
+        {
+            IQueryable<Plant> plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
+            selectedPlant = plant;
+            return plant;
+        }
+
+        public IQueryable<Plant> ReturnSelectedPlant()
+        {
+            IQueryable<Plant> plant = selectedPlant;
+            return plant;
+        }
+
+        
+
+
         #region RelayCommandMethods
-       
+        
         //Geschreven door Owen op basis van de eerste Search van Kenny.
         //Christophe & Owen: gedeeltelijke omzetting naar mvvm
         //Omgezet naar service door kenny
