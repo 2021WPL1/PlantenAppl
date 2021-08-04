@@ -198,6 +198,16 @@ namespace Planten2021.Data
 
         //get a list of all the plants.
         ///Kenny
+        ///
+        public IQueryable<Plant> GetPlantWithId(int id)
+        {
+            var plant = context.Plant.Where(p => p.PlantId == id);
+            return plant;
+        }
+
+        //get a list of all the plants.
+        ///Kenny
+       
         public List<Plant> getAllPlants()
         {
             // kijken hoeveel er zijn geselecteerd

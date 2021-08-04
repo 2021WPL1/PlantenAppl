@@ -618,6 +618,20 @@ namespace PlantenApplicatie.Services
         }
         #endregion
 
+        public IQueryable<Plant> selectedPlant;
+        public IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult)
+        {
+            IQueryable<Plant> plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
+            selectedPlant = plant;
+            return plant;
+        }
+
+        public IQueryable<Plant> ReturnSelectedPlant()
+        {
+            IQueryable<Plant> plant = selectedPlant;
+            return plant;
+        }
+
         //geschreven door owen
         //omgezet voor de service door kenny
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)
