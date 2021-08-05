@@ -25,11 +25,11 @@ namespace PlantenApplicatie.Viewmodel
         //private ServiceProvider _serviceProvider;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private ISearchService _searchService = iocc.GetInstance<ISearchService>();
-        private ViewModelMain _viewModelMain = iocc.GetInstance<ViewModelMain>();
 
-        public ViewModelNameResult(ISearchService searchService, ViewModelMain viewModelMain)
+
+        public ViewModelNameResult(ISearchService searchService)
         {
-            this._viewModelMain = viewModelMain;
+
             this._searchService = searchService;
             //_searchService = new SearchService();
 
@@ -259,7 +259,7 @@ namespace PlantenApplicatie.Viewmodel
                
                 //Make the currently selected plant in the Result list available in the SearchService
                 _searchService.SetSelectedPlant(_selectedPlantInResult);
-                _viewModelMain._searchService.UpdateLoggedInMessage();
+
 
             }
         }

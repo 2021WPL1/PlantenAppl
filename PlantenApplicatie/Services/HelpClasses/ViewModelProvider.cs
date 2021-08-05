@@ -54,7 +54,7 @@ namespace PlantenApplicatie.Services.HelpClasses
 
             //var viewModelMain = iocc.GetInstance<ViewModelMain>();
 
-            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService, viewModelMain));
+            iocc.Register<ViewModelNameResult>(() => new ViewModelNameResult(searchService));
 
             //registreren van de windows
             iocc.Register<MainWindow>(() => new MainWindow(searchService));
