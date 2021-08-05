@@ -18,7 +18,7 @@ namespace PlantenApplicatie.Services
         private DAO _dao;
         private static DetailService _detailService;
         private static SimpleIoc iocc = SimpleIoc.Default;
-        private ISearchService _searchService = iocc.GetInstance<ISearchService>();
+        public ISearchService _searchService = iocc.GetInstance<ISearchService>();
 
         public event PropertyChangedEventHandler PropertyChanged;
         public DetailService(ISearchService searchService)

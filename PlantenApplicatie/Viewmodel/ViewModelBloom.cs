@@ -20,12 +20,15 @@ namespace PlantenApplicatie.Viewmodel
         private DAO _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
         private IDetailService _detailService = iocc.GetInstance<IDetailService>();
-        private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
+        public static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
+
+        public Plant SelectedPlant = _SearchService.ReturnSelectedPlant();
+
+
 
         public ViewModelBloom(IDetailService detailservice)
         {
             this._dao = DAO.Instance();
-            
         }
         //geschreven door christophe, op basis van een voorbeeld van owen
         private string _selectedBloeiHoogte;
@@ -37,8 +40,6 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedBloeiHoogte = value;
                 OnPropertyChanged();
-
-
             }
         }
 

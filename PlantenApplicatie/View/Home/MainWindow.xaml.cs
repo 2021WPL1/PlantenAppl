@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PlantenApplicatie.Services.Interfaces;
 using PlantenApplicatie.ViewModel;
 
 namespace PlantenApplicatie.View
@@ -25,9 +26,10 @@ namespace PlantenApplicatie.View
     {
 
 
-
-        public MainWindow()
+        public ISearchService _searchService;
+        public MainWindow(ISearchService searchService)
         {
+            _searchService = searchService;
             DataContext = GalaSoft.MvvmLight.Ioc.SimpleIoc.Default.GetInstance<ViewModelMain>();
             InitializeComponent();
         }

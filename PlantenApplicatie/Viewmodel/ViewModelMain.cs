@@ -29,6 +29,8 @@ namespace PlantenApplicatie.ViewModel
 
         private ViewModelBase _currentViewModel;
 
+
+
         public MyICommand<string> mainNavigationCommand { get; set; }
         public ViewModelBase currentViewModel
         {
@@ -36,14 +38,16 @@ namespace PlantenApplicatie.ViewModel
             set { SetProperty(ref _currentViewModel, value); }
         }
 
+
         public IloginUserService loginUserService;
-        private ISearchService _searchService;
+        public ISearchService _searchService;
         public ViewModelMain(IloginUserService loginUserService, ISearchService searchService)
         {
             loggedInMessage = loginUserService.LoggedInMessage();
+            //loggedInMessage += $" Geselecteerde plant: {SelectedPlant.Geslacht}";
             this._viewModelRepo = iocc.GetInstance<ViewModelRepo>();
-            this._searchService = searchService;
             this.loginUserService = loginUserService;
+            _searchService = searchService;
 
             mainNavigationCommand = new MyICommand<string>(this._onNavigationChanged);
             //  dialogService.ShowMessageBox(this, "", "");
@@ -67,10 +71,10 @@ namespace PlantenApplicatie.ViewModel
         private void _onNavigationChanged(string userControlName)
         {
             this.currentViewModel = this._viewModelRepo.GetViewModel(userControlName);
-            IQueryable<Plant> selectedPlant = _searchService.ReturnSelectedPlant();
+            Plant selectedPlant = _searchService.ReturnSelectedPlant();
             if (selectedPlant != null)
             {
-                MessageBox.Show(selectedPlant.ToString());
+                MessageBox.Show(selectedPlant.Geslacht);
             }
            
         }

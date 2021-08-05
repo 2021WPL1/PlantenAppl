@@ -200,9 +200,9 @@ namespace Planten2021.Data
 
         //get a plant with ID
 
-        public IQueryable<Plant> GetPlantWithId(int id)
+        public Plant GetPlantWithId(int id)
         {
-            var plant = context.Plant.Where(p => p.PlantId == id);
+            var plant = context.Plant.FirstOrDefault(p => p.PlantId == id);
             return plant;
         }
 

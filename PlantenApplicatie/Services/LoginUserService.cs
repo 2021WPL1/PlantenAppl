@@ -30,11 +30,13 @@ namespace PlantenApplicatie.Services
         private DAO _dao;
 
         //iocc container om de mainwindow te verkrijgen
-        private SimpleIoc iocc = SimpleIoc.Default;
+        private static SimpleIoc iocc = SimpleIoc.Default;
 
+        private ISearchService _searchService = iocc.GetInstance<ISearchService>();
 
-        public LoginUserService()
+        public LoginUserService(ISearchService searchService)
         {
+            this._searchService = searchService;
             this._dao = DAO.Instance();
         }
         #region Login Region
@@ -54,7 +56,9 @@ namespace PlantenApplicatie.Services
             {
                 case "student":
 
-                    MessageBox.Show("dit is een student en mag de naamknop bv niet zien.");
+                    mainWindow.btnExporteeralle.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Hidden;
+                    mainWindow.btnExporteergeselecteerd.Visibility = Visibility.Hidden;
                     
                     break;
 
@@ -120,7 +124,7 @@ namespace PlantenApplicatie.Services
             }
             return loginResult;
         }
-
+        
         //functie om naam weer te geven in loginWindow
         public string LoggedInMessage()
         {
@@ -128,6 +132,7 @@ namespace PlantenApplicatie.Services
             if (_gebruiker != null)
             {
                 message = $"ingelogd als: {_gebruiker.Voornaam} {_gebruiker.Achternaam} met als rol {gebruiker.Rol}";
+
                 return message;
             }
             return message;

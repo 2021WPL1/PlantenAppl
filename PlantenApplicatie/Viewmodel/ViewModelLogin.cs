@@ -24,6 +24,7 @@ namespace PlantenApplicatie.Viewmodel
     public class ViewModelLogin : ViewModelBase
     {
         private IloginUserService _loginService { get; }
+        private ISearchService _searchService { get; }
         public RelayCommand loginCommand { get; set; }
         public RelayCommand cancelCommand { get; set; }
         public RelayCommand registerCommand { get; set; }
@@ -33,9 +34,9 @@ namespace PlantenApplicatie.Viewmodel
         private string _errorMessage;
         private string _loggedInMessage;
 
-        public ViewModelLogin(IloginUserService loginUserService)
+        public ViewModelLogin(IloginUserService loginUserService, ISearchService searchService)
         {
-
+            this._searchService = searchService;
             this._loginService = loginUserService;
             loginCommand = new RelayCommand(LoginButtonClick);
             cancelCommand = new RelayCommand(CancelButton);

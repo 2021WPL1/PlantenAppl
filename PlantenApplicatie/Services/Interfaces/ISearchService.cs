@@ -18,9 +18,9 @@ namespace PlantenApplicatie.Services.Interfaces
         void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection);
 
         void FillDetailPlantResult(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult);
-        IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult);
-        IQueryable<Plant> ReturnSelectedPlant();
-
+        Plant SetSelectedPlant(Plant selectedPlantResult);
+        Plant ReturnSelectedPlant();
+        string UpdateLoggedInMessage();
         ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult);
 
 
