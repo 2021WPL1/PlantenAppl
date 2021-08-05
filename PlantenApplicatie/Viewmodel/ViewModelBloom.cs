@@ -19,13 +19,13 @@ namespace PlantenApplicatie.Viewmodel
        
         private DAO _dao;
         private static SimpleIoc iocc = SimpleIoc.Default;
-        private IDetailService _detailService = iocc.GetInstance<IDetailService>();
+        private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         public static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
         public Plant SelectedPlant = _SearchService.ReturnSelectedPlant();
+        public Plant SelectedPlant2 = _detailService.ReturnSelectedPlant();
 
-
-
+        
         public ViewModelBloom(IDetailService detailservice)
         {
             this._dao = DAO.Instance();
@@ -41,7 +41,9 @@ namespace PlantenApplicatie.Viewmodel
                 _selectedBloeiHoogte = value;
                 OnPropertyChanged();
             }
+
         }
+
 
         #region Checkbox Bloeikleur
 

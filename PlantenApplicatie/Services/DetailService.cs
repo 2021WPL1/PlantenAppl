@@ -26,6 +26,12 @@ namespace PlantenApplicatie.Services
             this._dao = DAO.Instance();
             _searchService = searchService;
         }
+
+        public Plant ReturnSelectedPlant()
+        {
+            Plant plant = _searchService.ReturnSelectedPlant();
+            return plant;
+        }
         
     }
 }
