@@ -617,20 +617,60 @@ namespace PlantenApplicatie.Services
             }
         }
         #endregion
-
-        public IQueryable<Plant> selectedPlant;
-        public IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult)
+        public string UpdateLoggedInMessage()
         {
-            IQueryable<Plant> plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
+            string message;
+            if (ReturnSelectedPlant() != null)
+            {
+                var selectedPlant = ReturnSelectedPlant();
+                message = $" en geslecteerde plant: {selectedPlant.Fenotype}";
+            }
+            else
+            {
+                message = "";
+            }
+
+            return message;
+        }
+
+        //provide the selected plant
+        public Plant selectedPlant;
+        public Plant SetSelectedPlant(Plant selectedPlantResult)
+        {
+            Plant plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
             selectedPlant = plant;
             return plant;
         }
 
-        public IQueryable<Plant> ReturnSelectedPlant()
+        public Plant ReturnSelectedPlant()
         {
-            IQueryable<Plant> plant = selectedPlant;
-            return plant;
+            Plant plant = selectedPlant;
+            if (plant != null)
+            {
+                return plant;
+            }
+            else
+            {
+                plant = _dao.GetPlantWithId(20);
+                return plant;
+            }
+
+
         }
+
+        //public IQueryable<Plant> selectedPlant;
+        //public IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult)
+        //{
+        //    IQueryable<Plant> plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
+        //    selectedPlant = plant;
+        //    return plant;
+        //}
+
+        //public IQueryable<Plant> ReturnSelectedPlant()
+        //{
+        //    IQueryable<Plant> plant = selectedPlant;
+        //    return plant;
+        //}
 
         //geschreven door owen
         //omgezet voor de service door kenny
