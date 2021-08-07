@@ -80,306 +80,207 @@
             <Label Content="Bloeikleur" Canvas.Left="28" Canvas.Top="73" Height="28" Width="100" BorderBrush="Orange"  FontWeight="Bold" FontSize="14"/>
             <Label Content="Maanden"  Canvas.Left="28" Canvas.Top="158" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="   Jan"  Canvas.Left="150" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="  Feb"  Canvas.Left="215" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="  Mar"  Canvas.Left="282" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Apr" Canvas.Left="347" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="  May"  Canvas.Left="416" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Jun"  Canvas.Left="484" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Jul"  Canvas.Left="552" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Aug"  Canvas.Left="618" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Sep"  Canvas.Left="688" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Oct"  Canvas.Left="756" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Nov"  Canvas.Left="822" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="   Dec"  Canvas.Left="890" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content=" Min" Canvas.Left="963" Canvas.Top="168" Height="26" Width="50" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
-            <Label Content=" Max" Canvas.Left="1058" Canvas.Top="167" Height="26" Width="54" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Bloeihoogte"  Canvas.Left="28" Canvas.Top="217" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Bloeit in"  Canvas.Left="28" Canvas.Top="263" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxBloeihoogteJan" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="168" Canvas.Top="222" Height="15" Width="15">
+            <Label Content="  Feb"  Canvas.Left="239" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="  Mar"  Canvas.Left="321" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Apr" Canvas.Left="399" Canvas.Top="164" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="  May"  Canvas.Left="484" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Jun"  Canvas.Left="560" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Jul"  Canvas.Left="643" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Aug"  Canvas.Left="722" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Sep"  Canvas.Left="804" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Oct"  Canvas.Left="878" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Nov"  Canvas.Left="958" Canvas.Top="165" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="   Dec"  Canvas.Left="1038" Canvas.Top="166" Height="28" Width="50" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" Min" Canvas.Left="41" Canvas.Top="245" Height="26" Width="50" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" Max" Canvas.Left="41" Canvas.Top="278" Height="26" Width="54" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Bloeihoogte"  Canvas.Left="28" Canvas.Top="211" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Bloeit in"  Canvas.Left="28" Canvas.Top="318" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <CheckBox x:Name="CbxBloeiKleurJan" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="167" Canvas.Top="132" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteFeb" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="232" Canvas.Top="224"  Height="14" Width="16">
+            <CheckBox x:Name="CbxBloeiKleurFeb" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Canvas.Left="256" Canvas.Top="132"  Height="14" Width="16">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
 
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteMar" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="300" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurMar" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="338" Canvas.Top="132"  Height="15" Width="16">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteApr" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteApr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="364" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurApr" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurApr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="424" Canvas.Top="131"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteMay" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="434" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurMay" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="502" Canvas.Top="131"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteJun" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteJun, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="502" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurJun" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurJun, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="585" Canvas.Top="131" Height="15" Width="16">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteJul" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteJul, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="570" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurJul" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurJul, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="660" Canvas.Top="132" Height="15" Width="16">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteAug" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteAug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="635" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurAug" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurAug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="747" Canvas.Top="132"  Height="15" Width="14">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteSep" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteSep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="706" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurSep" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurSep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="822" Canvas.Top="131" Height="15" Width="14">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteOct" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteOct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="774" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurOct" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurOct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="898" Canvas.Top="131"  Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteNov" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteNov, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="840" Canvas.Top="222"  Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurNov" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurNov, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="983" Canvas.Top="132"  Height="14" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <CheckBox x:Name="CbxBloeihoogteDec" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiHoogteDec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Content="CheckBox" Canvas.Left="908" Canvas.Top="222" Height="15" Width="15">
+            <CheckBox x:Name="CbxBloeiKleurDec" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeiKleurDec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      Content="CheckBox" Canvas.Left="1056" Canvas.Top="132" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <ComboBox x:Name="CboBloeihoogteMin" 
-                      ItemsSource="{Binding cmbBloeiHoogteMin}" 
-                      SelectedItem="{Binding Path=SelectedBloeiHoogte}" IsEditable="True"
-                      Canvas.Left="948" Canvas.Top="217" Height="26" Width="80">
-                <ComboBox.Effect>
-                    <DropShadowEffect/>
-                </ComboBox.Effect>
-                <ComboBoxItem Content="240/250"/>
-                <ComboBoxItem Content="230/239"/>
-                <ComboBoxItem Content="220/229"/>
-                <ComboBoxItem Content="210/219"/>
-                <ComboBoxItem Content="200/209"/>
-                <ComboBoxItem Content="190/199"/>
-                <ComboBoxItem Content="180/189"/>
-                <ComboBoxItem Content="170/179"/>
-                <ComboBoxItem Content="160/169"/>
-                <ComboBoxItem Content="150/159"/>
-                <ComboBoxItem Content="140/149"/>
-                <ComboBoxItem Content="130/139"/>
-                <ComboBoxItem Content="120/129"/>
-                <ComboBoxItem Content="110/119"/>
-                <ComboBoxItem Content="100/109"/>
-                <ComboBoxItem Content="90/99"/>
-                <ComboBoxItem Content="80/89"/>
-                <ComboBoxItem Content="70/79"/>
-                <ComboBoxItem Content="60/69"/>
-                <ComboBoxItem Content="50/59"/>
-                <ComboBoxItem Content="40/49"/>
-                <ComboBoxItem Content="30/39"/>
-                <ComboBoxItem Content="20/29"/>
-                <ComboBoxItem Content="10/19"/>
-                <ComboBoxItem Content="0/9"/>
 
-            </ComboBox>
-            <ComboBox x:Name="CboBloeihoogteMax" 
-                      ItemsSource="{Binding cmbBloeiHoogteMax}" 
-                      SelectedItem="{Binding Path=SelectedBloeiHoogte}" IsEditable="True"
-                      Canvas.Left="1043" Canvas.Top="218" Height="26" Width="84">
-                <ComboBox.Effect>
-                    <DropShadowEffect/>
-                </ComboBox.Effect>
-                <ComboBoxItem Content="240/250"/>
-                <ComboBoxItem Content="230/239"/>
-                <ComboBoxItem Content="220/229"/>
-                <ComboBoxItem Content="210/219"/>
-                <ComboBoxItem Content="200/209"/>
-                <ComboBoxItem Content="190/199"/>
-                <ComboBoxItem Content="180/189"/>
-                <ComboBoxItem Content="170/179"/>
-                <ComboBoxItem Content="160/169"/>
-                <ComboBoxItem Content="150/159"/>
-                <ComboBoxItem Content="140/149"/>
-                <ComboBoxItem Content="130/139"/>
-                <ComboBoxItem Content="120/129"/>
-                <ComboBoxItem Content="110/119"/>
-                <ComboBoxItem Content="100/109"/>
-                <ComboBoxItem Content="90/99"/>
-                <ComboBoxItem Content="80/89"/>
-                <ComboBoxItem Content="70/79"/>
-                <ComboBoxItem Content="60/69"/>
-                <ComboBoxItem Content="50/59"/>
-                <ComboBoxItem Content="40/49"/>
-                <ComboBoxItem Content="30/39"/>
-                <ComboBoxItem Content="20/29"/>
-                <ComboBoxItem Content="10/19"/>
-                <ComboBoxItem Content="0/9"/>
-
-            </ComboBox>
             <CheckBox x:Name="CbxBloeitInJan" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="168" Canvas.Top="270" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="167" Canvas.Top="330" Height="16" Width="16" >
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInFeb" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInFeb, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="232" Canvas.Top="270" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="250" Canvas.Top="331" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInMar" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInMar, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="300" Canvas.Top="270"  Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="338" Canvas.Top="332"  Height="15" Width="14">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInApr" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInApr, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="364" Canvas.Top="269" Height="15" Width="16">
+                      Content="CheckBox" Canvas.Left="418" Canvas.Top="331" Height="15" Width="16">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInMay" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInMay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="434" Canvas.Top="269" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="502" Canvas.Top="332" Height="16" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInJun" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInJun, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="502" Canvas.Top="269" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="586" Canvas.Top="332" Height="16" Width="16">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInJul" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInJul, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="570" Canvas.Top="269" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="661" Canvas.Top="332" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInAug" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInAug, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="635" Canvas.Top="269" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="746" Canvas.Top="332" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInSep" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInSep, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="706" Canvas.Top="269" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="826" Canvas.Top="332" Height="15" Width="14">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInOct" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInOct, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="774" Canvas.Top="269" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="903" Canvas.Top="331" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInNov" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInNov, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="840" Canvas.Top="270" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="983" Canvas.Top="332" Height="15" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
             <CheckBox x:Name="CbxBloeitInDec" 
                       IsChecked="{Binding Path=SelectedCheckBoxBloeitInDec, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="908" Canvas.Top="269" Height="15" Width="15">
+                      Content="CheckBox" Canvas.Left="1063" Canvas.Top="330" Height="16" Width="15">
                 <CheckBox.Effect>
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <Label Content="Bloeiwijze" Canvas.Left="28" Canvas.Top="368" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14" />
-            <Label Content="Vorm 1"  Canvas.Left="59" Canvas.Top="420" Height="40" Width="59" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 2"  Canvas.Left="155" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 3"  Canvas.Left="256" Canvas.Top="420" Height="40" Width="59" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 4"  Canvas.Left="347" Canvas.Top="420" Height="40" Width="61" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 5"  Canvas.Left="434" Canvas.Top="420" Height="40" Width="62" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxBloeiwijzeVorm1" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm1, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="76" Canvas.Top="483" Height="15" Width="15">
-                <CheckBox.Effect>
+            <Label Content="Bloeiwijze" Canvas.Left="28" Canvas.Top="420" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14" />
+            <!--<Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>-->
+
+            <ComboBox x:Name="cboBloeiwijze" 
+                     
+                      SelectedItem="{Binding Path=SelectedCboBloeiwijze}" IsEditable="True"
+                       Canvas.Left="168" Canvas.Top="420" Width="176" BorderBrush="Blue" Height="41">
+                <ComboBox.Effect>
                     <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm2" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm2, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="172" Canvas.Top="483" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm3" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm3, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="274" Canvas.Top="483" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm4" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm4, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="365" Canvas.Top="483" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm5" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm5, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="452" Canvas.Top="483" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxBloeiwijzeVorm6" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeiwijzeVorm6, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="536" Canvas.Top="483" Height="15" Width="15">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="Aar"/>
+                <ComboBoxItem Content="Schermbloemig"/>
+                <ComboBoxItem Content="Pluim"/>
+                <ComboBoxItem Content="Bol of Knop"/>
+                <ComboBoxItem Content="Margrietachtig"/>
+                <ComboBoxItem Content="Transparant"/>
+            </ComboBox>
             <Button x:Name="BtnOpslagZoekenBloei" Content="Opslag Zoeken Bloei" Width="172" Height="50" Canvas.Left="916" Canvas.Top="490" BorderBrush="#FF2AE633"   Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
                 <Button.Effect>
                     <DropShadowEffect/>
@@ -390,8 +291,824 @@
                     </Style>
                 </Button.Resources>
             </Button>
-        
-          
+            <ComboBox x:Name="CboBloeihoogteMinJan" 
+                      ItemsSource="{Binding cboBloeiHoogteMinJan}" 
+                      SelectedItem="{Binding Path=SelectedCboBloeiHoogteMinJan}" IsEditable="True"
+                      Canvas.Left="134" Canvas.Top="245" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxJan" 
+                      ItemsSource="{Binding cboBloeiHoogteMaxJan}" 
+                      SelectedItem="{Binding Path=SelectedCboBloeiHoogteMaxJan}" IsEditable="True"
+                      Canvas.Left="134" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMinFeb" 
+                ItemsSource="{Binding cmbBloeiHoogteMinFeb}" 
+                SelectedItem="{Binding SelectedBloeiHoogteMinFeb}" IsEditable="True"
+                Canvas.Left="222" Canvas.Top="245" Height="26" Width="67">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxFeb" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxFeb}" 
+                SelectedItem="{Binding SelectedBloeiHoogteMaxFeb}" IsEditable="True"
+                Canvas.Left="223" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMinMar" 
+                ItemsSource="{Binding cmbBloeiHoogteMinMar}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinMar}" IsEditable="True"
+                Canvas.Left="310" Canvas.Top="245" Height="26" Width="68">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxMar" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxMar}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxMar}" IsEditable="True"
+                Canvas.Left="310" Canvas.Top="278" Height="26" Width="68">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMinApr" 
+                ItemsSource="{Binding cmbBloeiHoogteMinApr}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinApr}" IsEditable="True"
+                Canvas.Left="392" Canvas.Top="245" Height="26" Width="68">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxApr" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxApr}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxApr}" IsEditable="True"
+                Canvas.Left="394" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMinMay" 
+                ItemsSource="{Binding cmbBloeiHoogteMinMay}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinMay}" IsEditable="True"
+                Canvas.Left="475" Canvas.Top="245" Height="26" Width="68">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxMay" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxMay}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxMay}" IsEditable="True"
+                Canvas.Left="476" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMinJun" 
+                ItemsSource="{Binding cmbBloeiHoogteMinJun}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinJun}" IsEditable="True"
+                Canvas.Left="560" Canvas.Top="245" Height="26" Width="68">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxJun" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxJun}" 
+                SelectedItem="{Binding SelectedBloeiHoogteMaxJun}" IsEditable="True"
+                Canvas.Left="560" Canvas.Top="278" Height="26" Width="68">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMinJul" 
+                ItemsSource="{Binding cmbBloeiHoogteMinJul}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinJul}" IsEditable="True"
+                Canvas.Left="642" Canvas.Top="245" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxJul" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxJul}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxJul}" IsEditable="True"
+                Canvas.Left="642" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMInAug" 
+                ItemsSource="{Binding cboBloeiHoogteMinAug}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinAug}" IsEditable="True"
+                Canvas.Left="722" Canvas.Top="245" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxAug" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxAug}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxAug}" IsEditable="True"
+                Canvas.Left="800" Canvas.Top="245" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMinSep" 
+                ItemsSource="{Binding cmbBloeiHoogteMinSep}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinSep}" IsEditable="True"
+                Canvas.Left="878" Canvas.Top="245" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxSep" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxSep}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxSep}" IsEditable="True"
+                Canvas.Left="958" Canvas.Top="245" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMinOct" 
+                ItemsSource="{Binding cmbBloeiHoogteMinOct}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinOct}" IsEditable="True"
+                Canvas.Left="1038" Canvas.Top="245" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxOct" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxOct}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxOct}" IsEditable="True"
+                Canvas.Left="723" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMInNov" 
+                ItemsSource="{Binding cmbBloeiHoogteMinNov}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinNov}" IsEditable="True"
+                Canvas.Left="800" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxNov" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxNov}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxNov}" IsEditable="True"
+                Canvas.Left="878" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMInDec" 
+                ItemsSource="{Binding cmbBloeiHoogteMinDec}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMinDec}" IsEditable="True"
+                Canvas.Left="958" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+            <ComboBox x:Name="CboBloeihoogteMaxDec" 
+                ItemsSource="{Binding cmbBloeiHoogteMaxDec}" 
+                SelectedItem="{Binding SelectedCboBloeiHoogteMaxDec}" IsEditable="True"
+                Canvas.Left="1038" Canvas.Top="278" Height="26" Width="66">
+                <ComboBox.Effect>
+                    <DropShadowEffect/>
+                </ComboBox.Effect>
+                <ComboBoxItem Content="240/250"/>
+                <ComboBoxItem Content="230/239"/>
+                <ComboBoxItem Content="220/229"/>
+                <ComboBoxItem Content="210/219"/>
+                <ComboBoxItem Content="200/209"/>
+                <ComboBoxItem Content="190/199"/>
+                <ComboBoxItem Content="180/189"/>
+                <ComboBoxItem Content="170/179"/>
+                <ComboBoxItem Content="160/169"/>
+                <ComboBoxItem Content="150/159"/>
+                <ComboBoxItem Content="140/149"/>
+                <ComboBoxItem Content="130/139"/>
+                <ComboBoxItem Content="120/129"/>
+                <ComboBoxItem Content="110/119"/>
+                <ComboBoxItem Content="100/109"/>
+                <ComboBoxItem Content="90/99"/>
+                <ComboBoxItem Content="80/89"/>
+                <ComboBoxItem Content="70/79"/>
+                <ComboBoxItem Content="60/69"/>
+                <ComboBoxItem Content="50/59"/>
+                <ComboBoxItem Content="40/49"/>
+                <ComboBoxItem Content="30/39"/>
+                <ComboBoxItem Content="20/29"/>
+                <ComboBoxItem Content="10/19"/>
+                <ComboBoxItem Content="0/9"/>
+
+            </ComboBox>
+
+
 
         </Canvas>
     </Grid>

@@ -17,18 +17,7 @@ namespace PlantenApplicatie.Viewmodel
             this._dao = DAO.Instance();
         }
 
-        private string _selectedBladHoogte;
-
-        public string SelectedBladHoogte
-        {
-            get { return _selectedBladHoogte; }
-            set
-            {
-                _selectedBladHoogte = value;
-                OnPropertyChanged();
-
-            }
-        }
+        
 
         //geschreven door christophe op basis van owens code
         #region Binding checkboxen Bladkleur
@@ -190,7 +179,18 @@ namespace PlantenApplicatie.Viewmodel
         }
 
         #endregion
+        private string _selectedBladHoogte;
 
+        public string SelectedBladHoogte
+        {
+            get { return _selectedBladHoogte; }
+            set
+            {
+                _selectedBladHoogte = value;
+                OnPropertyChanged();
+
+            }
+        }
         #region Binding checkboxen BladHoogte
 
         private bool _selectedCheckBoxBladHoogteJan;

@@ -27,19 +27,7 @@ namespace PlantenApplicatie.Viewmodel
             
         }
         //geschreven door christophe, op basis van een voorbeeld van owen
-        private string _selectedBloeiHoogte;
-       
-        public string SelectedBloeiHoogte
-        {
-            get { return _selectedBloeiHoogte; }
-            set
-            {
-                _selectedBloeiHoogte = value;
-                OnPropertyChanged();
-
-
-            }
-        }
+        
 
         #region Checkbox Bloeikleur
 
@@ -201,148 +189,303 @@ namespace PlantenApplicatie.Viewmodel
         }
 
         #endregion
+        private string _selectedBloeiHoogte;
 
-        #region Binding Checkbox BloeiHoogte
-
-        private bool _selectedCheckBoxBloeiHoogteJan;
-        public bool SelectedCheckBoxBloeiHoogteJan
+        public string SelectedBloeiHoogte
         {
-            get { return _selectedCheckBoxBloeiHoogteJan; }
+            get { return _selectedBloeiHoogte; }
+            set
+            {
+                _selectedBloeiHoogte = value;
+                OnPropertyChanged();
+
+
+            }
+        }
+        #region Binding Combobox BloeiHoogte
+
+        private bool _selectedCboBloeiHoogteMinJan;
+        public bool SelectedCboBloeiHoogteMinJan
+        {
+            get { return _selectedCboBloeiHoogteMinJan; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteJan = value;
+                _selectedCboBloeiHoogteMinJan = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteFeb;
-        public bool SelectedCheckBoxBloeiHoogteFeb
+        private bool _selectedCboBloeiHoogteMaxJan;
+        public bool SelectedCboBloeiHoogteMaxJan
         {
-            get { return _selectedCheckBoxBloeiHoogteFeb; }
+            get { return _selectedCboBloeiHoogteMaxJan; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteFeb = value;
+                _selectedCboBloeiHoogteMaxJan = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteMar;
-        public bool SelectedCheckBoxBloeiHoogteMar
+        private bool _selectedCboBloeiHoogteMinFeb;
+        public bool SelectedCboBloeiHoogteMinFeb
         {
-            get { return _selectedCheckBoxBloeiHoogteMar; }
+            get { return _selectedCboBloeiHoogteMinFeb; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteMar = value;
+                _selectedCboBloeiHoogteMinFeb = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteApr;
-        public bool SelectedCheckBoxBloeiHoogteApr
+        private bool _selectedCboBloeiHoogteMaxFeb;
+        public bool SelectedCboBloeiHoogteMaxFeb
         {
-            get { return _selectedCheckBoxBloeiHoogteApr; }
+            get { return _selectedCboBloeiHoogteMaxFeb; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteApr = value;
+                _selectedCboBloeiHoogteMaxFeb = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteMay;
-        public bool SelectedCheckBoxBloeiHoogteMay
+        private bool _selectedCboBloeiHoogteMinMar;
+        public bool SelectedCboBloeiHoogteMinMar
         {
-            get { return _selectedCheckBoxBloeiHoogteMay; }
+            get { return _selectedCboBloeiHoogteMinMar; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteMay = value;
+                _selectedCboBloeiHoogteMinMar = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteJun;
-        public bool SelectedCheckBoxBloeiHoogteJun
+        private bool _selectedCboBloeiHoogteMaxMar;
+        public bool SelectedCboBloeiHoogteMaxMar
         {
-            get { return _selectedCheckBoxBloeiHoogteJun; }
+            get { return _selectedCboBloeiHoogteMaxMar; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteJun = value;
-                OnPropertyChanged();
-            }
-        }
-        private bool _selectedCheckBoxBloeiHoogteJul;
-        public bool SelectedCheckBoxBloeiHoogteJul
-        {
-            get { return _selectedCheckBoxBloeiHoogteJul; }
-
-            set
-            {
-                _selectedCheckBoxBloeiHoogteJul = value;
+                _selectedCboBloeiHoogteMaxMar = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteAug;
-        public bool SelectedCheckBoxBloeiHoogteAug
+        private bool _selectedCboBloeiHoogteMinApr;
+        public bool SelectedCboBloeiHoogteMinApr
         {
-            get { return _selectedCheckBoxBloeiHoogteAug; }
+            get { return _selectedCboBloeiHoogteMinApr; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteAug = value;
+                _selectedCboBloeiHoogteMinApr = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteSep;
-        public bool SelectedCheckBoxBloeiHoogteSep
+        private bool _selectedCboBloeiHoogteMaxApr;
+        public bool SelectedCboBloeiHoogteMaxApr
         {
-            get { return _selectedCheckBoxBloeiHoogteSep; }
+            get { return _selectedCboBloeiHoogteMaxApr; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteSep = value;
+                _selectedCboBloeiHoogteMaxApr = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteOct;
-        public bool SelectedCheckBoxBloeiHoogteOct
+        private bool _selectedCboBloeiHoogteMinMay;
+        public bool SelectedCboBloeiHoogteMinMay
         {
-            get { return _selectedCheckBoxBloeiHoogteOct; }
+            get { return _selectedCboBloeiHoogteMinMay; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteOct = value;
+                _selectedCboBloeiHoogteMinMay = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteNov;
-        public bool SelectedCheckBoxBloeiHoogteNov
+        private bool _selectedCboBloeiHoogteMaxMay;
+        public bool SelectedCboBloeiHoogteMaxMay
         {
-            get { return _selectedCheckBoxBloeiHoogteNov; }
+            get { return _selectedCboBloeiHoogteMaxMay; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteNov = value;
+                _selectedCboBloeiHoogteMaxMay = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeiHoogteDec;
-        public bool SelectedCheckBoxBloeiHoogteDec
+        private bool _selectedCboBloeiHoogteMinJun;
+        public bool SelectedCboBloeiHoogteMinJun
         {
-            get { return _selectedCheckBoxBloeiHoogteDec; }
+            get { return _selectedCboBloeiHoogteMinJun; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteDec = value;
+                _selectedCboBloeiHoogteMinJun = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMaxJun;
+        public bool SelectedCboBloeiHoogteMaxJun
+        {
+            get { return _selectedCboBloeiHoogteMaxJun; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMaxJun = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _selectedCboBloeiHoogteMinJul;
+        public bool SelectedCboBloeiHoogteMinJul
+        {
+            get { return _selectedCboBloeiHoogteMinJul; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMinJul = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMaxJul;
+        public bool SelectedCboBloeiHoogteMaxJul
+        {
+            get { return _selectedCboBloeiHoogteMaxJul; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMaxJul = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMinAug;
+        public bool SelectedCboBloeiHoogteMinAug
+        {
+            get { return _selectedCboBloeiHoogteMinAug; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMinAug = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMaxAug;
+        public bool SelectedCboBloeiHoogteMaxAug
+        {
+            get { return _selectedCboBloeiHoogteMaxAug; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMaxAug = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMinSep;
+        public bool SelectedCboBloeiHoogteMinSep
+        {
+            get { return _selectedCboBloeiHoogteMinSep; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMinSep = value;
+                OnPropertyChanged();
+            }
+        }
+        private bool _selectedCboBloeiHoogteMaxSep;
+        public bool SelectedCboBloeiHoogteMaxSep
+        {
+            get { return _selectedCboBloeiHoogteMaxSep; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMaxSep = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMinOct;
+        public bool SelectedCboBloeiHoogteMinOct
+        {
+            get { return _selectedCboBloeiHoogteMinOct; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMinOct = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMaxOct;
+        public bool SelectedCboBloeiHoogteMaxOct
+        {
+            get { return _selectedCboBloeiHoogteMaxOct; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMaxOct = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteNov;
+        public bool SelectedCboBloeiHoogteNov
+        {
+            get { return _selectedCboBloeiHoogteNov; }
+
+            set
+            {
+                _selectedCboBloeiHoogteNov = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMaxNov;
+        public bool SelectedCboBloeiHoogteMaxNov
+        {
+            get { return _selectedCboBloeiHoogteMaxNov; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMaxNov = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMinDec;
+        public bool SelectedCboBloeiHoogteDec
+        {
+            get { return _selectedCboBloeiHoogteMinDec; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMinDec = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCboBloeiHoogteMaxDec;
+        public bool SelectedCboBloeiHoogteMaxDec
+        {
+            get { return _selectedCboBloeiHoogteMaxDec; }
+
+            set
+            {
+                _selectedCboBloeiHoogteMaxDec = value;
                 OnPropertyChanged();
             }
         }
@@ -486,11 +629,11 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInDec;
         public bool SelectedCheckBoxBloeitInDec
         {
-            get { return _selectedCheckBoxBloeiHoogteDec; }
+            get { return _selectedCheckBoxBloeitInDec; }
 
             set
             {
-                _selectedCheckBoxBloeiHoogteDec = value;
+                _selectedCheckBoxBloeitInDec = value;
                 OnPropertyChanged();
             }
         }
@@ -498,81 +641,109 @@ namespace PlantenApplicatie.Viewmodel
 
         #endregion
 
-        #region Binding checkboxes Bloeiwijzevorm
+        #region Binding Combobox Bloeiwijze
 
-        private bool _selectedCheckBoxBloeiwijzeVorm1;
-        public bool SelectedCheckBoxBloeiwijzeVorm1
+        //public void fillComboBoxBloeiwijze()
+        //{
+        //    var list = _dao.fillComboboxBloeiwijze();
+
+        //    foreach (var item in list)
+        //    {
+
+        //        CmbBloeiwijze.Add(item);
+
+        //    }
+        //}
+
+        private string _selectedCboBloeiwijze;
+
+        public string SelectedCboBloeiwijze
         {
-            get { return _selectedCheckBoxBloeiwijzeVorm1; }
-
+            get { return _selectedCboBloeiwijze; }
             set
             {
-                _selectedCheckBoxBloeiwijzeVorm1 = value;
+                _selectedCboBloeiwijze = value;
                 OnPropertyChanged();
+
             }
         }
-
-        private bool _selectedCheckBoxBloeiwijzeVorm2;
-        public bool SelectedCheckBoxBloeiwijzeVorm2
-        {
-            get { return _selectedCheckBoxBloeiwijzeVorm2; }
-
-            set
-            {
-                _selectedCheckBoxBloeiwijzeVorm2 = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeiwijzeVorm3;
-        public bool SelectedCheckBoxBloeiwijzeVorm3
-        {
-            get { return _selectedCheckBoxBloeiwijzeVorm3; }
-
-            set
-            {
-                _selectedCheckBoxBloeiwijzeVorm3 = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeiwijzeVorm4;
-        public bool SelectedCheckBoxBloeiwijzeVorm4
-        {
-            get { return _selectedCheckBoxBloeiwijzeVorm4; }
-
-            set
-            {
-                _selectedCheckBoxBloeiwijzeVorm4 = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeiwijzeVorm5;
-        public bool SelectedCheckBoxBloeiwijzeVorm5
-        {
-            get { return _selectedCheckBoxBloeiwijzeVorm5; }
-
-            set
-            {
-                _selectedCheckBoxBloeiwijzeVorm5 = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeiwijzeVorm6;
-        public bool SelectedCheckBoxBloeiwijzeVorm6
-        {
-            get { return _selectedCheckBoxBloeiwijzeVorm6; }
-
-            set
-            {
-                _selectedCheckBoxBloeiwijzeVorm6 = value;
-                OnPropertyChanged();
-            }
-        }
-
         #endregion
+
+        //    #region Binding checkboxes Bloeiwijzevorm
+
+        //    private bool _selectedCheckBoxBloeiwijzeVorm1;
+        //    public bool SelectedCheckBoxBloeiwijzeVorm1
+        //    {
+        //        get { return _selectedCheckBoxBloeiwijzeVorm1; }
+
+        //        set
+        //        {
+        //            _selectedCheckBoxBloeiwijzeVorm1 = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+
+        //    private bool _selectedCheckBoxBloeiwijzeVorm2;
+        //    public bool SelectedCheckBoxBloeiwijzeVorm2
+        //    {
+        //        get { return _selectedCheckBoxBloeiwijzeVorm2; }
+
+        //        set
+        //        {
+        //            _selectedCheckBoxBloeiwijzeVorm2 = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+
+        //    private bool _selectedCheckBoxBloeiwijzeVorm3;
+        //    public bool SelectedCheckBoxBloeiwijzeVorm3
+        //    {
+        //        get { return _selectedCheckBoxBloeiwijzeVorm3; }
+
+        //        set
+        //        {
+        //            _selectedCheckBoxBloeiwijzeVorm3 = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+
+        //    private bool _selectedCheckBoxBloeiwijzeVorm4;
+        //    public bool SelectedCheckBoxBloeiwijzeVorm4
+        //    {
+        //        get { return _selectedCheckBoxBloeiwijzeVorm4; }
+
+        //        set
+        //        {
+        //            _selectedCheckBoxBloeiwijzeVorm4 = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+
+        //    private bool _selectedCheckBoxBloeiwijzeVorm5;
+        //    public bool SelectedCheckBoxBloeiwijzeVorm5
+        //    {
+        //        get { return _selectedCheckBoxBloeiwijzeVorm5; }
+
+        //        set
+        //        {
+        //            _selectedCheckBoxBloeiwijzeVorm5 = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+
+        //    private bool _selectedCheckBoxBloeiwijzeVorm6;
+        //    public bool SelectedCheckBoxBloeiwijzeVorm6
+        //    {
+        //        get { return _selectedCheckBoxBloeiwijzeVorm6; }
+
+        //        set
+        //        {
+        //            _selectedCheckBoxBloeiwijzeVorm6 = value;
+        //            OnPropertyChanged();
+        //        }
+        //    }
+
+        //    #endregion
     }
 }
 
