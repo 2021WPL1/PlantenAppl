@@ -590,11 +590,15 @@ namespace Planten2021.Data
         }
 
         //feno_multi test
+        //deze lijst bevast alle FenoMulti objecten, ongefilterd.
+        //het plantId is wat je Plant object verbindt met je FenoMulti object
+        //Je kan kiezen om deze lijst hier nog te filteren of om dat in de service te doen
         public List<FenotypeMulti> GetAllFenotypeMultis()
         {
             var fenotypeList = context.FenotypeMulti.ToList();
             return fenotypeList;
         }
+
     }
 
 
