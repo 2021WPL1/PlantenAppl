@@ -268,19 +268,20 @@
             <!--<Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>-->
 
             <ComboBox x:Name="cboBloeiwijze" 
-                     ItemsSource="{Binding  SelectedCboBloeiwijze}"
-                      SelectedItem="{Binding Path=SelectedCboBloeiwijze}" IsEditable="True"
+                      ItemsSource="{Binding testList}"
+                      SelectedItem="{Binding Path=SelectedCboBloeiwijze, Mode=TwoWay}" IsEditable="True"
                        Canvas.Left="168" Canvas.Top="420" Width="176" BorderBrush="Blue" Height="41">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
-                <ComboBoxItem Content="Aar"/>
+                <!--<ComboBoxItem Content="Aar"/>
                 <ComboBoxItem Content="Schermbloemig"/>
                 <ComboBoxItem Content="Pluim"/>
                 <ComboBoxItem Content="Bol of Knop"/>
                 <ComboBoxItem Content="Margrietachtig"/>
-                <ComboBoxItem Content="Transparant"/>
+                <ComboBoxItem Content="Transparant"/>-->
             </ComboBox>
+
             <Button x:Name="BtnOpslagZoekenBloei" Content="Opslag Zoeken Bloei" Width="172" Height="50" Canvas.Left="916" Canvas.Top="490" BorderBrush="#FF2AE633"   Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
                 <Button.Effect>
                     <DropShadowEffect/>

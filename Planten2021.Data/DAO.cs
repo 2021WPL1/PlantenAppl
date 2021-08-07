@@ -32,9 +32,10 @@ namespace Planten2021.Data
             /*Niet noodzakelijk voor de singletonpattern waar wel voor de DAO*/
             this.context = new _Planten2021Context();
         }
+
         //3.publieke methode instance die altijd kan aangeroepen worden
-            //door zijn statische eigenschappen kan hij altijd aangeroepen worden 
-            //zonder er een instantie van te maken
+        //door zijn statische eigenschappen kan hij altijd aangeroepen worden 
+        //zonder er een instantie van te maken
         public static DAO Instance()
         {
             return instance;
@@ -193,7 +194,9 @@ namespace Planten2021.Data
         //    var listPlants = context.Plant.Where(p => p.Familie.Contains(family)).ToList();
         //    return listPlants;
         //}
+
         #endregion
+
         /* HELP FUNCTIONS */
 
         //get a list of all the plants.
@@ -220,11 +223,12 @@ namespace Planten2021.Data
             var plants = context.Plant.ToList();
             return plants;
         }
+
         ///Owen
-        public string GetImages(long id , string ImageCategorie)
+        public string GetImages(long id, string ImageCategorie)
         {
-            var foto = context.Foto.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
-            
+            var foto = context.Foto.Where(s => s.Eigenschap == ImageCategorie).SingleOrDefault(s => s.Plant == id);
+
 
             if (foto != null)
             {
@@ -234,7 +238,9 @@ namespace Planten2021.Data
 
             return null;
         }
+
         ///Robin
+
         #region Lists of all the plant properties with multiple values, used to display plant details
 
         //Get a list of all the Abiotiek types
@@ -254,6 +260,7 @@ namespace Planten2021.Data
 
             return abioMultiList;
         }
+
         //Get a list of all the Beheermaand types
         public List<BeheerMaand> GetBeheerMaanden()
         {
@@ -266,6 +273,7 @@ namespace Planten2021.Data
             var commensalisme = context.Commensalisme.ToList();
             return commensalisme;
         }
+
         public List<CommensalismeMulti> GetAllCommensalismeMulti()
         {
             //List is unfiltered, a plantId can be present multiple times
@@ -274,6 +282,7 @@ namespace Planten2021.Data
             var commensalismeMulti = context.CommensalismeMulti.ToList();
             return commensalismeMulti;
         }
+
         public List<ExtraEigenschap> GetAllExtraEigenschap()
         {
             var extraEigenschap = context.ExtraEigenschap.ToList();
@@ -286,20 +295,25 @@ namespace Planten2021.Data
                 .ToList();
             return fenoTypes;
         }
+
         public List<Foto> GetAllFoto()
         {
             var foto = context.Foto.ToList();
             return foto;
         }
+
         public List<UpdatePlant> GetAllUpdatePlant()
         {
             var updatePlant = context.UpdatePlant.ToList();
             return updatePlant;
         }
+
         #endregion
 
         ///Owen, Robin, Christophe
+
         #region Fill Tfgsv
+
         public IQueryable<TfgsvType> fillTfgsvType()
         {
             // request List of wanted type
@@ -322,7 +336,8 @@ namespace Planten2021.Data
 
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam).Where(s => s.TypeTypeid == selectedItem);
+                var selection = context.TfgsvFamilie.Distinct().OrderBy(s => s.Familienaam)
+                    .Where(s => s.TypeTypeid == selectedItem);
                 return selection;
 
             }
@@ -333,6 +348,7 @@ namespace Planten2021.Data
             }
 
         }
+
         public IQueryable<TfgsvGeslacht> fillTfgsvGeslacht(int selectedItem)
         {
             // request List of wanted type
@@ -354,6 +370,7 @@ namespace Planten2021.Data
             }
 
         }
+
         public IQueryable<TfgsvSoort> fillTfgsvSoort(int selectedItem)
         {
             // request List of wanted type
@@ -364,7 +381,8 @@ namespace Planten2021.Data
             // Good way to interact with our datacontext
             if (selectedItem > 0)
             {
-                var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem).OrderBy(s => s.Soortnaam).Distinct();
+                var selection = context.TfgsvSoort.Where(s => s.GeslachtGeslachtId == selectedItem)
+                    .OrderBy(s => s.Soortnaam).Distinct();
                 return selection;
             }
             else
@@ -388,6 +406,7 @@ namespace Planten2021.Data
             return selection;
 
         }
+
         public IQueryable<Fenotype> fillFenoTypeRatioBloeiBlad()
         {
             // this is NOT part of the cascade function and wil not be added as it is not needed 
@@ -407,8 +426,10 @@ namespace Planten2021.Data
         #endregion
 
         #region FilterFromPlant
+
         ///Owen: op basis van basiscode Kenny, Christophe
-        #region FilterFenoTypeFromPlant 
+
+        #region FilterFenoTypeFromPlant
 
         public IQueryable<Fenotype> filterFenoTypeFromPlant(int selectedItem)
         {
@@ -423,9 +444,11 @@ namespace Planten2021.Data
             var selection = context.FenotypeMulti.Distinct().Where(s => s.PlantId == selectedItem);
             return selection;
         }
+
         #endregion
 
         #region FilterAbiotiekFromPlant
+
         public IQueryable<Abiotiek> filterAbiotiekFromPlant(int selectedItem)
         {
 
@@ -444,6 +467,7 @@ namespace Planten2021.Data
         #endregion
 
         #region FilterBeheerMaandFromPlant
+
         public IQueryable<BeheerMaand> FilterBeheerMaandFromPlant(int selectedItem)
         {
 
@@ -455,6 +479,7 @@ namespace Planten2021.Data
         #endregion
 
         #region FilterCommensalismeFromPlant
+
         public IQueryable<Commensalisme> FilterCommensalismeFromPlant(int selectedItem)
         {
 
@@ -473,6 +498,7 @@ namespace Planten2021.Data
         #endregion
 
         #region FilterExtraEigenschapFromPlant
+
         public IQueryable<ExtraEigenschap> FilterExtraEigenschapFromPlant(int selectedItem)
         {
 
@@ -484,9 +510,11 @@ namespace Planten2021.Data
         #endregion
 
         #endregion
+
         //Christophe: Op basis van basiscode Owen
+
         #region Fill Combobox Pollenwaarde en Nectarwaarde
-        
+
         public List<ExtraPollenwaarde> FillExtraPollenwaardes()
         {
             var selection = context.ExtraPollenwaarde.ToList();
@@ -517,7 +545,8 @@ namespace Planten2021.Data
         }
 
         //written by kenny
-        public void RegisterUser(string vivesNr, string firstName, string lastName, string emailadres, string password,string rol)
+        public void RegisterUser(string vivesNr, string firstName, string lastName, string emailadres, string password,
+            string rol)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);
             var md5Hasher = new MD5CryptoServiceProvider();
@@ -529,12 +558,13 @@ namespace Planten2021.Data
                 Voornaam = firstName,
                 Achternaam = lastName,
                 Emailadres = emailadres,
-                Rol = rol,  
+                Rol = rol,
                 HashPaswoord = passwordHashed
             };
             context.Gebruiker.Add(gebruiker);
             context.SaveChanges();
         }
+
         //written by kenny
         public List<Gebruiker> getAllGebruikers()
         {
@@ -559,6 +589,12 @@ namespace Planten2021.Data
             return result;
         }
 
+        //feno_multi test
+        public List<FenotypeMulti> GetAllFenotypeMultis()
+        {
+            var fenotypeList = context.FenotypeMulti.ToList();
+            return fenotypeList;
+        }
     }
 
 

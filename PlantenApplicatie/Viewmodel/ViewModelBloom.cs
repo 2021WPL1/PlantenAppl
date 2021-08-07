@@ -5,6 +5,7 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
 using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.Services.Interfaces;
@@ -15,20 +16,25 @@ namespace PlantenApplicatie.Viewmodel
     {
         // Using a DependencyProperty as the backing store for 
         //IsCheckBoxChecked.  This enables animation, styling, binding, etc...
-       
-       
+
         private static SimpleIoc iocc = SimpleIoc.Default;
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
-        private Plant _selectedPlant = _SearchService.ReturnSelectedPlant();
-        
+
+        public Plant selectedPlant { get; set; }
+
+        //test
+        public ObservableCollection<string> testList { get; set; }
+
+
         public ViewModelBloom(IDetailService detailservice)
         {
             _detailService = detailservice;
-           
+            selectedPlant = _SearchService.ReturnSelectedPlant();
+            testList = new ObservableCollection<string>() { "test1", "test2" };
         }
         //geschreven door christophe, op basis van een voorbeeld van owen
-        
+
 
         #region Checkbox Bloeikleur
 
@@ -40,6 +46,7 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedCheckBoxBloeikleurZwart = value;
+                MessageBox.Show(selectedPlant.Familie + " <-famiiiliiieee");
                 OnPropertyChanged();
             }
         }
@@ -65,7 +72,7 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedCheckBoxBloeikleurRosé = value;
-               OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -77,7 +84,7 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedCheckBoxBloeikleurRood = value;
-               OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -89,7 +96,7 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedCheckBoxBloeikleurOranje = value;
-               OnPropertyChanged();
+                OnPropertyChanged();
             }
         }
 
@@ -136,7 +143,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurGeel= value;
+                _selectedCheckBoxBloeikleurGeel = value;
                 OnPropertyChanged();
             }
         }
@@ -496,7 +503,7 @@ namespace PlantenApplicatie.Viewmodel
         #region Binding Checkbox Bloeit In
 
         private bool _selectedCheckBoxBloeitInJan;
-        
+
         public bool SelectedCheckBoxBloeitInJan
         {
             get { return _selectedCheckBoxBloeitInJan; }
