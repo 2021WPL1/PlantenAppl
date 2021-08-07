@@ -268,7 +268,7 @@
             <!--<Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>-->
 
             <ComboBox x:Name="cboBloeiwijze" 
-                     
+                     ItemsSource="{Binding  SelectedCboBloeiwijze}"
                       SelectedItem="{Binding Path=SelectedCboBloeiwijze}" IsEditable="True"
                        Canvas.Left="168" Canvas.Top="420" Width="176" BorderBrush="Blue" Height="41">
                 <ComboBox.Effect>

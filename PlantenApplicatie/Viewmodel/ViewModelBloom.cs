@@ -16,15 +16,16 @@ namespace PlantenApplicatie.Viewmodel
         // Using a DependencyProperty as the backing store for 
         //IsCheckBoxChecked.  This enables animation, styling, binding, etc...
        
-        private DAO _dao;
+       
         private static SimpleIoc iocc = SimpleIoc.Default;
-        private IDetailService _detailService = iocc.GetInstance<IDetailService>();
-        private ISearchService _SearchService = iocc.GetInstance<ISearchService>();
-
+        private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
+        private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
+        private Plant _selectedPlant = _SearchService.ReturnSelectedPlant();
+        
         public ViewModelBloom(IDetailService detailservice)
         {
-            this._dao = DAO.Instance();
-            
+            _detailService = detailservice;
+           
         }
         //geschreven door christophe, op basis van een voorbeeld van owen
         

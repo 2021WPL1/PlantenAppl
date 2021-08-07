@@ -7,6 +7,6 @@ namespace PlantenApplicatie.Services.Interfaces
 {
     public interface IDetailService
     {
-        
+        public Plant ReturnSelectedPlant();
     }
 }
