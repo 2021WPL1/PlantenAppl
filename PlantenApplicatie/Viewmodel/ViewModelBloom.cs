@@ -21,8 +21,18 @@ namespace PlantenApplicatie.Viewmodel
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
 
-        public Plant selectedPlant { get; set; }
+        public Plant _selectedPlant;
 
+        public Plant SelectedPlant
+        {
+            get { return _selectedPlant; }
+            set
+            {
+                //_selectedPlant = ;
+                _SearchService.ReturnSelectedPlant();
+                MessageBox.Show("lalala");
+            }
+        }
         //test
         public ObservableCollection<string> testList { get; set; }
 
@@ -30,11 +40,9 @@ namespace PlantenApplicatie.Viewmodel
         public ViewModelBloom(IDetailService detailservice)
         {
             _detailService = detailservice;
-            selectedPlant = _SearchService.ReturnSelectedPlant();
             testList = new ObservableCollection<string>() { "test1", "test2" };
         }
         //geschreven door christophe, op basis van een voorbeeld van owen
-
 
         #region Checkbox Bloeikleur
 
@@ -46,8 +54,8 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedCheckBoxBloeikleurZwart = value;
-                MessageBox.Show(selectedPlant.Familie + " <-famiiiliiieee");
-                OnPropertyChanged();
+              OnPropertyChanged();
+              MessageBox.Show(_SearchService.ReturnSelectedPlant().Familie);
             }
         }
 

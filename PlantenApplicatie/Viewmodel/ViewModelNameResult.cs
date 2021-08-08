@@ -255,15 +255,13 @@ namespace PlantenApplicatie.Viewmodel
                 FillAllImages();
                 OnPropertyChanged();
                 _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
-               
+                
                 //Make the currently selected plant in the Result list available in the SearchService
-             
+                _searchService.SetSelectedPlant(SelectedPlantInResult);
             }
         }
 
-
         #endregion
-
         //geschreven door owen
         public void FillAllImages()
         {
@@ -272,7 +270,6 @@ namespace PlantenApplicatie.Viewmodel
             ImageHabitus = _searchService.GetImageLocation("habitus",SelectedPlantInResult);
         }
 
-      
         //geschreven door owen
         #region binding images
 

@@ -635,26 +635,16 @@ namespace PlantenApplicatie.Services
 
         //provide the selected plant
         public Plant selectedPlant;
-        public Plant SetSelectedPlant(Plant selectedPlantResult)
+        public void SetSelectedPlant(Plant selectedPlantResult)
         {
-            Plant plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
-            selectedPlant = plant;
-            return plant;
+            //Plant plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
+            selectedPlant = selectedPlantResult;
+            
         }
 
         public Plant ReturnSelectedPlant()
         {
-            Plant plant = selectedPlant;
-            if (plant != null)
-            {
-                return plant;
-            }
-            else
-            {
-                plant = _dao.GetPlantWithId(20);
-                return plant;
-            }
-
+            return selectedPlant;
 
         }
 

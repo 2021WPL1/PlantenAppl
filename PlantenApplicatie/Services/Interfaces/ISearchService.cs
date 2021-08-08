@@ -15,7 +15,7 @@ namespace PlantenApplicatie.Services.Interfaces
         void fillComboBoxSoort(TfgsvGeslacht selectedGeslacht, ObservableCollection<TfgsvSoort> cmbSoortCollection);
         void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection);
         void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection);
-        Plant SetSelectedPlant(Plant selectedPlantResult);
+        void SetSelectedPlant(Plant selectedPlantResult);
         Plant ReturnSelectedPlant();
         string UpdateLoggedInMessage();
         void FillDetailPlantResult(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult);
