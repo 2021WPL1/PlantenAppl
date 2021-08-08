@@ -4,11 +4,13 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Ioc;
 using GalaSoft.MvvmLight.Messaging;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.Services.Interfaces;
+using Prism.Commands;
 
 namespace PlantenApplicatie.Viewmodel
 {
@@ -20,6 +22,8 @@ namespace PlantenApplicatie.Viewmodel
         private static SimpleIoc iocc = SimpleIoc.Default;
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
+
+        public RelayCommand resetBloom { get; set; }
 
         public Plant _selectedPlant;
 
@@ -41,6 +45,16 @@ namespace PlantenApplicatie.Viewmodel
         {
             _detailService = detailservice;
             testList = new ObservableCollection<string>() { "test1", "test2" };
+
+            //relaycommands
+            resetBloom = new RelayCommand(ResetBloomCommand);
+        }
+
+        private void ResetBloomCommand()
+        {
+            _selectedPlant = _SearchService.ReturnSelectedPlant();
+            MessageBox.Show(_selectedPlant.Familie + " tadaah");
+            
         }
         //geschreven door christophe, op basis van een voorbeeld van owen
 
@@ -55,7 +69,7 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedCheckBoxBloeikleurZwart = value;
               OnPropertyChanged();
-              MessageBox.Show(_SearchService.ReturnSelectedPlant().Familie);
+              MessageBox.Show(_selectedPlant.Soort + " checkboxtime");
             }
         }
 

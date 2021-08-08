@@ -23,6 +23,5 @@ namespace PlantenApplicatie.View.UserControls
             InitializeComponent();
         }
 
-        
     }
 }
