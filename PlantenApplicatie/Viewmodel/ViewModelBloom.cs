@@ -8,6 +8,7 @@ using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
 using PlantenApplicatie.Services.Interfaces;
+using GalaSoft.MvvmLight.Command;
 
 namespace PlantenApplicatie.Viewmodel
 {
@@ -20,16 +21,26 @@ namespace PlantenApplicatie.Viewmodel
         private static SimpleIoc iocc = SimpleIoc.Default;
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
-        private Plant _selectedPlant = _SearchService.ReturnSelectedPlant();
+        private Plant _selectedPlant { get; set; }
+
+
+        public RelayCommand resetBloom { get; set; }
+
         
         public ViewModelBloom(IDetailService detailservice)
         {
             _detailService = detailservice;
-           
+            _selectedPlant = _SearchService.ReturnSelectedPlant();
+            resetBloom = new RelayCommand(ResetBloomCommand);
         }
         //geschreven door christophe, op basis van een voorbeeld van owen
-        
 
+        private void ResetBloomCommand()
+        {
+            _selectedPlant = _SearchService.ReturnSelectedPlant();
+            MessageBox.Show(_selectedPlant.Familie + " tadaah");
+            _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+        }
         #region Checkbox Bloeikleur
 
         private bool _selectedCheckBoxBloeikleurZwart;
@@ -40,6 +51,9 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedCheckBoxBloeikleurZwart = value;
+
+                MessageBox.Show(_selectedPlant.Geslacht);
+               
                 OnPropertyChanged();
             }
         }
@@ -651,7 +665,7 @@ namespace PlantenApplicatie.Viewmodel
         //    foreach (var item in list)
         //    {
 
-        //        CmbBloeiwijze.Add(item);
+        //        CboBloeiwijze.Add(item);
 
         //    }
         //}

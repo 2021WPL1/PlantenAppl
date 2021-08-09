@@ -26,7 +26,7 @@ namespace PlantenApplicatie.Services
         }
 
         #region RelayCommandMethods
-       
+
         //Geschreven door Owen op basis van de eerste Search van Kenny.
         //Christophe & Owen: gedeeltelijke omzetting naar mvvm
         //Omgezet naar service door kenny
@@ -288,41 +288,41 @@ namespace PlantenApplicatie.Services
         public void fillComboBoxVariant(ObservableCollection<TfgsvVariant> cmbVariantCollection)
         {
 
-                // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
-                var list = _dao.fillTfgsvVariant();
-                // clearing te content of te combobox of Variant
-                cmbVariantCollection.Clear();
-                // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
-                var ControleList = new List<string>();
-                //adding or list to the combobox
-                foreach (var item in list)
+            // Requesting te list of Variant  with 0 because there is noting selected in the combobox of type.
+            var list = _dao.fillTfgsvVariant();
+            // clearing te content of te combobox of Variant
+            cmbVariantCollection.Clear();
+            // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
+            var ControleList = new List<string>();
+            //adding or list to the combobox
+            foreach (var item in list)
+            {
+                if (!ControleList.Contains(item.Variantnaam))
                 {
-                    if (!ControleList.Contains(item.Variantnaam))
-                    {
-                        ControleList.Add(item.Variantnaam);
-                        Simplify(item.Variantnaam);
-                        cmbVariantCollection.Add(item);
-                    }
+                    ControleList.Add(item.Variantnaam);
+                    Simplify(item.Variantnaam);
+                    cmbVariantCollection.Add(item);
                 }
             }
+        }
         //geschreven door owen, aangepast door robin en christophe voor mvvm en later services
         public void fillComboBoxRatioBloeiBlad(ObservableCollection<Fenotype> cmbRatioBladBloeiCollection)
+        {
+            //not currently used in the cascade search
+            //will be adjusted later (dao)
+            var list = _dao.fillFenoTypeRatioBloeiBlad();
+            // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
+            var ControleList = new List<string>();
+            //adding or list to the combobox
+            foreach (var item in list)
             {
-                //not currently used in the cascade search
-                //will be adjusted later (dao)
-                var list = _dao.fillFenoTypeRatioBloeiBlad();
-                // a list to add type that have been added to the combobox. this is used for preventing two of the same type in the combo box
-                var ControleList = new List<string>();
-                //adding or list to the combobox
-                foreach (var item in list)
+                if (!ControleList.Contains(item.RatioBloeiBlad))
                 {
-                    if (!ControleList.Contains(item.RatioBloeiBlad))
-                    {
-                        cmbRatioBladBloeiCollection.Add(item);
-                        ControleList.Add(item.RatioBloeiBlad);
-                    }
+                    cmbRatioBladBloeiCollection.Add(item);
+                    ControleList.Add(item.RatioBloeiBlad);
                 }
             }
+        }
         #endregion
         #region Fill plant details in detain screen
         /// <summary>
@@ -339,7 +339,7 @@ namespace PlantenApplicatie.Services
             {
                 //Add every available plant property to the OC
                 ////start with the properties consisting of a single value              
-                FillSingleValuePlantDetails(detailsSelectedPlant,SelectedPlantInResult);
+                FillSingleValuePlantDetails(detailsSelectedPlant, SelectedPlantInResult);
 
                 //Tables linked to Plant by PlantId
                 ////Abiotiek
@@ -347,7 +347,7 @@ namespace PlantenApplicatie.Services
                 ////Abiotiek_Multi
                 FillDetailsPlantAbiotiekMulti(detailsSelectedPlant, SelectedPlantInResult);
                 ////Beheermaand
-                FillDetailsPlantBeheermaand(detailsSelectedPlant,SelectedPlantInResult);
+                FillDetailsPlantBeheermaand(detailsSelectedPlant, SelectedPlantInResult);
                 ////Commensalisme
                 FillDetailsPlantCommensalisme(detailsSelectedPlant, SelectedPlantInResult);
                 ////CommensalismeMulti
@@ -616,6 +616,25 @@ namespace PlantenApplicatie.Services
                 }
             }
         }
+
+        //public void FillFenoTypeMulti(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult)
+        //{
+        //    var fenoTypeMultiList = _dao.GetAllFenotypeMultis();
+
+        //    foreach (var itemFenoTypeMulti in fenoTypeMultiList)
+        //    {
+        //        foreach (var item in SelectedPlantInResult)
+        //        {
+        //            if (item.PlantId == itemFenoTypeMulti.PlantId)
+        //            {
+        //                detailsSelectedPlant.Add("Eigenschap" + itemFenoTypeMulti.Eigenschap.ToString());
+        //                detailsSelectedPlant.Add("Waarde" + itemFenoTypeMulti.Waarde.ToString());
+        //                detailsSelectedPlant.Add("Maand" + itemFenoTypeMulti.Maand);
+        //            }
+
+        //        }
+        //    }
+        //}
         #endregion
         public string UpdateLoggedInMessage()
         {
@@ -623,7 +642,7 @@ namespace PlantenApplicatie.Services
             if (ReturnSelectedPlant() != null)
             {
                 var selectedPlant = ReturnSelectedPlant();
-                message = $" en geslecteerde plant: {selectedPlant.Fenotype}";
+                message = $" en geslecteerde plant: {selectedPlant.PlantId}";
             }
             else
             {
@@ -635,28 +654,32 @@ namespace PlantenApplicatie.Services
 
         //provide the selected plant
         public Plant selectedPlant;
-        public Plant SetSelectedPlant(Plant selectedPlantResult)
+        //public void SetSelectedPlant(Plant selectedPlantResult)
+        //{
+        //    Plant plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
+        //    selectedPlant = selectedPlantResult;
+            
+        //}
+
+        public void SetSelectedPlant(Plant selectedPlantResult)
         {
-            Plant plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
-            selectedPlant = plant;
-            return plant;
+            //Plant plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
+            selectedPlant = selectedPlantResult;
+
         }
 
         public Plant ReturnSelectedPlant()
         {
-            Plant plant = selectedPlant;
-            if (plant != null)
-            {
-                return plant;
-            }
-            else
-            {
-                plant = _dao.GetPlantWithId(20);
-                return plant;
-            }
+            return selectedPlant;
+
+
 
 
         }
+
+        
+
+
 
         //public IQueryable<Plant> selectedPlant;
         //public IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult)
@@ -697,6 +720,7 @@ namespace PlantenApplicatie.Services
 
             return null;
         }
+       
 
     }
 }

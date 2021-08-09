@@ -274,13 +274,25 @@
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
-                <ComboBoxItem Content="Aar"/>
+                <!--<ComboBoxItem Content="Aar"/>
                 <ComboBoxItem Content="Schermbloemig"/>
                 <ComboBoxItem Content="Pluim"/>
                 <ComboBoxItem Content="Bol of Knop"/>
                 <ComboBoxItem Content="Margrietachtig"/>
-                <ComboBoxItem Content="Transparant"/>
+                <ComboBoxItem Content="Transparant"/>-->
             </ComboBox>
+            <Button x:Name="BtnOpslagResetBloei"
+                    Command="{Binding resetBloom}"
+                    Content="Reset Bloei" Width="172" Height="50" Canvas.Left="700" Canvas.Top="490" BorderBrush="#FF2AE633"   Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
             <Button x:Name="BtnOpslagZoekenBloei" Content="Opslag Zoeken Bloei" Width="172" Height="50" Canvas.Left="916" Canvas.Top="490" BorderBrush="#FF2AE633"   Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
                 <Button.Effect>
                     <DropShadowEffect/>

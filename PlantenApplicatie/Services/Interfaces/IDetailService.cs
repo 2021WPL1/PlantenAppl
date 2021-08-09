@@ -8,5 +8,7 @@ namespace PlantenApplicatie.Services.Interfaces
     public interface IDetailService
     {
         public Plant ReturnSelectedPlant();
+        public FenotypeMulti FilterFenoMulti(long plantId);
+
     }
 }

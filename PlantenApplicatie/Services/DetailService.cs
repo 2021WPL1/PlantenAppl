@@ -32,5 +32,12 @@ namespace PlantenApplicatie.Services
             Plant plant = _searchService.ReturnSelectedPlant();
             return plant;
         }
+
+        public FenotypeMulti FilterFenoMulti(long plantId)
+        {
+            var filteredFenoTypeMulti = _dao.GetFenoMultiByPlantId(plantId);
+            return filteredFenoTypeMulti;
+        }
+
     }
 }

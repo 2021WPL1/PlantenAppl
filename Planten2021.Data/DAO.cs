@@ -33,8 +33,8 @@ namespace Planten2021.Data
             this.context = new _Planten2021Context();
         }
         //3.publieke methode instance die altijd kan aangeroepen worden
-            //door zijn statische eigenschappen kan hij altijd aangeroepen worden 
-            //zonder er een instantie van te maken
+        //door zijn statische eigenschappen kan hij altijd aangeroepen worden 
+        //zonder er een instantie van te maken
         public static DAO Instance()
         {
             return instance;
@@ -206,7 +206,7 @@ namespace Planten2021.Data
         //}
         public Plant GetPlantWithId(int id)
         {
-            var plant = context.Plant.FirstOrDefault(p => p.PlantId == id);
+            var plant = context.Plant.SingleOrDefault(p => p.PlantId == id);
             return plant;
         }
 
@@ -221,10 +221,10 @@ namespace Planten2021.Data
             return plants;
         }
         ///Owen
-        public string GetImages(long id , string ImageCategorie)
+        public string GetImages(long id, string ImageCategorie)
         {
-            var foto = context.Foto.Where(s=>s.Eigenschap == ImageCategorie).SingleOrDefault(s=> s.Plant == id);
-            
+            var foto = context.Foto.Where(s => s.Eigenschap == ImageCategorie).SingleOrDefault(s => s.Plant == id);
+
 
             if (foto != null)
             {
@@ -296,6 +296,9 @@ namespace Planten2021.Data
             var updatePlant = context.UpdatePlant.ToList();
             return updatePlant;
         }
+
+
+
         #endregion
 
         ///Owen, Robin, Christophe
@@ -486,7 +489,7 @@ namespace Planten2021.Data
         #endregion
         //Christophe: Op basis van basiscode Owen
         #region Fill Combobox Pollenwaarde en Nectarwaarde
-        
+
         public List<ExtraPollenwaarde> FillExtraPollenwaardes()
         {
             var selection = context.ExtraPollenwaarde.ToList();
@@ -517,7 +520,7 @@ namespace Planten2021.Data
         }
 
         //written by kenny
-        public void RegisterUser(string vivesNr, string firstName, string lastName, string emailadres, string password,string rol)
+        public void RegisterUser(string vivesNr, string firstName, string lastName, string emailadres, string password, string rol)
         {
             var passwordBytes = Encoding.ASCII.GetBytes(password);
             var md5Hasher = new MD5CryptoServiceProvider();
@@ -529,7 +532,7 @@ namespace Planten2021.Data
                 Voornaam = firstName,
                 Achternaam = lastName,
                 Emailadres = emailadres,
-                Rol = rol,  
+                Rol = rol,
                 HashPaswoord = passwordHashed
             };
             context.Gebruiker.Add(gebruiker);
@@ -559,6 +562,18 @@ namespace Planten2021.Data
             return result;
         }
 
+        public List<FenotypeMulti> GetAllFenotypeMultis()
+        {
+            var fenoTypeList = context.FenotypeMulti.ToList();
+
+            return fenoTypeList;
+        }
+        public FenotypeMulti GetFenoMultiByPlantId(long plantId)
+        {
+            var neededFenoMulti = context.FenotypeMulti.SingleOrDefault(p => p.PlantId == plantId);
+
+            return neededFenoMulti;
+        }
     }
 
 
