@@ -556,7 +556,7 @@ namespace Planten2021.Data
             return result;
         }
 
-        public List<FenotypeMulti> GetAllFenotypeMultis(long plantId)
+        public List<FenotypeMulti> GetFenotypeMultis(long plantId)
         {
             //var fenoTypeList = context.FenotypeMulti.ToList();
             List<FenotypeMulti> fenoTypeList = context.FenotypeMulti.Where(F => F.PlantId == plantId).ToList();

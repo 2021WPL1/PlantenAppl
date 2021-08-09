@@ -21,8 +21,8 @@ namespace PlantenApplicatie.Viewmodel
         private static SimpleIoc iocc = SimpleIoc.Default;
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
-        private Plant _selectedPlant { get; set; }
-
+        public Plant _selectedPlant { get; set; }
+        public List<FenotypeMulti> fenoTypeMulti { get; set; }
 
         public RelayCommand resetBloom { get; set; }
 
@@ -32,13 +32,14 @@ namespace PlantenApplicatie.Viewmodel
             _detailService = detailservice;
             _selectedPlant = _SearchService.ReturnSelectedPlant();
             resetBloom = new RelayCommand(ResetBloomCommand);
+            //fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
         }
         
 
         private void ResetBloomCommand()
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
-
+            fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
             if (_selectedPlant == null)
             {
                 MessageBox.Show("Je hebt nog geen plant geselecteerd!");
@@ -54,6 +55,7 @@ namespace PlantenApplicatie.Viewmodel
         }
         #region Checkbox Bloeikleur
 
+        
         private bool _selectedCheckBoxBloeikleurZwart;
         public bool SelectedCheckBoxBloeikleurZwart
         {
@@ -61,10 +63,23 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurZwart = value;
+                //_selectedCheckBoxBloeikleurZwart = value;
 
                 //MessageBox.Show(_selectedPlant.Familie);
-                                              
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        _selectedCheckBoxBloeikleurZwart = true;
+                    }
+
+                    else
+                    {
+                        _selectedCheckBoxBloeikleurZwart = false;
+                    }
+                }
+                
+                
                 OnPropertyChanged();
             }
         }
