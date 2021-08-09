@@ -27,7 +27,8 @@
             <Label Content=" Bruin" Foreground="Brown" Canvas.Left="958" Canvas.Top="28" Height="28" Width="50" BorderBrush="Brown" BorderThickness="1"/>
             <TextBox Canvas.Left="158" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="35" Background="Black"/>
             <CheckBox x:Name="CbxBloeikleurZwart" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeikleurZwart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                      IsChecked="{Binding  SelectedCheckBoxBloeikleurZwart, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+
                       Content="CheckBox" Canvas.Left="168" Canvas.Top="78" Height="15" Width="15"/>
             <TextBox Canvas.Left="222" Canvas.Top="68" Text="" TextWrapping="Wrap" Height="35" Width="35" Background="White"/>
             <CheckBox x:Name="CbxBloeikleurWit" 

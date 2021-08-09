@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Printing;
 using System.Text;
 using System.Windows;
 using GalaSoft.MvvmLight.Ioc;
@@ -21,70 +22,104 @@ namespace PlantenApplicatie.Viewmodel
         private static SimpleIoc iocc = SimpleIoc.Default;
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
-        public Plant _selectedPlant { get; set; }
+        //public Plant _selectedPlant { get; set; }
+
         public List<FenotypeMulti> fenoTypeMulti { get; set; }
 
         public RelayCommand resetBloom { get; set; }
+        public bool isChecked;
 
-        
+        private Plant _selectedPlant;
+
         public ViewModelBloom(IDetailService detailservice)
         {
             _detailService = detailservice;
-            _selectedPlant = _SearchService.ReturnSelectedPlant();
+            //_selectedPlant = _SearchService.ReturnSelectedPlant();
             resetBloom = new RelayCommand(ResetBloomCommand);
-            //fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
         }
-        
+
+        public Plant SelectedPlant
+        {
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+                return _selectedPlant;
+            }
+            set
+            {
+                _selectedPlant = value;
+                OnPropertyChanged();
+            }
+        }
 
         private void ResetBloomCommand()
         {
-            _selectedPlant = _SearchService.ReturnSelectedPlant();
+            
+            //_selectedPlant = _SearchService.ReturnSelectedPlant();
             fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
             if (_selectedPlant == null)
             {
                 MessageBox.Show("Je hebt nog geen plant geselecteerd!");
             }
-
             else
             {
-                _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
+                //_detailService.FilterFenoMulti(_selectedPlant.PlantId);
                 //MessageBox.Show(_selectedPlant.Familie + " tadaah");
+                //DoesItNeedToBeChecked();
             }
-            
-            
+
+        }
+
+        public void DoesItNeedToBeChecked()
+        {
+           // isChecked = true;
+            foreach (var fenotypeMulti in fenoTypeMulti)
+            {
+                if (fenotypeMulti.Maand == "oktober" && fenotypeMulti.Waarde == "zwart")
+                {
+                    isChecked = true;
+                    MessageBox.Show(fenotypeMulti.Waarde);
+                }
+                else
+                {
+                    isChecked = false;
+                    MessageBox.Show("nope");
+                }
+            }
         }
         #region Checkbox Bloeikleur
 
-        
+
         private bool _selectedCheckBoxBloeikleurZwart;
         public bool SelectedCheckBoxBloeikleurZwart
         {
-            get { return _selectedCheckBoxBloeikleurZwart; }
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+                //DoesItNeedToBeChecked();
+                if (_selectedPlant.Familie == "BRASSICACEAE")
+                {
+                    isChecked = true;
+                }
+                else
+                {
+                    isChecked = false;
+                }
+                _selectedCheckBoxBloeikleurZwart = isChecked;
+                return _selectedCheckBoxBloeikleurZwart;
+
+            }
 
             set
             {
-                //_selectedCheckBoxBloeikleurZwart = value;
+                //isChecked = true;
 
-                //MessageBox.Show(_selectedPlant.Familie);
-                foreach (var fenotypeMulti in fenoTypeMulti)
-                {
-                    if (fenotypeMulti.Waarde == "zwart")
-                    {
-                        _selectedCheckBoxBloeikleurZwart = true;
-                    }
-
-                    else
-                    {
-                        _selectedCheckBoxBloeikleurZwart = false;
-                    }
-                }
-                
-                
+                _selectedCheckBoxBloeikleurZwart = value;
                 OnPropertyChanged();
             }
         }
-
-
 
         private bool _selectedCheckBoxBloeikleurWit;
         public bool SelectedCheckBoxBloeikleurWit
@@ -93,7 +128,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurWit = value;
+                _selectedCheckBoxBloeikleurWit = true;
                 MessageBox.Show(SelectedCheckBoxBloeikleurZwart.ToString());
                 OnPropertyChanged();
             }
