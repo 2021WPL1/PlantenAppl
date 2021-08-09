@@ -26,7 +26,8 @@ namespace PlantenApplicatie.Viewmodel
 
         public RelayCommand resetBloom { get; set; }
 
-        
+        public bool isChecked;
+
         public ViewModelBloom(IDetailService detailservice)
         {
             _detailService = detailservice;
@@ -35,7 +36,22 @@ namespace PlantenApplicatie.Viewmodel
             //fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
         }
         
+        public void doesItNeedToBeChecked()
+        {
+            foreach (var fenotypeMulti in fenoTypeMulti)
+            {
+                if (fenotypeMulti.Waarde == "zwart" && fenotypeMulti.Maand == "jan")
+                {
+                    _selectedCheckBoxBloeikleurZwart = true;
+                }
 
+                else
+                {
+                    _selectedCheckBoxBloeikleurZwart = false;
+                }
+            }
+
+        }
         private void ResetBloomCommand()
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
@@ -53,6 +69,8 @@ namespace PlantenApplicatie.Viewmodel
             
             
         }
+
+
         #region Checkbox Bloeikleur
 
         
@@ -63,21 +81,9 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                //_selectedCheckBoxBloeikleurZwart = value;
+                _selectedCheckBoxBloeikleurZwart = isChecked;
 
                 //MessageBox.Show(_selectedPlant.Familie);
-                foreach (var fenotypeMulti in fenoTypeMulti)
-                {
-                    if (fenotypeMulti.Waarde == "zwart")
-                    {
-                        _selectedCheckBoxBloeikleurZwart = true;
-                    }
-
-                    else
-                    {
-                        _selectedCheckBoxBloeikleurZwart = false;
-                    }
-                }
                 
                 
                 OnPropertyChanged();
@@ -93,8 +99,22 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurWit = value;
-                MessageBox.Show(SelectedCheckBoxBloeikleurZwart.ToString());
+                _selectedCheckBoxBloeikleurWit = isChecked;
+
+                //foreach (var fenotypeMulti in fenoTypeMulti)
+                //{
+                //    if (fenotypeMulti.Waarde == "wit")
+                //    {
+                //        _selectedCheckBoxBloeikleurZwart = true;
+                //    }
+
+                //    else
+                //    {
+                //        _selectedCheckBoxBloeikleurZwart = false;
+                //    }
+                //}
+
+
                 OnPropertyChanged();
             }
         }
@@ -227,6 +247,150 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedCheckBoxBloeikleurBruin = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurJan;
+        public bool SelectedCheckBoxBloeikleurJan
+        {
+            get { return _selectedCheckBoxBloeikleurJan; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurJan = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurFeb;
+        public bool SelectedCheckBoxBloeikleurFeb
+        {
+            get { return _selectedCheckBoxBloeikleurFeb; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurFeb = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurMar;
+        public bool SelectedCheckBoxBloeikleurMar
+        {
+            get { return _selectedCheckBoxBloeikleurMar; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurMar = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurApr;
+        public bool SelectedCheckBoxBloeikleurApr
+        {
+            get { return _selectedCheckBoxBloeikleurApr; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurApr = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurMay;
+        public bool SelectedCheckBoxBloeikleurMay
+        {
+            get { return _selectedCheckBoxBloeikleurMay; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurMay = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurJun;
+        public bool SelectedCheckBoxBloeikleurJun
+        {
+            get { return _selectedCheckBoxBloeikleurJun; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurJun = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurJul;
+        public bool SelectedCheckBoxBloeikleurJul
+        {
+            get { return _selectedCheckBoxBloeikleurJul; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurJul = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurAug;
+        public bool SelectedCheckBoxBloeikleurAug
+        {
+            get { return _selectedCheckBoxBloeikleurAug; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurAug = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurSep;
+        public bool SelectedCheckBoxBloeikleurSep
+        {
+            get { return _selectedCheckBoxBloeikleurSep; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurSep = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurOct;
+        public bool SelectedCheckBoxBloeikleurOct
+        {
+            get { return _selectedCheckBoxBloeikleurOct; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurOct = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurNov;
+        public bool SelectedCheckBoxBloeikleurNov
+        {
+            get { return _selectedCheckBoxBloeikleurNov; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurNov = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private bool _selectedCheckBoxBloeikleurDec;
+        public bool SelectedCheckBoxBloeikleurDec
+        {
+            get { return _selectedCheckBoxBloeikleurDec; }
+
+            set
+            {
+                _selectedCheckBoxBloeikleurDec = value;
                 OnPropertyChanged();
             }
         }
