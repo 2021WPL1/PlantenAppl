@@ -672,14 +672,7 @@ namespace PlantenApplicatie.Services
         {
             return selectedPlant;
 
-
-
-
         }
-
-        
-
-
 
         //public IQueryable<Plant> selectedPlant;
         //public IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult)

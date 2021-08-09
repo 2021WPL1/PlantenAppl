@@ -42,12 +42,6 @@ namespace Planten2021.Data
         /* 4.gebruik: var example = DAO.Instance();
 }
 
-
-
-
-
-
-
          */
 
 
@@ -211,7 +205,7 @@ namespace Planten2021.Data
         }
 
         //get a list of all the plants.
-        ///Kenny
+       
 
         public List<Plant> getAllPlants()
         {
@@ -562,18 +556,18 @@ namespace Planten2021.Data
             return result;
         }
 
-        public List<FenotypeMulti> GetAllFenotypeMultis()
+        public List<FenotypeMulti> GetAllFenotypeMultis(long plantId)
         {
-            var fenoTypeList = context.FenotypeMulti.ToList();
-
+            //var fenoTypeList = context.FenotypeMulti.ToList();
+            List<FenotypeMulti> fenoTypeList = context.FenotypeMulti.Where(F => F.PlantId == plantId).ToList();
             return fenoTypeList;
         }
-        public FenotypeMulti GetFenoMultiByPlantId(long plantId)
-        {
-            var neededFenoMulti = context.FenotypeMulti.SingleOrDefault(p => p.PlantId == plantId);
+        //public FenotypeMulti GetFenoMultiByPlantId(long plantId)
+        //{
+        //    var neededFenoMulti = context.FenotypeMulti.SingleOrDefault(p => p.PlantId == plantId);
 
-            return neededFenoMulti;
-        }
+        //    return neededFenoMulti;
+        //}
     }
 
 

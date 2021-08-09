@@ -33,13 +33,24 @@ namespace PlantenApplicatie.Viewmodel
             _selectedPlant = _SearchService.ReturnSelectedPlant();
             resetBloom = new RelayCommand(ResetBloomCommand);
         }
-        //geschreven door christophe, op basis van een voorbeeld van owen
+        
 
         private void ResetBloomCommand()
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
-            MessageBox.Show(_selectedPlant.Familie + " tadaah");
-            _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
+            if (_selectedPlant == null)
+            {
+                MessageBox.Show("Je hebt nog geen plant geselecteerd!");
+            }
+
+            else
+            {
+                _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+                //MessageBox.Show(_selectedPlant.Familie + " tadaah");
+            }
+            
+            
         }
         #region Checkbox Bloeikleur
 
@@ -52,11 +63,13 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedCheckBoxBloeikleurZwart = value;
 
-                MessageBox.Show(_selectedPlant.Geslacht);
-               
+                //MessageBox.Show(_selectedPlant.Familie);
+                                              
                 OnPropertyChanged();
             }
         }
+
+
 
         private bool _selectedCheckBoxBloeikleurWit;
         public bool SelectedCheckBoxBloeikleurWit

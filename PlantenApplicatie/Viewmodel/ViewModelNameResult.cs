@@ -247,20 +247,7 @@ namespace PlantenApplicatie.Viewmodel
         //This will be used to show the selected plant details
         private Plant _selectedPlantInResult;
 
-        //public Plant SelectedPlantInResult
-        //{
-        //    get { return _selectedPlantInResult; }
-        //    set
-        //    {
-        //        _selectedPlantInResult = value;
-        //        FillAllImages();
-        //        OnPropertyChanged();
-        //        _searchService.FillDetailPlantResult(detailsSelectedPlant, SelectedPlantInResult);
-               
-        //        //Make the currently selected plant in the Result list available in the SearchService
-             
-        //    }
-        //}
+       
 
         public Plant SelectedPlantInResult
         {
