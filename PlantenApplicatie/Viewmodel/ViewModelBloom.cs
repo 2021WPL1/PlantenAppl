@@ -38,26 +38,7 @@ namespace PlantenApplicatie.Viewmodel
             //_fenoTypeMulti = _detailService.FilterFenoMulti(SelectedPlant.PlantId);
         }
 
-        public List<FenotypeMulti> fenoTypeMulti
-        {
-
-            get
-            {
-                
-                
-                    //_fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
-                                   
-
-                return _fenoTypeMulti;
-            }
-
-            set
-            {
-                _fenoTypeMulti = value;
-
-                OnPropertyChanged();
-            }
-        }
+       
         public Plant SelectedPlant
         {
             get
@@ -78,7 +59,24 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-       
+        public List<FenotypeMulti> fenoTypeMulti
+        {
+
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+                _fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
+                return _fenoTypeMulti;
+            }
+
+            set
+            {
+                _fenoTypeMulti = value;
+
+                OnPropertyChanged();
+            }
+        }
 
         public void doesItNeedToBeChecked()
         {
@@ -86,7 +84,7 @@ namespace PlantenApplicatie.Viewmodel
 
             foreach (var fenotypeMulti in fenoTypeMulti)
             {
-                if (fenotypeMulti.Eigenschap == "BloeiHoogteMinJan")
+                if (fenotypeMulti != null)
                 {
                     isChecked = true;
                 }
@@ -100,7 +98,7 @@ namespace PlantenApplicatie.Viewmodel
         }
         private void ResetBloomCommand()
         {
-            //_selectedPlant = _SearchService.ReturnSelectedPlant();
+            _selectedPlant = _SearchService.ReturnSelectedPlant();
 
             //fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
 
@@ -127,6 +125,18 @@ namespace PlantenApplicatie.Viewmodel
                 //MessageBox.Show(_selectedPlant.Familie + " tadaah");
                 //DoesItNeedToBeChecked();
             }
+
+            fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
+            if (fenoTypeMulti is null)
+            {
+                MessageBox.Show("FenoMultiLijst is leeg");
+            }
+
+            else
+            {
+                MessageBox.Show("FenoMultiLijst is gevuld");
+            }
         }
 
 
@@ -138,7 +148,8 @@ namespace PlantenApplicatie.Viewmodel
         {
             get
             {
-                //_selectedPlant = _SearchService.ReturnSelectedPlant();
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+                fenoTypeMulti = _detailService.FilterFenoMulti(SelectedPlant.PlantId);
 
                 //if (_selectedPlant.Familie == "BRASSICACEAE")
                 //{
@@ -152,11 +163,11 @@ namespace PlantenApplicatie.Viewmodel
 
                 //_selectedCheckBoxBloeikleurZwart = isChecked;
 
-                _fenoTypeMulti = _detailService.FilterFenoMulti(SelectedPlant.PlantId);
+
 
                 if (fenoTypeMulti != null)
-                {   
-                    
+                {
+
                     foreach (var fenotypeMulti in fenoTypeMulti)
                     {
                         if (fenotypeMulti.Eigenschap == "BloeikleurZwart")
@@ -178,12 +189,22 @@ namespace PlantenApplicatie.Viewmodel
                     MessageBox.Show("Daaaaaag!");
                 }
 
-                             
+
                 return _selectedCheckBoxBloeikleurZwart;
             }
 
             set
             {
+
+                if (fenoTypeMulti is null)
+                {
+                    MessageBox.Show("No multi");
+                }
+
+                else
+                {
+                    MessageBox.Show("Lijst Multi is gevuld"); 
+                }
                 _selectedCheckBoxBloeikleurZwart = value;
                 OnPropertyChanged();
             }

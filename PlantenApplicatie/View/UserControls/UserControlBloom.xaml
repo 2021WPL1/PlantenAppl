@@ -1038,7 +1038,7 @@
             <Label Content="Maanden"  Canvas.Left="1040" Canvas.Top="26" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <ComboBox x:Name="CboMaanden" 
                 ItemsSource="{Binding cboMaanden}" 
-                SelectedItem="{Binding SelectedCboMaanden, Mode=TwoWay}" IsEditable="True"
+                SelectedItem="{Binding SelectedCboMaanden, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="True"
                 Canvas.Left="1040" Canvas.Top="73" Height="26" Width="66">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
