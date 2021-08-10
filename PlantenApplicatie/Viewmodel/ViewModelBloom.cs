@@ -26,6 +26,7 @@ namespace PlantenApplicatie.Viewmodel
 
         public List<FenotypeMulti> fenoTypeMulti { get; set; }
 
+
         public RelayCommand resetBloom { get; set; }
         public bool isChecked;
 
@@ -72,12 +73,13 @@ namespace PlantenApplicatie.Viewmodel
 
         }
 
-        public void DoesItNeedToBeChecked()
+        public bool CheckColor(string color)
         {
-           // isChecked = true;
+            fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+            //isChecked = true;
             foreach (var fenotypeMulti in fenoTypeMulti)
             {
-                if (fenotypeMulti.Maand == "oktober" && fenotypeMulti.Waarde == "zwart")
+                if (fenotypeMulti.Waarde == color)
                 {
                     isChecked = true;
                     MessageBox.Show(fenotypeMulti.Waarde);
@@ -88,7 +90,26 @@ namespace PlantenApplicatie.Viewmodel
                     MessageBox.Show("nope");
                 }
             }
+
+            return isChecked;
         }
+        //public void DoesItNeedToBeChecked()
+        //{
+        //    isChecked = true;
+        //    foreach (var fenotypeMulti in fenoTypeMulti)
+        //    {
+        //        if (fenotypeMulti.Maand == "oktober" && fenotypeMulti.Waarde == "zwart")
+        //        {
+        //            isChecked = true;
+        //            MessageBox.Show(fenotypeMulti.Waarde);
+        //        }
+        //        else
+        //        {
+        //            isChecked = false;
+        //            MessageBox.Show("nope");
+        //        }
+        //    }
+        //}
         #region Checkbox Bloeikleur
 
 
@@ -99,7 +120,7 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedPlant = _SearchService.ReturnSelectedPlant();
                 //DoesItNeedToBeChecked();
-                if (_selectedPlant.Familie == "BRASSICACEAE")
+                if (CheckColor("zwart"))
                 {
                     isChecked = true;
                 }
