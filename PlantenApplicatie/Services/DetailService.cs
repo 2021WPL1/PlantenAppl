@@ -36,7 +36,6 @@ namespace PlantenApplicatie.Services
         public List<FenotypeMulti> FilterFenoMulti(long plantId)
         {
             var filteredFenoTypeMulti = _dao.GetFenotypeMultis(plantId);
-
             return filteredFenoTypeMulti;
         }
 

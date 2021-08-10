@@ -5,6 +5,8 @@ using System.Collections.ObjectModel;
 using System.Printing;
 using System.Text;
 using System.Windows;
+using System.Windows.Automation.Peers;
+using Accessibility;
 using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Data;
 using Planten2021.Domain.Models;
@@ -22,14 +24,12 @@ namespace PlantenApplicatie.Viewmodel
         private static SimpleIoc iocc = SimpleIoc.Default;
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
-        //public Plant _selectedPlant { get; set; }
-
-        public List<FenotypeMulti> fenoTypeMulti { get; set; }
 
         public RelayCommand resetBloom { get; set; }
         public bool isChecked;
 
         private Plant _selectedPlant;
+        private List<FenotypeMulti> _fenoTypeMultis;
 
         public ViewModelBloom(IDetailService detailservice)
         {
@@ -43,8 +43,10 @@ namespace PlantenApplicatie.Viewmodel
         {
             get
             {
-                _selectedPlant = _SearchService.ReturnSelectedPlant();
+               _selectedPlant = _SearchService.ReturnSelectedPlant();
+                
                 return _selectedPlant;
+                
             }
             set
             {
@@ -53,11 +55,27 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
+        public List<FenotypeMulti> FenoTypeMultis
+        {
+            get
+            {
+                //fenoMulti is een kleine rebel,
+                //De plant moet eerste worden gevuld voor de Id ervan kan worden gebruikt
+                //Op deze manier kan je de fenomultiList over de volledige viewmodel gebruiken
+
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+                _fenoTypeMultis = _detailService.FilterFenoMulti(SelectedPlant.PlantId);
+                return _fenoTypeMultis;
+            }
+            set
+            {
+                _fenoTypeMultis = value;
+            }
+        }
         private void ResetBloomCommand()
         {
             
             //_selectedPlant = _SearchService.ReturnSelectedPlant();
-            fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
             if (_selectedPlant == null)
             {
                 MessageBox.Show("Je hebt nog geen plant geselecteerd!");
@@ -70,12 +88,22 @@ namespace PlantenApplicatie.Viewmodel
                 //DoesItNeedToBeChecked();
             }
 
+           // _fenoTypeMultis = _detailService.FilterFenoMulti(SelectedPlant.PlantId);
+           
+            if (_fenoTypeMultis is null)
+            {
+                MessageBox.Show("FenoMultiList is null");
+            }
+            else
+            {
+                MessageBox.Show("fenomulti is gevuld");
+            }
         }
 
         public void DoesItNeedToBeChecked()
         {
            // isChecked = true;
-            foreach (var fenotypeMulti in fenoTypeMulti)
+            foreach (var fenotypeMulti in _fenoTypeMultis)
             {
                 if (fenotypeMulti.Maand == "oktober" && fenotypeMulti.Waarde == "zwart")
                 {
@@ -98,6 +126,9 @@ namespace PlantenApplicatie.Viewmodel
             get
             {
                 _selectedPlant = _SearchService.ReturnSelectedPlant();
+                _fenoTypeMultis = _detailService.FilterFenoMulti(SelectedPlant.PlantId);
+                
+                
                 //DoesItNeedToBeChecked();
                 if (_selectedPlant.Familie == "BRASSICACEAE")
                 {
@@ -107,6 +138,7 @@ namespace PlantenApplicatie.Viewmodel
                 {
                     isChecked = false;
                 }
+
                 _selectedCheckBoxBloeikleurZwart = isChecked;
                 return _selectedCheckBoxBloeikleurZwart;
 
@@ -115,7 +147,14 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 //isChecked = true;
-
+                if (_fenoTypeMultis is null)
+                {
+                    MessageBox.Show("multitje is null he");
+                }
+                else
+                {
+                    MessageBox.Show("victory, multitje is gevuld");
+                }
                 _selectedCheckBoxBloeikleurZwart = value;
                 OnPropertyChanged();
             }
