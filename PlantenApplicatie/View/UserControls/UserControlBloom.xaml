@@ -372,7 +372,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMinFeb" 
-                ItemsSource="{Binding cmbBloeiHoogteMinFeb}" 
+                ItemsSource="{Binding cboBloeiHoogteMinFeb}" 
                 SelectedItem="{Binding SelectedBloeiHoogteMinFeb}" IsEditable="True"
                 Canvas.Left="222" Canvas.Top="245" Height="26" Width="67">
                 <ComboBox.Effect>
@@ -406,7 +406,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxFeb" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxFeb}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxFeb}" 
                 SelectedItem="{Binding SelectedBloeiHoogteMaxFeb}" IsEditable="True"
                 Canvas.Left="223" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -440,7 +440,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMinMar" 
-                ItemsSource="{Binding cmbBloeiHoogteMinMar}" 
+                ItemsSource="{Binding cboBloeiHoogteMinMar}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinMar}" IsEditable="True"
                 Canvas.Left="310" Canvas.Top="245" Height="26" Width="68">
                 <ComboBox.Effect>
@@ -474,7 +474,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxMar" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxMar}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxMar}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxMar}" IsEditable="True"
                 Canvas.Left="310" Canvas.Top="278" Height="26" Width="68">
                 <ComboBox.Effect>
@@ -508,7 +508,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMinApr" 
-                ItemsSource="{Binding cmbBloeiHoogteMinApr}" 
+                ItemsSource="{Binding cboBloeiHoogteMinApr}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinApr}" IsEditable="True"
                 Canvas.Left="392" Canvas.Top="245" Height="26" Width="68">
                 <ComboBox.Effect>
@@ -542,7 +542,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxApr" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxApr}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxApr}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxApr}" IsEditable="True"
                 Canvas.Left="394" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -576,7 +576,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMinMay" 
-                ItemsSource="{Binding cmbBloeiHoogteMinMay}" 
+                ItemsSource="{Binding cboBloeiHoogteMinMay}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinMay}" IsEditable="True"
                 Canvas.Left="475" Canvas.Top="245" Height="26" Width="68">
                 <ComboBox.Effect>
@@ -610,7 +610,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxMay" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxMay}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxMay}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxMay}" IsEditable="True"
                 Canvas.Left="476" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -644,7 +644,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMinJun" 
-                ItemsSource="{Binding cmbBloeiHoogteMinJun}" 
+                ItemsSource="{Binding cboBloeiHoogteMinJun}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinJun}" IsEditable="True"
                 Canvas.Left="560" Canvas.Top="245" Height="26" Width="68">
                 <ComboBox.Effect>
@@ -678,7 +678,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxJun" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxJun}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxJun}" 
                 SelectedItem="{Binding SelectedBloeiHoogteMaxJun}" IsEditable="True"
                 Canvas.Left="560" Canvas.Top="278" Height="26" Width="68">
                 <ComboBox.Effect>
@@ -712,7 +712,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMinJul" 
-                ItemsSource="{Binding cmbBloeiHoogteMinJul}" 
+                ItemsSource="{Binding cboBloeiHoogteMinJul}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinJul}" IsEditable="True"
                 Canvas.Left="642" Canvas.Top="245" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -746,7 +746,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxJul" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxJul}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxJul}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxJul}" IsEditable="True"
                 Canvas.Left="642" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -814,7 +814,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxAug" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxAug}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxAug}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxAug}" IsEditable="True"
                 Canvas.Left="800" Canvas.Top="245" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -848,7 +848,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMinSep" 
-                ItemsSource="{Binding cmbBloeiHoogteMinSep}" 
+                ItemsSource="{Binding cboBloeiHoogteMinSep}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinSep}" IsEditable="True"
                 Canvas.Left="878" Canvas.Top="245" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -882,7 +882,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxSep" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxSep}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxSep}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxSep}" IsEditable="True"
                 Canvas.Left="958" Canvas.Top="245" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -916,7 +916,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMinOct" 
-                ItemsSource="{Binding cmbBloeiHoogteMinOct}" 
+                ItemsSource="{Binding cboBloeiHoogteMinOct}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinOct}" IsEditable="True"
                 Canvas.Left="1038" Canvas.Top="245" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -950,7 +950,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxOct" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxOct}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxOct}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxOct}" IsEditable="True"
                 Canvas.Left="723" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -984,7 +984,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMInNov" 
-                ItemsSource="{Binding cmbBloeiHoogteMinNov}" 
+                ItemsSource="{Binding cboBloeiHoogteMinNov}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinNov}" IsEditable="True"
                 Canvas.Left="800" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -1018,7 +1018,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxNov" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxNov}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxNov}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxNov}" IsEditable="True"
                 Canvas.Left="878" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -1052,7 +1052,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMInDec" 
-                ItemsSource="{Binding cmbBloeiHoogteMinDec}" 
+                ItemsSource="{Binding cboBloeiHoogteMinDec}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMinDec}" IsEditable="True"
                 Canvas.Left="958" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
@@ -1086,7 +1086,7 @@
 
             </ComboBox>
             <ComboBox x:Name="CboBloeihoogteMaxDec" 
-                ItemsSource="{Binding cmbBloeiHoogteMaxDec}" 
+                ItemsSource="{Binding cboBloeiHoogteMaxDec}" 
                 SelectedItem="{Binding SelectedCboBloeiHoogteMaxDec}" IsEditable="True"
                 Canvas.Left="1038" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>

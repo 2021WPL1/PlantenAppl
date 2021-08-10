@@ -22,7 +22,7 @@ namespace PlantenApplicatie.Viewmodel
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
         private Plant _selectedPlant;
-        public List<FenotypeMulti> _fenoTypeMulti;
+        private List<FenotypeMulti> _fenoTypeMulti;
 
 
 
@@ -73,40 +73,51 @@ namespace PlantenApplicatie.Viewmodel
 
         public void doesItNeedToBeChecked()
         {
-            isChecked = true;
+            //isChecked = true;
 
-            //foreach (var fenotypeMulti in fenoTypeMulti)
-            //{
-            //    if (fenotypeMulti.Waarde == "zwart" && fenotypeMulti.Maand == "jan")
-            //    {
-            //        isChecked = true;
-            //    }
+            foreach (var fenotypeMulti in fenoTypeMulti)
+            {
+                if (fenotypeMulti.Waarde == "zwart" && fenotypeMulti.Maand == "jan")
+                {
+                    isChecked = true;
+                }
 
-            //    else
-            //    {
-            //       isChecked = false;
-            //    }
-            //}
+                else
+                {
+                    isChecked = false;
+                }
+            }
 
         }
         private void ResetBloomCommand()
         {
-            _selectedPlant = _SearchService.ReturnSelectedPlant();
+            //_selectedPlant = _SearchService.ReturnSelectedPlant();
+
+            //fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
+            //if (_selectedPlant == null)
+            //{
+            //    MessageBox.Show("Je hebt nog geen plant geselecteerd!");
+            //}
+
+            //else
+            //{
+            //    _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+            //    //MessageBox.Show(_selectedPlant.Familie + " tadaah");
+            //}
 
             fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
-
             if (_selectedPlant == null)
             {
                 MessageBox.Show("Je hebt nog geen plant geselecteerd!");
             }
-
             else
             {
-                _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
+                //_detailService.FilterFenoMulti(_selectedPlant.PlantId);
                 //MessageBox.Show(_selectedPlant.Familie + " tadaah");
+                //DoesItNeedToBeChecked();
             }
-            
-            
         }
 
 
@@ -325,7 +336,7 @@ namespace PlantenApplicatie.Viewmodel
                     }
                 }
 
-                _selectedCheckBoxBloeikleurJan= isChecked;
+                _selectedCheckBoxBloeikleurJan = isChecked;
 
                 return _selectedCheckBoxBloeikleurJan;
 
@@ -341,7 +352,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurFeb;
         public bool SelectedCheckBoxBloeikleurFeb
         {
-            get { return _selectedCheckBoxBloeikleurFeb; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurFeb = isChecked;
+
+                return _selectedCheckBoxBloeikleurFeb;
+            }
 
             set
             {
@@ -353,7 +381,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurMar;
         public bool SelectedCheckBoxBloeikleurMar
         {
-            get { return _selectedCheckBoxBloeikleurMar; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurMar = isChecked;
+
+                return _selectedCheckBoxBloeikleurMar;
+            }
 
             set
             {
@@ -365,7 +410,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurApr;
         public bool SelectedCheckBoxBloeikleurApr
         {
-            get { return _selectedCheckBoxBloeikleurApr; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurApr = isChecked;
+
+                return _selectedCheckBoxBloeikleurApr;
+            }
 
             set
             {
@@ -377,7 +439,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurMay;
         public bool SelectedCheckBoxBloeikleurMay
         {
-            get { return _selectedCheckBoxBloeikleurMay; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurMay = isChecked;
+
+                return _selectedCheckBoxBloeikleurMay;
+            }
 
             set
             {
@@ -389,7 +468,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurJun;
         public bool SelectedCheckBoxBloeikleurJun
         {
-            get { return _selectedCheckBoxBloeikleurJun; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurJun = isChecked;
+
+                return _selectedCheckBoxBloeikleurJun;
+            }
 
             set
             {
@@ -401,7 +497,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurJul;
         public bool SelectedCheckBoxBloeikleurJul
         {
-            get { return _selectedCheckBoxBloeikleurJul; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurJul = isChecked;
+
+                return _selectedCheckBoxBloeikleurJul;
+            }
 
             set
             {
@@ -413,7 +526,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurAug;
         public bool SelectedCheckBoxBloeikleurAug
         {
-            get { return _selectedCheckBoxBloeikleurAug; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurAug = isChecked;
+
+                return _selectedCheckBoxBloeikleurAug;
+            }
 
             set
             {
@@ -425,7 +555,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurSep;
         public bool SelectedCheckBoxBloeikleurSep
         {
-            get { return _selectedCheckBoxBloeikleurSep; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurSep = isChecked;
+
+                return _selectedCheckBoxBloeikleurSep;
+            }
 
             set
             {
@@ -437,7 +584,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurOct;
         public bool SelectedCheckBoxBloeikleurOct
         {
-            get { return _selectedCheckBoxBloeikleurOct; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurOct = isChecked;
+
+                return _selectedCheckBoxBloeikleurOct;
+            }
 
             set
             {
@@ -449,7 +613,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurNov;
         public bool SelectedCheckBoxBloeikleurNov
         {
-            get { return _selectedCheckBoxBloeikleurNov; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurNov = isChecked;
+
+                return _selectedCheckBoxBloeikleurNov;
+            }
 
             set
             {
@@ -461,7 +642,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurDec;
         public bool SelectedCheckBoxBloeikleurDec
         {
-            get { return _selectedCheckBoxBloeikleurDec; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurDec = isChecked;
+
+                return _selectedCheckBoxBloeikleurDec;
+            }
 
             set
             {
@@ -475,7 +673,10 @@ namespace PlantenApplicatie.Viewmodel
 
         public string SelectedBloeiHoogte
         {
-            get { return _selectedBloeiHoogte; }
+            get
+            {
+                return _selectedBloeiHoogte;
+            }
             set
             {
                 _selectedBloeiHoogte = value;
@@ -489,7 +690,25 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinJan;
         public bool SelectedCboBloeiHoogteMinJan
         {
-            get { return _selectedCboBloeiHoogteMinJan; }
+            get
+            {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinJan")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCboBloeiHoogteMinJan = isChecked;
+
+                return _selectedCboBloeiHoogteMinJan;
+            }
 
             set
             {
@@ -501,7 +720,23 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxJan;
         public bool SelectedCboBloeiHoogteMaxJan
         {
-            get { return _selectedCboBloeiHoogteMaxJan; }
+            get
+            {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxJan")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxJan = isChecked;
+                return _selectedCboBloeiHoogteMaxJan;
+            }
 
             set
             {
@@ -513,7 +748,24 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinFeb;
         public bool SelectedCboBloeiHoogteMinFeb
         {
-            get { return _selectedCboBloeiHoogteMinFeb; }
+            get
+            {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinFeb")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCboBloeiHoogteMinFeb = isChecked;
+                return _selectedCboBloeiHoogteMinFeb;
+            }
 
             set
             {
@@ -525,7 +777,23 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxFeb;
         public bool SelectedCboBloeiHoogteMaxFeb
         {
-            get { return _selectedCboBloeiHoogteMaxFeb; }
+            get
+            {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxFeb")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxFeb = isChecked;
+                return _selectedCboBloeiHoogteMaxFeb;
+            }
 
             set
             {
@@ -537,7 +805,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinMar;
         public bool SelectedCboBloeiHoogteMinMar
         {
-            get { return _selectedCboBloeiHoogteMinMar; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinMar")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinMar = isChecked;
+                return _selectedCboBloeiHoogteMinMar;
+            }
 
             set
             {
@@ -549,7 +832,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxMar;
         public bool SelectedCboBloeiHoogteMaxMar
         {
-            get { return _selectedCboBloeiHoogteMaxMar; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxMar")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxMar = isChecked;
+                return _selectedCboBloeiHoogteMaxMar;
+            }
 
             set
             {
@@ -561,7 +859,23 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinApr;
         public bool SelectedCboBloeiHoogteMinApr
         {
-            get { return _selectedCboBloeiHoogteMinApr; }
+            get
+            {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinApr")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinApr = isChecked;
+                return _selectedCboBloeiHoogteMinApr;
+            }
 
             set
             {
@@ -573,7 +887,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxApr;
         public bool SelectedCboBloeiHoogteMaxApr
         {
-            get { return _selectedCboBloeiHoogteMaxApr; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxApr")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxApr = isChecked;
+                return _selectedCboBloeiHoogteMaxApr;
+            }
 
             set
             {
@@ -585,7 +914,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinMay;
         public bool SelectedCboBloeiHoogteMinMay
         {
-            get { return _selectedCboBloeiHoogteMinMay; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinMay")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinMay = isChecked;
+                return _selectedCboBloeiHoogteMinMay;
+            }
 
             set
             {
@@ -597,7 +941,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxMay;
         public bool SelectedCboBloeiHoogteMaxMay
         {
-            get { return _selectedCboBloeiHoogteMaxMay; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxMay")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxMay = isChecked;
+                return _selectedCboBloeiHoogteMaxMay;
+            }
 
             set
             {
@@ -609,7 +968,23 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinJun;
         public bool SelectedCboBloeiHoogteMinJun
         {
-            get { return _selectedCboBloeiHoogteMinJun; }
+            get
+            {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinJun")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinJun = isChecked;
+                return _selectedCboBloeiHoogteMinJun;
+            }
 
             set
             {
@@ -621,7 +996,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxJun;
         public bool SelectedCboBloeiHoogteMaxJun
         {
-            get { return _selectedCboBloeiHoogteMaxJun; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxJun")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxJul = isChecked;
+                return _selectedCboBloeiHoogteMaxJun;
+            }
 
             set
             {
@@ -632,7 +1022,23 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinJul;
         public bool SelectedCboBloeiHoogteMinJul
         {
-            get { return _selectedCboBloeiHoogteMinJul; }
+            get
+            {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinJul")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinJul = isChecked;
+                return _selectedCboBloeiHoogteMinJul;
+            }
 
             set
             {
@@ -644,7 +1050,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxJul;
         public bool SelectedCboBloeiHoogteMaxJul
         {
-            get { return _selectedCboBloeiHoogteMaxJul; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxJul")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxJul = isChecked;
+                return _selectedCboBloeiHoogteMaxJul;
+            }
 
             set
             {
@@ -656,7 +1077,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinAug;
         public bool SelectedCboBloeiHoogteMinAug
         {
-            get { return _selectedCboBloeiHoogteMinAug; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinAug")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinAug = isChecked;
+                return _selectedCboBloeiHoogteMinAug;
+            }
 
             set
             {
@@ -668,7 +1104,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxAug;
         public bool SelectedCboBloeiHoogteMaxAug
         {
-            get { return _selectedCboBloeiHoogteMaxAug; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxAug")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxAug = isChecked;
+                return _selectedCboBloeiHoogteMaxAug;
+            }
 
             set
             {
@@ -680,7 +1131,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinSep;
         public bool SelectedCboBloeiHoogteMinSep
         {
-            get { return _selectedCboBloeiHoogteMinSep; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinSep")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinSep = isChecked;
+                return _selectedCboBloeiHoogteMinSep;
+            }
 
             set
             {
@@ -691,7 +1157,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxSep;
         public bool SelectedCboBloeiHoogteMaxSep
         {
-            get { return _selectedCboBloeiHoogteMaxSep; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxSep")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxSep = isChecked;
+                return _selectedCboBloeiHoogteMaxSep;
+            }
 
             set
             {
@@ -703,7 +1184,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinOct;
         public bool SelectedCboBloeiHoogteMinOct
         {
-            get { return _selectedCboBloeiHoogteMinOct; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinOct")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinOct = isChecked;
+                return _selectedCboBloeiHoogteMinOct;
+            }
 
             set
             {
@@ -715,7 +1211,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxOct;
         public bool SelectedCboBloeiHoogteMaxOct
         {
-            get { return _selectedCboBloeiHoogteMaxOct; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxOct")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxOct= isChecked;
+                return _selectedCboBloeiHoogteMaxOct;
+            }
 
             set
             {
@@ -724,14 +1235,29 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        private bool _selectedCboBloeiHoogteNov;
+        private bool _selectedCboBloeiHoogteMinNov;
         public bool SelectedCboBloeiHoogteNov
         {
-            get { return _selectedCboBloeiHoogteNov; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinNov")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinNov = isChecked;
+                return _selectedCboBloeiHoogteMinNov;
+            }
 
             set
             {
-                _selectedCboBloeiHoogteNov = value;
+                _selectedCboBloeiHoogteMinNov = value;
                 OnPropertyChanged();
             }
         }
@@ -739,7 +1265,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxNov;
         public bool SelectedCboBloeiHoogteMaxNov
         {
-            get { return _selectedCboBloeiHoogteMaxNov; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxNov")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxNov = isChecked;
+                return _selectedCboBloeiHoogteMaxNov;
+            }
 
             set
             {
@@ -751,7 +1292,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMinDec;
         public bool SelectedCboBloeiHoogteDec
         {
-            get { return _selectedCboBloeiHoogteMinDec; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMinDec")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMinDec = isChecked;
+                return _selectedCboBloeiHoogteMinDec;
+            }
 
             set
             {
@@ -763,7 +1319,22 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCboBloeiHoogteMaxDec;
         public bool SelectedCboBloeiHoogteMaxDec
         {
-            get { return _selectedCboBloeiHoogteMaxDec; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeiHoogteMaxDec")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                _selectedCboBloeiHoogteMaxDec = isChecked;
+                return _selectedCboBloeiHoogteMaxDec;
+            }
 
             set
             {
@@ -780,7 +1351,21 @@ namespace PlantenApplicatie.Viewmodel
         
         public bool SelectedCheckBoxBloeitInJan
         {
-            get { return _selectedCheckBoxBloeitInJan; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInJan")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInJan;
+            }
 
             set
             {
@@ -792,7 +1377,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInFeb;
         public bool SelectedCheckBoxBloeitInFeb
         {
-            get { return _selectedCheckBoxBloeitInFeb; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInFeb")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInFeb;
+            }
 
             set
             {
@@ -804,7 +1403,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInMar;
         public bool SelectedCheckBoxBloeitInMar
         {
-            get { return _selectedCheckBoxBloeitInMar; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInMar")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInMar;
+            }
 
             set
             {
@@ -816,7 +1429,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInApr;
         public bool SelectedCheckBoxBloeitInApr
         {
-            get { return _selectedCheckBoxBloeitInApr; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInApr")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInApr;
+            }
 
             set
             {
@@ -828,7 +1455,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInMay;
         public bool SelectedCheckBoxBloeitInMay
         {
-            get { return _selectedCheckBoxBloeitInMay; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInMay")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInMay;
+            }
 
             set
             {
@@ -840,7 +1481,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInJun;
         public bool SelectedCheckBoxBloeitInJun
         {
-            get { return _selectedCheckBoxBloeitInJun; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInJun")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInJun;
+            }
 
             set
             {
@@ -851,7 +1506,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInJul;
         public bool SelectedCheckBoxBloeitInJul
         {
-            get { return _selectedCheckBoxBloeitInJul; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInJul")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInJul;
+            }
 
             set
             {
@@ -863,7 +1532,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInAug;
         public bool SelectedCheckBoxBloeitInAug
         {
-            get { return _selectedCheckBoxBloeitInAug; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInAug")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInAug;
+            }
 
             set
             {
@@ -875,7 +1558,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInSep;
         public bool SelectedCheckBoxBloeitInSep
         {
-            get { return _selectedCheckBoxBloeitInSep; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInSep")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInSep;
+            }
 
             set
             {
@@ -887,7 +1584,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInOct;
         public bool SelectedCheckBoxBloeitInOct
         {
-            get { return _selectedCheckBoxBloeitInOct; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInOct")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInOct;
+            }
 
             set
             {
@@ -899,7 +1610,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInNov;
         public bool SelectedCheckBoxBloeitInNov
         {
-            get { return _selectedCheckBoxBloeitInNov; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInNov")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInNov;
+            }
 
             set
             {
@@ -911,7 +1636,21 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeitInDec;
         public bool SelectedCheckBoxBloeitInDec
         {
-            get { return _selectedCheckBoxBloeitInDec; }
+            get {
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Eigenschap == "BloeitInDec")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+                return _selectedCheckBoxBloeitInDec;
+            }
 
             set
             {
