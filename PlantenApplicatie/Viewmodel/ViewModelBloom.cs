@@ -78,24 +78,45 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        public void doesItNeedToBeChecked()
+        public bool CheckColor(string color)
         {
+            fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
             //isChecked = true;
-
             foreach (var fenotypeMulti in fenoTypeMulti)
             {
-                if (fenotypeMulti != null)
+                if (fenotypeMulti.Waarde == color)
                 {
                     isChecked = true;
+                    MessageBox.Show(fenotypeMulti.Waarde);
                 }
-
                 else
                 {
                     isChecked = false;
+                    MessageBox.Show("nope");
                 }
             }
 
+            return isChecked;
+
         }
+        //    public void doesItNeedToBeChecked()
+        //{
+        //    //isChecked = true;
+
+        //    foreach (var fenotypeMulti in fenoTypeMulti)
+        //    {
+        //        if (fenotypeMulti != null)
+        //        {
+        //            isChecked = true;
+        //        }
+
+        //        else
+        //        {
+        //            isChecked = false;
+        //        }
+        //    }
+
+        //}
         private void ResetBloomCommand()
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
