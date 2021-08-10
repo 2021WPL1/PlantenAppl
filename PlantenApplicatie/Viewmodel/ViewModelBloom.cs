@@ -21,8 +21,10 @@ namespace PlantenApplicatie.Viewmodel
         private static SimpleIoc iocc = SimpleIoc.Default;
         private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
         private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
-        public Plant _selectedPlant { get; set; }
-        public List<FenotypeMulti> fenoTypeMulti { get; set; }
+        private Plant _selectedPlant;
+        public List<FenotypeMulti> _fenoTypeMulti;
+
+
 
         public RelayCommand resetBloom { get; set; }
 
@@ -31,31 +33,68 @@ namespace PlantenApplicatie.Viewmodel
         public ViewModelBloom(IDetailService detailservice)
         {
             _detailService = detailservice;
-            _selectedPlant = _SearchService.ReturnSelectedPlant();
+            //_selectedPlant = _SearchService.ReturnSelectedPlant();
             resetBloom = new RelayCommand(ResetBloomCommand);
             //fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
         }
-        
+
+        public Plant SelectedPlant
+        {
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+                return _selectedPlant;
+            }
+
+
+            set
+            {
+                _selectedPlant = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        public List<FenotypeMulti> fenoTypeMulti 
+        {
+            get
+            {
+                _fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+                return _fenoTypeMulti;
+            }
+
+            set
+            {
+                _fenoTypeMulti = value;
+
+                OnPropertyChanged();
+            }
+        }
+
         public void doesItNeedToBeChecked()
         {
-            foreach (var fenotypeMulti in fenoTypeMulti)
-            {
-                if (fenotypeMulti.Waarde == "zwart" && fenotypeMulti.Maand == "jan")
-                {
-                    _selectedCheckBoxBloeikleurZwart = true;
-                }
+            isChecked = true;
 
-                else
-                {
-                    _selectedCheckBoxBloeikleurZwart = false;
-                }
-            }
+            //foreach (var fenotypeMulti in fenoTypeMulti)
+            //{
+            //    if (fenotypeMulti.Waarde == "zwart" && fenotypeMulti.Maand == "jan")
+            //    {
+            //        isChecked = true;
+            //    }
+
+            //    else
+            //    {
+            //       isChecked = false;
+            //    }
+            //}
 
         }
         private void ResetBloomCommand()
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
+
             fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
             if (_selectedPlant == null)
             {
                 MessageBox.Show("Je hebt nog geen plant geselecteerd!");
@@ -77,15 +116,28 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurZwart;
         public bool SelectedCheckBoxBloeikleurZwart
         {
-            get { return _selectedCheckBoxBloeikleurZwart; }
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+
+                if (_selectedPlant.Familie == "BRASSICACEAE")
+                {
+                    isChecked = true;
+                }
+
+                else
+                {
+                    isChecked = false;
+                }
+
+                _selectedCheckBoxBloeikleurZwart = isChecked;
+
+                return _selectedCheckBoxBloeikleurZwart;
+            }
 
             set
             {
-                _selectedCheckBoxBloeikleurZwart = isChecked;
-
-                //MessageBox.Show(_selectedPlant.Familie);
-                
-                
+                _selectedCheckBoxBloeikleurZwart = value;
                 OnPropertyChanged();
             }
         }
@@ -101,19 +153,7 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedCheckBoxBloeikleurWit = isChecked;
 
-                //foreach (var fenotypeMulti in fenoTypeMulti)
-                //{
-                //    if (fenotypeMulti.Waarde == "wit")
-                //    {
-                //        _selectedCheckBoxBloeikleurZwart = true;
-                //    }
-
-                //    else
-                //    {
-                //        _selectedCheckBoxBloeikleurZwart = false;
-                //    }
-                //}
-
+                
 
                 OnPropertyChanged();
             }
@@ -126,7 +166,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurRosé = value;
+                _selectedCheckBoxBloeikleurRosé = isChecked;
                OnPropertyChanged();
             }
         }
@@ -138,7 +178,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurRood = value;
+                _selectedCheckBoxBloeikleurRood = isChecked;
                OnPropertyChanged();
             }
         }
@@ -150,7 +190,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurOranje = value;
+                _selectedCheckBoxBloeikleurOranje = isChecked;
                OnPropertyChanged();
             }
         }
@@ -162,7 +202,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurLila = value;
+                _selectedCheckBoxBloeikleurLila = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -174,7 +214,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurGrijs = value;
+                _selectedCheckBoxBloeikleurGrijs = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -186,7 +226,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurGroen = value;
+                _selectedCheckBoxBloeikleurGroen = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -198,7 +238,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurGeel= value;
+                _selectedCheckBoxBloeikleurGeel= isChecked;
                 OnPropertyChanged();
             }
         }
@@ -206,7 +246,23 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurBlauw;
         public bool SelectedCheckBoxBloeikleurBlauw
         {
-            get { return _selectedCheckBoxBloeikleurBlauw; }
+            get {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+
+                if (_selectedPlant.Familie == "BRASSICACEAE")
+                {
+                    isChecked = true;
+                }
+
+                else
+                {
+                    isChecked = false;
+                }
+
+                _selectedCheckBoxBloeikleurBlauw = isChecked;
+
+                return _selectedCheckBoxBloeikleurBlauw;
+                }
 
             set
             {
@@ -222,7 +278,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurViolet = value;
+                _selectedCheckBoxBloeikleurViolet = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -234,7 +290,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurPaars = value;
+                _selectedCheckBoxBloeikleurPaars = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -246,7 +302,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurBruin = value;
+                _selectedCheckBoxBloeikleurBruin = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -254,11 +310,30 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBloeikleurJan;
         public bool SelectedCheckBoxBloeikleurJan
         {
-            get { return _selectedCheckBoxBloeikleurJan; }
+            get {
+                
+                foreach (var fenotypeMulti in fenoTypeMulti)
+                {
+                    if (fenotypeMulti.Waarde == "zwart")
+                    {
+                        isChecked = true;
+                    }
+
+                    else
+                    {
+                        isChecked = false;
+                    }
+                }
+
+                _selectedCheckBoxBloeikleurJan= isChecked;
+
+                return _selectedCheckBoxBloeikleurJan;
+
+            }
 
             set
             {
-                _selectedCheckBoxBloeikleurJan = value;
+                _selectedCheckBoxBloeikleurJan = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -270,7 +345,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurFeb = value;
+                _selectedCheckBoxBloeikleurFeb = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -282,7 +357,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurMar = value;
+                _selectedCheckBoxBloeikleurMar = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -294,7 +369,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurApr = value;
+                _selectedCheckBoxBloeikleurApr = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -306,7 +381,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurMay = value;
+                _selectedCheckBoxBloeikleurMay = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -318,7 +393,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurJun = value;
+                _selectedCheckBoxBloeikleurJun = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -330,7 +405,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurJul = value;
+                _selectedCheckBoxBloeikleurJul = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -342,7 +417,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurAug = value;
+                _selectedCheckBoxBloeikleurAug = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -354,7 +429,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurSep = value;
+                _selectedCheckBoxBloeikleurSep = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -366,7 +441,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurOct = value;
+                _selectedCheckBoxBloeikleurOct = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -378,7 +453,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurNov = value;
+                _selectedCheckBoxBloeikleurNov = isChecked;
                 OnPropertyChanged();
             }
         }
@@ -390,7 +465,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurDec = value;
+                _selectedCheckBoxBloeikleurDec = isChecked;
                 OnPropertyChanged();
             }
         }
