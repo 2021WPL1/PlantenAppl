@@ -260,32 +260,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxBloeikleurRosé
         {
             get {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurRosé")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                       
-                    }
-                    _selectedCheckBoxBloeikleurRosé = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
                 
-
                 return _selectedCheckBoxBloeikleurRosé;
             }
 
@@ -300,33 +275,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxBloeikleurRood
         {
             get {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurRood")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                        
-                    }
-
-                    _selectedCheckBoxBloeikleurRood = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
-               
-
+                
                 return _selectedCheckBoxBloeikleurWit;
             }
 
@@ -341,33 +290,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxBloeiKleurOranje
         {
             get {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurOranje")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                        
-                    }
-
-                    _selectedCheckBoxBloeikleurOranje = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
                
-
                 return _selectedCheckBoxBloeikleurOranje;
             }
 
@@ -383,33 +306,7 @@ namespace PlantenApplicatie.Viewmodel
         {
             get
             {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurLila")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                        
-                    }
-
-                    _selectedCheckBoxBloeikleurLila = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
                 
-
                 return _selectedCheckBoxBloeikleurLila;
             }
 
@@ -425,33 +322,7 @@ namespace PlantenApplicatie.Viewmodel
         {
             get
             {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurGrijs")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                        
-                    }
-
-                    _selectedCheckBoxBloeikleurGrijs = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
-                
-
+               
                 return _selectedCheckBoxBloeikleurGrijs;
             }
 
@@ -466,33 +337,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxBloeikleurGroen
         {
             get {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurGroen")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                       
-                    }
-
-                    _selectedCheckBoxBloeikleurGroen = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
                 
-
                 return _selectedCheckBoxBloeikleurGroen;
             }
 
@@ -507,33 +352,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxBloeikleurGeel
         {
             get {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurGeel")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                       
-                    }
-
-                    _selectedCheckBoxBloeikleurGeel = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
                
-
                 return _selectedCheckBoxBloeikleurGeel;
             }
 
@@ -549,33 +368,7 @@ namespace PlantenApplicatie.Viewmodel
         {
             get {
                 
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurBlauw")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                        
-                    }
-
-                    _selectedCheckBoxBloeikleurBlauw = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
-               
-
+                
                 return _selectedCheckBoxBloeikleurBlauw;
                 }
 
@@ -590,31 +383,6 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxBloeikleurViolet
         {
             get {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurViolet")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                        
-                    }
-
-                    _selectedCheckBoxBloeikleurViolet = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
                
                 return _selectedCheckBoxBloeikleurViolet; }
 
@@ -629,32 +397,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxBloeikleurPaars
         {
             get {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurPaars")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                        
-                    }
-
-                    _selectedCheckBoxBloeikleurPaars = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
-                
+                                
                 return _selectedCheckBoxBloeikleurPaars; }
 
             set
@@ -668,32 +411,7 @@ namespace PlantenApplicatie.Viewmodel
         public bool SelectedCheckBoxBloeikleurBruin
         {
             get {
-                if (fenoTypeMulti != null)
-                {
-                    foreach (var fenotypeMulti in fenoTypeMulti)
-                    {
-                        if (fenotypeMulti.Eigenschap == "BloeikleurBruin")
-                        {
-                            isChecked = true;
-                        }
-
-                        else
-                        {
-                            isChecked = false;
-                        }
-
-                        
-                    }
-
-                    _selectedCheckBoxBloeikleurBruin = isChecked;
-                }
-
-                else
-                {
-                    MessageBox.Show("");
-                }
-
-               
+                
                 return _selectedCheckBoxBloeikleurBruin; }
 
             set
@@ -740,563 +458,62 @@ namespace PlantenApplicatie.Viewmodel
         }
         #region Binding Combobox BloeiHoogte
 
-        private bool _selectedCboBloeiHoogteMinJan;
-        public bool SelectedCboBloeiHoogteMinJan
+        private bool _selectedCboBloeiHoogteMin;
+        public bool SelectedCboBloeiHoogteMin
         {
             get
             {
 
-                return _selectedCboBloeiHoogteMinJan;
+                return _selectedCboBloeiHoogteMin;
             }
 
             set
             {
-                _selectedCboBloeiHoogteMinJan = value;
+                _selectedCboBloeiHoogteMin = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCboBloeiHoogteMaxJan;
-        public bool SelectedCboBloeiHoogteMaxJan
+        private bool _selectedCboBloeiHoogteMax;
+        public bool SelectedCboBloeiHoogteMax
         {
             get
             {
                 
-                return _selectedCboBloeiHoogteMaxJan;
+                return _selectedCboBloeiHoogteMax;
             }
 
             set
             {
-                _selectedCboBloeiHoogteMaxJan = value;
+                _selectedCboBloeiHoogteMax = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCboBloeiHoogteMinFeb;
-        public bool SelectedCboBloeiHoogteMinFeb
-        {
-            get
-            {
-                
-                
-                return _selectedCboBloeiHoogteMinFeb;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinFeb = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxFeb;
-        public bool SelectedCboBloeiHoogteMaxFeb
-        {
-            get
-            {
-                               
-                return _selectedCboBloeiHoogteMaxFeb;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxFeb = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinMar;
-        public bool SelectedCboBloeiHoogteMinMar
-        {
-            get {
-               
-                return _selectedCboBloeiHoogteMinMar;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinMar = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxMar;
-        public bool SelectedCboBloeiHoogteMaxMar
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMaxMar;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxMar = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinApr;
-        public bool SelectedCboBloeiHoogteMinApr
-        {
-            get
-            {
-                
-                return _selectedCboBloeiHoogteMinApr;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinApr = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxApr;
-        public bool SelectedCboBloeiHoogteMaxApr
-        {
-            get {
-               
-                return _selectedCboBloeiHoogteMaxApr;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxApr = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinMay;
-        public bool SelectedCboBloeiHoogteMinMay
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMinMay;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinMay = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxMay;
-        public bool SelectedCboBloeiHoogteMaxMay
-        {
-            get {
-               
-                return _selectedCboBloeiHoogteMaxMay;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxMay = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinJun;
-        public bool SelectedCboBloeiHoogteMinJun
-        {
-            get
-            {
-               
-                return _selectedCboBloeiHoogteMinJun;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinJun = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxJun;
-        public bool SelectedCboBloeiHoogteMaxJun
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMaxJun;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxJun = value;
-                OnPropertyChanged();
-            }
-        }
-        private bool _selectedCboBloeiHoogteMinJul;
-        public bool SelectedCboBloeiHoogteMinJul
-        {
-            get
-            {
-                
-                return _selectedCboBloeiHoogteMinJul;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinJul = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxJul;
-        public bool SelectedCboBloeiHoogteMaxJul
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMaxJul;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxJul = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinAug;
-        public bool SelectedCboBloeiHoogteMinAug
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMinAug;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinAug = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxAug;
-        public bool SelectedCboBloeiHoogteMaxAug
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMaxAug;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxAug = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinSep;
-        public bool SelectedCboBloeiHoogteMinSep
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMinSep;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinSep = value;
-                OnPropertyChanged();
-            }
-        }
-        private bool _selectedCboBloeiHoogteMaxSep;
-        public bool SelectedCboBloeiHoogteMaxSep
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMaxSep;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxSep = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinOct;
-        public bool SelectedCboBloeiHoogteMinOct
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMinOct;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinOct = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxOct;
-        public bool SelectedCboBloeiHoogteMaxOct
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMaxOct;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxOct = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinNov;
-        public bool SelectedCboBloeiHoogteMinNov
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMinNov;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinNov = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxNov;
-        public bool SelectedCboBloeiHoogteMaxNov
-        {
-            get {
-               
-                return _selectedCboBloeiHoogteMaxNov;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxNov = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMinDec;
-        public bool SelectedCboBloeiHoogteMinDec
-        {
-            get {
-               
-                return _selectedCboBloeiHoogteMinDec;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMinDec = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCboBloeiHoogteMaxDec;
-        public bool SelectedCboBloeiHoogteMaxDec
-        {
-            get {
-                
-                return _selectedCboBloeiHoogteMaxDec;
-            }
-
-            set
-            {
-                _selectedCboBloeiHoogteMaxDec = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
         #endregion
 
         #region Binding Checkbox Bloeit In
 
-        private bool _selectedCheckBoxBloeitInJan;
+        private bool _selectedCheckBoxBloeitIn;
         
-        public bool SelectedCheckBoxBloeitInJan
+        public bool SelectedCheckBoxBloeitIn
         {
             get {
 
                 
-                return _selectedCheckBoxBloeitInJan;
+                return _selectedCheckBoxBloeitIn;
             }
 
             set
             {
-                _selectedCheckBoxBloeitInJan = value;
+                _selectedCheckBoxBloeitIn = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBloeitInFeb;
-        public bool SelectedCheckBoxBloeitInFeb
-        {
-            get {
-
-                
-                return _selectedCheckBoxBloeitInFeb;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInFeb = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInMar;
-        public bool SelectedCheckBoxBloeitInMar
-        {
-            get {
-
-                
-                return _selectedCheckBoxBloeitInMar;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInMar = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInApr;
-        public bool SelectedCheckBoxBloeitInApr
-        {
-            get {
-
-                
-                return _selectedCheckBoxBloeitInApr;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInApr = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInMay;
-        public bool SelectedCheckBoxBloeitInMay
-        {
-            get {
-
-                
-                return _selectedCheckBoxBloeitInMay;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInMay = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInJun;
-        public bool SelectedCheckBoxBloeitInJun
-        {
-            get {
-
-                
-                return _selectedCheckBoxBloeitInJun;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInJun = value;
-                OnPropertyChanged();
-            }
-        }
-        private bool _selectedCheckBoxBloeitInJul;
-        public bool SelectedCheckBoxBloeitInJul
-        {
-            get {
-                                               
-                return _selectedCheckBoxBloeitInJul;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInJul = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInAug;
-        public bool SelectedCheckBoxBloeitInAug
-        {   
-            
-            get {
-
-                return _selectedCheckBoxBloeitInAug;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInAug = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInSep;
-        public bool SelectedCheckBoxBloeitInSep
-        {
-            get {
-               
-                return _selectedCheckBoxBloeitInSep;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInSep = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInOct;
-        public bool SelectedCheckBoxBloeitInOct
-        {
-            get {
-                
-                return _selectedCheckBoxBloeitInOct;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInOct = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInNov;
-        public bool SelectedCheckBoxBloeitInNov
-        {
-            get
-            {
-                       
-                return _selectedCheckBoxBloeitInNov;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInNov = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBloeitInDec;
-        public bool SelectedCheckBoxBloeitInDec
-        {
-            get {
-                                
-                return _selectedCheckBoxBloeitInDec;
-            }
-
-            set
-            {
-                _selectedCheckBoxBloeitInDec = value;
-                OnPropertyChanged();
-            }
-        }
+        
 
 
         #endregion
@@ -1318,9 +535,8 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
         #endregion
-
-       
-        //    #endregion
+             
+        
     }
 }
 

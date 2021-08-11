@@ -119,9 +119,9 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <ComboBox x:Name="CboBloeihoogteMinJan" 
-                      ItemsSource="{Binding cboBloeiHoogteMinJan}" 
-                      SelectedItem="{Binding Path=SelectedCboBloeiHoogteMinJan}" IsEditable="True"
+            <ComboBox x:Name="CboBloeihoogteMin" 
+                      ItemsSource="{Binding cboBloeiHoogteMin}" 
+                      SelectedItem="{Binding Path=SelectedCboBloeiHoogteMin, Mode=TwoWay}" IsEditable="True"
                       Canvas.Left="134" Canvas.Top="245" Height="26" Width="66">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
@@ -153,9 +153,9 @@
                 <ComboBoxItem Content="0/9"/>
 
             </ComboBox>
-            <ComboBox x:Name="CboBloeihoogteMaxJan" 
-                      ItemsSource="{Binding cboBloeiHoogteMaxJan}" 
-                      SelectedItem="{Binding Path=SelectedCboBloeiHoogteMaxJan}" IsEditable="True"
+            <ComboBox x:Name="CboBloeihoogteMax" 
+                      ItemsSource="{Binding cboBloeiHoogteMax}" 
+                      SelectedItem="{Binding Path=SelectedCboBloeiHoogteMax}" IsEditable="True"
                       Canvas.Left="134" Canvas.Top="278" Height="26" Width="66">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
