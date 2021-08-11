@@ -44,6 +44,7 @@ namespace PlantenApplicatie.Viewmodel
 
                 CheckMonth();
                 CheckBladvormen();
+                CheckLevensvormen();
                 
                 OnPropertyChanged();
             }
