@@ -568,6 +568,13 @@ namespace Planten2021.Data
 
         //    return neededFenoMulti;
         //}
+
+        public List<FenoBloeiwijze> GetFenoBloeiwijze()
+        {
+            var fenoBloeiwijze = context.FenoBloeiwijze.ToList();
+
+            return fenoBloeiwijze;
+        }
     }
 
 

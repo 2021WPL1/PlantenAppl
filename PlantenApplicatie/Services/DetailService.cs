@@ -40,5 +40,12 @@ namespace PlantenApplicatie.Services
             return filteredFenoTypeMulti;
         }
 
+        public List<FenoBloeiwijze> GetFenoBloeiwijzes()
+        {
+            var fenoBloeiWijzes = _dao.GetFenoBloeiwijze();
+
+            return fenoBloeiWijzes;
+        }
+
     }
 }

@@ -9,6 +9,7 @@ namespace PlantenApplicatie.Services.Interfaces
     {
         public Plant ReturnSelectedPlant();
         public List<FenotypeMulti> FilterFenoMulti(long plantId);
+        public List<FenoBloeiwijze> GetFenoBloeiwijzes();
 
     }
 }
