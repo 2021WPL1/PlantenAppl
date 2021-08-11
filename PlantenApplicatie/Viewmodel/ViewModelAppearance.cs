@@ -25,7 +25,7 @@ namespace PlantenApplicatie.Viewmodel
         {
             _detailService = detailservice;
             _selectedFenotypeMonth = new List<FenotypeMulti>();
-            _selectedFenoBladvorm = new List<FenotypeMulti>();
+            _selectedFenoBladvorm = new List<Fenotype>();
         }
 
         public Plant SelectedPlant
@@ -42,6 +42,8 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedPlant = value;
 
+                CheckMonth();
+                CheckBladvormen();
                 
                 OnPropertyChanged();
             }
@@ -346,9 +348,9 @@ namespace PlantenApplicatie.Viewmodel
 
         }
 
-        private List<FenotypeMulti> _selectedFenoBladvorm;
+        private List<Fenotype> _selectedFenoBladvorm;
 
-        public List<FenotypeMulti> selectedFenoBladvorm
+        public List<Fenotype> selectedFenoBladvorm
         {
 
             get
@@ -366,9 +368,40 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        private List<FenotypeMulti> _selectedFenoLevensvorm;
+        public void CheckBladvormen()
+        {
+            foreach (var item in _selectedFenoBladvorm)
+            {
 
-        public List<FenotypeMulti> selectedFenoLevensvorm
+                switch (item.Bladvorm)
+                {
+                    case "naald -en priemvormig":
+                        SelectedCheckBoxBladvormenVorm1 = true;
+                        break;
+                    case "lancetvormig":
+                        SelectedCheckBoxBladvormenVorm2 = true;
+                        break;
+                    case "rond":
+                        SelectedCheckBoxBladvormenVorm3 = true;
+                        break;
+                    case "samengesteld grof":
+                        SelectedCheckBoxBladvormenVorm4 = true;
+                        break;
+                    case "samengesteld verfijnd":
+                        SelectedCheckBoxBladvormenVorm5 = true;
+                        break;
+                                        
+                    default:
+                        break;
+                }
+
+
+            }
+        }
+
+        private List<Fenotype> _selectedFenoLevensvorm;
+
+        public List<Fenotype> selectedFenoLevensvorm
         {
 
             get
@@ -385,6 +418,41 @@ namespace PlantenApplicatie.Viewmodel
                 OnPropertyChanged();
             }
         }
+
+        public void CheckLevensvormen()
+        {
+            foreach (var item in _selectedFenoLevensvorm)
+            {
+
+                switch (item.Levensvorm)
+                {
+                    case "Hydrofyten - waterplanten":
+                        SelectedCheckBoxLevensvormenVorm1 = true;
+                        break;
+                    case "Helofyten - winterknoppen onder water, bloeiende planten boven water":
+                        SelectedCheckBoxLevensvormenVorm2 = true;
+                        break;
+                    case "Cryptofyten of Geofyten - winterknoppen onder de grond":
+                        SelectedCheckBoxLevensvormenVorm3 = true;
+                        break;
+                    case "HemiCryptofyten - winterknoppen op of iets onder de grond":
+                        SelectedCheckBoxLevensvormenVorm4 = true;
+                        break;
+                    case "Chamaefyten - winterknoppen tot 50 cm boven de grond":
+                        SelectedCheckBoxLevensvormenVorm5 = true;
+                        break;
+                    case "P¨hanerofyten - winterknoppen minstens 50 cm boven de grond":
+                        SelectedCheckBoxLevensvormenVorm6 = true;
+                        break;                   
+
+                    default:
+                        break;
+                }
+
+
+            }
+        }
+
 
         public void doesItNeedToBeChecked()
         {
@@ -841,44 +909,7 @@ namespace PlantenApplicatie.Viewmodel
                 OnPropertyChanged();
             }
         }
-
-        private bool _selectedCheckBoxLevensvormenVorm7;
-        public bool SelectedCheckBoxLevensvormenVorm7
-        {
-            get { return _selectedCheckBoxLevensvormenVorm7; }
-
-            set
-            {
-                _selectedCheckBoxLevensvormenVorm7 = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxLevensvormenVorm8;
-        public bool SelectedCheckBoxLevensvormenVorm8
-        {
-            get { return _selectedCheckBoxLevensvormenVorm8; }
-
-            set
-            {
-                _selectedCheckBoxLevensvormenVorm8 = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxLevensvormenVorm9;
-        public bool SelectedCheckBoxLevensvormenVorm9
-        {
-            get { return _selectedCheckBoxLevensvormenVorm9; }
-
-            set
-            {
-                _selectedCheckBoxLevensvormenVorm9 = value;
-                OnPropertyChanged();
-            }
-        }
-
-
+                
         #endregion
     }
 }

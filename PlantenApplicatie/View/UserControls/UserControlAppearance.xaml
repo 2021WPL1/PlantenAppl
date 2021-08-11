@@ -307,30 +307,6 @@
                     <DropShadowEffect/>
                 </CheckBox.Effect>
             </CheckBox>
-            <Label Content="Vorm 7"  Canvas.Left="810" Canvas.Top="134" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Vorm 8"  Canvas.Left="918" Canvas.Top="134" Height="28" Width="70" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxLevensvormenVorm7" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm7, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="828" Canvas.Top="179" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <CheckBox x:Name="CbxLevensvormenVorm8" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm8, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="937" Canvas.Top="179" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
-            <Label Content="Vorm 9"  Canvas.Left="1021" Canvas.Top="134" Height="28" Width="69" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <CheckBox x:Name="CbxLevensvormenVorm9" 
-                      IsChecked="{Binding Path=SelectedCheckBoxLevensvormenVorm9, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                      Canvas.Left="1040" Canvas.Top="181" Height="16" Width="16">
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
             <Button x:Name="BtnOpslagZoekenAppearance" Content="Opslag Zoeken Appearance" Width="210" Height="50" Canvas.Left="916" Canvas.Top="600" BorderBrush="#FF2AE633"   Background="#FF474029" FontWeight="Bold" FontSize="15" Foreground="#FFA2BC5B">
                 <Button.Effect>
                     <DropShadowEffect/>
