@@ -78,18 +78,10 @@
                       IsChecked="{Binding Path=SelectedCheckBoxBloeikleurBruin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                       Content="CheckBox" Canvas.Left="976" Canvas.Top="78" Height="15" Width="14"/>
             <Label Content="Bloeikleur" Canvas.Left="28" Canvas.Top="73" Height="28" Width="100" BorderBrush="Orange"  FontWeight="Bold" FontSize="14"/>
-            <Label Content=" Min" Canvas.Left="41" Canvas.Top="245" Height="26" Width="50" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
+            <Label Content=" Min" Canvas.Left="41" Canvas.Top="218" Height="26" Width="50" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
             <Label Content=" Max" Canvas.Left="41" Canvas.Top="278" Height="26" Width="54" BorderBrush="Gray" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Bloeihoogte"  Canvas.Left="28" Canvas.Top="211" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-            <Label Content="Bloeit in"  Canvas.Left="28" Canvas.Top="318" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
-
-            <CheckBox x:Name="CboBloeitInJan" 
-                      IsChecked="{Binding Path=SelectedCheckBoxBloeitInJan, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
-                      Content="CheckBox" Canvas.Left="167" Canvas.Top="330" Height="16" Width="16" >
-                <CheckBox.Effect>
-                    <DropShadowEffect/>
-                </CheckBox.Effect>
-            </CheckBox>
+            <Label Content="Bloeihoogte"  Canvas.Left="28" Canvas.Top="170" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Bloeit in"  Canvas.Left="28" Canvas.Top="352" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <Label Content="Bloeiwijze" Canvas.Left="28" Canvas.Top="420" Height="28" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14" />
             <!--<Label Content="Vorm 6"  Canvas.Left="517" Canvas.Top="420" Height="40" Width="58" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>-->
 
@@ -98,7 +90,7 @@
                       DisplayMemberPath="Naam"
                       SelectedValuePath="Id"
                       SelectedItem="{Binding Path=SelectedCboFenoBloeiwijze, Mode=TwoWay}" IsEditable="True"
-                       Canvas.Left="168" Canvas.Top="420" Width="176" BorderBrush="Blue" Height="41">
+                       Canvas.Left="168" Canvas.Top="420" Width="176" BorderBrush="Blue" Height="28">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -122,7 +114,7 @@
             <ComboBox x:Name="CboBloeihoogteMin" 
                       ItemsSource="{Binding cboBloeiHoogteMin}" 
                       SelectedItem="{Binding Path=SelectedCboBloeiHoogteMin, Mode=TwoWay}" IsEditable="True"
-                      Canvas.Left="134" Canvas.Top="245" Height="26" Width="66">
+                      Canvas.Left="134" Canvas.Top="218" Height="26" Width="106">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -156,7 +148,7 @@
             <ComboBox x:Name="CboBloeihoogteMax" 
                       ItemsSource="{Binding cboBloeiHoogteMax}" 
                       SelectedItem="{Binding Path=SelectedCboBloeiHoogteMax}" IsEditable="True"
-                      Canvas.Left="134" Canvas.Top="278" Height="26" Width="66">
+                      Canvas.Left="134" Canvas.Top="278" Height="26" Width="106">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
@@ -187,27 +179,28 @@
                 <ComboBoxItem Content="0/9"/>
 
             </ComboBox>
-            <Label Content="Maanden"  Canvas.Left="338" Canvas.Top="211" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
+            <Label Content="Maanden"  Canvas.Left="347" Canvas.Top="170" Height="40" Width="100" BorderBrush="Orange" FontWeight="Bold" FontSize="14"/>
             <ComboBox x:Name="CboMaanden"
                 SelectedItem="{Binding SelectedCboMaanden, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEditable="True"
-                Canvas.Left="338" Canvas.Top="265" Height="26" Width="66">
+                Canvas.Left="341" Canvas.Top="218" Height="26" Width="100">
                 <ComboBox.Effect>
                     <DropShadowEffect/>
                 </ComboBox.Effect>
                 <ComboBoxItem Content="Januari"/>
-                <ComboBoxItem Content="February"/>
-                <ComboBoxItem Content="March"/>
+                <ComboBoxItem Content="Februari"/>
+                <ComboBoxItem Content="Maart"/>
                 <ComboBoxItem Content="April"/>
-                <ComboBoxItem Content="May"/>
-                <ComboBoxItem Content="June"/>
-                <ComboBoxItem Content="July"/>
-                <ComboBoxItem Content="August"/>
+                <ComboBoxItem Content="Mei"/>
+                <ComboBoxItem Content="Juni"/>
+                <ComboBoxItem Content="Juli"/>
+                <ComboBoxItem Content="Augustus"/>
                 <ComboBoxItem Content="September"/>
-                <ComboBoxItem Content="October"/>
+                <ComboBoxItem Content="Oktober"/>
                 <ComboBoxItem Content="November"/>
                 <ComboBoxItem Content="December"/>
 
             </ComboBox>
+            <CheckBox Content="CheckBox" Canvas.Left="158" Canvas.Top="359" Width="18"/>
 
 
 

@@ -617,24 +617,7 @@ namespace PlantenApplicatie.Services
             }
         }
 
-        //public void FillFenoTypeMulti(ObservableCollection<string> detailsSelectedPlant, Plant SelectedPlantInResult)
-        //{
-        //    var fenoTypeMultiList = _dao.GetAllFenotypeMultis();
-
-        //    foreach (var itemFenoTypeMulti in fenoTypeMultiList)
-        //    {
-        //        foreach (var item in SelectedPlantInResult)
-        //        {
-        //            if (item.PlantId == itemFenoTypeMulti.PlantId)
-        //            {
-        //                detailsSelectedPlant.Add("Eigenschap" + itemFenoTypeMulti.Eigenschap.ToString());
-        //                detailsSelectedPlant.Add("Waarde" + itemFenoTypeMulti.Waarde.ToString());
-        //                detailsSelectedPlant.Add("Maand" + itemFenoTypeMulti.Maand);
-        //            }
-
-        //        }
-        //    }
-        //}
+       
         #endregion
         public string UpdateLoggedInMessage()
         {
@@ -674,20 +657,7 @@ namespace PlantenApplicatie.Services
 
         }
 
-        //public IQueryable<Plant> selectedPlant;
-        //public IQueryable<Plant> SetSelectedPlant(Plant selectedPlantResult)
-        //{
-        //    IQueryable<Plant> plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
-        //    selectedPlant = plant;
-        //    return plant;
-        //}
-
-        //public IQueryable<Plant> ReturnSelectedPlant()
-        //{
-        //    IQueryable<Plant> plant = selectedPlant;
-        //    return plant;
-        //}
-
+        
         //geschreven door owen
         //omgezet voor de service door kenny
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)

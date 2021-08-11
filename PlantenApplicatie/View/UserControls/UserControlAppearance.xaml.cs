@@ -22,5 +22,15 @@ namespace PlantenApplicatie.View.UserControls
         {
             InitializeComponent();
         }
+
+        private void CbxBladhoogteDec_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void CboMaanden_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,19 +5,424 @@ using System.Text;
 using System.Windows;
 using Planten2021.Data;
 using PlantenApplicatie.Services.Interfaces;
+using GalaSoft.MvvmLight.Ioc;
+using Planten2021.Domain.Models;
 
 namespace PlantenApplicatie.Viewmodel
 {
     public class ViewModelAppearance : ViewModelBase
     {
-        private DAO _dao;
+
+        private static SimpleIoc iocc = SimpleIoc.Default;
+        private static IDetailService _detailService = iocc.GetInstance<IDetailService>();
+        private static ISearchService _SearchService = iocc.GetInstance<ISearchService>();
+        private Plant _selectedPlant;
+        private List<FenotypeMulti> _fenoTypeMulti;
+
+        public bool isChecked;
 
         public ViewModelAppearance(IDetailService detailservice)
         {
-            this._dao = DAO.Instance();
+            _detailService = detailservice;
+            _selectedFenotypeMonth = new List<FenotypeMulti>();
+            _selectedFenoBladvorm = new List<FenotypeMulti>();
         }
 
-        
+        public Plant SelectedPlant
+        {
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+
+                return _selectedPlant;
+
+            }
+
+            set
+            {
+                _selectedPlant = value;
+
+                
+                OnPropertyChanged();
+            }
+        }
+
+        public List<FenotypeMulti> fenoTypeMulti
+        {
+
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+                _fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
+                return _fenoTypeMulti;
+            }
+
+            set
+            {
+                _fenoTypeMulti = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        private List<FenotypeMulti> _selectedFenotypeMonth;
+
+        public List<FenotypeMulti> selectedFenotypeMonth
+        {
+
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+                _selectedFenotypeMonth.Clear();
+                CheckMonth();
+
+                return _selectedFenotypeMonth;
+            }
+
+            set
+            {
+                _selectedFenotypeMonth = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        public void CheckMonth()
+        {
+            _selectedPlant = _SearchService.ReturnSelectedPlant();
+            fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
+
+            MessageBox.Show(SelectedCboMaanden);
+            foreach (var item in _fenoTypeMulti)
+            {
+                if (SelectedCboMaanden.Contains(item.Maand))
+                {
+                    _selectedFenotypeMonth.Add(item);
+                }
+            }
+
+        }
+
+        public void CheckColor()
+        {
+
+            //isChecked = true;
+            foreach (var item in _selectedFenotypeMonth)
+            {
+
+                switch (item.Waarde)
+                {
+                    case "zwart":
+                        SelectedCheckBoxBladkleurZwart = true;
+                        break;
+                    case "wit":
+                        SelectedCheckBoxBladkleurWit = true;
+                        break;
+                    case "rosé":
+                        SelectedCheckBoxBladkleurRosé = true;
+                        break;
+                    case "rood":
+                        SelectedCheckBoxBladkleurRood = true;
+                        break;
+                    case "oranje":
+                        SelectedCheckBoxBladkleurOranje = true;
+                        break;
+                    case "lila":
+                        SelectedCheckBoxBladkleurLila = true;
+                        break;
+                    case "grijs":
+                        SelectedCheckBoxBladkleurGrijs = true;
+                        break;
+                    case "groen":
+                        SelectedCheckBoxBladkleurGroen = true;
+                        break;
+                    case "geel":
+                        SelectedCheckBoxBladkleurGeel = true;
+                        break;
+                    case "blauw":
+                        SelectedCheckBoxBladkleurBlauw = true;
+                        break;
+                    case "violet":
+                        SelectedCheckBoxBladkleurViolet = true;
+                        break;
+                    case "paars":
+                        SelectedCheckBoxBladkleurPaars = true;
+                        break;
+                    case "bruin":
+                        SelectedCheckBoxBladkleurBruin = true;
+                        break;
+                    default:
+                        break;
+                }
+
+
+            }
+
+
+
+        }
+
+        public void CheckBladHoogteMin()
+        {
+            foreach (var item in _selectedFenotypeMonth)
+            {
+
+                switch (item.Waarde)
+                {
+                    case "0/9":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "10/19":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "20/29":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "30/39":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "40/49":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "50/59":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "60/69":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "70/79":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "80/89":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "90/99":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "100/109":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "110/119":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "120/129":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "130/139":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "140/149":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "150/159":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "160/169":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "170/179":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "180/189":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "190/199":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "200/209":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "210/219":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "220/229":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "230/239":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+                    case "240/250":
+                        SelectedCboBladHoogteMin = true;
+                        break;
+
+                    default:
+                        break;
+                }
+
+            }
+
+        }
+
+        public void CheckBladHoogteMax()
+        {
+            foreach (var item in _selectedFenotypeMonth)
+            {
+
+                switch (item.Waarde)
+                {
+                    case "0/9":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "10/19":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "20/29":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "30/39":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "40/49":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "50/59":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "60/69":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "70/79":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "80/89":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "90/99":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "100/109":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "110/119":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "120/129":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "130/139":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "140/149":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "150/159":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "160/169":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "170/179":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "180/189":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "190/199":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "200/209":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "210/219":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "220/229":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "230/239":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+                    case "240/250":
+                        SelectedCboBladHoogteMax = true;
+                        break;
+
+                    default:
+                        break;
+                }
+
+            }
+
+
+        }
+
+        private List<FenotypeMulti> _selectedFenoBladvorm;
+
+        public List<FenotypeMulti> selectedFenoBladvorm
+        {
+
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+               
+                return _selectedFenoBladvorm;
+            }
+
+            set
+            {
+                _selectedFenoBladvorm = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        private List<FenotypeMulti> _selectedFenoLevensvorm;
+
+        public List<FenotypeMulti> selectedFenoLevensvorm
+        {
+
+            get
+            {
+                _selectedPlant = _SearchService.ReturnSelectedPlant();
+
+                return _selectedFenoLevensvorm;
+            }
+
+            set
+            {
+                _selectedFenoLevensvorm = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        public void doesItNeedToBeChecked()
+        {
+            //isChecked = true;
+
+            foreach (var fenotypeMulti in fenoTypeMulti)
+            {
+                if (fenotypeMulti != null)
+                {
+                    isChecked = true;
+                }
+
+                else
+                {
+                    isChecked = false;
+                }
+            }
+
+        }
+
+        private string _selectedCboMaanden;
+
+        public string SelectedCboMaanden
+        {
+            get { return _selectedCboMaanden; }
+            set
+            {
+                _selectedCboMaanden = value.ToLower();
+                CheckMonth();
+                CheckColor();
+                CheckBladHoogteMin();
+                CheckBladHoogteMax();
+                OnPropertyChanged();
+
+            }
+        }
+
+
 
         //geschreven door christophe op basis van owens code
         #region Binding checkboxen Bladkleur
@@ -193,148 +598,31 @@ namespace PlantenApplicatie.Viewmodel
         }
         #region Binding checkboxen BladHoogte
 
-        private bool _selectedCheckBoxBladHoogteJan;
-        public bool SelectedCheckBoxBladHoogteJan
+        private bool _selectedCboBladHoogteMin;
+        public bool SelectedCboBladHoogteMin
         {
-            get { return _selectedCheckBoxBladHoogteJan; }
+            get { return _selectedCboBladHoogteMin; }
 
             set
             {
-                _selectedCheckBoxBladHoogteJan = value;
+                _selectedCboBladHoogteMin = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBladHoogteFeb;
-        public bool SelectedCheckBoxBladHoogteFeb
+        private bool _selectedCboBladHoogteMax;
+        public bool SelectedCboBladHoogteMax
         {
-            get { return _selectedCheckBoxBladHoogteFeb; }
+            get { return _selectedCboBladHoogteMax; }
 
             set
             {
-                _selectedCheckBoxBladHoogteFeb = value;
+                _selectedCboBladHoogteMax = value;
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCheckBoxBladHoogteMar;
-        public bool SelectedCheckBoxBladHoogteMar
-        {
-            get { return _selectedCheckBoxBladHoogteMar; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteMar = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladHoogteApr;
-        public bool SelectedCheckBoxBladHoogteApr
-        {
-            get { return _selectedCheckBoxBladHoogteApr; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteApr = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladHoogteMay;
-        public bool SelectedCheckBoxBladHoogteMay
-        {
-            get { return _selectedCheckBoxBladHoogteMay; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteMay = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladHoogteJun;
-        public bool SelectedCheckBoxBladHoogteJun
-        {
-            get { return _selectedCheckBoxBladHoogteJun; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteJun = value;
-                OnPropertyChanged();
-            }
-        }
-        private bool _selectedCheckBoxBladHoogteJul;
-        public bool SelectedCheckBoxBladHoogteJul
-        {
-            get { return _selectedCheckBoxBladHoogteJul; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteJul = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladHoogteAug;
-        public bool SelectedCheckBoxBladHoogteAug
-        {
-            get { return _selectedCheckBoxBladHoogteAug; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteAug = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladHoogteSep;
-        public bool SelectedCheckBoxBladHoogteSep
-        {
-            get { return _selectedCheckBoxBladHoogteSep; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteSep = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladHoogteOct;
-        public bool SelectedCheckBoxBladHoogteOct
-        {
-            get { return _selectedCheckBoxBladHoogteOct; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteOct = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladHoogteNov;
-        public bool SelectedCheckBoxBladHoogteNov
-        {
-            get { return _selectedCheckBoxBladHoogteNov; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteNov = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladHoogteDec;
-        public bool SelectedCheckBoxBladHoogteDec
-        {
-            get { return _selectedCheckBoxBladHoogteDec; }
-
-            set
-            {
-                _selectedCheckBoxBladHoogteDec = value;
-                OnPropertyChanged();
-            }
-        }
+       
 
         #endregion
 
@@ -400,55 +688,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        private bool _selectedCheckBoxBladvormenVorm6;
-        public bool SelectedCheckBoxBladvormenVorm6
-        {
-            get { return _selectedCheckBoxBladvormenVorm6; }
-
-            set
-            {
-                _selectedCheckBoxBladvormenVorm6 = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladvormenVorm7;
-        public bool SelectedCheckBoxBladvormenVorm7
-        {
-            get { return _selectedCheckBoxBladvormenVorm7; }
-
-            set
-            {
-                _selectedCheckBoxBladvormenVorm7 = value;
-                MessageBox.Show(SelectedCheckBoxBladvormenVorm7.ToString());
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladvormenVorm8;
-        public bool SelectedCheckBoxBladvormenVorm8
-        {
-            get { return _selectedCheckBoxBladvormenVorm8; }
-
-            set
-            {
-                _selectedCheckBoxBladvormenVorm8 = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool _selectedCheckBoxBladvormenVorm9;
-        public bool SelectedCheckBoxBladvormenVorm9
-        {
-            get { return _selectedCheckBoxBladvormenVorm9; }
-
-            set
-            {
-                _selectedCheckBoxBladvormenVorm9 = value;
-                OnPropertyChanged();
-            }
-        }
-
+       
 
         #endregion
 
