@@ -57,58 +57,26 @@ namespace PlantenApplicatie.Viewmodel
 
        public void FillCboBloeiHoogte()
         {
-            
-            cboBloeiHoogte.Add("240/250");
-            cboBloeiHoogte.Add("230/239");
-
-            cboBloeiHoogte.Add("220/229");
-
-            cboBloeiHoogte.Add("210/219");
-            cboBloeiHoogte.Add("200/209");
-
-            cboBloeiHoogte.Add("190/199");
-
-            cboBloeiHoogte.Add("180/189");
-
-            cboBloeiHoogte.Add("170/179");
-
-            cboBloeiHoogte.Add("160/169");
-
-            cboBloeiHoogte.Add("150/159");
-
-            cboBloeiHoogte.Add("140/149");
-
-            cboBloeiHoogte.Add("130/139");
-
-            cboBloeiHoogte.Add("120/129");
-
-            cboBloeiHoogte.Add("110/119");
-
-            cboBloeiHoogte.Add("100/109");
-
-            cboBloeiHoogte.Add("90/99");
-
-            cboBloeiHoogte.Add("80/89");
-
-
-            cboBloeiHoogte.Add("70/79");
-
-            cboBloeiHoogte.Add("60/69");
-
-            cboBloeiHoogte.Add("50/59");
-
-            cboBloeiHoogte.Add("40/49");
-
-            cboBloeiHoogte.Add("30/39");
-
-            cboBloeiHoogte.Add("20/29");
-
-
-            cboBloeiHoogte.Add("10/19");
-
-
-            cboBloeiHoogte.Add("0/9");
+            List<string> ListOfPosibilitys = new List<string>() { "240/250", "230/239", "220/229", "210/219", 
+                "200/209", "190/199", "180/189", "170/179", "160/169", "150/159", "140/149", "130/139", "120/129", 
+                "110/119", "100/109", "90/99", "80/89","70/79", "60/69","50/59","40/49","30/39","20/29","10/19","0/9" };
+            foreach (var Posibility in ListOfPosibilitys)
+            {
+                cboBloeiHoogte.Add(Posibility);
+            }
         }
+
+       /*
+       public void FillCbo(List<string> ListOfPosibilitys)
+       {
+
+           foreach (var Posibility in ListOfPosibilitys)
+           {
+               cboBloeiHoogte.Add(Posibility);
+           }
+       }
+
+       */
         public Plant SelectedPlant
         {
             get
@@ -479,7 +447,7 @@ namespace PlantenApplicatie.Viewmodel
             
         }
 
-        public void CheckBloeitIn()
+        public bool CheckBloeitIn()
         {
             foreach (var item in fenoTypeMulti)
             {
@@ -527,6 +495,8 @@ namespace PlantenApplicatie.Viewmodel
                         default:
                             break;
                     }
+
+                    return _selectedCheckBoxBloeitIn;
                 }
                
 
