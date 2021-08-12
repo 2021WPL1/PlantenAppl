@@ -152,7 +152,9 @@
                 <ComboBoxItem Content="December"/>
 
             </ComboBox>
-            <CheckBox Content="CheckBox" Canvas.Left="158" Canvas.Top="359" Width="18"/>
+            <CheckBox  x:Name="CbxBloeitIn" 
+                      IsChecked="{Binding Path=SelectedCheckBoxBloeitIn, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                      Content="CheckBox" Canvas.Left="158" Canvas.Top="359" Width="18"/>
 
 
 

@@ -31,9 +31,6 @@ namespace PlantenApplicatie.Viewmodel
         public ViewModelBloom(IDetailService detailservice)
         {
             _detailService = detailservice;
-            //_selectedPlant = _SearchService.ReturnSelectedPlant();
-            
-            //_fenoTypeMulti = _detailService.FilterFenoMulti(SelectedPlant.PlantId);
             cboFenoBloeiwijze = new ObservableCollection<FenoBloeiwijze>();
             _selectedFenotypeMonth = new List<FenotypeMulti>();
             cboBloeiHoogte = new ObservableCollection<string>();
@@ -53,68 +50,46 @@ namespace PlantenApplicatie.Viewmodel
             {
                 cboFenoBloeiwijze.Add(item);
             }
-        }
 
+           
+        }
+        //De combobox bloeihoogte wordt hier gevuld.
        public void FillCboBloeiHoogte()
         {
             
             cboBloeiHoogte.Add("240/250");
             cboBloeiHoogte.Add("230/239");
-
             cboBloeiHoogte.Add("220/229");
-
             cboBloeiHoogte.Add("210/219");
             cboBloeiHoogte.Add("200/209");
-
             cboBloeiHoogte.Add("190/199");
-
             cboBloeiHoogte.Add("180/189");
-
             cboBloeiHoogte.Add("170/179");
-
             cboBloeiHoogte.Add("160/169");
-
             cboBloeiHoogte.Add("150/159");
-
             cboBloeiHoogte.Add("140/149");
-
             cboBloeiHoogte.Add("130/139");
-
             cboBloeiHoogte.Add("120/129");
-
             cboBloeiHoogte.Add("110/119");
-
             cboBloeiHoogte.Add("100/109");
-
             cboBloeiHoogte.Add("90/99");
-
             cboBloeiHoogte.Add("80/89");
-
-
             cboBloeiHoogte.Add("70/79");
-
             cboBloeiHoogte.Add("60/69");
-
             cboBloeiHoogte.Add("50/59");
-
             cboBloeiHoogte.Add("40/49");
-
             cboBloeiHoogte.Add("30/39");
-
             cboBloeiHoogte.Add("20/29");
-
-
             cboBloeiHoogte.Add("10/19");
-
-
             cboBloeiHoogte.Add("0/9");
+
         }
         public Plant SelectedPlant
         {
             get
             {
                 _selectedPlant = _SearchService.ReturnSelectedPlant();
-
+                _selectedFenoType = _detailService.GetFenoTypes(SelectedPlant.PlantId);
                 return _selectedPlant;
                
             }
@@ -125,11 +100,11 @@ namespace PlantenApplicatie.Viewmodel
 
                 CheckMonth();
                 CheckBloeiwijze();
-
+                SetFenoType();
                 OnPropertyChanged();
             }
         }
-
+        //Dit is een lijst van fenotype_multi eigenschappen
         public List<FenotypeMulti> fenoTypeMulti
         {
 
@@ -149,7 +124,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-
+        //Dit is een lijst van fenotype-eigenschap maanden.
         private List<FenotypeMulti> _selectedFenotypeMonth;
 
         public List<FenotypeMulti> selectedFenotypeMonth
@@ -172,6 +147,31 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
+        private Fenotype _selectedFenoType;
+
+        public Fenotype selectedFenoType
+        {
+
+            get
+            {
+
+                return _selectedFenoType;
+            }
+
+            set
+            {
+                _selectedFenoType = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        public void SetFenoType()
+        {
+            _selectedFenoType = _detailService.GetFenoTypes(SelectedPlant.PlantId);
+        }
+
+
         public void CheckMonth()
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
@@ -186,7 +186,7 @@ namespace PlantenApplicatie.Viewmodel
             }
            
         }
-
+        //Hier wordt nagegaan welke bloeikleur een bepaalde plant heeft in een bepaalde maand.
         public void CheckColor()
         {
             
@@ -248,7 +248,7 @@ namespace PlantenApplicatie.Viewmodel
           
 
         }
-
+        //Hier wordt nagegaan welke de minimum bloeihoogte is voor een plant in een bepaalde maand.
         public void CheckBloeiHoogteMin()
         {
             foreach (var item in _selectedFenotypeMonth)
@@ -342,7 +342,7 @@ namespace PlantenApplicatie.Viewmodel
             }
 
         }
-
+        //Hier wordt nagegaan welke de maximum bloeihoogte is voor een plant in een bepaalde maand.
         public void CheckBloeiHoogteMax()
         {
             foreach (var item in _selectedFenotypeMonth)
@@ -437,7 +437,7 @@ namespace PlantenApplicatie.Viewmodel
 
 
         }
-
+        //Hier wordt nagegaan welke fenotype-eigenschap bloeiwijze de plant bezit.
         public void CheckBloeiwijze()
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
@@ -479,9 +479,10 @@ namespace PlantenApplicatie.Viewmodel
             
         }
 
+        //Hier wordt nagegaan in welke maand de plant bloeit
         public void CheckBloeitIn()
         {
-            foreach (var item in fenoTypeMulti)
+            foreach (var item in _selectedFenotypeMonth)
             {
                 if (item.Eigenschap == "bloeit in")
                 {

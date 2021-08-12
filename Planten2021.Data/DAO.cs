@@ -561,7 +561,7 @@ namespace Planten2021.Data
             return fenoTypeList;
         }
         
-
+        //De lijst met bloeiwijzen worden uit de databank gehaald.
         public List<FenoBloeiwijze> GetFenoBloeiwijze()
         {
             var fenoBloeiwijze = context.FenoBloeiwijze.ToList();
@@ -569,9 +569,10 @@ namespace Planten2021.Data
             return fenoBloeiwijze;
         }
 
+        //De fenotypekenmerken worden uit de databank gehaald.
         public Fenotype GetFenoTypes(long plantId)
         {
-            var fenoTypes = context.Fenotype.FirstOrDefault(p =>p.PlantId == plantId);
+            var fenoTypes = context.Fenotype.FirstOrDefault(F => F.PlantId == plantId);
 
             return fenoTypes;
         }

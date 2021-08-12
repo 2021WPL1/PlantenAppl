@@ -38,9 +38,9 @@ namespace PlantenApplicatie.Viewmodel
             get
             {
                 _selectedPlant = _SearchService.ReturnSelectedPlant();
-                CheckLevensvormen();
-                CheckBladvormen();
-
+                //CheckLevensvormen();
+                //CheckBladvormen();
+                
                 return _selectedPlant;
 
             }
@@ -50,8 +50,7 @@ namespace PlantenApplicatie.Viewmodel
                 _selectedPlant = value;
                 CheckMonth();
                 SetFenoType();
-                
-
+      
                 OnPropertyChanged();
             }
         }
@@ -104,7 +103,7 @@ namespace PlantenApplicatie.Viewmodel
 
             get
             {
-                
+                _selectedFenoType = _detailService.GetFenoTypes(SelectedPlant.PlantId);
                 return _selectedFenoType;
             }
 
@@ -121,53 +120,28 @@ namespace PlantenApplicatie.Viewmodel
 
             cboBladHoogte.Add("240/250");
             cboBladHoogte.Add("230/239");
-
             cboBladHoogte.Add("220/229");
-
             cboBladHoogte.Add("210/219");
             cboBladHoogte.Add("200/209");
-
             cboBladHoogte.Add("190/199");
-
             cboBladHoogte.Add("180/189");
-
             cboBladHoogte.Add("170/179");
-
             cboBladHoogte.Add("160/169");
-
             cboBladHoogte.Add("150/159");
-
             cboBladHoogte.Add("140/149");
-
             cboBladHoogte.Add("130/139");
-
             cboBladHoogte.Add("120/129");
-
             cboBladHoogte.Add("110/119");
-
             cboBladHoogte.Add("100/109");
-
             cboBladHoogte.Add("90/99");
-
             cboBladHoogte.Add("80/89");
-
-
             cboBladHoogte.Add("70/79");
-
             cboBladHoogte.Add("60/69");
-
             cboBladHoogte.Add("50/59");
-
             cboBladHoogte.Add("40/49");
-
             cboBladHoogte.Add("30/39");
-
             cboBladHoogte.Add("20/29");
-
-
             cboBladHoogte.Add("10/19");
-
-
             cboBladHoogte.Add("0/9");
         }
 
@@ -476,6 +450,7 @@ namespace PlantenApplicatie.Viewmodel
         public void CheckLevensvormen()
         {
             
+            
                 switch (selectedFenoType.Levensvorm)
                 {
                     case "Hydrofyten - waterplanten":
@@ -495,11 +470,13 @@ namespace PlantenApplicatie.Viewmodel
                         break;
                     case "P¨hanerofyten - winterknoppen minstens 50 cm boven de grond":
                         SelectedCheckBoxLevensvormenVorm6 = true;
-                        break;                   
+                        break;
 
                     default:
                         break;
                 }
+            
+               
 
 
             
@@ -740,7 +717,17 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBladvormenVorm1;
         public bool SelectedCheckBoxBladvormenVorm1
         {
-            get { return _selectedCheckBoxBladvormenVorm1; }
+            get {
+
+                _selectedCheckBoxBladvormenVorm1 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Bladvorm == "Naald -en priemvormig")
+                {
+                    _selectedCheckBoxBladvormenVorm1 = true;
+                }               
+                
+                
+                return _selectedCheckBoxBladvormenVorm1; }
 
             set
             {
@@ -752,7 +739,19 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBladvormenVorm2;
         public bool SelectedCheckBoxBladvormenVorm2
         {
-            get { return _selectedCheckBoxBladvormenVorm2; }
+            get
+            {
+                _selectedCheckBoxBladvormenVorm2 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Bladvorm == "Lancetvormig")
+                {
+                    _selectedCheckBoxBladvormenVorm2 = true;
+                }
+
+
+                return _selectedCheckBoxBladvormenVorm1;
+            }
+        
 
             set
             {
@@ -764,7 +763,17 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBladvormenVorm3;
         public bool SelectedCheckBoxBladvormenVorm3
         {
-            get { return _selectedCheckBoxBladvormenVorm3; }
+            get {
+                _selectedCheckBoxBladvormenVorm3 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Bladvorm == "Rond")
+                {
+                    _selectedCheckBoxBladvormenVorm3 = true;
+                }
+
+
+                return _selectedCheckBoxBladvormenVorm3;
+            }
 
             set
             {
@@ -776,7 +785,18 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBladvormenVorm4;
         public bool SelectedCheckBoxBladvormenVorm4
         {
-            get { return _selectedCheckBoxBladvormenVorm4; }
+            get
+            {
+                _selectedCheckBoxBladvormenVorm4 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Bladvorm == "Samengesteld grof")
+                {
+                    _selectedCheckBoxBladvormenVorm4 = true;
+                }
+
+
+                return _selectedCheckBoxBladvormenVorm4;
+            }
 
             set
             {
@@ -788,7 +808,17 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxBladvormenVorm5;
         public bool SelectedCheckBoxBladvormenVorm5
         {
-            get { return _selectedCheckBoxBladvormenVorm5; }
+            get
+            {
+                _selectedCheckBoxBladvormenVorm5 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Bladvorm == "Samengesteld verfijnd")
+                {
+                    _selectedCheckBoxBladvormenVorm4 = true;
+                }
+
+
+                return _selectedCheckBoxBladvormenVorm5; ; }
 
             set
             {
@@ -882,7 +912,19 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxLevensvormenVorm1;
         public bool SelectedCheckBoxLevensvormenVorm1
         {
-            get { return _selectedCheckBoxLevensvormenVorm1; }
+            get
+            {
+                _selectedCheckBoxLevensvormenVorm1 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Levensvorm == "Hydrofyten")
+                {
+                    _selectedCheckBoxLevensvormenVorm1 = true;
+                }
+
+
+                return _selectedCheckBoxLevensvormenVorm1; ;
+            }
+        
 
             set
             {
