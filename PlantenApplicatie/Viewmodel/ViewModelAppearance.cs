@@ -749,7 +749,7 @@ namespace PlantenApplicatie.Viewmodel
                 }
 
 
-                return _selectedCheckBoxBladvormenVorm1;
+                return _selectedCheckBoxBladvormenVorm2;
             }
         
 
@@ -818,7 +818,7 @@ namespace PlantenApplicatie.Viewmodel
                 }
 
 
-                return _selectedCheckBoxBladvormenVorm5; ; }
+                return _selectedCheckBoxBladvormenVorm5; }
 
             set
             {
@@ -922,7 +922,7 @@ namespace PlantenApplicatie.Viewmodel
                 }
 
 
-                return _selectedCheckBoxLevensvormenVorm1; ;
+                return _selectedCheckBoxLevensvormenVorm1; 
             }
         
 
@@ -936,7 +936,18 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxLevensvormenVorm2;
         public bool SelectedCheckBoxLevensvormenVorm2
         {
-            get { return _selectedCheckBoxLevensvormenVorm2; }
+            get
+            {
+                _selectedCheckBoxLevensvormenVorm2 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Levensvorm == "Helofyten")
+                {
+                    _selectedCheckBoxLevensvormenVorm2 = true;
+                }
+
+
+                return _selectedCheckBoxLevensvormenVorm2; 
+            }
 
             set
             {
@@ -948,7 +959,17 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxLevensvormenVorm3;
         public bool SelectedCheckBoxLevensvormenVorm3
         {
-            get { return _selectedCheckBoxLevensvormenVorm3; }
+            get {
+                _selectedCheckBoxLevensvormenVorm3 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Levensvorm == "Cryptofyten")
+                {
+                    _selectedCheckBoxLevensvormenVorm3 = true;
+                }
+
+
+                return _selectedCheckBoxLevensvormenVorm3; 
+            }
 
             set
             {
@@ -960,7 +981,17 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxLevensvormenVorm4;
         public bool SelectedCheckBoxLevensvormenVorm4
         {
-            get { return _selectedCheckBoxLevensvormenVorm4; }
+            get {
+                _selectedCheckBoxLevensvormenVorm4 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Levensvorm == "HemiCryptofyten")
+                {
+                    _selectedCheckBoxLevensvormenVorm4 = true;
+                }
+
+
+                return _selectedCheckBoxLevensvormenVorm4;
+            }
 
             set
             {
@@ -972,7 +1003,18 @@ namespace PlantenApplicatie.Viewmodel
         private bool _selectedCheckBoxLevensvormenVorm5;
         public bool SelectedCheckBoxLevensvormenVorm5
         {
-            get { return _selectedCheckBoxLevensvormenVorm5; }
+            get
+            {
+                _selectedCheckBoxLevensvormenVorm5 = false;
+
+                if (selectedFenoType != null && selectedFenoType.Levensvorm == "Chamaefyten")
+                {
+                    _selectedCheckBoxLevensvormenVorm5 = true;
+                }
+
+
+                return _selectedCheckBoxLevensvormenVorm5;
+            }
 
             set
             {
