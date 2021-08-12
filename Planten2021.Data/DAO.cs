@@ -576,19 +576,14 @@ namespace Planten2021.Data
             return fenoBloeiwijze;
         }
 
-        public List<FenoBladvorm> GetFenoBladvormen()
+        public Fenotype GetFenoTypes(long plantId)
         {
-            var fenoBladvormen = context.FenoBladvorm.ToList();
+            var fenoTypes = context.Fenotype.FirstOrDefault(p =>p.PlantId == plantId);
 
-            return fenoBladvormen;
+            return fenoTypes;
         }
 
-        public List<FenoLevensvorm> GetFenoLevensvormen()
-        {
-            var fenoLevensvormen = context.FenoLevensvorm.ToList();
-
-            return fenoLevensvormen;
-        }
+       
     }
 
 

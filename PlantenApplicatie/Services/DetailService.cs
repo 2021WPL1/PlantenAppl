@@ -47,18 +47,13 @@ namespace PlantenApplicatie.Services
             return fenoBloeiWijzes;
         }
 
-        public List<FenoBladvorm> GetFenoBladvormen()
+        public Fenotype GetFenoTypes(long plantId)
         {
-            var fenoBladvormen = _dao.GetFenoBladvormen();
+            var fenoTypes = _dao.GetFenoTypes(plantId);
 
-            return fenoBladvormen;
+            return fenoTypes;
         }
 
-        public List<FenoLevensvorm> GetFenoLevensvormen()
-        {
-            var fenoLevensvormen = _dao.GetFenoLevensvormen();
-
-            return fenoLevensvormen;
-        }
+        
     }
 }

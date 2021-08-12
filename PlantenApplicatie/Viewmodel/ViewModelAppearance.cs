@@ -7,6 +7,7 @@ using Planten2021.Data;
 using PlantenApplicatie.Services.Interfaces;
 using GalaSoft.MvvmLight.Ioc;
 using Planten2021.Domain.Models;
+using System.Collections.ObjectModel;
 
 namespace PlantenApplicatie.Viewmodel
 {
@@ -25,8 +26,12 @@ namespace PlantenApplicatie.Viewmodel
         {
             _detailService = detailservice;
             _selectedFenotypeMonth = new List<FenotypeMulti>();
-            _selectedFenoBladvorm = new List<Fenotype>();
+            cboBladHoogte = new ObservableCollection<string>();
+            fillCboBladHoogte();
         }
+
+        public ObservableCollection<string> cboBladHoogte { get; set; }
+
 
         public Plant SelectedPlant
         {
@@ -34,6 +39,7 @@ namespace PlantenApplicatie.Viewmodel
             {
                 _selectedPlant = _SearchService.ReturnSelectedPlant();
 
+                
                 return _selectedPlant;
 
             }
@@ -41,11 +47,11 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedPlant = value;
-
                 CheckMonth();
+                SetFenoType();
                 CheckBladvormen();
                 CheckLevensvormen();
-                
+
                 OnPropertyChanged();
             }
         }
@@ -91,12 +97,91 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
+        private Fenotype _selectedFenoType;
+
+        public Fenotype selectedFenoType
+        {
+
+            get
+            {
+                
+                return _selectedFenoType;
+            }
+
+            set
+            {
+                _selectedFenoType = value;
+
+                OnPropertyChanged();
+            }
+        }
+
+        public void fillCboBladHoogte()
+        {
+
+            cboBladHoogte.Add("240/250");
+            cboBladHoogte.Add("230/239");
+
+            cboBladHoogte.Add("220/229");
+
+            cboBladHoogte.Add("210/219");
+            cboBladHoogte.Add("200/209");
+
+            cboBladHoogte.Add("190/199");
+
+            cboBladHoogte.Add("180/189");
+
+            cboBladHoogte.Add("170/179");
+
+            cboBladHoogte.Add("160/169");
+
+            cboBladHoogte.Add("150/159");
+
+            cboBladHoogte.Add("140/149");
+
+            cboBladHoogte.Add("130/139");
+
+            cboBladHoogte.Add("120/129");
+
+            cboBladHoogte.Add("110/119");
+
+            cboBladHoogte.Add("100/109");
+
+            cboBladHoogte.Add("90/99");
+
+            cboBladHoogte.Add("80/89");
+
+
+            cboBladHoogte.Add("70/79");
+
+            cboBladHoogte.Add("60/69");
+
+            cboBladHoogte.Add("50/59");
+
+            cboBladHoogte.Add("40/49");
+
+            cboBladHoogte.Add("30/39");
+
+            cboBladHoogte.Add("20/29");
+
+
+            cboBladHoogte.Add("10/19");
+
+
+            cboBladHoogte.Add("0/9");
+        }
+
+        public void SetFenoType()
+        {
+            _selectedFenoType = _detailService.GetFenoTypes(SelectedPlant.PlantId);
+        }
+
         public void CheckMonth()
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
             fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
 
-            MessageBox.Show(SelectedCboMaanden);
+           
             foreach (var item in _fenoTypeMulti)
             {
                 if (SelectedCboMaanden.Contains(item.Maand))
@@ -113,51 +198,54 @@ namespace PlantenApplicatie.Viewmodel
             //isChecked = true;
             foreach (var item in _selectedFenotypeMonth)
             {
-
-                switch (item.Waarde)
+                if (item.Eigenschap == "bladkleur")
                 {
-                    case "zwart":
-                        SelectedCheckBoxBladkleurZwart = true;
-                        break;
-                    case "wit":
-                        SelectedCheckBoxBladkleurWit = true;
-                        break;
-                    case "rosé":
-                        SelectedCheckBoxBladkleurRosé = true;
-                        break;
-                    case "rood":
-                        SelectedCheckBoxBladkleurRood = true;
-                        break;
-                    case "oranje":
-                        SelectedCheckBoxBladkleurOranje = true;
-                        break;
-                    case "lila":
-                        SelectedCheckBoxBladkleurLila = true;
-                        break;
-                    case "grijs":
-                        SelectedCheckBoxBladkleurGrijs = true;
-                        break;
-                    case "groen":
-                        SelectedCheckBoxBladkleurGroen = true;
-                        break;
-                    case "geel":
-                        SelectedCheckBoxBladkleurGeel = true;
-                        break;
-                    case "blauw":
-                        SelectedCheckBoxBladkleurBlauw = true;
-                        break;
-                    case "violet":
-                        SelectedCheckBoxBladkleurViolet = true;
-                        break;
-                    case "paars":
-                        SelectedCheckBoxBladkleurPaars = true;
-                        break;
-                    case "bruin":
-                        SelectedCheckBoxBladkleurBruin = true;
-                        break;
-                    default:
-                        break;
+                    switch (item.Waarde)
+                    {
+                        case "zwart":
+                            SelectedCheckBoxBladkleurZwart = true;
+                            break;
+                        case "wit":
+                            SelectedCheckBoxBladkleurWit = true;
+                            break;
+                        case "rosé":
+                            SelectedCheckBoxBladkleurRosé = true;
+                            break;
+                        case "rood":
+                            SelectedCheckBoxBladkleurRood = true;
+                            break;
+                        case "oranje":
+                            SelectedCheckBoxBladkleurOranje = true;
+                            break;
+                        case "lila":
+                            SelectedCheckBoxBladkleurLila = true;
+                            break;
+                        case "grijs":
+                            SelectedCheckBoxBladkleurGrijs = true;
+                            break;
+                        case "groen":
+                            SelectedCheckBoxBladkleurGroen = true;
+                            break;
+                        case "geel":
+                            SelectedCheckBoxBladkleurGeel = true;
+                            break;
+                        case "blauw":
+                            SelectedCheckBoxBladkleurBlauw = true;
+                            break;
+                        case "violet":
+                            SelectedCheckBoxBladkleurViolet = true;
+                            break;
+                        case "paars":
+                            SelectedCheckBoxBladkleurPaars = true;
+                            break;
+                        case "bruin":
+                            SelectedCheckBoxBladkleurBruin = true;
+                            break;
+                        default:
+                            break;
+                    }
                 }
+                
 
 
             }
@@ -170,90 +258,94 @@ namespace PlantenApplicatie.Viewmodel
         {
             foreach (var item in _selectedFenotypeMonth)
             {
-
-                switch (item.Waarde)
+                if (item.Eigenschap == "bladhoogte_min")
                 {
-                    case "0/9":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "10/19":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "20/29":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "30/39":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "40/49":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "50/59":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "60/69":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "70/79":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "80/89":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "90/99":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "100/109":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "110/119":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "120/129":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "130/139":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "140/149":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "150/159":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "160/169":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "170/179":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "180/189":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "190/199":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "200/209":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "210/219":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "220/229":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "230/239":
-                        SelectedCboBladHoogteMin = true;
-                        break;
-                    case "240/250":
-                        SelectedCboBladHoogteMin = true;
-                        break;
+                    switch (item.Waarde)
+                    {
+                        case "0/9":
+                            SelectedCboBladHoogteMin = "0/9";
+                            break;
+                        case "10/19":
+                            SelectedCboBladHoogteMin = "10/19";
+                            break;
+                        case "20/29":
+                            SelectedCboBladHoogteMin = "20/29";
+                            break;
+                        case "30/39":
+                            SelectedCboBladHoogteMin = "30/39";
+                            break;
+                        case "40/49":
+                            SelectedCboBladHoogteMin = "40/49";
+                            break;
+                        case "50/59":
+                            SelectedCboBladHoogteMin = "50/59";
+                            break;
+                        case "60/69":
+                            SelectedCboBladHoogteMin = "60/69";
+                            break;
+                        case "70/79":
+                            SelectedCboBladHoogteMin = "70/79";
+                            break;
+                        case "80/89":
+                            SelectedCboBladHoogteMin = "80/89";
+                            break;
+                        case "90/99":
+                            SelectedCboBladHoogteMin = "90/99";
+                            break;
+                        case "100/109":
+                            SelectedCboBladHoogteMin = "100/109";
+                            break;
+                        case "110/119":
+                            SelectedCboBladHoogteMin = "110/119";
+                            break;
+                        case "120/129":
+                            SelectedCboBladHoogteMin = "120/129";
+                            break;
+                        case "130/139":
+                            SelectedCboBladHoogteMin = "130/139";
+                            break;
+                        case "140/149":
+                            SelectedCboBladHoogteMin = "140/149";
+                            break;
+                        case "150/159":
+                            SelectedCboBladHoogteMin = "150/159";
+                            break;
+                        case "160/169":
+                            SelectedCboBladHoogteMin = "160/169";
+                            break;
+                        case "170/179":
+                            SelectedCboBladHoogteMin = "170/179";
+                            break;
+                        case "180/189":
+                            SelectedCboBladHoogteMin = "180/189";
+                            break;
+                        case "190/199":
+                            SelectedCboBladHoogteMin = "190/199";
+                            break;
+                        case "200/209":
+                            SelectedCboBladHoogteMin = "200/209";
+                            break;
+                        case "210/219":
+                            SelectedCboBladHoogteMin = "210/219";
+                            break;
+                        case "220/229":
+                            SelectedCboBladHoogteMin = "220/229";
+                            break;
+                        case "230/239":
+                            SelectedCboBladHoogteMin = "230/239";
+                            break;
+                        case "240/250":
+                            SelectedCboBladHoogteMin = "240/250";
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
 
+
             }
+
 
         }
 
@@ -261,120 +353,100 @@ namespace PlantenApplicatie.Viewmodel
         {
             foreach (var item in _selectedFenotypeMonth)
             {
-
-                switch (item.Waarde)
+                if (item.Eigenschap == "bladhoogte_max")
                 {
-                    case "0/9":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "10/19":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "20/29":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "30/39":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "40/49":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "50/59":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "60/69":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "70/79":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "80/89":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "90/99":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "100/109":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "110/119":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "120/129":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "130/139":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "140/149":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "150/159":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "160/169":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "170/179":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "180/189":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "190/199":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "200/209":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "210/219":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "220/229":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "230/239":
-                        SelectedCboBladHoogteMax = true;
-                        break;
-                    case "240/250":
-                        SelectedCboBladHoogteMax = true;
-                        break;
+                    switch (item.Waarde)
+                    {
+                        case "0/9":
+                            SelectedCboBladHoogteMax = "0/9";
+                            break;
+                        case "10/19":
+                            SelectedCboBladHoogteMax = "10/19";
+                            break;
+                        case "20/29":
+                            SelectedCboBladHoogteMax = "20/29";
+                            break;
+                        case "30/39":
+                            SelectedCboBladHoogteMax = "30/39";
+                            break;
+                        case "40/49":
+                            SelectedCboBladHoogteMax = "40/49";
+                            break;
+                        case "50/59":
+                            SelectedCboBladHoogteMax = "50/59";
+                            break;
+                        case "60/69":
+                            SelectedCboBladHoogteMax = "60/69";
+                            break;
+                        case "70/79":
+                            SelectedCboBladHoogteMax = "70/79";
+                            break;
+                        case "80/89":
+                            SelectedCboBladHoogteMax = "80/89";
+                            break;
+                        case "90/99":
+                            SelectedCboBladHoogteMax = "90/99";
+                            break;
+                        case "100/109":
+                            SelectedCboBladHoogteMax = "100/109";
+                            break;
+                        case "110/119":
+                            SelectedCboBladHoogteMax = "110/119";
+                            break;
+                        case "120/129":
+                            SelectedCboBladHoogteMax = "120/129";
+                            break;
+                        case "130/139":
+                            SelectedCboBladHoogteMax = "130/139";
+                            break;
+                        case "140/149":
+                            SelectedCboBladHoogteMax = "140/149";
+                            break;
+                        case "150/159":
+                            SelectedCboBladHoogteMax = "150/159";
+                            break;
+                        case "160/169":
+                            SelectedCboBladHoogteMax = "160/169";
+                            break;
+                        case "170/179":
+                            SelectedCboBladHoogteMax = "170/179";
+                            break;
+                        case "180/189":
+                            SelectedCboBladHoogteMax = "180/189";
+                            break;
+                        case "190/199":
+                            SelectedCboBladHoogteMax = "190/199";
+                            break;
+                        case "200/209":
+                            SelectedCboBladHoogteMax = "200/209";
+                            break;
+                        case "210/219":
+                            SelectedCboBladHoogteMax = "210/219";
+                            break;
+                        case "220/229":
+                            SelectedCboBladHoogteMax = "220/229";
+                            break;
+                        case "230/239":
+                            SelectedCboBladHoogteMax = "230/239";
+                            break;
+                        case "240/250":
+                            SelectedCboBladHoogteMax = "240/250";
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
+
                 }
 
             }
 
-
-        }
-
-        private List<Fenotype> _selectedFenoBladvorm;
-
-        public List<Fenotype> selectedFenoBladvorm
-        {
-
-            get
-            {
-                _selectedPlant = _SearchService.ReturnSelectedPlant();
-               
-                return _selectedFenoBladvorm;
-            }
-
-            set
-            {
-                _selectedFenoBladvorm = value;
-
-                OnPropertyChanged();
-            }
         }
 
         public void CheckBladvormen()
         {
-            foreach (var item in _selectedFenoBladvorm)
-            {
-
-                switch (item.Bladvorm)
+           
+                switch (selectedFenoType.Bladvorm)
                 {
                     case "naald -en priemvormig":
                         SelectedCheckBoxBladvormenVorm1 = true;
@@ -397,35 +469,14 @@ namespace PlantenApplicatie.Viewmodel
                 }
 
 
-            }
+            
         }
 
-        private List<Fenotype> _selectedFenoLevensvorm;
-
-        public List<Fenotype> selectedFenoLevensvorm
-        {
-
-            get
-            {
-                _selectedPlant = _SearchService.ReturnSelectedPlant();
-
-                return _selectedFenoLevensvorm;
-            }
-
-            set
-            {
-                _selectedFenoLevensvorm = value;
-
-                OnPropertyChanged();
-            }
-        }
-
+        
         public void CheckLevensvormen()
         {
-            foreach (var item in _selectedFenoLevensvorm)
-            {
-
-                switch (item.Levensvorm)
+            
+                switch (selectedFenoType.Levensvorm)
                 {
                     case "Hydrofyten - waterplanten":
                         SelectedCheckBoxLevensvormenVorm1 = true;
@@ -451,7 +502,7 @@ namespace PlantenApplicatie.Viewmodel
                 }
 
 
-            }
+            
         }
 
 
@@ -653,22 +704,11 @@ namespace PlantenApplicatie.Viewmodel
         }
 
         #endregion
-        private string _selectedBladHoogte;
+        
+        #region Binding comboboxen BladHoogte
 
-        public string SelectedBladHoogte
-        {
-            get { return _selectedBladHoogte; }
-            set
-            {
-                _selectedBladHoogte = value;
-                OnPropertyChanged();
-
-            }
-        }
-        #region Binding checkboxen BladHoogte
-
-        private bool _selectedCboBladHoogteMin;
-        public bool SelectedCboBladHoogteMin
+        private string _selectedCboBladHoogteMin;
+        public string SelectedCboBladHoogteMin
         {
             get { return _selectedCboBladHoogteMin; }
 
@@ -679,8 +719,8 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        private bool _selectedCboBladHoogteMax;
-        public bool SelectedCboBladHoogteMax
+        private string _selectedCboBladHoogteMax;
+        public string SelectedCboBladHoogteMax
         {
             get { return _selectedCboBladHoogteMax; }
 

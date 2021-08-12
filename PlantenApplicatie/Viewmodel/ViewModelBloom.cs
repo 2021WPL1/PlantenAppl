@@ -36,11 +36,13 @@ namespace PlantenApplicatie.Viewmodel
             //_fenoTypeMulti = _detailService.FilterFenoMulti(SelectedPlant.PlantId);
             cboFenoBloeiwijze = new ObservableCollection<FenoBloeiwijze>();
             _selectedFenotypeMonth = new List<FenotypeMulti>();
+            cboBloeiHoogte = new ObservableCollection<string>();
             fillcboFenoBloeiwijze();
+            fillCboBloeiHoogte();
         }
 
         public ObservableCollection<FenoBloeiwijze> cboFenoBloeiwijze { get; set; }
-
+        public ObservableCollection<string> cboBloeiHoogte { get; set; }
         
 
         public void fillcboFenoBloeiwijze() 
@@ -53,8 +55,60 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
+       public void fillCboBloeiHoogte()
+        {
+            
+            cboBloeiHoogte.Add("240/250");
+            cboBloeiHoogte.Add("230/239");
+
+            cboBloeiHoogte.Add("220/229");
+
+            cboBloeiHoogte.Add("210/219");
+            cboBloeiHoogte.Add("200/209");
+
+            cboBloeiHoogte.Add("190/199");
+
+            cboBloeiHoogte.Add("180/189");
+
+            cboBloeiHoogte.Add("170/179");
+
+            cboBloeiHoogte.Add("160/169");
+
+            cboBloeiHoogte.Add("150/159");
+
+            cboBloeiHoogte.Add("140/149");
+
+            cboBloeiHoogte.Add("130/139");
+
+            cboBloeiHoogte.Add("120/129");
+
+            cboBloeiHoogte.Add("110/119");
+
+            cboBloeiHoogte.Add("100/109");
+
+            cboBloeiHoogte.Add("90/99");
+
+            cboBloeiHoogte.Add("80/89");
 
 
+            cboBloeiHoogte.Add("70/79");
+
+            cboBloeiHoogte.Add("60/69");
+
+            cboBloeiHoogte.Add("50/59");
+
+            cboBloeiHoogte.Add("40/49");
+
+            cboBloeiHoogte.Add("30/39");
+
+            cboBloeiHoogte.Add("20/29");
+
+
+            cboBloeiHoogte.Add("10/19");
+
+
+            cboBloeiHoogte.Add("0/9");
+        }
         public Plant SelectedPlant
         {
             get
@@ -122,7 +176,7 @@ namespace PlantenApplicatie.Viewmodel
         {
             _selectedPlant = _SearchService.ReturnSelectedPlant();
             fenoTypeMulti = _detailService.FilterFenoMulti(_selectedPlant.PlantId);
-            MessageBox.Show(SelectedCboMaanden);
+            
             foreach (var item in _fenoTypeMulti)
             {
                 if (SelectedCboMaanden.Contains(item.Maand))
@@ -139,51 +193,55 @@ namespace PlantenApplicatie.Viewmodel
             //isChecked = true;
             foreach (var item in _selectedFenotypeMonth)
             {
-             
-                switch(item.Waarde)
+                if (item.Eigenschap == "bloeikleur")
                 {
-                    case "zwart":
-                        SelectedCheckBoxBloeikleurZwart = true;
-                        break;
-                    case "wit":
-                        SelectedCheckBoxBloeikleurWit = true;
-                        break;
-                    case "rosé":
-                        SelectedCheckBoxBloeikleurRosé = true;
-                        break;
-                    case "rood":
-                        SelectedCheckBoxBloeikleurRood = true;
-                        break;
-                    case "oranje":
-                        SelectedCheckBoxBloeiKleurOranje = true;
-                        break;
-                    case "lila":
-                        SelectedCheckBoxBloeikleurLila = true;
-                        break;
-                    case "grijs":
-                        SelectedCheckBoxBloeikleurGrijs = true;
-                        break;
-                    case "groen":
-                        SelectedCheckBoxBloeikleurGroen = true;
-                        break;
-                    case "geel":
-                        SelectedCheckBoxBloeikleurGeel = true;
-                        break;
-                    case "blauw":
-                        SelectedCheckBoxBloeikleurBlauw = true;
-                        break;
-                    case "violet":
-                        SelectedCheckBoxBloeikleurViolet = true;
-                        break;
-                    case "paars":
-                        SelectedCheckBoxBloeikleurPaars = true;
-                        break;
-                    case "bruin":
-                        SelectedCheckBoxBloeikleurBruin = true;
-                        break;
-                    default:
-                        break;
+                    switch (item.Waarde)
+                    {
+                        case "zwart":
+                            SelectedCheckBoxBloeikleurZwart = true;
+                            break;
+                        case "wit":
+                            SelectedCheckBoxBloeikleurWit = true;
+                            break;
+                        case "rosé":
+                            SelectedCheckBoxBloeikleurRosé = true;
+                            break;
+                        case "rood":
+                            SelectedCheckBoxBloeikleurRood = true;
+                            break;
+                        case "oranje":
+                            SelectedCheckBoxBloeikleurOranje = true;
+                            break;
+                        case "lila":
+                            SelectedCheckBoxBloeikleurLila = true;
+                            break;
+                        case "grijs":
+                            SelectedCheckBoxBloeikleurGrijs = true;
+                            break;
+                        case "groen":
+                            SelectedCheckBoxBloeikleurGroen = true;
+                            break;
+                        case "geel":
+                            SelectedCheckBoxBloeikleurGeel = true;
+                            break;
+                        case "blauw":
+                            SelectedCheckBoxBloeikleurBlauw = true;
+                            break;
+                        case "violet":
+                            SelectedCheckBoxBloeikleurViolet = true;
+                            break;
+                        case "paars":
+                            SelectedCheckBoxBloeikleurPaars = true;
+                            break;
+                        case "bruin":
+                            SelectedCheckBoxBloeikleurBruin = true;
+                            break;
+                        default:
+                            break;
+                    }
                 }
+
+                               
 
                 
             }
@@ -195,88 +253,91 @@ namespace PlantenApplicatie.Viewmodel
         {
             foreach (var item in _selectedFenotypeMonth)
             {
-
-                switch (item.Waarde)
+                if (item.Eigenschap == "bloeihoogte_min")
                 {
-                    case "0/9":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "10/19":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "20/29":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "30/39":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "40/49":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "50/59":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "60/69":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "70/79":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "80/89":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "90/99":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "100/109":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "110/119":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "120/129":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "130/139":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "140/149":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "150/159":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "160/169":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "170/179":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "180/189":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "190/199":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "200/209":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "210/219":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "220/229":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "230/239":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    case "240/250":
-                        SelectedCboBloeiHoogteMin = true;
-                        break;
-                    
-                    default:
-                        break;
+                    switch (item.Waarde)
+                    {
+                        case "0/9":
+                            SelectedCboBloeiHoogteMin = "0/9";
+                            break;
+                        case "10/19":
+                            SelectedCboBloeiHoogteMin = "10/19";
+                            break;
+                        case "20/29":
+                            SelectedCboBloeiHoogteMin = "20/29";
+                            break;
+                        case "30/39":
+                            SelectedCboBloeiHoogteMin = "30/39";
+                            break;
+                        case "40/49":
+                            SelectedCboBloeiHoogteMin = "40/49";
+                            break;
+                        case "50/59":
+                            SelectedCboBloeiHoogteMin = "50/59";
+                            break;
+                        case "60/69":
+                            SelectedCboBloeiHoogteMin = "60/69";
+                            break;
+                        case "70/79":
+                            SelectedCboBloeiHoogteMin = "70/79";
+                            break;
+                        case "80/89":
+                            SelectedCboBloeiHoogteMin = "80/89";
+                            break;
+                        case "90/99":
+                            SelectedCboBloeiHoogteMin = "90/99";
+                            break;
+                        case "100/109":
+                            SelectedCboBloeiHoogteMin = "100/109";
+                            break;
+                        case "110/119":
+                            SelectedCboBloeiHoogteMin = "110/119";
+                            break;
+                        case "120/129":
+                            SelectedCboBloeiHoogteMin = "120/129";
+                            break;
+                        case "130/139":
+                            SelectedCboBloeiHoogteMin = "130/139";
+                            break;
+                        case "140/149":
+                            SelectedCboBloeiHoogteMin = "140/149";
+                            break;
+                        case "150/159":
+                            SelectedCboBloeiHoogteMin = "150/159";
+                            break;
+                        case "160/169":
+                            SelectedCboBloeiHoogteMin = "160/169";
+                            break;
+                        case "170/179":
+                            SelectedCboBloeiHoogteMin = "170/179";
+                            break;
+                        case "180/189":
+                            SelectedCboBloeiHoogteMin = "180/189";
+                            break;
+                        case "190/199":
+                            SelectedCboBloeiHoogteMin = "190/199";
+                            break;
+                        case "200/209":
+                            SelectedCboBloeiHoogteMin = "200/209";
+                            break;
+                        case "210/219":
+                            SelectedCboBloeiHoogteMin = "210/219";
+                            break;
+                        case "220/229":
+                            SelectedCboBloeiHoogteMin = "220/229";
+                            break;
+                        case "230/239":
+                            SelectedCboBloeiHoogteMin = "230/239";
+                            break;
+                        case "240/250":
+                            SelectedCboBloeiHoogteMin = "240/250";
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
+                
 
             }
 
@@ -286,87 +347,90 @@ namespace PlantenApplicatie.Viewmodel
         {
             foreach (var item in _selectedFenotypeMonth)
             {
-
-                switch (item.Waarde)
+                if (item.Eigenschap == "bloeihoogte_max")
                 {
-                    case "0/9":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "10/19":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "20/29":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "30/39":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "40/49":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "50/59":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "60/69":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "70/79":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "80/89":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "90/99":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "100/109":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "110/119":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "120/129":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "130/139":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "140/149":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "150/159":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "160/169":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "170/179":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "180/189":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "190/199":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "200/209":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "210/219":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "220/229":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "230/239":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
-                    case "240/250":
-                        SelectedCboBloeiHoogteMax = true;
-                        break;
+                    switch (item.Waarde)
+                    {
+                        case "0/9":
+                            SelectedCboBloeiHoogteMax = "0/9";
+                            break;
+                        case "10/19":
+                            SelectedCboBloeiHoogteMax = "10/19";
+                            break;
+                        case "20/29":
+                            SelectedCboBloeiHoogteMax = "20/29";
+                            break;
+                        case "30/39":
+                            SelectedCboBloeiHoogteMax = "30/39";
+                            break;
+                        case "40/49":
+                            SelectedCboBloeiHoogteMax = "40/49";
+                            break;
+                        case "50/59":
+                            SelectedCboBloeiHoogteMax = "50/59";
+                            break;
+                        case "60/69":
+                            SelectedCboBloeiHoogteMax = "60/69";
+                            break;
+                        case "70/79":
+                            SelectedCboBloeiHoogteMax = "70/79";
+                            break;
+                        case "80/89":
+                            SelectedCboBloeiHoogteMax = "80/89";
+                            break;
+                        case "90/99":
+                            SelectedCboBloeiHoogteMax = "90/99";
+                            break;
+                        case "100/109":
+                            SelectedCboBloeiHoogteMax = "100/109";
+                            break;
+                        case "110/119":
+                            SelectedCboBloeiHoogteMax = "110/119";
+                            break;
+                        case "120/129":
+                            SelectedCboBloeiHoogteMax = "120/129";
+                            break;
+                        case "130/139":
+                            SelectedCboBloeiHoogteMax = "130/139";
+                            break;
+                        case "140/149":
+                            SelectedCboBloeiHoogteMax = "140/149";
+                            break;
+                        case "150/159":
+                            SelectedCboBloeiHoogteMax = "150/159";
+                            break;
+                        case "160/169":
+                            SelectedCboBloeiHoogteMax = "160/169";
+                            break;
+                        case "170/179":
+                            SelectedCboBloeiHoogteMax = "170/179";
+                            break;
+                        case "180/189":
+                            SelectedCboBloeiHoogteMax = "180/189";
+                            break;
+                        case "190/199":
+                            SelectedCboBloeiHoogteMax = "190/199";
+                            break;
+                        case "200/209":
+                            SelectedCboBloeiHoogteMax = "200/209";
+                            break;
+                        case "210/219":
+                            SelectedCboBloeiHoogteMax = "210/219";
+                            break;
+                        case "220/229":
+                            SelectedCboBloeiHoogteMax = "220/229";
+                            break;
+                        case "230/239":
+                            SelectedCboBloeiHoogteMax = "230/239";
+                            break;
+                        case "240/250":
+                            SelectedCboBloeiHoogteMax = "240/250";
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
+
                 }
 
             }
@@ -381,33 +445,35 @@ namespace PlantenApplicatie.Viewmodel
 
             foreach (var item in fenoBloeiwijze)
             {
-
-                switch (item.Naam)
+                if (item.Naam == "bloeiwijze")
                 {
-                    case "aar":
-                        SelectedCboFenoBloeiwijze.Contains(item.Naam);
-                        break;
-                    case "schermbloemig":
-                        SelectedCboFenoBloeiwijze.Contains(item.Naam);
-                        break;
-                    case "pluim":
-                        SelectedCboFenoBloeiwijze.Contains(item.Naam);
-                        break;
-                    case "bol of knop":
-                        SelectedCboFenoBloeiwijze.Contains(item.Naam);
-                        break;
-                    case "margrietachtig":
-                        SelectedCboFenoBloeiwijze.Contains(item.Naam);
-                        break;
-                    case "transparant":
-                        SelectedCboFenoBloeiwijze.Contains(item.Naam);
-                        break;
+                    switch (item.Naam)
+                    {
+                        case "aar":
+                            SelectedCboFenoBloeiwijze = "aar";
+                            break;
+                        case "schermbloemig":
+                            SelectedCboFenoBloeiwijze = "schermbloemig";
+                            break;
+                        case "pluim":
+                            SelectedCboFenoBloeiwijze = "pluim";
+                            break;
+                        case "bol of knop":
+                            SelectedCboFenoBloeiwijze = "bol of knop";
+                            break;
+                        case "margrietachtig":
+                            SelectedCboFenoBloeiwijze = "margrietachtig";
+                            break;
+                        case "transparant":
+                            SelectedCboFenoBloeiwijze = "transparant";
+                            break;
 
-                    default:
-                        break;
+                        default:
+                            break;
+                    }
                 }
-
-
+                
+                   
             }
 
             
@@ -417,49 +483,52 @@ namespace PlantenApplicatie.Viewmodel
         {
             foreach (var item in fenoTypeMulti)
             {
-
-                switch (item.Waarde)
+                if (item.Eigenschap == "bloeit in")
                 {
-                    case "januari":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "februari":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "maart":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "april":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "mei":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "juni":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "juli":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "augustus":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "september":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "oktober":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "november":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    case "december":
-                        SelectedCheckBoxBloeitIn = true;
-                        break;
-                    
-                    default:
-                        break;
+                    switch (item.Waarde)
+                    {
+                        case "januari":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "februari":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "maart":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "april":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "mei":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "juni":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "juli":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "augustus":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "september":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "oktober":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "november":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+                        case "december":
+                            SelectedCheckBoxBloeitIn = true;
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
+               
 
 
             }
@@ -519,7 +588,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurWit = isChecked;
+                _selectedCheckBoxBloeikleurWit = value;
 
                 
 
@@ -537,7 +606,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurRosé = isChecked;
+                _selectedCheckBoxBloeikleurRosé = value;
                OnPropertyChanged();
             }
         }
@@ -552,13 +621,13 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurRood = isChecked;
+                _selectedCheckBoxBloeikleurRood = value;
                OnPropertyChanged();
             }
         }
 
         private bool _selectedCheckBoxBloeikleurOranje;
-        public bool SelectedCheckBoxBloeiKleurOranje
+        public bool SelectedCheckBoxBloeikleurOranje
         {
             get {
                
@@ -567,7 +636,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurOranje = isChecked;
+                _selectedCheckBoxBloeikleurOranje = value;
                OnPropertyChanged();
             }
         }
@@ -583,7 +652,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurLila = isChecked;
+                _selectedCheckBoxBloeikleurLila = value;
                 OnPropertyChanged();
             }
         }
@@ -599,7 +668,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurGrijs = isChecked;
+                _selectedCheckBoxBloeikleurGrijs = value;
                 OnPropertyChanged();
             }
         }
@@ -614,7 +683,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurGroen = isChecked;
+                _selectedCheckBoxBloeikleurGroen = value;
                 OnPropertyChanged();
             }
         }
@@ -629,7 +698,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurGeel= isChecked;
+                _selectedCheckBoxBloeikleurGeel= value;
                 OnPropertyChanged();
             }
         }
@@ -659,7 +728,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurViolet = isChecked;
+                _selectedCheckBoxBloeikleurViolet = value;
                 OnPropertyChanged();
             }
         }
@@ -673,7 +742,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurPaars = isChecked;
+                _selectedCheckBoxBloeikleurPaars = value;
                 OnPropertyChanged();
             }
         }
@@ -687,7 +756,7 @@ namespace PlantenApplicatie.Viewmodel
 
             set
             {
-                _selectedCheckBoxBloeikleurBruin = isChecked;
+                _selectedCheckBoxBloeikleurBruin = value;
                 OnPropertyChanged();
             }
         }
@@ -713,27 +782,11 @@ namespace PlantenApplicatie.Viewmodel
        
 
         #endregion
-        private string _selectedBloeiHoogte;
-
-        public string SelectedBloeiHoogte
-        {   
-
-            get
-            {
-                return _selectedBloeiHoogte;
-            }
-            set
-            {
-                _selectedBloeiHoogte = value;
-                OnPropertyChanged();
-
-
-            }
-        }
+       
         #region Binding Combobox BloeiHoogte
 
-        private bool _selectedCboBloeiHoogteMin;
-        public bool SelectedCboBloeiHoogteMin
+        private string _selectedCboBloeiHoogteMin;
+        public string SelectedCboBloeiHoogteMin
         {
             get
             {
@@ -744,12 +797,13 @@ namespace PlantenApplicatie.Viewmodel
             set
             {
                 _selectedCboBloeiHoogteMin = value;
+                
                 OnPropertyChanged();
             }
         }
 
-        private bool _selectedCboBloeiHoogteMax;
-        public bool SelectedCboBloeiHoogteMax
+        private string _selectedCboBloeiHoogteMax;
+        public string SelectedCboBloeiHoogteMax
         {
             get
             {
