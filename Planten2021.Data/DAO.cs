@@ -209,8 +209,6 @@ namespace Planten2021.Data
 
         public List<Plant> getAllPlants()
         {
-            // kijken hoeveel er zijn geselecteerd
-
             var plants = context.Plant.ToList();
             return plants;
         }
@@ -556,18 +554,13 @@ namespace Planten2021.Data
             return result;
         }
 
+        // De lijst met fenotypeMultikenmerken wordt uit de databank gehaald.
         public List<FenotypeMulti> GetFenotypeMultis(long plantId)
         {
-            //var fenoTypeList = context.FenotypeMulti.ToList();
             List<FenotypeMulti> fenoTypeList = context.FenotypeMulti.Where(F => F.PlantId == plantId).ToList();
             return fenoTypeList;
         }
-        //public FenotypeMulti GetFenoMultiByPlantId(long plantId)
-        //{
-        //    var neededFenoMulti = context.FenotypeMulti.SingleOrDefault(p => p.PlantId == plantId);
-
-        //    return neededFenoMulti;
-        //}
+        
 
         public List<FenoBloeiwijze> GetFenoBloeiwijze()
         {

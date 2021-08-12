@@ -637,16 +637,10 @@ namespace PlantenApplicatie.Services
 
         //provide the selected plant
         public Plant selectedPlant;
-        //public void SetSelectedPlant(Plant selectedPlantResult)
-        //{
-        //    Plant plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
-        //    selectedPlant = selectedPlantResult;
-            
-        //}
 
         public void SetSelectedPlant(Plant selectedPlantResult)
         {
-            //Plant plant = _dao.GetPlantWithId((int)selectedPlantResult.PlantId);
+            
             selectedPlant = selectedPlantResult;
 
         }
@@ -657,7 +651,6 @@ namespace PlantenApplicatie.Services
 
         }
 
-        
         //geschreven door owen
         //omgezet voor de service door kenny
         public ImageSource GetImageLocation(string ImageCatogrie, Plant SelectedPlantInResult)

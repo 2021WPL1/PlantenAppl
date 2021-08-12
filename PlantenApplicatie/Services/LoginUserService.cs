@@ -55,35 +55,7 @@ namespace PlantenApplicatie.Services
                 loginResult.errorMessage = "Dit is geen geldig Vives emailadres.";
             }
 
-            //if (userNameInput != null && userNameInput.Contains("@student.vives.be"))
-            //{   //gebruiker zoeken in de databank
-
-            //    gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
-            //    loginResult.gebruiker = gebruiker;
-
-            //}
-
-            //else if (userNameInput != null && userNameInput.Contains("@vives.be"))
-            //{
-            //     gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
-            //    loginResult.gebruiker = gebruiker;
-
-
-            //}
-
-            //else if (userNameInput != null && emailAdresOudStudenten.Contains(userNameInput))
-            //{
-            //    gebruiker = _dao.GetGebruikerWithEmail(userNameInput);
-            //    loginResult.gebruiker = gebruiker;
-
-            //}
-            //else
-            //{//indien geen geldig emailadress, errorMessage opvullen
-            //    loginResult.errorMessage = "Dit is geen geldig emailadres.";
-            //}
-
-
-
+           
             //omzetten van het ingegeven passwoord naar een gehashed passwoord
             var passwordBytes = Encoding.ASCII.GetBytes(passwordInput);
             var md5Hasher = new MD5CryptoServiceProvider();
@@ -198,7 +170,8 @@ namespace PlantenApplicatie.Services
             "marc.vandeputte@gmail.com",
             "joris.brys@hotmail.com",
             "martine.tanghe@live.be",
-            "mieke.b@outlook.com"
+            "mieke.b@outlook.com",
+            "nathalie.devos@gmail.com"
         };
 
         public bool CheckListOudstudenten(string emailAdres)

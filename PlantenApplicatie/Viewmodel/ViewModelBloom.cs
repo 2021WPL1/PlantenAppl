@@ -37,15 +37,15 @@ namespace PlantenApplicatie.Viewmodel
             cboFenoBloeiwijze = new ObservableCollection<FenoBloeiwijze>();
             _selectedFenotypeMonth = new List<FenotypeMulti>();
             cboBloeiHoogte = new ObservableCollection<string>();
-            fillcboFenoBloeiwijze();
-            fillCboBloeiHoogte();
+            FillCboFenoBloeiwijze();
+            FillCboBloeiHoogte();
         }
 
         public ObservableCollection<FenoBloeiwijze> cboFenoBloeiwijze { get; set; }
         public ObservableCollection<string> cboBloeiHoogte { get; set; }
         
 
-        public void fillcboFenoBloeiwijze() 
+        public void FillCboFenoBloeiwijze() 
         {
             var fenoBloeiwijze = _detailService.GetFenoBloeiwijzes();
 
@@ -55,7 +55,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-       public void fillCboBloeiHoogte()
+       public void FillCboBloeiHoogte()
         {
             
             cboBloeiHoogte.Add("240/250");

@@ -27,7 +27,7 @@ namespace PlantenApplicatie.Viewmodel
             _detailService = detailservice;
             _selectedFenotypeMonth = new List<FenotypeMulti>();
             cboBladHoogte = new ObservableCollection<string>();
-            fillCboBladHoogte();
+            FillCboBladHoogte();
         }
 
         public ObservableCollection<string> cboBladHoogte { get; set; }
@@ -38,8 +38,9 @@ namespace PlantenApplicatie.Viewmodel
             get
             {
                 _selectedPlant = _SearchService.ReturnSelectedPlant();
+                CheckLevensvormen();
+                CheckBladvormen();
 
-                
                 return _selectedPlant;
 
             }
@@ -49,8 +50,7 @@ namespace PlantenApplicatie.Viewmodel
                 _selectedPlant = value;
                 CheckMonth();
                 SetFenoType();
-                CheckBladvormen();
-                CheckLevensvormen();
+                
 
                 OnPropertyChanged();
             }
@@ -116,7 +116,7 @@ namespace PlantenApplicatie.Viewmodel
             }
         }
 
-        public void fillCboBladHoogte()
+        public void FillCboBladHoogte()
         {
 
             cboBladHoogte.Add("240/250");
